@@ -1,0 +1,22 @@
+,TRANWORK,TRANWORK_DESC
+0,0,N/A
+1,10,"Auto, truck, or van"
+2,11,Auto
+3,12,Driver
+4,13,Passenger
+5,14,Truck
+6,15,Van
+7,20,Motorcycle
+8,31,Bus
+9,32,Bus or trolley bus
+10,33,Bus or streetcar
+11,34,"Light rail, streetcar, or trolley (Carro público in PR)"
+12,35,"Streetcar or trolley car (publico in Puerto Rico, 2000)"
+13,36,Subway or elevated
+14,37,Long-distance train or commuter train
+15,38,Taxicab
+16,39,Ferryboat
+17,50,Bicycle
+18,60,Walked only
+19,70,Other
+20,80,Worked at home
