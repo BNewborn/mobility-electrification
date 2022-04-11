@@ -1,0 +1,22 @@
+,TRANWORK,TRANWORK_DESC,TRANWORK_HBDMATCH
+0,0,N/A,
+1,10,"Auto, truck, or van",AutoOccupants
+2,11,Auto,AutoOccupants
+3,12,Driver,AutoOccupants
+4,13,Passenger,AutoOccupants
+5,14,Truck,AutoOccupants
+6,15,Van,AutoOccupants
+7,20,Motorcycle,AutoOccupants
+8,31,Bus,Bus
+9,32,Bus or trolley bus,Bus
+10,33,Bus or streetcar,Bus
+11,34,"Light rail, streetcar, or trolley (Carro público in PR)",CommuterRail
+12,35,"Streetcar or trolley car (publico in Puerto Rico, 2000)",CommuterRail
+13,36,Subway or elevated,Subway
+14,37,Long-distance train or commuter train,CommuterRail
+15,38,Taxicab,AutoOccupants
+16,39,Ferryboat,Ferry
+17,50,Bicycle,Bicycle
+18,60,Walked only,Walk
+19,70,Other,Other
+20,80,Worked at home,WFH
