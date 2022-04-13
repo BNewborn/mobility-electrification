@@ -1,0 +1,420 @@
+STATEFIP,state,PUMA,PUMA_NAME,lat,lon,distance
+9,Connecticut,100,"Danbury, Ridgefield, Bethel, Brookfield, New Fairfield, Redding & Sherman Towns",41.40585764064644,-73.45436221195844,115.52990551242168
+9,Connecticut,101,"Fairfield, New Canaan, Wilton, Weston & Easton Towns",41.2080680168615,-73.36941774328275,98.14765854316477
+9,Connecticut,102,Stamford & Greenwich Towns,41.08474365294825,-73.60336268324285,67.08414562968618
+9,Connecticut,103,"Norwalk, Westport & Darien Towns",41.11915959509872,-73.4086239724906,85.97714819673755
+9,Connecticut,104,Bridgeport Town,41.192750102254536,-73.196094527668,111.2135124284624
+9,Connecticut,105,"Stratford, Shelton, Trumbull, Newtown & Monroe Towns",41.32792244255982,-73.21961605162474,122.49446111244562
+9,Connecticut,300,Hartford County (North),41.94423281861332,-72.70197224544279,229.5251861700478
+9,Connecticut,301,Manchester & East Hartford Towns,41.7705376710815,-72.5609400089038,220.9356081244072
+9,Connecticut,302,Hartford Town,41.76607064431414,-72.68340123122096,210.8366772895552
+9,Connecticut,303,"West Hartford, Farmington, Simsbury, Bloomfield, Avon & Canton Towns",41.81321143894544,-72.82145263994774,205.9304640924205
+9,Connecticut,304,"Bristol, Southington & Burlington Towns",41.67694255363004,-72.92300691518717,183.07899371612567
+9,Connecticut,305,"New Britain, Berlin & Plainville Towns",41.64086054686427,-72.7945210744446,188.83423636840783
+9,Connecticut,306,"Glastonbury, Newington, Wethersfield, Rocky Hill & Marlborough Towns",41.67642481551039,-72.5770817497198,210.09975220572264
+9,Connecticut,500,Litchfield County,41.79249423779805,-73.24532378410588,177.0947123070558
+9,Connecticut,700,Middlesex County,41.46437741077354,-72.53614361310453,194.4664518634085
+9,Connecticut,900,New Haven County (Northwest),41.49417754808226,-73.07151548239479,151.74725033276454
+9,Connecticut,901,Waterbury Town,41.55824428867334,-73.03612977834923,161.47304313455098
+9,Connecticut,902,"Meriden, Wallingford & North Haven Towns",41.46183071667407,-72.81441530378399,169.2833679024981
+9,Connecticut,903,"Hamden, Ansonia, Seymour, Derby, Woodbridge & Bethany Towns",41.38578539022274,-72.99616496197183,146.53038867559772
+9,Connecticut,904,"West Haven, Milford & Orange Towns",41.25543723941547,-73.02957735468912,131.64251142513328
+9,Connecticut,905,New Haven Town,41.31146060491897,-72.92500516464824,145.93894524975383
+9,Connecticut,906,"East Haven, Branford, Guilford, Madison & North Branford Towns",41.33091207100684,-72.72490439748903,166.0784884667444
+9,Connecticut,1100,New London County (North),41.540580547122126,-72.08285201711472,243.47518748805427
+9,Connecticut,1101,New London County (South),41.36745758696497,-72.14621813249357,225.56815397347356
+9,Connecticut,1300,Tolland County,41.85500855931004,-72.33648950875607,247.8278597389803
+9,Connecticut,1500,Windham County,41.82995983719034,-71.98755027114817,275.709158776578
+23,Maine,100,Northeast Maine--Aroostook & Washington Counties,46.20214477463282,-68.32791636246841,1049.6947530112438
+23,Maine,200,"Northwest Maine--Oxford, Somerset, Franklin & Piscataquis Counties",45.378278751612974,-69.92443754834233,840.157090088713
+23,Maine,300,Penobscot County,45.40051232751616,-68.64942812793846,927.1114795474316
+23,Maine,400,Kennebec County,44.40916013493401,-69.76726439424928,727.7691961683181
+23,Maine,500,"Coastal Maine Region--Hancock, Knox, Waldo & Lincoln Counties",44.49013400809456,-68.7988305058851,810.4631565543124
+23,Maine,600,Androscoggin County,44.16584842970537,-70.20644499591153,667.4253497517846
+23,Maine,700,Sagadahoc & Cumberland (North) Counties--Bath City & Brunswick,43.930920785892745,-70.07909076520254,649.0483625198481
+23,Maine,800,South Maine--York (West) & Cumberland (West) Counties,43.58816242138104,-70.71558092054953,562.5927214623418
+23,Maine,900,Cumberland (Outside Portland) & York (East) Counties--Biddeford & Saco Cities,43.65729711337162,-70.38576475347288,594.8611850465372
+23,Maine,1000,"Cumberland County (Southeast)--Portland, South Portland & Westbrook Cities",43.673012017234605,-70.30220790598187,602.9452772399078
+25,Massachusetts,100,Berkshire County--Pittsfield City,42.3706738938289,-73.20640387834997,258.3540223380255
+25,Massachusetts,200,Franklin & Hampshire (North) Counties,42.53815108106921,-72.63796782055992,307.7976240553755
+25,Massachusetts,300,Worcester County (Central)--Worcester City,42.27054254612598,-71.80794044982461,333.31365276346526
+25,Massachusetts,301,"Worcester County (Northeast)--Leominster, Fitchburg & Gardner Cities",42.565348853276674,-71.83773161514675,362.9698389771149
+25,Massachusetts,302,Worcester County (West Central),42.303432565874864,-72.02645748354193,319.60066896074727
+25,Massachusetts,303,Worcester County (East Central),42.283949072400695,-71.66274042948012,346.61493541497407
+25,Massachusetts,304,Worcester County (South),42.09323192341912,-71.8242743358663,314.29038519147184
+25,Massachusetts,400,"Worcester & Middlesex Counties (Outside Leominster, Fitchburg & Gardner Cities)",42.563668745981055,-71.93889791173092,355.4361737238769
+25,Massachusetts,501,Middlesex County (Outside Lowell City),42.6409719256747,-71.43910719105585,401.6969654562014
+25,Massachusetts,502,Middlesex County (Far Northeast)--Lowell City,42.63887272107317,-71.3217144002679,410.8256352300761
+25,Massachusetts,503,"Middlesex County--Waltham City, Lexington, Burlington, Bedford & Lincoln Towns",42.45010292939121,-71.2539623013812,397.4331057861627
+25,Massachusetts,504,"Middlesex County (South)--Framingham Town, Marlborough City & Natick Town",42.31664918990506,-71.4529383227194,367.5407613438635
+25,Massachusetts,505,"Middlesex County--Watertown Town City, Arlington, Belmont & Winchester Towns",42.41396910252325,-71.16475557851233,401.6888507397952
+25,Massachusetts,506,Middlesex County (East)--Cambridge City,42.37582056549102,-71.11841334908141,402.23068593530553
+25,Massachusetts,507,Middlesex County (East)--Somerville & Everett Cities,42.398195719456425,-71.07981589234966,407.6921582449701
+25,Massachusetts,508,Middlesex County (East)--Malden & Medford Cities,42.426025117538806,-71.0897894052209,409.3738778897198
+25,Massachusetts,701,"Essex County (Northwest)--Lawrence, Haverhill & Methuen Town Cities",42.757100828903866,-71.13102028306712,438.54947563819314
+25,Massachusetts,702,Essex County (Central)--Amesbury Town City,42.701185596451765,-70.98823327878799,444.5939271468248
+25,Massachusetts,703,"Essex County (East)--Salem, Beverly, Gloucester & Newburyport Cities",42.6792682906304,-70.82360625130376,456.4206469836012
+25,Massachusetts,704,"Essex County (South)--Lynn City, Swampscott & Nahant Towns",42.474335892075096,-70.95206776186191,425.9645709397896
+25,Massachusetts,1000,"Peabody City, Danvers, Reading, North Reading & Lynnfield Towns",42.55291295439547,-71.02239975085766,427.1889580672609
+25,Massachusetts,1300,"Billerica, Andover, Tewksbury & Wilmington Towns",42.59994718037331,-71.20660873264404,416.2372225504414
+25,Massachusetts,1400,Middlesex (West Central) & Worcester (East) Counties,42.45608140831987,-71.46276314995845,380.5083416042722
+25,Massachusetts,1600,Hampden (West & East) & Hampshire (South) Counties--Northampton City,42.21194591757982,-72.61790524450217,267.2996412332567
+25,Massachusetts,1900,Hampden County (Central)--Springfield City,42.11549780088428,-72.53952541267587,260.8694151669536
+25,Massachusetts,1901,Hampden County (West of Springfield City)--Westfield & Holyoke Cities,42.117743055422906,-72.71229150490504,249.68525652542755
+25,Massachusetts,1902,Hampden County (East of Springfield City)--Chicopee City,42.12818860575041,-72.48291415734876,266.29616331484453
+25,Massachusetts,2400,"Middlesex (Far Southwest), Norfolk (Northwest) & Worcester (Far East) Counties",42.20919527325388,-71.46108454946436,356.70691395177613
+25,Massachusetts,2800,"Woburn, Melrose Cities, Saugus, Wakefield & Stoneham Towns",42.47952098170981,-71.08201257954563,415.0557372344536
+25,Massachusetts,3301,"Boston City--Allston, Brighton & Fenway",42.35091398508662,-71.13241156490137,398.72152450376734
+25,Massachusetts,3302,"Boston City--Back Bay, Beacon Hill, Charlestown, East Boston, Central & South End",42.3683021087523,-71.0370522872156,408.7959825796871
+25,Massachusetts,3303,Boston City--Dorchester & South Boston,42.31202848630642,-71.05165136209484,402.4982527174429
+25,Massachusetts,3304,Boston City--Mattapan & Roxbury,42.30703194761757,-71.08632024195033,398.9256441460818
+25,Massachusetts,3305,"Boston City--Hyde Park, Jamaica Plain, Roslindale & West Roxbury",42.2814729161045,-71.13237668543456,392.5172753924114
+25,Massachusetts,3306,"Suffolk County (North)--Revere, Chelsea & Winthrop Town Cities",42.39821920378254,-71.00235343918695,414.5833874047268
+25,Massachusetts,3400,Middlesex (Southeast) & Norfolk (Northeast) Counties--Newton City & Brookline Town,42.32964193949486,-71.18999726769653,391.6768508713004
+25,Massachusetts,3500,Norfolk (Northeast) & Middlesex (Southeast) Counties (West of Boston City),42.28819277291852,-71.30019216835268,378.1426305020008
+25,Massachusetts,3601,Norfolk County (Southwest)--Greater Franklin Town City,42.091796649766486,-71.32052429744202,359.0222389598387
+25,Massachusetts,3602,"Norfolk County (Central)--Randolph, Norwood, Dedham, Canton & Holbrook Towns",42.18709531627592,-71.1200535357082,385.52313520584016
+25,Massachusetts,3603,Norfolk County (Northeast)--Quincy City & Milton Town,42.2458918589006,-71.0491531382023,397.0182023712703
+25,Massachusetts,3900,"Weymouth Town, Braintree Town Cities, Hingham, Hull & Cohasset Towns",42.21396316271342,-70.91601401617515,406.7212799625796
+25,Massachusetts,4000,"Plymouth & Norfolk Counties--Brockton City, Stoughton & Avon Towns",42.1012150513189,-71.05694471528388,384.41935565230375
+25,Massachusetts,4200,"Attleboro City, North Attleborough, Swansea, Seekonk, Rehoboth & Plainville Towns",41.87637563971472,-71.2774109766343,346.17056274169
+25,Massachusetts,4301,Bristol (Outside New Bedford City) & Plymouth (South) Counties,41.68708115790247,-70.92474120270721,369.25783956245743
+25,Massachusetts,4302,Bristol County (Central)--Fall River City & Somerset Town,41.71974101358863,-71.1090991273157,352.35319342225074
+25,Massachusetts,4303,"Bristol County--Taunton City, Mansfield, Norton, Raynam, Dighton & Berkley Towns",41.91628008422275,-71.12690619992523,363.7187181254913
+25,Massachusetts,4500,Bristol County (South)--New Bedford City & Fairhaven Town,41.65932830185421,-70.91667694466715,368.53579589468455
+25,Massachusetts,4700,Barnstable County (West)--Inner Cape Cod Towns & Barnstable Town City,41.66679976499088,-70.49087366126507,413.3062323299762
+25,Massachusetts,4800,"Barnstable (East), Dukes & Nantucket Counties--Outer Cape Cod Towns",41.598688403350266,-70.25803165941409,434.7490751886276
+25,Massachusetts,4901,Plymouth & Bristol Counties (Outside Brockton City),42.036498511429286,-71.00143601643221,384.7281187758951
+25,Massachusetts,4902,Plymouth County (Central),41.95068631684988,-70.85086287816644,393.2715888368669
+25,Massachusetts,4903,"Plymouth County (East)--Plymouth, Marshfield, Scituate, Duxbury & Kingston Towns",41.97544920908763,-70.6780201463866,412.111691731187
+33,New Hampshire,100,Northern New Hampshire--Grafton & Coos Counties,44.32591323145294,-71.5555925927864,606.4736782924467
+33,New Hampshire,200,"Lakes Region--Belknap, Carroll & Merrimack (Northern) Counties",43.7240465666338,-71.35432550126825,536.7053047978305
+33,New Hampshire,300,"Strafford Region--Strafford, Rockingham (Northern) & Carroll (Southeastern) Counties",43.30553709106584,-71.04684026186524,505.6915940157231
+33,New Hampshire,400,Central New Hampshire--Merrimack County (Central)--Concord City,43.2562439549523,-71.66273000437296,457.95791181996935
+33,New Hampshire,500,Southwestern New Hampshire--Cheshire & Sullivan Counties,43.11049827228601,-72.23872964471728,405.3206467507144
+33,New Hampshire,600,Hillsborough County (Western),42.90820951547795,-71.80714492172787,405.4775580369659
+33,New Hampshire,700,Outer Manchester City,43.01112217655426,-71.43722478110809,443.3277506983055
+33,New Hampshire,800,Manchester City,42.98445414917717,-71.44453129422202,439.6965164588965
+33,New Hampshire,900,Hillsborough County (Southeastern)--Greater Nashua City,42.76317914579948,-71.41844091916397,416.5667747341707
+33,New Hampshire,1000,Seacoast Region--Rockingham County (Southern)--Portsmouth City,42.93731867996596,-71.02713328684483,465.9127455437405
+34,New Jersey,101,Atlantic County (East)--Atlantic City & Ventnor City,39.475554130827454,-74.48670682081953,191.6252252285768
+34,New Jersey,102,Atlantic County (Outside Somers Point City)--Pleasantville City & Hammonton Town,39.48577711028869,-74.73164565441034,199.82362643928693
+34,New Jersey,301,Bergen County (South Central)--Hackensack & Englewood (West) Cities,40.88994892066999,-74.01773559239227,22.754053906611677
+34,New Jersey,302,"Bergen County (Southwest)--Rutherford, North Arlington & Hasbrouck Heights Boroughs",40.82350926605617,-74.08600906052885,16.54556267053338
+34,New Jersey,303,"Bergen County (Southeast)--Fort Lee, Cliffside Park & Palisades Park Boroughs",40.84185449588136,-73.99696091836647,15.500499273998004
+34,New Jersey,304,"Bergen County (West Central)--Fair Lawn Borough, Garfield City & Lodi Borough",40.90748209417716,-74.10734271873096,28.25307559299061
+34,New Jersey,305,"Bergen County (East)--Tenafly, Park Ridge & Cresskill Boroughs",40.9764560928244,-73.97461899710362,35.36724748891014
+34,New Jersey,306,"Bergen County (Northwest)--Ramsey, Oakland & Franklin Lakes Boroughs",41.04624891428198,-74.18589735517277,50.47460691376512
+34,New Jersey,307,"Bergen County (North Central)--Bergenfield, Paramus, Dumont & New Milford Boroughs",40.93535487664741,-74.04615558181644,29.87842637115489
+34,New Jersey,308,"Bergen County (Central)--Ridgewood Village, Glen Rock & Westwood Boroughs",41.00360782480738,-74.07783598854327,40.471826408137794
+34,New Jersey,400,Passaic County (Southeast)--Paterson City,40.91468749562927,-74.16241813076932,32.37527954751599
+34,New Jersey,501,Passaic County (South)--Passaic & Clifton (Southeast) Cities,40.8589523875789,-74.14292551979733,24.647737979646
+34,New Jersey,502,Passaic County (Central)--Hawthorne Borough & Clifton City (Northwest),40.915736161767086,-74.20543592042274,35.51336271906459
+34,New Jersey,503,"Passaic County (North)--Ringwood, Wanaque & Pompton Lakes Boroughs",41.07767602558357,-74.33953745429864,63.43796444792335
+34,New Jersey,601,Hudson County (Central)--Jersey City (North),40.736994890856536,-74.05536620680728,7.084923509735999
+34,New Jersey,602,Hudson County (Central)--Jersey City (South),40.70495001022133,-74.07792904529698,10.656899380829252
+34,New Jersey,701,"Hudson County (North)--West New York, Secaucus & Guttenberg Towns",40.78683099308,-74.0447836601814,9.465340858974631
+34,New Jersey,702,Hudson County (Northeast)--Union City & Hoboken Cities,40.75932942112303,-74.02935472706922,5.366107084573905
+34,New Jersey,703,"Hudson County (South & West)--Bayonne City, Kearney & Harrison Towns",40.72223929760069,-74.11957533366517,14.38574887238319
+34,New Jersey,800,Hunterdon County,40.56728569806437,-74.91221897398056,105.4342457609782
+34,New Jersey,901,Middlesex County (Southeast),40.35737457035104,-74.37658210936274,70.14523819839172
+34,New Jersey,902,Middlesex County (Southwest),40.37418386362849,-74.52025609321225,79.24509866524816
+34,New Jersey,903,Middlesex County (Northwest)--South Plainfield & Middlesex Boroughs,40.56712482610213,-74.43979172389726,55.72734517112244
+34,New Jersey,904,Middlesex County (North Central)--Metuchen Borough,40.52570012671801,-74.36143658531478,51.47775480140422
+34,New Jersey,905,Middlesex County (Northeast)--Carteret Borough,40.574500116240486,-74.27865563355176,39.81625656723376
+34,New Jersey,906,"Middlesex County (Central)--New Brunswick City, South River & Highland Park Boroughs",40.46545170658749,-74.42425966402077,62.43169370753781
+34,New Jersey,907,Middlesex County (East Central)--Perth Amboy City & Sayreville Borough,40.47505734843994,-74.30973288014975,52.1803360767357
+34,New Jersey,1001,Somerset County (North & West),40.61802153354799,-74.63808404608685,74.02440627494974
+34,New Jersey,1002,Somerset County (South),40.46512224258106,-74.60648528135403,79.16120488235069
+34,New Jersey,1003,Somerset County (Central)--North Plainfield & Somerville Boroughs,40.592097161391926,-74.5626856560442,66.9991534689658
+34,New Jersey,1101,Monmouth County (Southeast)--Tinton Falls Borough (South),40.18316552267944,-74.08017917620283,81.5550253265371
+34,New Jersey,1102,Monmouth County (Southwest)--Freehold Borough,40.21197086926269,-74.40950982812419,89.7502560040881
+34,New Jersey,1103,"Monmouth County (East Central)--Long Branch, Asbury Park Cities & Eatontown Borough",40.27644662033138,-74.02618007929703,67.46628461348868
+34,New Jersey,1104,Monmouth County (Northeast)--Red Bank & Tinton Falls (North) Boroughs,40.37780740267844,-74.0556448009043,53.03603930357632
+34,New Jersey,1105,Monmouth County (Northwest)--Keansburg Borough,40.38839416163786,-74.16556181535259,54.556735282095104
+34,New Jersey,1106,Monmouth County (Central),40.24998404880699,-74.2044869157248,75.05265330631384
+34,New Jersey,1201,Ocean County (South),39.74809419234363,-74.29464602148114,148.0420083192443
+34,New Jersey,1202,Ocean County (Central)--Beachwood Borough,39.929284277339896,-74.19992455626291,120.13900987983482
+34,New Jersey,1203,Ocean County (North Central),40.05553732016708,-74.1966759501805,102.1187810080472
+34,New Jersey,1204,Ocean County (Northwest),40.03935434310958,-74.38603207251617,110.94337399729686
+34,New Jersey,1205,Ocean County (Northeast)--Point Pleasant Borough,40.04591068423167,-74.10558928171312,101.73022409561476
+34,New Jersey,1301,Essex County (Southeast)--Newark City (North & East),40.72597505571334,-74.16110901902842,18.91914336173276
+34,New Jersey,1302,Essex County (Southeast)--Newark City (Southwest),40.726548697312126,-74.20705262117328,24.014797687112765
+34,New Jersey,1401,Essex County (Northeast),40.80832421480129,-74.1715652685124,22.632709372271965
+34,New Jersey,1402,Essex County (South Central)--East Orange City,40.747134384985706,-74.24210217487709,27.915627629314745
+34,New Jersey,1403,Essex County (Northwest),40.85260979789723,-74.26353436437316,34.741804309057365
+34,New Jersey,1404,Essex County (Southwest),40.77845897609708,-74.30567674072107,35.48867620188205
+34,New Jersey,1501,Morris County (North)--Dover Town & Kinnelon Borough,40.96728243762466,-74.48679250323816,64.73564974287814
+34,New Jersey,1502,Morris County (West),40.82092891436408,-74.69129651226763,78.8587389455561
+34,New Jersey,1503,Morris County (East)--Lincoln Park Borough,40.88647748713581,-74.38936313170005,49.456390529073474
+34,New Jersey,1504,"Morris County (South)--Morristown Town, Madison & Florham Park Boroughs",40.75972024004037,-74.46358106288798,52.63747584933957
+34,New Jersey,1600,Sussex County,41.13946478752987,-74.69022909673488,97.83796741052006
+34,New Jersey,1700,Warren County,40.85724909320296,-74.99701052369767,113.3076612114801
+34,New Jersey,1800,Union County (Northeast)--Elizabeth City,40.66643709617499,-74.19389587903939,24.745864613479377
+34,New Jersey,1901,Union County (North Central)--Roselle Park Borough,40.68938419146612,-74.26484256005548,31.181004269757864
+34,New Jersey,1902,Union County (Northwest)--Summit City & Westfield Town (North),40.68692629262477,-74.36810006762956,42.52589733322899
+34,New Jersey,1903,Union County (Southwest)--Plainfield City & Westfield Town (South),40.62804504662714,-74.37558619579752,45.601019580305845
+34,New Jersey,1904,"Union County (Southeast)--Linden, Rahway Cities & Roselle Borough (South)",40.62449456961386,-74.26559620605357,34.638366120935544
+34,New Jersey,2001,Burlington County (North)--Burlington City,40.064794389235466,-74.86496461719945,138.17024105096996
+34,New Jersey,2002,Burlington County (West Central),39.89778819677295,-74.87961272367488,157.36590794129626
+34,New Jersey,2003,Burlington County (South & East),39.85514019079988,-74.6112644905861,145.96095243361276
+34,New Jersey,2101,Camden County (North)--Camden & Gloucester Cities,39.94388002915196,-75.08468006795631,167.94057279921654
+34,New Jersey,2102,Camden County (Central)--Lindenwold & Collingswood Boroughs,39.84691187165706,-75.01286619369743,172.5633283880887
+34,New Jersey,2103,Camden County (South & West)--Bellmawr & Pine Hill Boroughs,39.73965540463794,-74.9140452352845,177.97370519078507
+34,New Jersey,2104,Camden County (East Central)--Haddonfield Borough,39.88340523982103,-74.98581981533911,166.6024067841823
+34,New Jersey,2201,Gloucester County (Northeast)--Woodbury City,39.80135995723512,-75.12701833976753,185.97468304619568
+34,New Jersey,2202,Gloucester County (South & West)--Glassboro Borough,39.69260614688506,-75.13971588348149,198.72165537351736
+34,New Jersey,2301,Mercer County (West Central)--Trenton City,40.25089563260805,-74.78802399757818,113.6253366448646
+34,New Jersey,2302,Mercer County (North)--Princeton Borough,40.31950934830667,-74.71025173326491,100.63572755516746
+34,New Jersey,2303,Mercer County (South),40.21040868936682,-74.64766115817592,106.10779597448308
+34,New Jersey,2400,Cumberland County (South)--Vineland & Millville Cities,39.34751943592768,-75.05997517294499,234.3867811660133
+34,New Jersey,2500,Salem & Cumberland (North) Counties--Bridgeton City,39.551515538999325,-75.32657018997688,227.73049496154536
+34,New Jersey,2600,Cape May & Atlantic (South Central) Counties--Ocean City & Somers Point City,39.15353430961775,-74.80424130894542,247.02070432671547
+36,New York,100,St. Lawrence County,44.49102092908841,-75.06289914518733,580.5698013569684
+36,New York,200,"Clinton, Franklin, Essex & Hamilton Counties",44.22482141937198,-74.093447449314,526.8680782183976
+36,New York,300,Warren & Washington Counties,43.44354951167656,-73.64881131380781,407.9663616734092
+36,New York,401,Herkimer (North & Central) & Oneida (Outer) Counties,43.41059573460454,-75.15248480888664,421.4239615242124
+36,New York,402,Oneida County (Central)--Greater Utica & Rome Cities,43.14106161896548,-75.38474469903744,391.89903408724575
+36,New York,403,"Otsego, Schoharie, Oneida (South) & Herkimer (South) Counties",42.66225113489638,-74.86670749699263,303.2199565153554
+36,New York,500,Jefferson & Lewis Counties,43.91295295668901,-75.68055179923053,514.03972736011
+36,New York,600,Oswego County,43.42610732424028,-76.14112798542392,469.11061283909
+36,New York,701,Onondaga County (Central)--Syracuse City,43.04091051745267,-76.14357434066594,419.71720290829006
+36,New York,702,Onondaga County (North),43.16584883399075,-76.25418497002632,442.3871645396304
+36,New York,703,Onondaga County (Central)--Syracuse City (Outer),43.03861966257641,-76.16871111754672,421.035104333784
+36,New York,704,Cayuga & Onondaga (South) Counties,42.91156691842042,-76.42741368634785,423.2264084766084
+36,New York,800,Wayne & Seneca Counties,43.00956216104812,-76.94964696571846,473.2186032052122
+36,New York,901,Monroe County (East),43.196778824148446,-77.47133384951428,534.5751882041271
+36,New York,902,Monroe County (Central)--Rochester City (East),43.165849571326646,-77.58579689824919,540.6915214237375
+36,New York,903,Monroe County (Central)--Rochester City (West),43.163288199066166,-77.64145260607799,545.0312660754765
+36,New York,904,Monroe County (Central)--Greece & Gates Towns,43.223179537478295,-77.70210090442586,556.1645539334893
+36,New York,905,Monroe County (North & West),43.17733349455867,-77.85395609167306,564.272089973385
+36,New York,906,Monroe County (South),43.03984225270715,-77.56438382729289,526.156049733938
+36,New York,1000,Genesee & Orleans Counties,43.112264714414366,-78.21033930378753,589.0102202679409
+36,New York,1101,Niagara County (Southwest)--Greater Niagara Falls & North Tonawanda Area,43.09160800434478,-78.92455240385593,652.4560518631521
+36,New York,1102,Niagara County (North & East),43.215986456095,-78.71654828475455,643.8486961273454
+36,New York,1201,Erie County (Northwest),43.005266408501626,-78.92399927436215,645.3953439876517
+36,New York,1202,Erie County (North Central),43.01169606870588,-78.75694981971661,630.178977931352
+36,New York,1203,Erie County (Northeast),42.93701062494823,-78.5831694712677,607.7612233947968
+36,New York,1204,Erie County (Central),42.87158697851875,-78.7580081423732,619.0380132888616
+36,New York,1205,Erie County (West Central)--Buffalo City (East),42.88672974064245,-78.8333291138075,627.4139782132817
+36,New York,1206,Erie County (West Central)--Buffalo City (West),42.93110116918963,-78.87600269376443,634.9559570002233
+36,New York,1207,Erie County (South),42.62885335314293,-78.76070444140484,601.1754092759122
+36,New York,1300,Livingston & Wyoming Counties,42.71568938199642,-77.99193770128745,534.2864080220494
+36,New York,1400,Ontario & Yates Counties,42.77361677795192,-77.22963357903036,471.53905842844
+36,New York,1500,Madison & Cortland Counties,42.7761235131323,-75.84194100214452,367.5368215714781
+36,New York,1600,Fulton & Montgomery Counties,43.02198890113338,-74.42977643394234,345.22708441489294
+36,New York,1700,Schenectady County--Schenectady City,42.818121227919605,-74.05857256779969,310.8643573443894
+36,New York,1801,Saratoga County (South & Central),42.941960343482044,-73.78474579311172,330.39255701471086
+36,New York,1802,Saratoga County (Outer),43.13996338949792,-73.87949610471473,359.96327726776485
+36,New York,1900,Rensselaer County--Troy City,42.711054665283726,-73.50971506984546,299.38822668673413
+36,New York,2001,Albany County (East Central)--Albany City,42.669745047993096,-73.79953825359513,289.07715634624486
+36,New York,2002,Albany County (Outside Albany City),42.59682860989122,-73.9819327867102,277.2535392378243
+36,New York,2100,Columbia & Greene Counties,42.26340320732746,-73.87916600986001,227.3099881411553
+36,New York,2201,Broome County (West Central)--Greater Binghamton City & Greater Johnson City Village,42.10067765459328,-75.99582505192168,301.3062330327092
+36,New York,2202,Broome (Outer West) & Tioga Counties,42.18522805803412,-76.14931494478923,322.49619244125427
+36,New York,2203,"Chenango, Delaware & Broome (East) Counties",42.29024684871486,-75.2508105212954,270.19892727205644
+36,New York,2300,Tompkins County,42.45201626178876,-76.47365861833534,376.2350189639173
+36,New York,2401,Chemung (South) & Steuben (East) Counties--Greater Elmira & Greater Corning Cities,42.10148085267009,-76.85264643328281,377.478328577896
+36,New York,2402,"Steuben (North & West), Schuyler & Chemung (North) Counties",42.29280946851121,-77.24368155122099,429.6384669148492
+36,New York,2500,Cattaraugus & Allegany Counties,42.25247721351281,-78.39299176377936,539.274944464234
+36,New York,2600,Chautauqua County,42.228115894844166,-79.3663401049432,638.0395835405328
+36,New York,2701,Sullivan & Ulster (West) Counties,41.80433087184428,-74.6156605060173,172.73939719154194
+36,New York,2702,Ulster County (East),41.82424851824148,-74.086691391984,161.48177646744912
+36,New York,2801,Dutchess County (North & East),41.80956277421744,-73.7134731468156,161.93188786929525
+36,New York,2802,Dutchess County (Southwest),41.57929290430282,-73.86584336880354,125.3982232778724
+36,New York,2901,Orange County (Northeast)--Greater Newburgh City,41.50597899433246,-74.11144230573406,114.48706138330442
+36,New York,2902,Orange County (Northwest),41.43998470057661,-74.46464486052072,116.47980859881682
+36,New York,2903,Orange County (Southeast),41.29780599683042,-74.22477827170133,86.78269796355666
+36,New York,3001,Rockland County (North)--New City & Congers,41.206653163082095,-74.01341936572615,69.35935402152491
+36,New York,3002,"Rockland County (South)--Orangetown, Clarkstown (South) & Ramapo (Southeast) Towns",41.07866978257518,-73.99754114879337,50.40291887123862
+36,New York,3003,"Rockland County (West)--Spring Valley, Suffern Villages & Monsey",41.15112300278395,-74.11344129833013,62.588500228484655
+36,New York,3101,Putnam County,41.42600334637813,-73.74898760791972,105.35221479402767
+36,New York,3102,Westchester County (Northwest),41.20126174159644,-73.8599575108634,70.07204332113162
+36,New York,3103,Westchester County (Northeast),41.24289727801801,-73.68725769532071,82.01272830254067
+36,New York,3104,Westchester County (Southeast),40.99764178195414,-73.71358899555973,49.35879032733735
+36,New York,3105,Westchester County (Central)--White Plains City,41.02416830772667,-73.80907373574084,46.98122381172052
+36,New York,3106,Westchester County (Southwest)--Yonkers City,40.946502631532425,-73.86369571663694,34.02876983334906
+36,New York,3107,Westchester County (South Central)--New Rochelle & Mount Vernon Cities,40.93005835365804,-73.80198751379822,35.455074304514035
+36,New York,3201,Nassau County (Northwest)--North Hempstead Town (North),40.80406030377578,-73.68039142485792,36.051899329204296
+36,New York,3202,Nassau County (Northeast)--Oyster Bay Town (North) & Glen Cove City,40.8452944999209,-73.55679851850168,50.98968213469343
+36,New York,3203,Nassau County (East Central)--Oyster Bay Town (Central),40.76870303826439,-73.49088361380596,55.953759207056265
+36,New York,3204,Nassau County (West Central)--North Hempstead Town (South),40.75545449744371,-73.63664303231135,39.62543213448229
+36,New York,3205,Nassau County (West Central)--Hempstead Town (Northwest),40.71464648050059,-73.6753058860882,35.36960500101419
+36,New York,3206,Nassau County (Central)--Hempstead Town (North Central)--Meadowbrook Corridor,40.69092876250982,-73.59634499453851,44.51951663754832
+36,New York,3207,Nassau County (Central)--Hempstead Town (Northeast),40.72176099051459,-73.53507726984891,50.87986272887737
+36,New York,3208,Nassau County (Southeast)--Oyster Bay Town (South),40.67897181957292,-73.45598695815276,60.23352858154611
+36,New York,3209,Nassau County (Central)--Hempstead Town (East Central),40.66997391022437,-73.5302507083117,52.29174388567813
+36,New York,3210,Nassau County (South Central)--Hempstead Town (Southeast),40.62713894361582,-73.5998638524344,46.48220513903872
+36,New York,3211,Nassau County (West Central)--Hempstead Town (West Central),40.67545485085001,-73.67984699916425,35.85687305077349
+36,New York,3212,Nassau County (Southwest)--Hempstead Town (Southwest) & Long Beach City,40.619510179079896,-73.70695694385323,36.05299921430938
+36,New York,3301,Suffolk County (Northwest)--Huntington Town (North),40.8892417053615,-73.39896979961314,69.70447413721304
+36,New York,3302,Suffolk County (Northwest)--Huntington Town (South),40.81430683671896,-73.36505520011075,70.69179331360746
+36,New York,3303,Suffolk County (Northwest)--Smithtown Town,40.86490398155866,-73.21737594364015,88.24385419037078
+36,New York,3304,Suffolk County (North Central)--Brookhaven Town (North),40.93185982008863,-73.00033285522103,114.04268518872674
+36,New York,3305,Suffolk County (East),40.961977768734,-72.44039840622715,175.85169955452773
+36,New York,3306,Suffolk County (South Central)--Brookhaven Town (South),40.82828778610123,-72.85586607836014,127.16112539597188
+36,New York,3307,Suffolk County (Central)--Brookhaven Town (Central),40.82148087358276,-73.00168900984161,110.91596455460008
+36,New York,3308,Suffolk County (Central)--Brookhaven Town (West Central),40.8591671125368,-73.07489983169481,103.64209617743016
+36,New York,3309,Suffolk County (Central)--Islip Town (East),40.777150251056106,-73.11168783459013,98.14716470445882
+36,New York,3310,Suffolk County (Central)--Islip Town (Northwest),40.77849659846256,-73.2283073712615,85.2069701053547
+36,New York,3311,Suffolk County (Southwest)--Islip Town (South),40.71564328111416,-73.22689970500716,85.19504250834727
+36,New York,3312,Suffolk County (Southwest)--Babylon Town (Southeast),40.68554080067797,-73.34701854426017,72.15755983404775
+36,New York,3313,Suffolk County (West Central)--Babylon Town (Northwest),40.72688227706781,-73.38111791548799,67.98711685446585
+36,New York,3701,"NYC-Bronx Community District 8--Riverdale, Fieldston & Kingsbridge",40.889462931052336,-73.90508205276844,24.477819858306955
+36,New York,3702,"NYC-Bronx Community District 12--Wakefield, Williamsbridge & Woodlawn",40.889939133149966,-73.86173052053722,26.808651264458884
+36,New York,3703,"NYC-Bronx Community District 10--Co-op City, Pelham Bay & Schuylerville",40.85036159255151,-73.81563411205717,25.77837987816153
+36,New York,3704,"NYC-Bronx Community District 11--Pelham Parkway, Morris Park & Laconia",40.85617314942473,-73.85256192215337,23.444215481703157
+36,New York,3705,"NYC-Bronx Community District 3 & 6--Belmont, Crotona Park East & East Tremont",40.84540151735062,-73.88763683493774,19.764258964306944
+36,New York,3706,"NYC-Bronx Community District 7--Bedford Park, Fordham North & Norwood",40.870291553123785,-73.89102742035759,22.64408291647096
+36,New York,3707,"NYC-Bronx Community District 5--Morris Heights, Fordham South & Mount Hope",40.85217065189957,-73.90976933071207,19.30007916365404
+36,New York,3708,"NYC-Bronx Community District 4--Concourse, Highbridge & Mount Eden",40.83252459015082,-73.92146693945958,16.138513362178898
+36,New York,3709,"NYC-Bronx Community District 9--Castle Hill, Clason Point & Parkchester",40.82522931961795,-73.85939234856906,19.67586131776173
+36,New York,3710,"NYC-Bronx Community District 1 & 2--Hunts Point, Longwood & Melrose",40.8093899284106,-73.8992372706162,14.858735030994122
+36,New York,3801,"NYC-Manhattan Community District 12--Washington Heights, Inwood & Marble Hill",40.85605061191608,-73.9307255398214,18.84460547710727
+36,New York,3802,"NYC-Manhattan Community District 9--Hamilton Heights, Manhattanville & West Harlem",40.81673298117204,-73.95577906267943,12.454002305302888
+36,New York,3803,NYC-Manhattan Community District 10--Central Harlem,40.8133751948876,-73.94445319014362,12.464994366189686
+36,New York,3804,NYC-Manhattan Community District 11--East Harlem,40.79473522161313,-73.93504362279829,10.63299293953063
+36,New York,3805,NYC-Manhattan Community District 8--Upper East Side,40.77149650041352,-73.95559750983334,6.5279508466276175
+36,New York,3806,NYC-Manhattan Community District 7--Upper West Side & West Side,40.78417518011423,-73.972295273163,7.332132291387447
+36,New York,3807,"NYC-Manhattan Community District 4 & 5--Chelsea, Clinton & Midtown Business District",40.754021163394015,-73.99213959424435,2.574065419163485
+36,New York,3808,"NYC-Manhattan Community District 6--Murray Hill, Gramercy & Stuyvesant Town",40.74534968048452,-73.97507813862136,2.2632710873752075
+36,New York,3809,NYC-Manhattan Community District 3--Chinatown & Lower East Side,40.71937326001598,-73.98614297991435,2.5921934762118823
+36,New York,3810,"NYC-Manhattan Community District 1 & 2--Battery Park City, Greenwich Village & Soho",40.71738149367676,-74.0072250939926,3.296787618992073
+36,New York,3901,"NYC-Staten Island Community District 3--Tottenville, Great Kills & Annadale",40.54481877192576,-74.18712301213415,35.551733822873224
+36,New York,3902,NYC-Staten Island Community District 2--New Springville & South Beach,40.59362515233032,-74.13373383671644,26.26002073687897
+36,New York,3903,"NYC-Staten Island Community District 1--Port Richmond, Stapleton & Mariner's Harbor",40.62700394379452,-74.11905870047356,21.43129312651369
+36,New York,4001,NYC-Brooklyn Community District 1--Greenpoint & Williamsburg,40.71862714619948,-73.94799462916596,5.531213721490509
+36,New York,4002,NYC-Brooklyn Community District 4--Bushwick,40.696941832013145,-73.92065427686092,9.816125000918944
+36,New York,4003,NYC-Brooklyn Community District 3--Bedford-Stuyvesant,40.68986972637063,-73.94106896736244,8.87169856595745
+36,New York,4004,NYC-Brooklyn Community District 2--Brooklyn Heights & Fort Greene,40.69266839213774,-73.97745351364149,6.631255703032834
+36,New York,4005,"NYC-Brooklyn Community District 6--Park Slope, Carroll Gardens & Red Hook",40.67194681286959,-73.98826415696227,9.487785832116217
+36,New York,4006,NYC-Brooklyn Community District 8--Crown Heights North & Prospect Heights,40.67498891759665,-73.94400148656518,10.479793633011235
+36,New York,4007,NYC-Brooklyn Community District 16--Brownsville & Ocean Hill,40.66820982164205,-73.90719250699647,13.75204416244486
+36,New York,4008,NYC-Brooklyn Community District 5--East New York & Starrett City,40.66497263339557,-73.87776345405693,16.469997730441303
+36,New York,4009,NYC-Brooklyn Community District 18--Canarsie & Flatlands,40.61578695520669,-73.8996817910622,20.468332589113125
+36,New York,4010,"NYC-Brooklyn Community District 17--East Flatbush, Farragut & Rugby",40.64767734141535,-73.93430215204461,14.523716822926756
+36,New York,4011,"NYC-Brooklyn Community District 9--Crown Heights South, Prospect Lefferts & Wingate",40.661359443322006,-73.947888292386,12.06468821741522
+36,New York,4012,NYC-Brooklyn Community District 7--Sunset Park & Windsor Terrace,40.65006389955497,-74.0022278869425,12.744973708215332
+36,New York,4013,NYC-Brooklyn Community District 10--Bay Ridge & Dyker Heights,40.62283429668226,-74.02408153041975,17.06999143753624
+36,New York,4014,"NYC-Brooklyn Community District 12--Borough Park, Kensington & Ocean Parkway",40.629931835349055,-73.98268349606903,15.676969426555
+36,New York,4015,NYC-Brooklyn Community District 14--Flatbush & Midwood,40.630402086373536,-73.95913910043768,15.992465966296006
+36,New York,4016,"NYC-Brooklyn Community District 15--Sheepshead Bay, Gerritsen Beach & Homecrest",40.5949536619332,-73.94869184433676,21.31902876099376
+36,New York,4017,NYC-Brooklyn Community District 11--Bensonhurst & Bath Beach,40.60687435940199,-73.99368629741335,19.02735347253999
+36,New York,4018,NYC-Brooklyn Community District 13--Brighton Beach & Coney Island,40.58147815089146,-73.98097997320696,22.78062648299374
+36,New York,4101,NYC-Queens Community District 1--Astoria & Long Island City,40.768673318660966,-73.91779929672745,9.49035400686253
+36,New York,4102,NYC-Queens Community District 3--Jackson Heights & North Corona,40.76167025204856,-73.87595550822185,13.407358678697191
+36,New York,4103,"NYC-Queens Community District 7--Flushing, Murray Hill & Whitestone",40.77149359372779,-73.81571280129565,20.25692025584165
+36,New York,4104,"NYC-Queens Community District 11--Bayside, Douglaston & Little Neck",40.75655193516547,-73.75923236186055,26.04799130116276
+36,New York,4105,"NYC-Queens Community District 13--Queens Village, Cambria Heights & Rosedale",40.68062079674432,-73.75502938463916,27.597277310502847
+36,New York,4106,"NYC-Queens Community District 8--Briarwood, Fresh Meadows & Hillcrest",40.72586008742693,-73.79620671295534,21.8210525597355
+36,New York,4107,NYC-Queens Community District 4--Elmhurst & South Corona,40.74062880288104,-73.85512443363689,15.218316320554637
+36,New York,4108,NYC-Queens Community District 6--Forest Hills & Rego Park,40.7226647811664,-73.85171604447332,15.717728942969131
+36,New York,4109,NYC-Queens Community District 2--Sunnyside & Woodside,40.74059605755061,-73.92008068151952,7.997969587783322
+36,New York,4110,"NYC-Queens Community District 5--Ridgewood, Glendale & Middle Village",40.710415219630605,-73.88948645684428,12.008973726199455
+36,New York,4111,NYC-Queens Community District 9--Richmond Hill & Woodhaven,40.696366878654935,-73.84160608332355,17.720433658832473
+36,New York,4112,"NYC-Queens Community District 12--Jamaica, Hollis & St. Albans",40.691636445243546,-73.77865780401928,24.61686120191476
+36,New York,4113,NYC-Queens Community District 10--Howard Beach & Ozone Park,40.66940486688416,-73.8329979894956,20.230883404372943
+36,New York,4114,"NYC-Queens Community District 14--Far Rockaway, Breezy Point & Broad Channel",40.5940726984794,-73.81955060902737,28.359891566090777
+42,Pennsylvania,101,"Erie City, Lawrence Park Township & Wesleyville Borough",42.11993815874384,-80.06728657537505,706.8331063027634
+42,Pennsylvania,102,Erie County (Outer),41.98795022167226,-80.03130973078406,697.4769608183426
+42,Pennsylvania,200,Crawford & Warren Counties,41.74503928931319,-79.71965882427854,654.8789677241889
+42,Pennsylvania,300,"Clearfield, McKean, Elk, Potter & Cameron Counties",41.47987423456836,-78.36261307335293,498.80660108361536
+42,Pennsylvania,400,"Bradford, Tioga & Sullivan Counties",41.72573202698122,-76.82052981505717,347.281546005594
+42,Pennsylvania,500,"Pike, Wayne & Susquehanna Counties",41.63259407843117,-75.42565068667679,207.48204414914437
+42,Pennsylvania,600,Monroe County,41.05806782125769,-75.33947631727055,157.32762556735491
+42,Pennsylvania,701,"Lackawanna County--Scranton City, Dunmore, Old Forge, Taylor & Moosic Boroughs",41.39707784193008,-75.66985497300982,210.7378720757839
+42,Pennsylvania,702,Lackawanna (Outside Greater Scranton City) & Wyoming Counties,41.47947629097439,-75.806791892998,229.9448176151126
+42,Pennsylvania,801,Luzerne County (East)--Kingston Borough,41.2106701417452,-75.81133530703025,214.28356358375856
+42,Pennsylvania,802,Luzerne County (South Central)--Wilkes-Barre & Hazleton Cities,41.06501929901177,-75.98334703973794,226.92433818104428
+42,Pennsylvania,803,Columbia & Luzerne (West) Counties--Bloomsburg Town & Berwick Borough,41.1184682617941,-76.28952589112801,261.90791759207895
+42,Pennsylvania,900,Lycoming & Clinton Counties,41.29762001174406,-77.30460118032435,377.965620112676
+42,Pennsylvania,1000,Northumberland & Montour Counties,40.890238845657045,-76.69828423628731,302.1401526527503
+42,Pennsylvania,1100,"Mifflin, Union, Snyder & Juniata Counties",40.70250455853821,-77.31323922122807,369.7830465847689
+42,Pennsylvania,1200,Centre County,40.91934161371953,-77.81995121377307,427.00428494407953
+42,Pennsylvania,1300,"Venango, Jefferson, Clarion & Forest Counties",41.29284461573189,-79.36819404593238,604.1077817081754
+42,Pennsylvania,1400,Mercer County,41.30218097662301,-80.25770225410294,702.5010457065082
+42,Pennsylvania,1501,Lawrence & Beaver (North) Counties--New Castle City,40.95643915550575,-80.331411990223,706.4725213135914
+42,Pennsylvania,1502,Beaver County (South),40.647461905164825,-80.3567726578524,708.674505653274
+42,Pennsylvania,1600,Butler County,40.91171994136494,-79.91299254763854,659.6563088938663
+42,Pennsylvania,1701,Pittsburgh City (North),40.45922151141908,-79.95838310490454,665.4482860485565
+42,Pennsylvania,1702,Pittsburgh City (South),40.415541851392966,-79.99803157090864,670.2717867034637
+42,Pennsylvania,1801,Allegheny County (West),40.46287584453944,-80.19983516645647,692.2471607200766
+42,Pennsylvania,1802,Allegheny County (North)--Franklin Park Borough & Allison Park,40.60868192384536,-79.95228243954921,663.7914501287792
+42,Pennsylvania,1803,Allegheny County (North Central),40.52071258244632,-79.99580187245057,669.1198715648684
+42,Pennsylvania,1804,"Allegheny County (East)--Monroeville Municipality, Plum & Wilkinsburg Boroughs",40.4640324632778,-79.79048568931638,646.75008797415
+42,Pennsylvania,1805,"Allegheny County (Southeast)--West Mifflin Borough, McKeesport City & Munhall Borough",40.30506737326069,-79.85988085932152,656.2884024866033
+42,Pennsylvania,1806,Allegheny County (South Central)--Baldwin & Whitehall Boroughs,40.37909297639521,-80.02514576238313,673.6759215767736
+42,Pennsylvania,1807,Allegheny County (South)--Bethel Park Municipality & Jefferson Hills Borough,40.323743964606486,-80.04110686695756,676.1222308101717
+42,Pennsylvania,1900,Indiana & Armstrong Counties,40.72314787456789,-79.25481897009618,585.8882783840515
+42,Pennsylvania,2001,Westmoreland County (Northwest)--Murrysville Municipality & New Kensington City,40.50060352626681,-79.64947614416587,630.7674988988379
+42,Pennsylvania,2002,Westmoreland County (Southwest)--Greensburg City,40.24463448148613,-79.68053282884924,637.3548559555765
+42,Pennsylvania,2003,Westmoreland County (East),40.2838635050913,-79.33950086690383,598.9895070715351
+42,Pennsylvania,2100,Cambria County,40.49529401034288,-78.7137032905605,526.8371456301367
+42,Pennsylvania,2200,Blair & Huntingdon Counties--Altoona City,40.44078780553204,-78.11800927474823,461.3768713222853
+42,Pennsylvania,2301,Cumberland (West) & Perry Counties--Carlisle Borough,40.28997971074196,-77.29925382099977,373.95260708654814
+42,Pennsylvania,2302,Cumberland County (East),40.22790483094565,-77.03174763601032,346.503729089134
+42,Pennsylvania,2401,Dauphin County (Central)--Harrisburg City & Colonial Park,40.29089091358713,-76.82877677789318,322.48915574307534
+42,Pennsylvania,2402,Dauphin County (Outer)--Hershey,40.434532696307,-76.77191675340524,312.6389114469219
+42,Pennsylvania,2500,Lebanon County,40.36723173892065,-76.45771200952116,279.792966981659
+42,Pennsylvania,2600,Schuylkill County,40.705800572389535,-76.21595483228404,247.6412538920772
+42,Pennsylvania,2701,Berks County (Northwest)--Wyomissing Borough,40.43090193107384,-76.12154011300551,241.2845588943276
+42,Pennsylvania,2702,Berks County (Southwest)--Reading City,40.25223282279342,-75.91557847368922,225.5900732083322
+42,Pennsylvania,2703,Berks County (East),40.44502634653806,-75.78893145330207,204.57623333762191
+42,Pennsylvania,2801,Carbon & Lehigh (North) Counties,40.83449448618306,-75.69976024796046,190.68267304889469
+42,Pennsylvania,2802,Lehigh County (South--Outside Allentown & Bethlehem Cities)--Emmaus Borough,40.549503121420585,-75.49369552377371,169.4345101747579
+42,Pennsylvania,2803,Allentown City,40.59610111050109,-75.47554188508157,166.4580888029776
+42,Pennsylvania,2901,Northampton (South) & Lehigh (East) Counties--Bethlehem (East) & Easton Cities,40.62956076248218,-75.30914885110676,147.49288337640002
+42,Pennsylvania,2902,Northampton County (North),40.7921923022012,-75.30839127362766,146.79901048553683
+42,Pennsylvania,3001,Bucks County (North),40.43863821985304,-75.24018458655078,145.6755222453823
+42,Pennsylvania,3002,Bucks County (Central),40.29888242119757,-75.04631792872182,133.7484293600495
+42,Pennsylvania,3003,Bucks County (Southeast)--Levittown,40.19337999087611,-74.8521834780203,124.4604505518465
+42,Pennsylvania,3004,Bucks County (Southwest),40.15578217159127,-74.9650403035982,137.67935351227945
+42,Pennsylvania,3101,Montgomery County (Northwest)--Pottstown Borough,40.26267377181054,-75.54311955219805,186.11067335492623
+42,Pennsylvania,3102,Montgomery County (Northeast)--Lansdale Borough,40.31713417000047,-75.40618024231051,169.01123977676383
+42,Pennsylvania,3103,Montgomery County (Southwest)--King of Prussia & Ardmore (East),40.08289884155901,-75.35197980099119,179.05338350516536
+42,Pennsylvania,3104,Montgomery County (Central)--Norristown Borough,40.16802113549343,-75.34176949774397,171.7625313557223
+42,Pennsylvania,3105,"Montgomery County (Southeast)--Willow Grove, Horsham & Montgomeryville",40.191851642571656,-75.17896193442634,154.3304679748853
+42,Pennsylvania,3106,Montgomery County (South Central),40.11189413158128,-75.17599736921531,160.3821922308342
+42,Pennsylvania,3201,Philadelphia City (Far Northeast),40.084386639242126,-75.01105295789978,148.20790894155536
+42,Pennsylvania,3202,Philadelphia City (Near Northeast-West),40.05473963857509,-75.07607905266342,156.5301235660403
+42,Pennsylvania,3203,Philadelphia City (Near Northeast-East),40.02035857798024,-75.06037953070334,158.4428019140812
+42,Pennsylvania,3204,Philadelphia City (North),40.04594603904275,-75.14271877548576,163.10776781780564
+42,Pennsylvania,3205,Philadelphia City (East),39.99319559472566,-75.11713794185412,165.7985776661292
+42,Pennsylvania,3206,Philadelphia City (Northwest),40.04815647040896,-75.20626626241919,168.52945882964062
+42,Pennsylvania,3207,Philadelphia City (Central),39.99333338656422,-75.16695669686023,170.01510571319832
+42,Pennsylvania,3208,Philadelphia City (West),39.97971921290353,-75.22097630495281,175.92094714645958
+42,Pennsylvania,3209,Philadelphia City (Center City),39.95205004021846,-75.15769092438917,173.13156834312022
+42,Pennsylvania,3210,Philadelphia City (Southwest),39.916216097972615,-75.223388423187,182.05959449014208
+42,Pennsylvania,3211,Philadelphia City (Southeast),39.91215751936232,-75.1658164294521,177.68175270748964
+42,Pennsylvania,3301,Delaware County (North)--Broomall & Ardmore (West),39.98813862871181,-75.36952682075571,188.35706076151249
+42,Pennsylvania,3302,"Delaware County (East)--Yeadon, Darby, Lansdowne Boroughs & Drexel Hill",39.93483004251151,-75.30304095079882,187.1250369285851
+42,Pennsylvania,3303,Delaware County (Southeast)--Chester City,39.871252443315065,-75.32366490953802,194.77348152468065
+42,Pennsylvania,3304,Delaware County (West),39.8897234269473,-75.4734707391171,206.1319031120256
+42,Pennsylvania,3401,Chester County (North)--Phoenixville Borough,40.14038305470547,-75.61369730319515,200.50693910538183
+42,Pennsylvania,3402,Chester County (East Central)--West Chester Borough,40.00069344043039,-75.569866714174,205.96425773090397
+42,Pennsylvania,3403,Chester County (West Central)--Coatesville City,40.03748585332756,-75.79146168925554,224.89024998990604
+42,Pennsylvania,3404,Chester County (South),39.84023798318062,-75.84980572638578,244.72802688154036
+42,Pennsylvania,3501,"Lancaster County--Lancaster City, East Lampeter, Lancaster & West Lampeter Townships",40.02445284179991,-76.25878381584688,272.97887492199544
+42,Pennsylvania,3502,Lancaster County (Northwest)--Elizabethtown Borough,40.15671359492136,-76.46171683483928,287.7414180372
+42,Pennsylvania,3503,Lancaster County (East)--Ephrata Borough,40.013432649974256,-76.11481084799075,258.8838930457224
+42,Pennsylvania,3504,Lancaster County (Southwest)--Columbia Borough,39.993154934546055,-76.37255786854769,286.4224747380482
+42,Pennsylvania,3601,York County (Central)--York City & Shiloh,39.95529020579792,-76.72012892897709,324.45165449526297
+42,Pennsylvania,3602,York County (North)--Weigelstown,40.052133700407424,-76.86564459918107,335.1976028255237
+42,Pennsylvania,3603,York County (South),39.81931477613598,-76.62906007795917,322.65246440237826
+42,Pennsylvania,3701,Adams & Franklin (Southeast) Counties,39.86229879960823,-77.24359652281613,383.8278195537874
+42,Pennsylvania,3702,Franklin County (Outside Washington Township & Waynesboro Borough),39.93772841007065,-77.73062063771268,432.2512480294138
+42,Pennsylvania,3800,"Somerset, Bedford & Fulton Counties",39.97799659480119,-78.65442007363652,530.7449777397638
+42,Pennsylvania,3900,Fayette County,39.919899598069215,-79.64736934702877,640.7765851724997
+42,Pennsylvania,4001,Washington County (North)--Washington City,40.26401262571567,-80.31342573398081,707.1198939958641
+42,Pennsylvania,4002,Washington (South) & Greene Counties,39.9365360970005,-80.19538843491992,700.4012298333174
+44,Rhode Island,101,Northwest Rhode Island--Providence County (West & Central)--Woonsocket City,41.87678837109291,-71.64244415170596,311.3675220745347
+44,Rhode Island,102,Northeast Rhode Island--Providence County--Pawtucket & Central Falls Cities,41.929305142778766,-71.4255420519503,335.97353298125387
+44,Rhode Island,103,Providence City,41.82348201713032,-71.42182014869347,328.28301686586343
+44,Rhode Island,104,Providence County (Southeast)--Cranston & East Providence Cities,41.77905084434613,-71.4437259170101,322.9361522457406
+44,Rhode Island,201,Central Rhode Island--Kent County--Warwick City,41.67196377008863,-71.59477951518718,300.5907486692505
+44,Rhode Island,300,Southeast Rhode Island--Newport & Bristol Counties--Newport City,41.58714770338898,-71.24487638644142,330.63738686839315
+44,Rhode Island,400,South Rhode Island--Washington County,41.46969543664363,-71.62266895476566,285.0997398530385
+50,Vermont,100,"Northwest Vermont--Chittenden, Franklin & Grand Isle Counties--Burlington City",44.68719782902798,-73.0307789164811,608.336279041782
+50,Vermont,200,"Northeast Vermont--Washington, Caledonia, Orleans, Lamoille & Essex Counties",44.58138360884278,-72.24521011415027,613.9037801442479
+50,Vermont,300,"Southeast Vermont--Windsor, Windham & Orange Counties",43.51133842602696,-72.56786782405747,445.7114092335303
+50,Vermont,400,"Southwest Vermont--Rutland, Bennington & Addison Counties",43.58052233056612,-73.08711771719626,438.9094233531405
