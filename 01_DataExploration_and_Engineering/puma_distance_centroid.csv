@@ -1,420 +1,1670 @@
-STATEFIP,state,PUMA,PUMA_NAME,lat,lon,distance
-9,Connecticut,100,"Danbury, Ridgefield, Bethel, Brookfield, New Fairfield, Redding & Sherman Towns",41.40585764064644,-73.45436221195844,115.52990551242168
-9,Connecticut,101,"Fairfield, New Canaan, Wilton, Weston & Easton Towns",41.2080680168615,-73.36941774328275,98.14765854316477
-9,Connecticut,102,Stamford & Greenwich Towns,41.08474365294825,-73.60336268324285,67.08414562968618
-9,Connecticut,103,"Norwalk, Westport & Darien Towns",41.11915959509872,-73.4086239724906,85.97714819673755
-9,Connecticut,104,Bridgeport Town,41.192750102254536,-73.196094527668,111.2135124284624
-9,Connecticut,105,"Stratford, Shelton, Trumbull, Newtown & Monroe Towns",41.32792244255982,-73.21961605162474,122.49446111244562
-9,Connecticut,300,Hartford County (North),41.94423281861332,-72.70197224544279,229.5251861700478
-9,Connecticut,301,Manchester & East Hartford Towns,41.7705376710815,-72.5609400089038,220.9356081244072
-9,Connecticut,302,Hartford Town,41.76607064431414,-72.68340123122096,210.8366772895552
-9,Connecticut,303,"West Hartford, Farmington, Simsbury, Bloomfield, Avon & Canton Towns",41.81321143894544,-72.82145263994774,205.9304640924205
-9,Connecticut,304,"Bristol, Southington & Burlington Towns",41.67694255363004,-72.92300691518717,183.07899371612567
-9,Connecticut,305,"New Britain, Berlin & Plainville Towns",41.64086054686427,-72.7945210744446,188.83423636840783
-9,Connecticut,306,"Glastonbury, Newington, Wethersfield, Rocky Hill & Marlborough Towns",41.67642481551039,-72.5770817497198,210.09975220572264
-9,Connecticut,500,Litchfield County,41.79249423779805,-73.24532378410588,177.0947123070558
-9,Connecticut,700,Middlesex County,41.46437741077354,-72.53614361310453,194.4664518634085
-9,Connecticut,900,New Haven County (Northwest),41.49417754808226,-73.07151548239479,151.74725033276454
-9,Connecticut,901,Waterbury Town,41.55824428867334,-73.03612977834923,161.47304313455098
-9,Connecticut,902,"Meriden, Wallingford & North Haven Towns",41.46183071667407,-72.81441530378399,169.2833679024981
-9,Connecticut,903,"Hamden, Ansonia, Seymour, Derby, Woodbridge & Bethany Towns",41.38578539022274,-72.99616496197183,146.53038867559772
-9,Connecticut,904,"West Haven, Milford & Orange Towns",41.25543723941547,-73.02957735468912,131.64251142513328
-9,Connecticut,905,New Haven Town,41.31146060491897,-72.92500516464824,145.93894524975383
-9,Connecticut,906,"East Haven, Branford, Guilford, Madison & North Branford Towns",41.33091207100684,-72.72490439748903,166.0784884667444
-9,Connecticut,1100,New London County (North),41.540580547122126,-72.08285201711472,243.47518748805427
-9,Connecticut,1101,New London County (South),41.36745758696497,-72.14621813249357,225.56815397347356
-9,Connecticut,1300,Tolland County,41.85500855931004,-72.33648950875607,247.8278597389803
-9,Connecticut,1500,Windham County,41.82995983719034,-71.98755027114817,275.709158776578
-23,Maine,100,Northeast Maine--Aroostook & Washington Counties,46.20214477463282,-68.32791636246841,1049.6947530112438
-23,Maine,200,"Northwest Maine--Oxford, Somerset, Franklin & Piscataquis Counties",45.378278751612974,-69.92443754834233,840.157090088713
-23,Maine,300,Penobscot County,45.40051232751616,-68.64942812793846,927.1114795474316
-23,Maine,400,Kennebec County,44.40916013493401,-69.76726439424928,727.7691961683181
-23,Maine,500,"Coastal Maine Region--Hancock, Knox, Waldo & Lincoln Counties",44.49013400809456,-68.7988305058851,810.4631565543124
-23,Maine,600,Androscoggin County,44.16584842970537,-70.20644499591153,667.4253497517846
-23,Maine,700,Sagadahoc & Cumberland (North) Counties--Bath City & Brunswick,43.930920785892745,-70.07909076520254,649.0483625198481
-23,Maine,800,South Maine--York (West) & Cumberland (West) Counties,43.58816242138104,-70.71558092054953,562.5927214623418
-23,Maine,900,Cumberland (Outside Portland) & York (East) Counties--Biddeford & Saco Cities,43.65729711337162,-70.38576475347288,594.8611850465372
-23,Maine,1000,"Cumberland County (Southeast)--Portland, South Portland & Westbrook Cities",43.673012017234605,-70.30220790598187,602.9452772399078
-25,Massachusetts,100,Berkshire County--Pittsfield City,42.3706738938289,-73.20640387834997,258.3540223380255
-25,Massachusetts,200,Franklin & Hampshire (North) Counties,42.53815108106921,-72.63796782055992,307.7976240553755
-25,Massachusetts,300,Worcester County (Central)--Worcester City,42.27054254612598,-71.80794044982461,333.31365276346526
-25,Massachusetts,301,"Worcester County (Northeast)--Leominster, Fitchburg & Gardner Cities",42.565348853276674,-71.83773161514675,362.9698389771149
-25,Massachusetts,302,Worcester County (West Central),42.303432565874864,-72.02645748354193,319.60066896074727
-25,Massachusetts,303,Worcester County (East Central),42.283949072400695,-71.66274042948012,346.61493541497407
-25,Massachusetts,304,Worcester County (South),42.09323192341912,-71.8242743358663,314.29038519147184
-25,Massachusetts,400,"Worcester & Middlesex Counties (Outside Leominster, Fitchburg & Gardner Cities)",42.563668745981055,-71.93889791173092,355.4361737238769
-25,Massachusetts,501,Middlesex County (Outside Lowell City),42.6409719256747,-71.43910719105585,401.6969654562014
-25,Massachusetts,502,Middlesex County (Far Northeast)--Lowell City,42.63887272107317,-71.3217144002679,410.8256352300761
-25,Massachusetts,503,"Middlesex County--Waltham City, Lexington, Burlington, Bedford & Lincoln Towns",42.45010292939121,-71.2539623013812,397.4331057861627
-25,Massachusetts,504,"Middlesex County (South)--Framingham Town, Marlborough City & Natick Town",42.31664918990506,-71.4529383227194,367.5407613438635
-25,Massachusetts,505,"Middlesex County--Watertown Town City, Arlington, Belmont & Winchester Towns",42.41396910252325,-71.16475557851233,401.6888507397952
-25,Massachusetts,506,Middlesex County (East)--Cambridge City,42.37582056549102,-71.11841334908141,402.23068593530553
-25,Massachusetts,507,Middlesex County (East)--Somerville & Everett Cities,42.398195719456425,-71.07981589234966,407.6921582449701
-25,Massachusetts,508,Middlesex County (East)--Malden & Medford Cities,42.426025117538806,-71.0897894052209,409.3738778897198
-25,Massachusetts,701,"Essex County (Northwest)--Lawrence, Haverhill & Methuen Town Cities",42.757100828903866,-71.13102028306712,438.54947563819314
-25,Massachusetts,702,Essex County (Central)--Amesbury Town City,42.701185596451765,-70.98823327878799,444.5939271468248
-25,Massachusetts,703,"Essex County (East)--Salem, Beverly, Gloucester & Newburyport Cities",42.6792682906304,-70.82360625130376,456.4206469836012
-25,Massachusetts,704,"Essex County (South)--Lynn City, Swampscott & Nahant Towns",42.474335892075096,-70.95206776186191,425.9645709397896
-25,Massachusetts,1000,"Peabody City, Danvers, Reading, North Reading & Lynnfield Towns",42.55291295439547,-71.02239975085766,427.1889580672609
-25,Massachusetts,1300,"Billerica, Andover, Tewksbury & Wilmington Towns",42.59994718037331,-71.20660873264404,416.2372225504414
-25,Massachusetts,1400,Middlesex (West Central) & Worcester (East) Counties,42.45608140831987,-71.46276314995845,380.5083416042722
-25,Massachusetts,1600,Hampden (West & East) & Hampshire (South) Counties--Northampton City,42.21194591757982,-72.61790524450217,267.2996412332567
-25,Massachusetts,1900,Hampden County (Central)--Springfield City,42.11549780088428,-72.53952541267587,260.8694151669536
-25,Massachusetts,1901,Hampden County (West of Springfield City)--Westfield & Holyoke Cities,42.117743055422906,-72.71229150490504,249.68525652542755
-25,Massachusetts,1902,Hampden County (East of Springfield City)--Chicopee City,42.12818860575041,-72.48291415734876,266.29616331484453
-25,Massachusetts,2400,"Middlesex (Far Southwest), Norfolk (Northwest) & Worcester (Far East) Counties",42.20919527325388,-71.46108454946436,356.70691395177613
-25,Massachusetts,2800,"Woburn, Melrose Cities, Saugus, Wakefield & Stoneham Towns",42.47952098170981,-71.08201257954563,415.0557372344536
-25,Massachusetts,3301,"Boston City--Allston, Brighton & Fenway",42.35091398508662,-71.13241156490137,398.72152450376734
-25,Massachusetts,3302,"Boston City--Back Bay, Beacon Hill, Charlestown, East Boston, Central & South End",42.3683021087523,-71.0370522872156,408.7959825796871
-25,Massachusetts,3303,Boston City--Dorchester & South Boston,42.31202848630642,-71.05165136209484,402.4982527174429
-25,Massachusetts,3304,Boston City--Mattapan & Roxbury,42.30703194761757,-71.08632024195033,398.9256441460818
-25,Massachusetts,3305,"Boston City--Hyde Park, Jamaica Plain, Roslindale & West Roxbury",42.2814729161045,-71.13237668543456,392.5172753924114
-25,Massachusetts,3306,"Suffolk County (North)--Revere, Chelsea & Winthrop Town Cities",42.39821920378254,-71.00235343918695,414.5833874047268
-25,Massachusetts,3400,Middlesex (Southeast) & Norfolk (Northeast) Counties--Newton City & Brookline Town,42.32964193949486,-71.18999726769653,391.6768508713004
-25,Massachusetts,3500,Norfolk (Northeast) & Middlesex (Southeast) Counties (West of Boston City),42.28819277291852,-71.30019216835268,378.1426305020008
-25,Massachusetts,3601,Norfolk County (Southwest)--Greater Franklin Town City,42.091796649766486,-71.32052429744202,359.0222389598387
-25,Massachusetts,3602,"Norfolk County (Central)--Randolph, Norwood, Dedham, Canton & Holbrook Towns",42.18709531627592,-71.1200535357082,385.52313520584016
-25,Massachusetts,3603,Norfolk County (Northeast)--Quincy City & Milton Town,42.2458918589006,-71.0491531382023,397.0182023712703
-25,Massachusetts,3900,"Weymouth Town, Braintree Town Cities, Hingham, Hull & Cohasset Towns",42.21396316271342,-70.91601401617515,406.7212799625796
-25,Massachusetts,4000,"Plymouth & Norfolk Counties--Brockton City, Stoughton & Avon Towns",42.1012150513189,-71.05694471528388,384.41935565230375
-25,Massachusetts,4200,"Attleboro City, North Attleborough, Swansea, Seekonk, Rehoboth & Plainville Towns",41.87637563971472,-71.2774109766343,346.17056274169
-25,Massachusetts,4301,Bristol (Outside New Bedford City) & Plymouth (South) Counties,41.68708115790247,-70.92474120270721,369.25783956245743
-25,Massachusetts,4302,Bristol County (Central)--Fall River City & Somerset Town,41.71974101358863,-71.1090991273157,352.35319342225074
-25,Massachusetts,4303,"Bristol County--Taunton City, Mansfield, Norton, Raynam, Dighton & Berkley Towns",41.91628008422275,-71.12690619992523,363.7187181254913
-25,Massachusetts,4500,Bristol County (South)--New Bedford City & Fairhaven Town,41.65932830185421,-70.91667694466715,368.53579589468455
-25,Massachusetts,4700,Barnstable County (West)--Inner Cape Cod Towns & Barnstable Town City,41.66679976499088,-70.49087366126507,413.3062323299762
-25,Massachusetts,4800,"Barnstable (East), Dukes & Nantucket Counties--Outer Cape Cod Towns",41.598688403350266,-70.25803165941409,434.7490751886276
-25,Massachusetts,4901,Plymouth & Bristol Counties (Outside Brockton City),42.036498511429286,-71.00143601643221,384.7281187758951
-25,Massachusetts,4902,Plymouth County (Central),41.95068631684988,-70.85086287816644,393.2715888368669
-25,Massachusetts,4903,"Plymouth County (East)--Plymouth, Marshfield, Scituate, Duxbury & Kingston Towns",41.97544920908763,-70.6780201463866,412.111691731187
-33,New Hampshire,100,Northern New Hampshire--Grafton & Coos Counties,44.32591323145294,-71.5555925927864,606.4736782924467
-33,New Hampshire,200,"Lakes Region--Belknap, Carroll & Merrimack (Northern) Counties",43.7240465666338,-71.35432550126825,536.7053047978305
-33,New Hampshire,300,"Strafford Region--Strafford, Rockingham (Northern) & Carroll (Southeastern) Counties",43.30553709106584,-71.04684026186524,505.6915940157231
-33,New Hampshire,400,Central New Hampshire--Merrimack County (Central)--Concord City,43.2562439549523,-71.66273000437296,457.95791181996935
-33,New Hampshire,500,Southwestern New Hampshire--Cheshire & Sullivan Counties,43.11049827228601,-72.23872964471728,405.3206467507144
-33,New Hampshire,600,Hillsborough County (Western),42.90820951547795,-71.80714492172787,405.4775580369659
-33,New Hampshire,700,Outer Manchester City,43.01112217655426,-71.43722478110809,443.3277506983055
-33,New Hampshire,800,Manchester City,42.98445414917717,-71.44453129422202,439.6965164588965
-33,New Hampshire,900,Hillsborough County (Southeastern)--Greater Nashua City,42.76317914579948,-71.41844091916397,416.5667747341707
-33,New Hampshire,1000,Seacoast Region--Rockingham County (Southern)--Portsmouth City,42.93731867996596,-71.02713328684483,465.9127455437405
-34,New Jersey,101,Atlantic County (East)--Atlantic City & Ventnor City,39.475554130827454,-74.48670682081953,191.6252252285768
-34,New Jersey,102,Atlantic County (Outside Somers Point City)--Pleasantville City & Hammonton Town,39.48577711028869,-74.73164565441034,199.82362643928693
-34,New Jersey,301,Bergen County (South Central)--Hackensack & Englewood (West) Cities,40.88994892066999,-74.01773559239227,22.754053906611677
-34,New Jersey,302,"Bergen County (Southwest)--Rutherford, North Arlington & Hasbrouck Heights Boroughs",40.82350926605617,-74.08600906052885,16.54556267053338
-34,New Jersey,303,"Bergen County (Southeast)--Fort Lee, Cliffside Park & Palisades Park Boroughs",40.84185449588136,-73.99696091836647,15.500499273998004
-34,New Jersey,304,"Bergen County (West Central)--Fair Lawn Borough, Garfield City & Lodi Borough",40.90748209417716,-74.10734271873096,28.25307559299061
-34,New Jersey,305,"Bergen County (East)--Tenafly, Park Ridge & Cresskill Boroughs",40.9764560928244,-73.97461899710362,35.36724748891014
-34,New Jersey,306,"Bergen County (Northwest)--Ramsey, Oakland & Franklin Lakes Boroughs",41.04624891428198,-74.18589735517277,50.47460691376512
-34,New Jersey,307,"Bergen County (North Central)--Bergenfield, Paramus, Dumont & New Milford Boroughs",40.93535487664741,-74.04615558181644,29.87842637115489
-34,New Jersey,308,"Bergen County (Central)--Ridgewood Village, Glen Rock & Westwood Boroughs",41.00360782480738,-74.07783598854327,40.471826408137794
-34,New Jersey,400,Passaic County (Southeast)--Paterson City,40.91468749562927,-74.16241813076932,32.37527954751599
-34,New Jersey,501,Passaic County (South)--Passaic & Clifton (Southeast) Cities,40.8589523875789,-74.14292551979733,24.647737979646
-34,New Jersey,502,Passaic County (Central)--Hawthorne Borough & Clifton City (Northwest),40.915736161767086,-74.20543592042274,35.51336271906459
-34,New Jersey,503,"Passaic County (North)--Ringwood, Wanaque & Pompton Lakes Boroughs",41.07767602558357,-74.33953745429864,63.43796444792335
-34,New Jersey,601,Hudson County (Central)--Jersey City (North),40.736994890856536,-74.05536620680728,7.084923509735999
-34,New Jersey,602,Hudson County (Central)--Jersey City (South),40.70495001022133,-74.07792904529698,10.656899380829252
-34,New Jersey,701,"Hudson County (North)--West New York, Secaucus & Guttenberg Towns",40.78683099308,-74.0447836601814,9.465340858974631
-34,New Jersey,702,Hudson County (Northeast)--Union City & Hoboken Cities,40.75932942112303,-74.02935472706922,5.366107084573905
-34,New Jersey,703,"Hudson County (South & West)--Bayonne City, Kearney & Harrison Towns",40.72223929760069,-74.11957533366517,14.38574887238319
-34,New Jersey,800,Hunterdon County,40.56728569806437,-74.91221897398056,105.4342457609782
-34,New Jersey,901,Middlesex County (Southeast),40.35737457035104,-74.37658210936274,70.14523819839172
-34,New Jersey,902,Middlesex County (Southwest),40.37418386362849,-74.52025609321225,79.24509866524816
-34,New Jersey,903,Middlesex County (Northwest)--South Plainfield & Middlesex Boroughs,40.56712482610213,-74.43979172389726,55.72734517112244
-34,New Jersey,904,Middlesex County (North Central)--Metuchen Borough,40.52570012671801,-74.36143658531478,51.47775480140422
-34,New Jersey,905,Middlesex County (Northeast)--Carteret Borough,40.574500116240486,-74.27865563355176,39.81625656723376
-34,New Jersey,906,"Middlesex County (Central)--New Brunswick City, South River & Highland Park Boroughs",40.46545170658749,-74.42425966402077,62.43169370753781
-34,New Jersey,907,Middlesex County (East Central)--Perth Amboy City & Sayreville Borough,40.47505734843994,-74.30973288014975,52.1803360767357
-34,New Jersey,1001,Somerset County (North & West),40.61802153354799,-74.63808404608685,74.02440627494974
-34,New Jersey,1002,Somerset County (South),40.46512224258106,-74.60648528135403,79.16120488235069
-34,New Jersey,1003,Somerset County (Central)--North Plainfield & Somerville Boroughs,40.592097161391926,-74.5626856560442,66.9991534689658
-34,New Jersey,1101,Monmouth County (Southeast)--Tinton Falls Borough (South),40.18316552267944,-74.08017917620283,81.5550253265371
-34,New Jersey,1102,Monmouth County (Southwest)--Freehold Borough,40.21197086926269,-74.40950982812419,89.7502560040881
-34,New Jersey,1103,"Monmouth County (East Central)--Long Branch, Asbury Park Cities & Eatontown Borough",40.27644662033138,-74.02618007929703,67.46628461348868
-34,New Jersey,1104,Monmouth County (Northeast)--Red Bank & Tinton Falls (North) Boroughs,40.37780740267844,-74.0556448009043,53.03603930357632
-34,New Jersey,1105,Monmouth County (Northwest)--Keansburg Borough,40.38839416163786,-74.16556181535259,54.556735282095104
-34,New Jersey,1106,Monmouth County (Central),40.24998404880699,-74.2044869157248,75.05265330631384
-34,New Jersey,1201,Ocean County (South),39.74809419234363,-74.29464602148114,148.0420083192443
-34,New Jersey,1202,Ocean County (Central)--Beachwood Borough,39.929284277339896,-74.19992455626291,120.13900987983482
-34,New Jersey,1203,Ocean County (North Central),40.05553732016708,-74.1966759501805,102.1187810080472
-34,New Jersey,1204,Ocean County (Northwest),40.03935434310958,-74.38603207251617,110.94337399729686
-34,New Jersey,1205,Ocean County (Northeast)--Point Pleasant Borough,40.04591068423167,-74.10558928171312,101.73022409561476
-34,New Jersey,1301,Essex County (Southeast)--Newark City (North & East),40.72597505571334,-74.16110901902842,18.91914336173276
-34,New Jersey,1302,Essex County (Southeast)--Newark City (Southwest),40.726548697312126,-74.20705262117328,24.014797687112765
-34,New Jersey,1401,Essex County (Northeast),40.80832421480129,-74.1715652685124,22.632709372271965
-34,New Jersey,1402,Essex County (South Central)--East Orange City,40.747134384985706,-74.24210217487709,27.915627629314745
-34,New Jersey,1403,Essex County (Northwest),40.85260979789723,-74.26353436437316,34.741804309057365
-34,New Jersey,1404,Essex County (Southwest),40.77845897609708,-74.30567674072107,35.48867620188205
-34,New Jersey,1501,Morris County (North)--Dover Town & Kinnelon Borough,40.96728243762466,-74.48679250323816,64.73564974287814
-34,New Jersey,1502,Morris County (West),40.82092891436408,-74.69129651226763,78.8587389455561
-34,New Jersey,1503,Morris County (East)--Lincoln Park Borough,40.88647748713581,-74.38936313170005,49.456390529073474
-34,New Jersey,1504,"Morris County (South)--Morristown Town, Madison & Florham Park Boroughs",40.75972024004037,-74.46358106288798,52.63747584933957
-34,New Jersey,1600,Sussex County,41.13946478752987,-74.69022909673488,97.83796741052006
-34,New Jersey,1700,Warren County,40.85724909320296,-74.99701052369767,113.3076612114801
-34,New Jersey,1800,Union County (Northeast)--Elizabeth City,40.66643709617499,-74.19389587903939,24.745864613479377
-34,New Jersey,1901,Union County (North Central)--Roselle Park Borough,40.68938419146612,-74.26484256005548,31.181004269757864
-34,New Jersey,1902,Union County (Northwest)--Summit City & Westfield Town (North),40.68692629262477,-74.36810006762956,42.52589733322899
-34,New Jersey,1903,Union County (Southwest)--Plainfield City & Westfield Town (South),40.62804504662714,-74.37558619579752,45.601019580305845
-34,New Jersey,1904,"Union County (Southeast)--Linden, Rahway Cities & Roselle Borough (South)",40.62449456961386,-74.26559620605357,34.638366120935544
-34,New Jersey,2001,Burlington County (North)--Burlington City,40.064794389235466,-74.86496461719945,138.17024105096996
-34,New Jersey,2002,Burlington County (West Central),39.89778819677295,-74.87961272367488,157.36590794129626
-34,New Jersey,2003,Burlington County (South & East),39.85514019079988,-74.6112644905861,145.96095243361276
-34,New Jersey,2101,Camden County (North)--Camden & Gloucester Cities,39.94388002915196,-75.08468006795631,167.94057279921654
-34,New Jersey,2102,Camden County (Central)--Lindenwold & Collingswood Boroughs,39.84691187165706,-75.01286619369743,172.5633283880887
-34,New Jersey,2103,Camden County (South & West)--Bellmawr & Pine Hill Boroughs,39.73965540463794,-74.9140452352845,177.97370519078507
-34,New Jersey,2104,Camden County (East Central)--Haddonfield Borough,39.88340523982103,-74.98581981533911,166.6024067841823
-34,New Jersey,2201,Gloucester County (Northeast)--Woodbury City,39.80135995723512,-75.12701833976753,185.97468304619568
-34,New Jersey,2202,Gloucester County (South & West)--Glassboro Borough,39.69260614688506,-75.13971588348149,198.72165537351736
-34,New Jersey,2301,Mercer County (West Central)--Trenton City,40.25089563260805,-74.78802399757818,113.6253366448646
-34,New Jersey,2302,Mercer County (North)--Princeton Borough,40.31950934830667,-74.71025173326491,100.63572755516746
-34,New Jersey,2303,Mercer County (South),40.21040868936682,-74.64766115817592,106.10779597448308
-34,New Jersey,2400,Cumberland County (South)--Vineland & Millville Cities,39.34751943592768,-75.05997517294499,234.3867811660133
-34,New Jersey,2500,Salem & Cumberland (North) Counties--Bridgeton City,39.551515538999325,-75.32657018997688,227.73049496154536
-34,New Jersey,2600,Cape May & Atlantic (South Central) Counties--Ocean City & Somers Point City,39.15353430961775,-74.80424130894542,247.02070432671547
-36,New York,100,St. Lawrence County,44.49102092908841,-75.06289914518733,580.5698013569684
-36,New York,200,"Clinton, Franklin, Essex & Hamilton Counties",44.22482141937198,-74.093447449314,526.8680782183976
-36,New York,300,Warren & Washington Counties,43.44354951167656,-73.64881131380781,407.9663616734092
-36,New York,401,Herkimer (North & Central) & Oneida (Outer) Counties,43.41059573460454,-75.15248480888664,421.4239615242124
-36,New York,402,Oneida County (Central)--Greater Utica & Rome Cities,43.14106161896548,-75.38474469903744,391.89903408724575
-36,New York,403,"Otsego, Schoharie, Oneida (South) & Herkimer (South) Counties",42.66225113489638,-74.86670749699263,303.2199565153554
-36,New York,500,Jefferson & Lewis Counties,43.91295295668901,-75.68055179923053,514.03972736011
-36,New York,600,Oswego County,43.42610732424028,-76.14112798542392,469.11061283909
-36,New York,701,Onondaga County (Central)--Syracuse City,43.04091051745267,-76.14357434066594,419.71720290829006
-36,New York,702,Onondaga County (North),43.16584883399075,-76.25418497002632,442.3871645396304
-36,New York,703,Onondaga County (Central)--Syracuse City (Outer),43.03861966257641,-76.16871111754672,421.035104333784
-36,New York,704,Cayuga & Onondaga (South) Counties,42.91156691842042,-76.42741368634785,423.2264084766084
-36,New York,800,Wayne & Seneca Counties,43.00956216104812,-76.94964696571846,473.2186032052122
-36,New York,901,Monroe County (East),43.196778824148446,-77.47133384951428,534.5751882041271
-36,New York,902,Monroe County (Central)--Rochester City (East),43.165849571326646,-77.58579689824919,540.6915214237375
-36,New York,903,Monroe County (Central)--Rochester City (West),43.163288199066166,-77.64145260607799,545.0312660754765
-36,New York,904,Monroe County (Central)--Greece & Gates Towns,43.223179537478295,-77.70210090442586,556.1645539334893
-36,New York,905,Monroe County (North & West),43.17733349455867,-77.85395609167306,564.272089973385
-36,New York,906,Monroe County (South),43.03984225270715,-77.56438382729289,526.156049733938
-36,New York,1000,Genesee & Orleans Counties,43.112264714414366,-78.21033930378753,589.0102202679409
-36,New York,1101,Niagara County (Southwest)--Greater Niagara Falls & North Tonawanda Area,43.09160800434478,-78.92455240385593,652.4560518631521
-36,New York,1102,Niagara County (North & East),43.215986456095,-78.71654828475455,643.8486961273454
-36,New York,1201,Erie County (Northwest),43.005266408501626,-78.92399927436215,645.3953439876517
-36,New York,1202,Erie County (North Central),43.01169606870588,-78.75694981971661,630.178977931352
-36,New York,1203,Erie County (Northeast),42.93701062494823,-78.5831694712677,607.7612233947968
-36,New York,1204,Erie County (Central),42.87158697851875,-78.7580081423732,619.0380132888616
-36,New York,1205,Erie County (West Central)--Buffalo City (East),42.88672974064245,-78.8333291138075,627.4139782132817
-36,New York,1206,Erie County (West Central)--Buffalo City (West),42.93110116918963,-78.87600269376443,634.9559570002233
-36,New York,1207,Erie County (South),42.62885335314293,-78.76070444140484,601.1754092759122
-36,New York,1300,Livingston & Wyoming Counties,42.71568938199642,-77.99193770128745,534.2864080220494
-36,New York,1400,Ontario & Yates Counties,42.77361677795192,-77.22963357903036,471.53905842844
-36,New York,1500,Madison & Cortland Counties,42.7761235131323,-75.84194100214452,367.5368215714781
-36,New York,1600,Fulton & Montgomery Counties,43.02198890113338,-74.42977643394234,345.22708441489294
-36,New York,1700,Schenectady County--Schenectady City,42.818121227919605,-74.05857256779969,310.8643573443894
-36,New York,1801,Saratoga County (South & Central),42.941960343482044,-73.78474579311172,330.39255701471086
-36,New York,1802,Saratoga County (Outer),43.13996338949792,-73.87949610471473,359.96327726776485
-36,New York,1900,Rensselaer County--Troy City,42.711054665283726,-73.50971506984546,299.38822668673413
-36,New York,2001,Albany County (East Central)--Albany City,42.669745047993096,-73.79953825359513,289.07715634624486
-36,New York,2002,Albany County (Outside Albany City),42.59682860989122,-73.9819327867102,277.2535392378243
-36,New York,2100,Columbia & Greene Counties,42.26340320732746,-73.87916600986001,227.3099881411553
-36,New York,2201,Broome County (West Central)--Greater Binghamton City & Greater Johnson City Village,42.10067765459328,-75.99582505192168,301.3062330327092
-36,New York,2202,Broome (Outer West) & Tioga Counties,42.18522805803412,-76.14931494478923,322.49619244125427
-36,New York,2203,"Chenango, Delaware & Broome (East) Counties",42.29024684871486,-75.2508105212954,270.19892727205644
-36,New York,2300,Tompkins County,42.45201626178876,-76.47365861833534,376.2350189639173
-36,New York,2401,Chemung (South) & Steuben (East) Counties--Greater Elmira & Greater Corning Cities,42.10148085267009,-76.85264643328281,377.478328577896
-36,New York,2402,"Steuben (North & West), Schuyler & Chemung (North) Counties",42.29280946851121,-77.24368155122099,429.6384669148492
-36,New York,2500,Cattaraugus & Allegany Counties,42.25247721351281,-78.39299176377936,539.274944464234
-36,New York,2600,Chautauqua County,42.228115894844166,-79.3663401049432,638.0395835405328
-36,New York,2701,Sullivan & Ulster (West) Counties,41.80433087184428,-74.6156605060173,172.73939719154194
-36,New York,2702,Ulster County (East),41.82424851824148,-74.086691391984,161.48177646744912
-36,New York,2801,Dutchess County (North & East),41.80956277421744,-73.7134731468156,161.93188786929525
-36,New York,2802,Dutchess County (Southwest),41.57929290430282,-73.86584336880354,125.3982232778724
-36,New York,2901,Orange County (Northeast)--Greater Newburgh City,41.50597899433246,-74.11144230573406,114.48706138330442
-36,New York,2902,Orange County (Northwest),41.43998470057661,-74.46464486052072,116.47980859881682
-36,New York,2903,Orange County (Southeast),41.29780599683042,-74.22477827170133,86.78269796355666
-36,New York,3001,Rockland County (North)--New City & Congers,41.206653163082095,-74.01341936572615,69.35935402152491
-36,New York,3002,"Rockland County (South)--Orangetown, Clarkstown (South) & Ramapo (Southeast) Towns",41.07866978257518,-73.99754114879337,50.40291887123862
-36,New York,3003,"Rockland County (West)--Spring Valley, Suffern Villages & Monsey",41.15112300278395,-74.11344129833013,62.588500228484655
-36,New York,3101,Putnam County,41.42600334637813,-73.74898760791972,105.35221479402767
-36,New York,3102,Westchester County (Northwest),41.20126174159644,-73.8599575108634,70.07204332113162
-36,New York,3103,Westchester County (Northeast),41.24289727801801,-73.68725769532071,82.01272830254067
-36,New York,3104,Westchester County (Southeast),40.99764178195414,-73.71358899555973,49.35879032733735
-36,New York,3105,Westchester County (Central)--White Plains City,41.02416830772667,-73.80907373574084,46.98122381172052
-36,New York,3106,Westchester County (Southwest)--Yonkers City,40.946502631532425,-73.86369571663694,34.02876983334906
-36,New York,3107,Westchester County (South Central)--New Rochelle & Mount Vernon Cities,40.93005835365804,-73.80198751379822,35.455074304514035
-36,New York,3201,Nassau County (Northwest)--North Hempstead Town (North),40.80406030377578,-73.68039142485792,36.051899329204296
-36,New York,3202,Nassau County (Northeast)--Oyster Bay Town (North) & Glen Cove City,40.8452944999209,-73.55679851850168,50.98968213469343
-36,New York,3203,Nassau County (East Central)--Oyster Bay Town (Central),40.76870303826439,-73.49088361380596,55.953759207056265
-36,New York,3204,Nassau County (West Central)--North Hempstead Town (South),40.75545449744371,-73.63664303231135,39.62543213448229
-36,New York,3205,Nassau County (West Central)--Hempstead Town (Northwest),40.71464648050059,-73.6753058860882,35.36960500101419
-36,New York,3206,Nassau County (Central)--Hempstead Town (North Central)--Meadowbrook Corridor,40.69092876250982,-73.59634499453851,44.51951663754832
-36,New York,3207,Nassau County (Central)--Hempstead Town (Northeast),40.72176099051459,-73.53507726984891,50.87986272887737
-36,New York,3208,Nassau County (Southeast)--Oyster Bay Town (South),40.67897181957292,-73.45598695815276,60.23352858154611
-36,New York,3209,Nassau County (Central)--Hempstead Town (East Central),40.66997391022437,-73.5302507083117,52.29174388567813
-36,New York,3210,Nassau County (South Central)--Hempstead Town (Southeast),40.62713894361582,-73.5998638524344,46.48220513903872
-36,New York,3211,Nassau County (West Central)--Hempstead Town (West Central),40.67545485085001,-73.67984699916425,35.85687305077349
-36,New York,3212,Nassau County (Southwest)--Hempstead Town (Southwest) & Long Beach City,40.619510179079896,-73.70695694385323,36.05299921430938
-36,New York,3301,Suffolk County (Northwest)--Huntington Town (North),40.8892417053615,-73.39896979961314,69.70447413721304
-36,New York,3302,Suffolk County (Northwest)--Huntington Town (South),40.81430683671896,-73.36505520011075,70.69179331360746
-36,New York,3303,Suffolk County (Northwest)--Smithtown Town,40.86490398155866,-73.21737594364015,88.24385419037078
-36,New York,3304,Suffolk County (North Central)--Brookhaven Town (North),40.93185982008863,-73.00033285522103,114.04268518872674
-36,New York,3305,Suffolk County (East),40.961977768734,-72.44039840622715,175.85169955452773
-36,New York,3306,Suffolk County (South Central)--Brookhaven Town (South),40.82828778610123,-72.85586607836014,127.16112539597188
-36,New York,3307,Suffolk County (Central)--Brookhaven Town (Central),40.82148087358276,-73.00168900984161,110.91596455460008
-36,New York,3308,Suffolk County (Central)--Brookhaven Town (West Central),40.8591671125368,-73.07489983169481,103.64209617743016
-36,New York,3309,Suffolk County (Central)--Islip Town (East),40.777150251056106,-73.11168783459013,98.14716470445882
-36,New York,3310,Suffolk County (Central)--Islip Town (Northwest),40.77849659846256,-73.2283073712615,85.2069701053547
-36,New York,3311,Suffolk County (Southwest)--Islip Town (South),40.71564328111416,-73.22689970500716,85.19504250834727
-36,New York,3312,Suffolk County (Southwest)--Babylon Town (Southeast),40.68554080067797,-73.34701854426017,72.15755983404775
-36,New York,3313,Suffolk County (West Central)--Babylon Town (Northwest),40.72688227706781,-73.38111791548799,67.98711685446585
-36,New York,3701,"NYC-Bronx Community District 8--Riverdale, Fieldston & Kingsbridge",40.889462931052336,-73.90508205276844,24.477819858306955
-36,New York,3702,"NYC-Bronx Community District 12--Wakefield, Williamsbridge & Woodlawn",40.889939133149966,-73.86173052053722,26.808651264458884
-36,New York,3703,"NYC-Bronx Community District 10--Co-op City, Pelham Bay & Schuylerville",40.85036159255151,-73.81563411205717,25.77837987816153
-36,New York,3704,"NYC-Bronx Community District 11--Pelham Parkway, Morris Park & Laconia",40.85617314942473,-73.85256192215337,23.444215481703157
-36,New York,3705,"NYC-Bronx Community District 3 & 6--Belmont, Crotona Park East & East Tremont",40.84540151735062,-73.88763683493774,19.764258964306944
-36,New York,3706,"NYC-Bronx Community District 7--Bedford Park, Fordham North & Norwood",40.870291553123785,-73.89102742035759,22.64408291647096
-36,New York,3707,"NYC-Bronx Community District 5--Morris Heights, Fordham South & Mount Hope",40.85217065189957,-73.90976933071207,19.30007916365404
-36,New York,3708,"NYC-Bronx Community District 4--Concourse, Highbridge & Mount Eden",40.83252459015082,-73.92146693945958,16.138513362178898
-36,New York,3709,"NYC-Bronx Community District 9--Castle Hill, Clason Point & Parkchester",40.82522931961795,-73.85939234856906,19.67586131776173
-36,New York,3710,"NYC-Bronx Community District 1 & 2--Hunts Point, Longwood & Melrose",40.8093899284106,-73.8992372706162,14.858735030994122
-36,New York,3801,"NYC-Manhattan Community District 12--Washington Heights, Inwood & Marble Hill",40.85605061191608,-73.9307255398214,18.84460547710727
-36,New York,3802,"NYC-Manhattan Community District 9--Hamilton Heights, Manhattanville & West Harlem",40.81673298117204,-73.95577906267943,12.454002305302888
-36,New York,3803,NYC-Manhattan Community District 10--Central Harlem,40.8133751948876,-73.94445319014362,12.464994366189686
-36,New York,3804,NYC-Manhattan Community District 11--East Harlem,40.79473522161313,-73.93504362279829,10.63299293953063
-36,New York,3805,NYC-Manhattan Community District 8--Upper East Side,40.77149650041352,-73.95559750983334,6.5279508466276175
-36,New York,3806,NYC-Manhattan Community District 7--Upper West Side & West Side,40.78417518011423,-73.972295273163,7.332132291387447
-36,New York,3807,"NYC-Manhattan Community District 4 & 5--Chelsea, Clinton & Midtown Business District",40.754021163394015,-73.99213959424435,2.574065419163485
-36,New York,3808,"NYC-Manhattan Community District 6--Murray Hill, Gramercy & Stuyvesant Town",40.74534968048452,-73.97507813862136,2.2632710873752075
-36,New York,3809,NYC-Manhattan Community District 3--Chinatown & Lower East Side,40.71937326001598,-73.98614297991435,2.5921934762118823
-36,New York,3810,"NYC-Manhattan Community District 1 & 2--Battery Park City, Greenwich Village & Soho",40.71738149367676,-74.0072250939926,3.296787618992073
-36,New York,3901,"NYC-Staten Island Community District 3--Tottenville, Great Kills & Annadale",40.54481877192576,-74.18712301213415,35.551733822873224
-36,New York,3902,NYC-Staten Island Community District 2--New Springville & South Beach,40.59362515233032,-74.13373383671644,26.26002073687897
-36,New York,3903,"NYC-Staten Island Community District 1--Port Richmond, Stapleton & Mariner's Harbor",40.62700394379452,-74.11905870047356,21.43129312651369
-36,New York,4001,NYC-Brooklyn Community District 1--Greenpoint & Williamsburg,40.71862714619948,-73.94799462916596,5.531213721490509
-36,New York,4002,NYC-Brooklyn Community District 4--Bushwick,40.696941832013145,-73.92065427686092,9.816125000918944
-36,New York,4003,NYC-Brooklyn Community District 3--Bedford-Stuyvesant,40.68986972637063,-73.94106896736244,8.87169856595745
-36,New York,4004,NYC-Brooklyn Community District 2--Brooklyn Heights & Fort Greene,40.69266839213774,-73.97745351364149,6.631255703032834
-36,New York,4005,"NYC-Brooklyn Community District 6--Park Slope, Carroll Gardens & Red Hook",40.67194681286959,-73.98826415696227,9.487785832116217
-36,New York,4006,NYC-Brooklyn Community District 8--Crown Heights North & Prospect Heights,40.67498891759665,-73.94400148656518,10.479793633011235
-36,New York,4007,NYC-Brooklyn Community District 16--Brownsville & Ocean Hill,40.66820982164205,-73.90719250699647,13.75204416244486
-36,New York,4008,NYC-Brooklyn Community District 5--East New York & Starrett City,40.66497263339557,-73.87776345405693,16.469997730441303
-36,New York,4009,NYC-Brooklyn Community District 18--Canarsie & Flatlands,40.61578695520669,-73.8996817910622,20.468332589113125
-36,New York,4010,"NYC-Brooklyn Community District 17--East Flatbush, Farragut & Rugby",40.64767734141535,-73.93430215204461,14.523716822926756
-36,New York,4011,"NYC-Brooklyn Community District 9--Crown Heights South, Prospect Lefferts & Wingate",40.661359443322006,-73.947888292386,12.06468821741522
-36,New York,4012,NYC-Brooklyn Community District 7--Sunset Park & Windsor Terrace,40.65006389955497,-74.0022278869425,12.744973708215332
-36,New York,4013,NYC-Brooklyn Community District 10--Bay Ridge & Dyker Heights,40.62283429668226,-74.02408153041975,17.06999143753624
-36,New York,4014,"NYC-Brooklyn Community District 12--Borough Park, Kensington & Ocean Parkway",40.629931835349055,-73.98268349606903,15.676969426555
-36,New York,4015,NYC-Brooklyn Community District 14--Flatbush & Midwood,40.630402086373536,-73.95913910043768,15.992465966296006
-36,New York,4016,"NYC-Brooklyn Community District 15--Sheepshead Bay, Gerritsen Beach & Homecrest",40.5949536619332,-73.94869184433676,21.31902876099376
-36,New York,4017,NYC-Brooklyn Community District 11--Bensonhurst & Bath Beach,40.60687435940199,-73.99368629741335,19.02735347253999
-36,New York,4018,NYC-Brooklyn Community District 13--Brighton Beach & Coney Island,40.58147815089146,-73.98097997320696,22.78062648299374
-36,New York,4101,NYC-Queens Community District 1--Astoria & Long Island City,40.768673318660966,-73.91779929672745,9.49035400686253
-36,New York,4102,NYC-Queens Community District 3--Jackson Heights & North Corona,40.76167025204856,-73.87595550822185,13.407358678697191
-36,New York,4103,"NYC-Queens Community District 7--Flushing, Murray Hill & Whitestone",40.77149359372779,-73.81571280129565,20.25692025584165
-36,New York,4104,"NYC-Queens Community District 11--Bayside, Douglaston & Little Neck",40.75655193516547,-73.75923236186055,26.04799130116276
-36,New York,4105,"NYC-Queens Community District 13--Queens Village, Cambria Heights & Rosedale",40.68062079674432,-73.75502938463916,27.597277310502847
-36,New York,4106,"NYC-Queens Community District 8--Briarwood, Fresh Meadows & Hillcrest",40.72586008742693,-73.79620671295534,21.8210525597355
-36,New York,4107,NYC-Queens Community District 4--Elmhurst & South Corona,40.74062880288104,-73.85512443363689,15.218316320554637
-36,New York,4108,NYC-Queens Community District 6--Forest Hills & Rego Park,40.7226647811664,-73.85171604447332,15.717728942969131
-36,New York,4109,NYC-Queens Community District 2--Sunnyside & Woodside,40.74059605755061,-73.92008068151952,7.997969587783322
-36,New York,4110,"NYC-Queens Community District 5--Ridgewood, Glendale & Middle Village",40.710415219630605,-73.88948645684428,12.008973726199455
-36,New York,4111,NYC-Queens Community District 9--Richmond Hill & Woodhaven,40.696366878654935,-73.84160608332355,17.720433658832473
-36,New York,4112,"NYC-Queens Community District 12--Jamaica, Hollis & St. Albans",40.691636445243546,-73.77865780401928,24.61686120191476
-36,New York,4113,NYC-Queens Community District 10--Howard Beach & Ozone Park,40.66940486688416,-73.8329979894956,20.230883404372943
-36,New York,4114,"NYC-Queens Community District 14--Far Rockaway, Breezy Point & Broad Channel",40.5940726984794,-73.81955060902737,28.359891566090777
-42,Pennsylvania,101,"Erie City, Lawrence Park Township & Wesleyville Borough",42.11993815874384,-80.06728657537505,706.8331063027634
-42,Pennsylvania,102,Erie County (Outer),41.98795022167226,-80.03130973078406,697.4769608183426
-42,Pennsylvania,200,Crawford & Warren Counties,41.74503928931319,-79.71965882427854,654.8789677241889
-42,Pennsylvania,300,"Clearfield, McKean, Elk, Potter & Cameron Counties",41.47987423456836,-78.36261307335293,498.80660108361536
-42,Pennsylvania,400,"Bradford, Tioga & Sullivan Counties",41.72573202698122,-76.82052981505717,347.281546005594
-42,Pennsylvania,500,"Pike, Wayne & Susquehanna Counties",41.63259407843117,-75.42565068667679,207.48204414914437
-42,Pennsylvania,600,Monroe County,41.05806782125769,-75.33947631727055,157.32762556735491
-42,Pennsylvania,701,"Lackawanna County--Scranton City, Dunmore, Old Forge, Taylor & Moosic Boroughs",41.39707784193008,-75.66985497300982,210.7378720757839
-42,Pennsylvania,702,Lackawanna (Outside Greater Scranton City) & Wyoming Counties,41.47947629097439,-75.806791892998,229.9448176151126
-42,Pennsylvania,801,Luzerne County (East)--Kingston Borough,41.2106701417452,-75.81133530703025,214.28356358375856
-42,Pennsylvania,802,Luzerne County (South Central)--Wilkes-Barre & Hazleton Cities,41.06501929901177,-75.98334703973794,226.92433818104428
-42,Pennsylvania,803,Columbia & Luzerne (West) Counties--Bloomsburg Town & Berwick Borough,41.1184682617941,-76.28952589112801,261.90791759207895
-42,Pennsylvania,900,Lycoming & Clinton Counties,41.29762001174406,-77.30460118032435,377.965620112676
-42,Pennsylvania,1000,Northumberland & Montour Counties,40.890238845657045,-76.69828423628731,302.1401526527503
-42,Pennsylvania,1100,"Mifflin, Union, Snyder & Juniata Counties",40.70250455853821,-77.31323922122807,369.7830465847689
-42,Pennsylvania,1200,Centre County,40.91934161371953,-77.81995121377307,427.00428494407953
-42,Pennsylvania,1300,"Venango, Jefferson, Clarion & Forest Counties",41.29284461573189,-79.36819404593238,604.1077817081754
-42,Pennsylvania,1400,Mercer County,41.30218097662301,-80.25770225410294,702.5010457065082
-42,Pennsylvania,1501,Lawrence & Beaver (North) Counties--New Castle City,40.95643915550575,-80.331411990223,706.4725213135914
-42,Pennsylvania,1502,Beaver County (South),40.647461905164825,-80.3567726578524,708.674505653274
-42,Pennsylvania,1600,Butler County,40.91171994136494,-79.91299254763854,659.6563088938663
-42,Pennsylvania,1701,Pittsburgh City (North),40.45922151141908,-79.95838310490454,665.4482860485565
-42,Pennsylvania,1702,Pittsburgh City (South),40.415541851392966,-79.99803157090864,670.2717867034637
-42,Pennsylvania,1801,Allegheny County (West),40.46287584453944,-80.19983516645647,692.2471607200766
-42,Pennsylvania,1802,Allegheny County (North)--Franklin Park Borough & Allison Park,40.60868192384536,-79.95228243954921,663.7914501287792
-42,Pennsylvania,1803,Allegheny County (North Central),40.52071258244632,-79.99580187245057,669.1198715648684
-42,Pennsylvania,1804,"Allegheny County (East)--Monroeville Municipality, Plum & Wilkinsburg Boroughs",40.4640324632778,-79.79048568931638,646.75008797415
-42,Pennsylvania,1805,"Allegheny County (Southeast)--West Mifflin Borough, McKeesport City & Munhall Borough",40.30506737326069,-79.85988085932152,656.2884024866033
-42,Pennsylvania,1806,Allegheny County (South Central)--Baldwin & Whitehall Boroughs,40.37909297639521,-80.02514576238313,673.6759215767736
-42,Pennsylvania,1807,Allegheny County (South)--Bethel Park Municipality & Jefferson Hills Borough,40.323743964606486,-80.04110686695756,676.1222308101717
-42,Pennsylvania,1900,Indiana & Armstrong Counties,40.72314787456789,-79.25481897009618,585.8882783840515
-42,Pennsylvania,2001,Westmoreland County (Northwest)--Murrysville Municipality & New Kensington City,40.50060352626681,-79.64947614416587,630.7674988988379
-42,Pennsylvania,2002,Westmoreland County (Southwest)--Greensburg City,40.24463448148613,-79.68053282884924,637.3548559555765
-42,Pennsylvania,2003,Westmoreland County (East),40.2838635050913,-79.33950086690383,598.9895070715351
-42,Pennsylvania,2100,Cambria County,40.49529401034288,-78.7137032905605,526.8371456301367
-42,Pennsylvania,2200,Blair & Huntingdon Counties--Altoona City,40.44078780553204,-78.11800927474823,461.3768713222853
-42,Pennsylvania,2301,Cumberland (West) & Perry Counties--Carlisle Borough,40.28997971074196,-77.29925382099977,373.95260708654814
-42,Pennsylvania,2302,Cumberland County (East),40.22790483094565,-77.03174763601032,346.503729089134
-42,Pennsylvania,2401,Dauphin County (Central)--Harrisburg City & Colonial Park,40.29089091358713,-76.82877677789318,322.48915574307534
-42,Pennsylvania,2402,Dauphin County (Outer)--Hershey,40.434532696307,-76.77191675340524,312.6389114469219
-42,Pennsylvania,2500,Lebanon County,40.36723173892065,-76.45771200952116,279.792966981659
-42,Pennsylvania,2600,Schuylkill County,40.705800572389535,-76.21595483228404,247.6412538920772
-42,Pennsylvania,2701,Berks County (Northwest)--Wyomissing Borough,40.43090193107384,-76.12154011300551,241.2845588943276
-42,Pennsylvania,2702,Berks County (Southwest)--Reading City,40.25223282279342,-75.91557847368922,225.5900732083322
-42,Pennsylvania,2703,Berks County (East),40.44502634653806,-75.78893145330207,204.57623333762191
-42,Pennsylvania,2801,Carbon & Lehigh (North) Counties,40.83449448618306,-75.69976024796046,190.68267304889469
-42,Pennsylvania,2802,Lehigh County (South--Outside Allentown & Bethlehem Cities)--Emmaus Borough,40.549503121420585,-75.49369552377371,169.4345101747579
-42,Pennsylvania,2803,Allentown City,40.59610111050109,-75.47554188508157,166.4580888029776
-42,Pennsylvania,2901,Northampton (South) & Lehigh (East) Counties--Bethlehem (East) & Easton Cities,40.62956076248218,-75.30914885110676,147.49288337640002
-42,Pennsylvania,2902,Northampton County (North),40.7921923022012,-75.30839127362766,146.79901048553683
-42,Pennsylvania,3001,Bucks County (North),40.43863821985304,-75.24018458655078,145.6755222453823
-42,Pennsylvania,3002,Bucks County (Central),40.29888242119757,-75.04631792872182,133.7484293600495
-42,Pennsylvania,3003,Bucks County (Southeast)--Levittown,40.19337999087611,-74.8521834780203,124.4604505518465
-42,Pennsylvania,3004,Bucks County (Southwest),40.15578217159127,-74.9650403035982,137.67935351227945
-42,Pennsylvania,3101,Montgomery County (Northwest)--Pottstown Borough,40.26267377181054,-75.54311955219805,186.11067335492623
-42,Pennsylvania,3102,Montgomery County (Northeast)--Lansdale Borough,40.31713417000047,-75.40618024231051,169.01123977676383
-42,Pennsylvania,3103,Montgomery County (Southwest)--King of Prussia & Ardmore (East),40.08289884155901,-75.35197980099119,179.05338350516536
-42,Pennsylvania,3104,Montgomery County (Central)--Norristown Borough,40.16802113549343,-75.34176949774397,171.7625313557223
-42,Pennsylvania,3105,"Montgomery County (Southeast)--Willow Grove, Horsham & Montgomeryville",40.191851642571656,-75.17896193442634,154.3304679748853
-42,Pennsylvania,3106,Montgomery County (South Central),40.11189413158128,-75.17599736921531,160.3821922308342
-42,Pennsylvania,3201,Philadelphia City (Far Northeast),40.084386639242126,-75.01105295789978,148.20790894155536
-42,Pennsylvania,3202,Philadelphia City (Near Northeast-West),40.05473963857509,-75.07607905266342,156.5301235660403
-42,Pennsylvania,3203,Philadelphia City (Near Northeast-East),40.02035857798024,-75.06037953070334,158.4428019140812
-42,Pennsylvania,3204,Philadelphia City (North),40.04594603904275,-75.14271877548576,163.10776781780564
-42,Pennsylvania,3205,Philadelphia City (East),39.99319559472566,-75.11713794185412,165.7985776661292
-42,Pennsylvania,3206,Philadelphia City (Northwest),40.04815647040896,-75.20626626241919,168.52945882964062
-42,Pennsylvania,3207,Philadelphia City (Central),39.99333338656422,-75.16695669686023,170.01510571319832
-42,Pennsylvania,3208,Philadelphia City (West),39.97971921290353,-75.22097630495281,175.92094714645958
-42,Pennsylvania,3209,Philadelphia City (Center City),39.95205004021846,-75.15769092438917,173.13156834312022
-42,Pennsylvania,3210,Philadelphia City (Southwest),39.916216097972615,-75.223388423187,182.05959449014208
-42,Pennsylvania,3211,Philadelphia City (Southeast),39.91215751936232,-75.1658164294521,177.68175270748964
-42,Pennsylvania,3301,Delaware County (North)--Broomall & Ardmore (West),39.98813862871181,-75.36952682075571,188.35706076151249
-42,Pennsylvania,3302,"Delaware County (East)--Yeadon, Darby, Lansdowne Boroughs & Drexel Hill",39.93483004251151,-75.30304095079882,187.1250369285851
-42,Pennsylvania,3303,Delaware County (Southeast)--Chester City,39.871252443315065,-75.32366490953802,194.77348152468065
-42,Pennsylvania,3304,Delaware County (West),39.8897234269473,-75.4734707391171,206.1319031120256
-42,Pennsylvania,3401,Chester County (North)--Phoenixville Borough,40.14038305470547,-75.61369730319515,200.50693910538183
-42,Pennsylvania,3402,Chester County (East Central)--West Chester Borough,40.00069344043039,-75.569866714174,205.96425773090397
-42,Pennsylvania,3403,Chester County (West Central)--Coatesville City,40.03748585332756,-75.79146168925554,224.89024998990604
-42,Pennsylvania,3404,Chester County (South),39.84023798318062,-75.84980572638578,244.72802688154036
-42,Pennsylvania,3501,"Lancaster County--Lancaster City, East Lampeter, Lancaster & West Lampeter Townships",40.02445284179991,-76.25878381584688,272.97887492199544
-42,Pennsylvania,3502,Lancaster County (Northwest)--Elizabethtown Borough,40.15671359492136,-76.46171683483928,287.7414180372
-42,Pennsylvania,3503,Lancaster County (East)--Ephrata Borough,40.013432649974256,-76.11481084799075,258.8838930457224
-42,Pennsylvania,3504,Lancaster County (Southwest)--Columbia Borough,39.993154934546055,-76.37255786854769,286.4224747380482
-42,Pennsylvania,3601,York County (Central)--York City & Shiloh,39.95529020579792,-76.72012892897709,324.45165449526297
-42,Pennsylvania,3602,York County (North)--Weigelstown,40.052133700407424,-76.86564459918107,335.1976028255237
-42,Pennsylvania,3603,York County (South),39.81931477613598,-76.62906007795917,322.65246440237826
-42,Pennsylvania,3701,Adams & Franklin (Southeast) Counties,39.86229879960823,-77.24359652281613,383.8278195537874
-42,Pennsylvania,3702,Franklin County (Outside Washington Township & Waynesboro Borough),39.93772841007065,-77.73062063771268,432.2512480294138
-42,Pennsylvania,3800,"Somerset, Bedford & Fulton Counties",39.97799659480119,-78.65442007363652,530.7449777397638
-42,Pennsylvania,3900,Fayette County,39.919899598069215,-79.64736934702877,640.7765851724997
-42,Pennsylvania,4001,Washington County (North)--Washington City,40.26401262571567,-80.31342573398081,707.1198939958641
-42,Pennsylvania,4002,Washington (South) & Greene Counties,39.9365360970005,-80.19538843491992,700.4012298333174
-44,Rhode Island,101,Northwest Rhode Island--Providence County (West & Central)--Woonsocket City,41.87678837109291,-71.64244415170596,311.3675220745347
-44,Rhode Island,102,Northeast Rhode Island--Providence County--Pawtucket & Central Falls Cities,41.929305142778766,-71.4255420519503,335.97353298125387
-44,Rhode Island,103,Providence City,41.82348201713032,-71.42182014869347,328.28301686586343
-44,Rhode Island,104,Providence County (Southeast)--Cranston & East Providence Cities,41.77905084434613,-71.4437259170101,322.9361522457406
-44,Rhode Island,201,Central Rhode Island--Kent County--Warwick City,41.67196377008863,-71.59477951518718,300.5907486692505
-44,Rhode Island,300,Southeast Rhode Island--Newport & Bristol Counties--Newport City,41.58714770338898,-71.24487638644142,330.63738686839315
-44,Rhode Island,400,South Rhode Island--Washington County,41.46969543664363,-71.62266895476566,285.0997398530385
-50,Vermont,100,"Northwest Vermont--Chittenden, Franklin & Grand Isle Counties--Burlington City",44.68719782902798,-73.0307789164811,608.336279041782
-50,Vermont,200,"Northeast Vermont--Washington, Caledonia, Orleans, Lamoille & Essex Counties",44.58138360884278,-72.24521011415027,613.9037801442479
-50,Vermont,300,"Southeast Vermont--Windsor, Windham & Orange Counties",43.51133842602696,-72.56786782405747,445.7114092335303
-50,Vermont,400,"Southwest Vermont--Rutland, Bennington & Addison Counties",43.58052233056612,-73.08711771719626,438.9094233531405
+"PUMAKEY_HOME","PUMAKEY_WORK","DISTANCE_KM"
+"36_03801","09_00100","86.22803576143205"
+"36_03802","09_00100","92.33632962357548"
+"36_03803","09_00100","91.84409148324688"
+"36_03804","09_00100","93.20277252908271"
+"36_03805","09_00100","97.28617368964018"
+"36_03806","09_00100","97.1075997117218"
+"36_03807","09_00100","101.8889656016723"
+"36_03808","09_00100","101.62122344744405"
+"36_03809","09_00100","105.34856519400014"
+"36_03810","09_00100","107.0688082258783"
+"36_03801","09_00300","193.99150513983267"
+"36_03802","09_00300","200.11969498538764"
+"36_03803","09_00300","199.62798668799167"
+"36_03804","09_00300","200.95837067559833"
+"36_03805","09_00300","205.03157202709102"
+"36_03806","09_00300","204.88858179879492"
+"36_03807","09_00300","209.65713568976457"
+"36_03808","09_00300","209.3469544440963"
+"36_03809","09_00300","213.03157711663192"
+"36_03810","09_00300","214.79545280809467"
+"36_03801","09_00500","158.40101629011824"
+"36_03802","09_00500","164.81442467350186"
+"36_03803","09_00500","164.64821490883"
+"36_03804","09_00500","166.58355323394605"
+"36_03805","09_00500","170.67069604796097"
+"36_03806","09_00500","169.8986187190422"
+"36_03807","09_00500","174.8480462207134"
+"36_03808","09_00500","175.08076766224053"
+"36_03809","09_00500","179.0339903979177"
+"36_03810","09_00500","180.38518701079428"
+"36_03801","09_00700","179.41965017821093"
+"36_03802","09_00700","184.76820907493087"
+"36_03803","09_00700","183.9488911592339"
+"36_03804","09_00700","184.51272174623355"
+"36_03805","09_00700","188.28359429325621"
+"36_03806","09_00700","188.84758102912625"
+"36_03807","09_00700","193.09408901493396"
+"36_03808","09_00700","192.20393548056532"
+"36_03809","09_00700","195.35550730858736"
+"36_03810","09_00700","197.46234222855992"
+"36_03801","09_00900","138.13134864626332"
+"36_03802","09_00900","143.84213584416605"
+"36_03803","09_00900","143.14985857541228"
+"36_03804","09_00900","144.04398778227818"
+"36_03805","09_00900","147.98147309330042"
+"36_03806","09_00900","148.24544859612288"
+"36_03807","09_00900","152.7534189430609"
+"36_03808","09_00900","152.11191353466157"
+"36_03809","09_00900","155.53265023161384"
+"36_03810","09_00900","157.50024779003377"
+"36_03801","09_01100","224.06705786053033"
+"36_03802","09_01100","229.053588308975"
+"36_03803","09_01100","228.13398126872463"
+"36_03804","09_01100","228.41069399833884"
+"36_03805","09_01100","231.99833585205104"
+"36_03806","09_01100","232.81356550411013"
+"36_03807","09_01100","236.79065545462456"
+"36_03808","09_01100","235.69560836131697"
+"36_03809","09_01100","238.5804033483643"
+"36_03810","09_01100","240.78469290157236"
+"36_03801","09_01300","231.1810915460435"
+"36_03802","09_01300","237.04425142098162"
+"36_03803","09_01300","236.40924443446124"
+"36_03804","09_01300","237.4228890446839"
+"36_03805","09_01300","241.40176582923442"
+"36_03806","09_01300","241.56400032105606"
+"36_03807","09_01300","246.1487986227095"
+"36_03808","09_01300","245.58127591381628"
+"36_03809","09_01300","249.05935336679502"
+"36_03810","09_01300","250.9911103001775"
+"36_03801","09_01500","260.0877801702248"
+"36_03802","09_01500","265.6394057166025"
+"36_03803","09_01500","264.8811106640151"
+"36_03804","09_01500","265.5944358480379"
+"36_03805","09_01500","269.4397261381776"
+"36_03806","09_01500","269.87863299488356"
+"36_03807","09_01500","274.24255448738853"
+"36_03808","09_01500","273.44619659497386"
+"36_03809","09_01500","276.6954003263381"
+"36_03810","09_01500","278.7587693341783"
+"36_03801","23_00100","1031.5744581786776"
+"36_03802","23_00100","1037.8693468462"
+"36_03803","23_00100","1037.5028723931457"
+"36_03804","23_00100","1039.0621971245025"
+"36_03805","23_00100","1043.1680422815805"
+"36_03806","23_00100","1042.797281492555"
+"36_03807","23_00100","1047.6660233056614"
+"36_03808","23_00100","1047.5430331443702"
+"36_03809","23_00100","1051.3355557455975"
+"36_03810","23_00100","1052.9771921984866"
+"36_03801","23_00200","821.6986219017963"
+"36_03802","23_00200","828.071498038253"
+"36_03803","23_00200","827.8043590259632"
+"36_03804","23_00200","829.5476456865812"
+"36_03805","23_00200","833.6585527064194"
+"36_03806","23_00200","833.0923057665707"
+"36_03807","23_00200","838.0152525519416"
+"36_03808","23_00200","838.0642986819945"
+"36_03809","23_00200","841.9442599726909"
+"36_03810","23_00200","843.453327014074"
+"36_03801","23_00300","909.2903379280655"
+"36_03802","23_00300","915.5081452098048"
+"36_03803","23_00300","915.0728930331835"
+"36_03804","23_00300","916.4985649377353"
+"36_03805","23_00300","920.5870342601875"
+"36_03806","23_00300","920.3538480393288"
+"36_03807","23_00300","925.1682541210056"
+"36_03808","23_00300","924.9261292360094"
+"36_03809","23_00300","928.6459272672495"
+"36_03810","23_00300","930.3735222997657"
+"36_03801","23_00400","709.9924151525123"
+"36_03802","23_00400","716.197314826297"
+"36_03803","23_00400","715.7525383292037"
+"36_03804","23_00400","717.1606119571985"
+"36_03805","23_00400","721.2462084635825"
+"36_03806","23_00400","721.0305371987897"
+"36_03807","23_00400","725.8368517407864"
+"36_03808","23_00400","725.5803032345409"
+"36_03809","23_00400","729.291397080224"
+"36_03810","23_00400","731.0282763093295"
+"36_03801","23_00500","793.3370927443481"
+"36_03802","23_00500","799.3625766078228"
+"36_03803","23_00500","798.8017673135611"
+"36_03804","23_00500","799.9658070748577"
+"36_03805","23_00500","803.991076380854"
+"36_03806","23_00500","804.0175987712037"
+"36_03807","23_00500","808.6943970767223"
+"36_03808","23_00500","808.2307489915539"
+"36_03809","23_00500","811.7869516972877"
+"36_03810","23_00500","813.6632280304497"
+"36_03801","23_00600","649.5321591621689"
+"36_03802","23_00600","655.7674256162773"
+"36_03803","23_00600","655.3471772945596"
+"36_03804","23_00600","656.8048023418934"
+"36_03805","23_00600","660.898658497306"
+"36_03806","23_00600","660.6324795099906"
+"36_03807","23_00600","665.4607203678531"
+"36_03808","23_00600","665.2479951758531"
+"36_03809","23_00600","668.9879273425202"
+"36_03810","23_00600","670.6933996109833"
+"36_03801","23_00790","573.9218214737851"
+"36_03802","23_00790","580.0922852745696"
+"36_03803","23_00790","579.6227102564933"
+"36_03804","23_00790","580.9821067059827"
+"36_03805","23_00790","585.0585643263871"
+"36_03806","23_00790","584.8914999773878"
+"36_03807","23_00790","589.6746961973977"
+"36_03808","23_00790","589.3771719897891"
+"36_03809","23_00790","593.0612818800702"
+"36_03810","23_00790","594.8257139546339"
+"36_03801","25_00100","239.5149978979139"
+"36_03802","25_00100","245.90216207966637"
+"36_03803","25_00100","245.94277682152756"
+"36_03804","25_00100","248.18393697820272"
+"36_03805","25_00100","252.16276463755528"
+"36_03806","25_00100","251.0297878890649"
+"36_03807","25_00100","255.9494589501697"
+"36_03808","25_00100","256.5075161201122"
+"36_03809","25_00100","260.51590541715086"
+"36_03810","25_00100","261.5822183542306"
+"36_03801","25_00290","267.5425630097369"
+"36_03802","25_00290","273.9159654816788"
+"36_03803","25_00290","273.6531530446938"
+"36_03804","25_00290","275.4146572640217"
+"36_03805","25_00290","279.52441187834427"
+"36_03806","25_00290","278.93976467570434"
+"36_03807","25_00290","283.8651862584607"
+"36_03808","25_00290","283.9324208586251"
+"36_03809","25_00290","287.82397447572123"
+"36_03810","25_00290","289.3134921997605"
+"36_03801","25_00390","352.9102956033807"
+"36_03802","25_00390","358.6072701137695"
+"36_03803","25_00390","357.89959334369604"
+"36_03804","25_00390","358.7332790928744"
+"36_03805","25_00390","362.63394497187306"
+"36_03806","25_00390","362.9675066242301"
+"36_03807","25_00390","367.42225929344534"
+"36_03808","25_00390","366.7080122913666"
+"36_03809","25_00390","370.0393206868868"
+"36_03810","25_00390","372.0609495653491"
+"36_03801","25_03300","386.3310721234892"
+"36_03802","25_03300","391.92722549602075"
+"36_03803","25_03300","391.18155814008713"
+"36_03804","25_03300","391.9199072959979"
+"36_03805","25_03300","395.7740889955127"
+"36_03806","25_03300","396.19536408034395"
+"36_03807","25_03300","400.57535453522127"
+"36_03808","25_03300","399.7881915666254"
+"36_03809","25_03300","403.0413716789686"
+"36_03810","25_03300","405.1035844037048"
+"36_03801","25_04790","414.77247997881994"
+"36_03802","25_04790","419.0694596495193"
+"36_03803","25_04790","418.00292375643943"
+"36_03804","25_04790","417.79756504574294"
+"36_03805","25_04790","420.9970512785952"
+"36_03806","25_04790","422.2177084307072"
+"36_03807","25_04790","425.64972840698493"
+"36_03808","25_04790","424.2290044480852"
+"36_03809","25_04790","426.58417533921585"
+"36_03810","25_04790","428.9044547126584"
+"36_03801","33_00100","587.7166843286849"
+"36_03802","33_00100","594.1379112773194"
+"36_03803","33_00100","594.0135864117511"
+"36_03804","33_00100","595.9998054537152"
+"36_03805","33_00100","600.0774538243105"
+"36_03806","33_00100","599.2413009475799"
+"36_03807","33_00100","604.193499010562"
+"36_03808","33_00100","604.4837366152028"
+"36_03809","33_00100","608.449176260505"
+"36_03810","33_00100","609.7579949640597"
+"36_03801","33_00290","464.96866596671447"
+"36_03802","33_00290","471.26506118328535"
+"36_03803","33_00290","470.90207690106416"
+"36_03804","33_00290","472.47347721379305"
+"36_03805","33_00290","476.58066225929167"
+"36_03806","33_00290","476.19685057452796"
+"36_03807","33_00290","481.06919260151267"
+"36_03808","33_00290","480.95943794617654"
+"36_03809","33_00290","484.76197691513573"
+"36_03810","33_00290","486.3907706764442"
+"36_03801","33_00500","386.6523372775093"
+"36_03802","33_00500","393.0633157233318"
+"36_03803","33_00500","392.88406341251834"
+"36_03804","33_00500","394.784039252187"
+"36_03805","33_00500","398.87894566783876"
+"36_03806","33_00500","398.14162423950376"
+"36_03807","33_00500","403.08918911860854"
+"36_03808","33_00500","403.29079951327947"
+"36_03809","33_00500","407.23104378765464"
+"36_03810","33_00500","408.613586280475"
+"36_03801","34_00190","232.2074034149806"
+"36_03802","34_00190","225.79811666020285"
+"36_03803","34_00190","225.8178496539914"
+"36_03804","34_00190","223.6915954249749"
+"36_03805","34_00190","219.65522487820704"
+"36_03806","34_00190","220.6703083897958"
+"36_03807","34_00190","215.7331016147824"
+"36_03808","34_00190","215.27393144883538"
+"36_03809","34_00190","211.27765853658516"
+"36_03810","34_00190","210.1134837811749"
+"36_03801","34_00300","22.58228083687204"
+"36_03802","34_00300","25.280212067298713"
+"36_03803","34_00300","26.3877557767029"
+"36_03804","34_00300","29.250027758275504"
+"36_03805","34_00300","31.09931001463375"
+"36_03806","34_00300","28.621590118018904"
+"36_03807","34_00300","31.98198754418637"
+"36_03808","34_00300","33.79678323711002"
+"36_03809","34_00300","37.04919120619877"
+"36_03810","34_00300","36.75567667598085"
+"36_03801","34_00400","48.7717111983126"
+"36_03802","34_00400","49.93309528683534"
+"36_03803","34_00400","51.21963203908454"
+"36_03804","34_00400","53.7868683511572"
+"36_03805","34_00400","54.445948236158095"
+"36_03806","34_00400","51.813659695737584"
+"36_03807","34_00400","53.606206617409015"
+"36_03808","34_00400","55.80459627907737"
+"36_03809","34_00400","58.009378114785534"
+"36_03810","34_00400","56.86449842102792"
+"36_03801","34_00600","23.45879712059317"
+"36_03802","34_00600","17.48283965132348"
+"36_03803","34_00600","18.185958270230905"
+"36_03804","34_00600","17.677293421191933"
+"36_03805","34_00600","14.263047101934934"
+"36_03806","34_00600","13.27861628448137"
+"36_03807","34_00600","9.674676269090472"
+"36_03808","34_00600","11.41277303226729"
+"36_03809","34_00600","10.677268958226007"
+"36_03810","34_00600","8.589616662723994"
+"36_03801","34_00800","117.20083111519045"
+"36_03802","34_00800","112.59299622641647"
+"36_03803","34_00800","113.62796628454417"
+"36_03804","34_00800","113.78725136460638"
+"36_03805","34_00800","110.62787541811831"
+"36_03806","34_00800","109.36769187620084"
+"36_03807","34_00800","106.02518780150743"
+"36_03808","34_00800","107.54438404586928"
+"36_03809","34_00800","105.47731139378106"
+"36_03810","34_00800","103.1219030686427"
+"36_03801","34_00900","81.43825857727403"
+"36_03802","34_00900","75.26865069190652"
+"36_03803","34_00900","75.76740631784244"
+"36_03804","34_00900","74.54613553191699"
+"36_03805","34_00900","70.52470298229062"
+"36_03806","34_00900","70.52255460103666"
+"36_03807","34_00900","65.81814195882231"
+"36_03808","34_00900","66.31194631833644"
+"36_03809","34_00900","62.84942768696893"
+"36_03810","34_00900","60.89850993121302"
+"36_03801","34_01000","87.57874772423513"
+"36_03802","34_01000","82.39267085781312"
+"36_03803","34_01000","83.30113388708229"
+"36_03804","34_01000","83.08596000555004"
+"36_03805","34_01000","79.63190802342871"
+"36_03806","34_01000","78.66712066474467"
+"36_03807","34_01000","74.89471192853193"
+"36_03808","34_01000","76.20461964572273"
+"36_03809","34_01000","73.78182711337165"
+"36_03810","34_01000","71.461255826979"
+"36_03801","34_01100","93.46932191023959"
+"36_03802","34_01100","87.07548745393044"
+"36_03803","34_01100","87.05685543779234"
+"36_03804","34_01100","84.89739979955638"
+"36_03805","34_01100","80.87128273672353"
+"36_03806","34_01100","81.94740106463823"
+"36_03807","34_01100","77.02788918308758"
+"36_03808","34_01100","76.500440630072"
+"36_03809","34_01100","72.4982612522877"
+"36_03810","34_01100","71.39439859782802"
+"36_03801","34_01200","144.39864621244723"
+"36_03802","34_01200","138.06360914560145"
+"36_03803","34_01200","137.94466689803545"
+"36_03804","34_01200","135.62970910281376"
+"36_03805","34_01200","131.6907141704146"
+"36_03806","34_01200","132.9546678066954"
+"36_03807","34_01200","128.09035305660825"
+"36_03808","34_01200","127.3875629437308"
+"36_03809","34_01200","123.3789422158789"
+"36_03810","34_01200","122.45474792990424"
+"36_03801","34_01300","36.73287003513305"
+"36_03802","34_01300","32.83179662660404"
+"36_03803","34_01300","34.02543665756386"
+"36_03804","34_01300","34.88448375658138"
+"36_03805","34_01300","32.67603720999886"
+"36_03806","34_01300","30.730310406117383"
+"36_03807","34_01300","28.95540150536997"
+"36_03808","34_01300","31.060868657906834"
+"36_03809","34_01300","30.887417501440957"
+"36_03810","34_01300","28.784885891128837"
+"36_03801","34_01500","68.32453492711085"
+"36_03802","34_01500","65.86786431180596"
+"36_03803","34_01500","67.1731358233307"
+"36_03804","34_01500","68.5565806393328"
+"36_03805","34_01500","66.88882892626046"
+"36_03806","34_01500","64.7126146201149"
+"36_03807","34_01500","63.50086911743077"
+"36_03808","34_01500","65.66287080376163"
+"36_03809","34_01500","65.59347403638512"
+"36_03810","34_01500","63.47169182555922"
+"36_03801","34_01600","94.3170871802573"
+"36_03802","34_01600","94.5992203729483"
+"36_03803","34_01600","95.93754521356762"
+"36_03804","34_01600","98.23517756210093"
+"36_03805","34_01600","98.13066619022676"
+"36_03806","34_01600","95.55288302695456"
+"36_03807","34_01600","96.26036009614609"
+"36_03808","34_01600","98.54565261124033"
+"36_03809","34_01600","99.87238360713437"
+"36_03810","34_01600","98.22635029145361"
+"36_03801","34_01700","118.69843251044993"
+"36_03802","34_01700","116.06255678023801"
+"36_03803","34_01700","117.34783315867766"
+"36_03804","34_01700","118.57479021660352"
+"36_03805","34_01700","116.61369135929178"
+"36_03806","34_01700","114.57612378353578"
+"36_03807","34_01700","112.88720018389456"
+"36_03808","34_01700","114.94499290839953"
+"36_03809","34_01700","114.34061452148599"
+"36_03810","34_01700","112.0850181345545"
+"36_03801","34_01800","51.149050937035284"
+"36_03802","34_01800","45.69943218804644"
+"36_03803","34_01800","46.55191754680935"
+"36_03804","34_01800","46.23354653665006"
+"36_03805","34_01800","42.75561123651439"
+"36_03806","34_01800","41.82280585988568"
+"36_03807","34_01800","38.02315151966113"
+"36_03808","34_01800","39.37522772247646"
+"36_03809","34_01800","37.133971427434304"
+"36_03810","34_01800","34.7849879250396"
+"36_03801","34_02000","164.8258714477328"
+"36_03802","34_02000","158.4211275259194"
+"36_03803","34_02000","158.6305574445531"
+"36_03804","34_02000","156.81826822760053"
+"36_03805","34_02000","152.71022003824083"
+"36_03806","34_02000","153.35826281565895"
+"36_03807","34_02000","148.4176259994655"
+"36_03808","34_02000","148.30033942692285"
+"36_03809","34_02000","144.4037459302519"
+"36_03810","34_02000","142.93256276100772"
+"36_03801","34_02100","191.69045578068835"
+"36_03802","34_02100","185.389352318839"
+"36_03803","34_02100","185.75990163628566"
+"36_03804","34_02100","184.23861551525673"
+"36_03805","34_02100","180.13936389290254"
+"36_03806","34_02100","180.46653305444926"
+"36_03807","34_02100","175.6083643069628"
+"36_03808","34_02100","175.78170689151057"
+"36_03809","34_02100","172.03616062891354"
+"36_03810","34_02100","170.33840789490276"
+"36_03801","34_02200","214.06570155639062"
+"36_03802","34_02200","207.81629513107467"
+"36_03803","34_02200","208.23579172807916"
+"36_03804","34_02200","206.80780734842767"
+"36_03805","34_02200","202.7230066462172"
+"36_03806","34_02200","202.9520666779861"
+"36_03807","34_02200","198.13438277506776"
+"36_03808","34_02200","198.39383781243077"
+"36_03809","34_02200","194.70373300879118"
+"36_03810","34_02200","192.94538144425874"
+"36_03801","34_02300","120.03453764243389"
+"36_03802","34_02300","114.01693029636945"
+"36_03803","34_02300","114.60318959338366"
+"36_03804","34_02300","113.54921444133238"
+"36_03805","34_02300","109.5810347746847"
+"36_03806","34_02300","109.41955504808682"
+"36_03807","34_02300","104.82482800343004"
+"36_03808","34_02300","105.44137543296341"
+"36_03809","34_02300","102.07084135365317"
+"36_03810","34_02300","100.06415004625065"
+"36_03801","34_02490","248.04459709201547"
+"36_03802","34_02490","241.7077609440153"
+"36_03803","34_02490","242.03481566258634"
+"36_03804","34_02490","240.4248605012016"
+"36_03805","34_02490","236.3163407180887"
+"36_03806","34_02490","236.73925258428352"
+"36_03807","34_02490","231.8496486051246"
+"36_03808","34_02490","231.9348380776601"
+"36_03809","34_02490","228.1331056109118"
+"36_03810","34_02490","226.50568929331737"
+"36_03801","36_00100","564.8536787810762"
+"36_03802","36_00100","569.8846642209695"
+"36_03803","36_00100","570.6406335475087"
+"36_03804","36_00100","573.5445464655802"
+"36_03805","36_00100","576.3850099062033"
+"36_03806","36_00100","574.1685294566701"
+"36_03807","36_00100","578.041732052407"
+"36_03808","36_00100","579.6824019032886"
+"36_03809","36_00100","583.1603970727631"
+"36_03810","36_00100","582.9690775704615"
+"36_03801","36_00200","509.4898091847984"
+"36_03802","36_00200","515.1806940950066"
+"36_03803","36_00200","515.7133740337111"
+"36_03804","36_00200","518.4877887694945"
+"36_03805","36_00200","521.8300183529988"
+"36_03806","36_00200","519.9154561719004"
+"36_03807","36_00200","524.2940290376933"
+"36_03808","36_00200","525.6121338483056"
+"36_03809","36_00200","529.3977812125895"
+"36_03810","36_00200","529.6425183168179"
+"36_03801","36_00300","389.86300262332026"
+"36_03802","36_00300","395.86049986027064"
+"36_03803","36_00300","396.24584004686574"
+"36_03804","36_00300","398.8926549029041"
+"36_03805","36_00300","402.4860018457969"
+"36_03806","36_00300","400.79165037777375"
+"36_03807","36_00300","405.408426777617"
+"36_03808","36_00300","406.5028902740202"
+"36_03809","36_00300","410.41469828023503"
+"36_03810","36_00300","410.9272330613092"
+"36_03801","36_00400","353.47887746628794"
+"36_03802","36_00400","357.95283054326296"
+"36_03803","36_00400","358.8448634065154"
+"36_03804","36_00400","361.77897333980394"
+"36_03805","36_00400","364.2274743013841"
+"36_03806","36_00400","361.8541618300738"
+"36_03807","36_00400","365.3303401819982"
+"36_03808","36_00400","367.1475869439244"
+"36_03809","36_00400","370.36817472237465"
+"36_03810","36_00400","369.9084534234232"
+"36_03801","36_00500","500.3247748889954"
+"36_03802","36_00500","504.5905639698169"
+"36_03803","36_00500","505.52798892253355"
+"36_03804","36_00500","508.46147038252127"
+"36_03805","36_00500","510.7557171917769"
+"36_03806","36_00500","508.3308248544894"
+"36_03807","36_00500","511.62826620771784"
+"36_03808","36_00500","513.5127484678029"
+"36_03809","36_00500","516.6093591404718"
+"36_03810","36_00500","516.0299251857688"
+"36_03801","36_00600","457.6934269248759"
+"36_03802","36_00600","461.10428501451764"
+"36_03803","36_00600","462.1897303600667"
+"36_03804","36_00600","465.0704226202043"
+"36_03805","36_00600","466.7785889699357"
+"36_03806","36_00600","464.21952522514414"
+"36_03807","36_00600","466.87507159342596"
+"36_03808","36_00600","468.9435007950019"
+"36_03809","36_00600","471.5927821375298"
+"36_03810","36_00600","470.6558378885537"
+"36_03801","36_00700","415.79610417346106"
+"36_03802","36_00700","418.4055693217941"
+"36_03803","36_00700","419.59353217917226"
+"36_03804","36_00700","422.3682820585125"
+"36_03805","36_00700","423.54386991906284"
+"36_03806","36_00700","420.924273619005"
+"36_03807","36_00700","422.9809994263116"
+"36_03808","36_00700","425.16305761480385"
+"36_03809","36_00700","427.3809536225065"
+"36_03810","36_00700","426.1605603888967"
+"36_03801","36_00800","465.63257600674683"
+"36_03802","36_00800","467.6637315920626"
+"36_03803","36_00800","468.90900178290144"
+"36_03804","36_00800","471.5787413817347"
+"36_03805","36_00800","472.36809939231654"
+"36_03806","36_00800","469.7358075594034"
+"36_03807","36_00800","471.34128992308973"
+"36_03808","36_00800","473.57999994839577"
+"36_03809","36_00800","475.46021570046594"
+"36_03810","36_00800","474.04630896745886"
+"36_03801","36_00900","541.7025567979441"
+"36_03802","36_00900","543.2449352687707"
+"36_03803","36_00900","544.5286656143264"
+"36_03804","36_00900","547.0929577069337"
+"36_03805","36_00900","547.5564158308264"
+"36_03806","36_00900","544.9325753335964"
+"36_03807","36_00900","546.1502417549032"
+"36_03808","36_00900","548.4197831829923"
+"36_03809","36_00900","550.0027991482176"
+"36_03810","36_00900","548.4366375500806"
+"36_03801","36_01000","584.0947423672972"
+"36_03802","36_01000","585.201320369576"
+"36_03803","36_01000","586.511897442428"
+"36_03804","36_01000","588.971014329222"
+"36_03805","36_01000","589.149116781411"
+"36_03806","36_01000","586.5464486070636"
+"36_03807","36_01000","587.4234347614776"
+"36_03808","36_01000","589.7072667544943"
+"36_03809","36_01000","591.0268740214175"
+"36_03810","36_01000","589.3392021635376"
+"36_03801","36_01100","640.5610365286336"
+"36_03802","36_01100","641.4359690605163"
+"36_03803","36_01100","642.7582114367648"
+"36_03804","36_01100","645.1566132955825"
+"36_03805","36_01100","645.1816940065207"
+"36_03806","36_01100","642.595656565823"
+"36_03807","36_01100","643.2870403275148"
+"36_03808","36_01100","645.5738797769247"
+"36_03809","36_01100","646.7472055267438"
+"36_03810","36_01100","644.9965412933561"
+"36_03801","36_01200","605.4546870992036"
+"36_03802","36_01200","605.7477014597173"
+"36_03803","36_01200","607.0909287579973"
+"36_03804","36_01200","609.3271431827403"
+"36_03805","36_01200","608.983225043812"
+"36_03806","36_01200","606.4517190535759"
+"36_03807","36_01200","606.7004471925085"
+"36_03808","36_01200","608.9812802777677"
+"36_03809","36_01200","609.8092550844627"
+"36_03810","36_01200","607.9245029926911"
+"36_03801","36_01300","530.5512773181279"
+"36_03802","36_01300","531.2407743157631"
+"36_03803","36_01300","532.5706836384782"
+"36_03804","36_01300","534.9212750463505"
+"36_03805","36_01300","534.8363941680042"
+"36_03806","36_01300","532.2641312889297"
+"36_03807","36_01300","532.8299332848707"
+"36_03808","36_01300","535.1169392541752"
+"36_03809","36_01300","536.1978004892444"
+"36_03810","36_01300","534.4107575496444"
+"36_03801","36_01400","465.73663674947863"
+"36_03802","36_01400","467.13771675449203"
+"36_03803","36_01400","468.43047832553975"
+"36_03804","36_01400","470.96360382902236"
+"36_03805","36_01400","471.34301427854933"
+"36_03806","36_01400","468.72391984591775"
+"36_03807","36_01400","469.8483800607319"
+"36_03808","36_01400","472.1227979069054"
+"36_03809","36_01400","473.6390424023925"
+"36_03810","36_01400","472.04254108709864"
+"36_03801","36_01500","357.1184168641748"
+"36_03802","36_01500","360.1480957307152"
+"36_03803","36_01500","361.285159083902"
+"36_03804","36_01500","364.12227826723324"
+"36_03805","36_01500","365.5845385814606"
+"36_03806","36_01500","362.9914517592847"
+"36_03807","36_01500","365.3820603534806"
+"36_03808","36_01500","367.5060083438939"
+"36_03809","36_01500","369.9704353570283"
+"36_03810","36_01500","368.90870606712167"
+"36_03801","36_01600","328.9126417942585"
+"36_03802","36_01600","334.1642471121128"
+"36_03803","36_01600","334.8530552479077"
+"36_03804","36_01600","337.7279179816142"
+"36_03805","36_01600","340.7371866507348"
+"36_03806","36_01600","338.6114356694781"
+"36_03807","36_01600","342.6728586135759"
+"36_03808","36_01600","344.2083406382371"
+"36_03809","36_01600","347.80633996896773"
+"36_03810","36_01600","347.7707241943949"
+"36_03801","36_01700","293.54180543424116"
+"36_03802","36_01700","299.2005016560353"
+"36_03803","36_01700","299.74481759153053"
+"36_03804","36_01700","302.52943711141836"
+"36_03805","36_01700","305.8481343435104"
+"36_03806","36_01700","303.92120020548"
+"36_03807","36_01700","308.2903384814919"
+"36_03808","36_01700","309.6153825584156"
+"36_03809","36_01700","313.3956381941004"
+"36_03810","36_01700","313.63653300475835"
+"36_03801","36_01800","337.28041158110705"
+"36_03802","36_01800","343.13583398127497"
+"36_03803","36_01800","343.5942906250293"
+"36_03804","36_01800","346.3090869407601"
+"36_03805","36_01800","349.78398102091717"
+"36_03806","36_01800","347.98043780140966"
+"36_03807","36_01800","352.4925746958593"
+"36_03808","36_01800","353.69420010112555"
+"36_03809","36_01800","357.552708420289"
+"36_03810","36_01800","357.9419598734709"
+"36_03801","36_01900","280.8993651013933"
+"36_03802","36_01900","287.0741521702318"
+"36_03803","36_01900","287.34558161261504"
+"36_03804","36_01900","289.87511808940025"
+"36_03805","36_01900","293.62436452823096"
+"36_03806","36_01900","292.1094613998073"
+"36_03807","36_01900","296.8649602567377"
+"36_03808","36_01900","297.7819651201821"
+"36_03809","36_01900","301.7546181236867"
+"36_03810","36_01900","302.46351533397126"
+"36_03801","36_02000","260.2226776690405"
+"36_03802","36_02000","265.9713595282745"
+"36_03803","36_02000","266.4775824577952"
+"36_03804","36_02000","269.2332838138868"
+"36_03805","36_02000","272.6229637890898"
+"36_03806","36_02000","270.751834302688"
+"36_03807","36_02000","275.19179107524593"
+"36_03808","36_02000","276.4582839989145"
+"36_03809","36_02000","280.2777956464842"
+"36_03810","36_02000","280.59186288465736"
+"36_03801","36_02100","209.46435450552843"
+"36_03802","36_02100","215.3396619678307"
+"36_03803","36_02100","215.78702289828968"
+"36_03804","36_02100","218.4944171554735"
+"36_03805","36_02100","221.9854604208156"
+"36_03806","36_02100","220.20268799982247"
+"36_03807","36_02100","224.74287599274496"
+"36_03808","36_02100","225.917383180273"
+"36_03809","36_02100","229.78979241197334"
+"36_03810","36_02100","230.2153375089678"
+"36_03801","36_02200","271.71465932248253"
+"36_03802","36_02200","274.44260393919296"
+"36_03803","36_02200","275.6150225192887"
+"36_03804","36_02200","278.4113987594544"
+"36_03805","36_02200","279.6900365995583"
+"36_03806","36_02200","277.07899298780757"
+"36_03807","36_02200","279.2780569257914"
+"36_03808","36_02200","281.4356274728469"
+"36_03809","36_02200","283.76980738827643"
+"36_03810","36_02200","282.6279863516711"
+"36_03801","36_02300","369.7048649124125"
+"36_03802","36_02300","371.34255664668586"
+"36_03803","36_02300","372.6184467809847"
+"36_03804","36_02300","375.20808986743305"
+"36_03805","36_02300","375.75435795898125"
+"36_03806","36_02300","373.1265195544366"
+"36_03807","36_02300","374.45877795627734"
+"36_03808","36_02300","376.72029001342173"
+"36_03809","36_02300","378.40220127634774"
+"36_03810","36_02300","376.8885508510447"
+"36_03801","36_02400","418.39126973346475"
+"36_03802","36_02400","418.9218147054278"
+"36_03803","36_02400","420.25728772722744"
+"36_03804","36_02400","422.5672431895365"
+"36_03805","36_02400","422.39496463445835"
+"36_03806","36_02400","419.83466811371045"
+"36_03807","36_02400","420.3049189832447"
+"36_03808","36_02400","422.5911609024987"
+"36_03809","36_02400","423.6059789865957"
+"36_03810","36_02400","421.79478649258"
+"36_03801","36_02500","538.4280266983037"
+"36_03802","36_02500","538.1252828597105"
+"36_03803","36_02500","539.4785461978486"
+"36_03804","36_02500","541.5316428454861"
+"36_03805","36_02500","540.8175694014046"
+"36_03806","36_02500","538.361824631782"
+"36_03807","36_02500","538.1626343429192"
+"36_03808","36_02500","540.4191128307336"
+"36_03809","36_02500","540.8947458138344"
+"36_03810","36_02500","538.8909370253489"
+"36_03801","36_02600","638.5781697635783"
+"36_03802","36_02600","637.8161161525491"
+"36_03803","36_02600","639.1692118729856"
+"36_03804","36_02600","641.0644342403798"
+"36_03805","36_02600","640.0545837558905"
+"36_03806","36_02600","637.6758791854043"
+"36_03807","36_02600","637.1066689980295"
+"36_03808","36_02600","639.3285161060878"
+"36_03809","36_02600","639.5001017021618"
+"36_03810","36_02600","637.4056620527347"
+"36_03801","36_02700","154.54270844258912"
+"36_03802","36_02700","158.77540329223376"
+"36_03803","36_02700","159.71129856562845"
+"36_03804","36_02700","162.64475080180281"
+"36_03805","36_02700","164.96235407599096"
+"36_03806","36_02700","162.55424032122647"
+"36_03807","36_02700","165.9456959893582"
+"36_03808","36_02700","167.79010725272025"
+"36_03809","36_02700","170.9672778000038"
+"36_03810","36_02700","170.4835497526015"
+"36_03801","36_02800","136.34552425802426"
+"36_03802","36_02800","142.50210040047102"
+"36_03803","36_02800","142.78555976806416"
+"36_03804","36_02800","145.33551127391038"
+"36_03805","36_02800","149.0619786444276"
+"36_03806","36_02800","147.53251827007816"
+"36_03807","36_02800","152.2867554916057"
+"36_03808","36_02800","153.20794376163695"
+"36_03809","36_02800","157.17815475318972"
+"36_03810","36_02800","157.886876804838"
+"36_03801","36_02900","90.85515119208003"
+"36_03802","36_02900","94.8521395207055"
+"36_03803","36_02900","95.82474409600235"
+"36_03804","36_02900","98.75274909457691"
+"36_03805","36_02900","100.96219828624446"
+"36_03806","36_02900","98.5304935293349"
+"36_03807","36_02900","101.87252723564963"
+"36_03808","36_02900","103.72892119673185"
+"36_03809","36_02900","106.88940537524101"
+"36_03810","36_02900","106.40966532142791"
+"36_03801","36_03000","45.42948058889753"
+"36_03802","36_03000","50.477061481081236"
+"36_03803","36_03000","51.19817998148786"
+"36_03804","36_03000","54.09481051462972"
+"36_03805","36_03000","57.04000874602809"
+"36_03806","36_03000","54.9305583924855"
+"36_03807","36_03000","59.10721972848385"
+"36_03808","36_03000","60.55902249519933"
+"36_03809","36_03000","64.2355353038612"
+"36_03810","36_03000","64.36926666386037"
+"36_03801","36_03100","62.67895122958378"
+"36_03802","36_03100","69.05951192436467"
+"36_03803","36_03100","69.11695051846976"
+"36_03804","36_03100","71.41164668248435"
+"36_03805","36_03100","75.35537872590662"
+"36_03806","36_03100","74.18659236550182"
+"36_03807","36_03100","79.10549965110387"
+"36_03808","36_03100","79.68217451178826"
+"36_03809","36_03100","83.69191225338574"
+"36_03810","36_03100","84.73822727150821"
+"36_03801","36_03200","41.60812097590596"
+"36_03802","36_03200","42.31459997082333"
+"36_03803","36_03200","40.969005812470456"
+"36_03804","36_03200","39.325225122647524"
+"36_03805","36_03200","41.06912799363741"
+"36_03806","36_03200","43.146936661884915"
+"36_03807","36_03200","44.94083958196258"
+"36_03808","36_03200","43.00904817269075"
+"36_03809","36_03200","44.36077886840551"
+"36_03810","36_03200","46.72304053214058"
+"36_03801","36_03300","119.11572564422063"
+"36_03802","36_03300","122.18857092296224"
+"36_03803","36_03300","120.96852305691928"
+"36_03804","36_03300","120.17008961018507"
+"36_03805","36_03300","122.83235051725215"
+"36_03806","36_03300","124.45762619944554"
+"36_03807","36_03300","127.20890900069368"
+"36_03808","36_03300","125.51987288537589"
+"36_03809","36_03300","127.37680088040423"
+"36_03810","36_03300","129.7377401074088"
+"36_03801","36_03700","7.1467622567301134"
+"36_03802","36_03700","11.23493169139943"
+"36_03803","36_03700","10.404941219190523"
+"36_03804","36_03700","11.418659979180292"
+"36_03805","36_03700","15.50123862487257"
+"36_03806","36_03700","15.477101073728527"
+"36_03807","36_03700","20.13051939378167"
+"36_03808","36_03700","19.858725171698236"
+"36_03809","36_03700","23.675982177011456"
+"36_03810","36_03700","25.298663841005585"
+"09_00100","36_03800","108.97506204555799"
+"09_00101","36_03800","91.9881032436378"
+"09_00102","36_03800","60.751829326978395"
+"09_00103","36_03800","80.01743688254193"
+"09_00104","36_03800","105.44615284492232"
+"09_00105","36_03800","116.3148232934833"
+"09_00300","36_03800","223.13106706753086"
+"09_00301","36_03800","214.81202414008123"
+"09_00302","36_03800","204.6128426270609"
+"09_00303","36_03800","199.55257480705592"
+"09_00304","36_03800","176.74273966781635"
+"09_00305","36_03800","182.66018051017537"
+"09_00306","36_03800","204.0884123008348"
+"09_00500","36_03800","170.5049102535242"
+"09_00700","36_03800","188.8956439360493"
+"09_00900","36_03800","145.48084843867505"
+"09_00901","36_03800","155.1610575221557"
+"09_00902","36_03800","163.3871670203745"
+"09_00903","36_03800","140.5563754674186"
+"09_00904","36_03800","125.96515695027705"
+"09_00905","36_03800","140.2575643893245"
+"09_00906","36_03800","160.6221394974045"
+"09_01100","36_03800","238.1851271592968"
+"09_01101","36_03800","220.63677539442102"
+"09_01300","36_03800","241.78898105350208"
+"09_01500","36_03800","269.9835407077704"
+"23_00100","36_03800","1043.2477697312377"
+"23_00200","36_03800","833.6212229348096"
+"23_00300","36_03800","920.7478878817118"
+"23_00400","36_03800","721.4170942576253"
+"23_00500","36_03800","804.3029187992386"
+"23_00600","36_03800","661.039752105552"
+"23_00700","36_03800","642.7599390514196"
+"23_00800","36_03800","556.2462377870964"
+"23_00900","36_03800","588.5833594648312"
+"23_01000","36_03800","596.6854815099211"
+"25_00100","36_03800","251.77447776884273"
+"25_00200","36_03800","301.2189898479669"
+"25_00300","36_03800","327.2161505479812"
+"25_00301","36_03800","356.6559957335934"
+"25_00302","36_03800","313.3539753835016"
+"25_00303","36_03800","340.5900741018113"
+"25_00304","36_03800","308.3519055971629"
+"25_00400","36_03800","349.0787564132473"
+"25_00501","36_03800","395.5204984293811"
+"25_00502","36_03800","404.7048121384335"
+"25_00503","36_03800","391.48793057805005"
+"25_00504","36_03800","361.6059839426332"
+"25_00505","36_03800","395.8216492660823"
+"25_00506","36_03800","396.4230367212967"
+"25_00507","36_03800","401.88374968604717"
+"25_00508","36_03800","403.5347341750887"
+"25_00701","36_03800","432.4378729594549"
+"25_00702","36_03800","438.5834357643415"
+"25_00703","36_03800","450.50086430533077"
+"25_00704","36_03800","420.1518842592667"
+"25_01000","36_03800","421.2748091271867"
+"25_01300","36_03800","410.19789582813297"
+"25_01400","36_03800","374.44992099450417"
+"25_01600","36_03800","260.80844109363176"
+"25_01900","36_03800","254.462340701094"
+"25_01901","36_03800","243.19170483786286"
+"25_01902","36_03800","259.9124607961132"
+"25_02400","36_03800","350.8727502164979"
+"25_02800","36_03800","409.17337236033075"
+"25_03301","36_03800","392.9302425469623"
+"25_03302","36_03800","403.03831176746456"
+"25_03303","36_03800","396.788742300372"
+"25_03304","36_03800","393.20261917119416"
+"25_03305","36_03800","386.7954661529937"
+"25_03306","36_03800","408.8150974020273"
+"25_03400","36_03800","385.8752003002098"
+"25_03500","36_03800","372.32096149044435"
+"25_03601","36_03800","353.40484722819605"
+"25_03602","36_03800","379.9105270418217"
+"25_03603","36_03800","391.3795669769549"
+"25_03900","36_03800","401.1897912705047"
+"25_04000","36_03800","378.94410667710645"
+"25_04200","36_03800","340.87162481259213"
+"25_04301","36_03800","364.4658929200575"
+"25_04302","36_03800","347.40560215995134"
+"25_04303","36_03800","358.4512128086384"
+"25_04500","36_03800","363.79589612495977"
+"25_04700","36_03800","408.75172197287407"
+"25_04800","36_03800","430.39827712980656"
+"25_04901","36_03800","379.3664539629488"
+"25_04902","36_03800","388.1087493574335"
+"25_04903","36_03800","407.0037038748192"
+"33_00100","36_03800","599.8755281035279"
+"33_00200","36_03800","530.1791686339916"
+"33_00300","36_03800","499.3454952219428"
+"33_00400","36_03800","451.4568915450008"
+"33_00500","36_03800","398.73691916554134"
+"33_00600","36_03800","399.03053247048473"
+"33_00700","36_03800","436.9659569446546"
+"33_00800","36_03800","433.3428292399943"
+"33_00900","36_03800","410.3277339766272"
+"33_01000","36_03800","459.73844012951923"
+"34_00101","36_03800","198.16889874014456"
+"34_00102","36_03800","206.42609513169378"
+"34_00301","36_03800","17.492615483989145"
+"34_00302","36_03800","14.86995672822486"
+"34_00303","36_03800","10.045883384191464"
+"34_00304","36_03800","24.6994957878964"
+"34_00305","36_03800","29.3195432087621"
+"34_00306","36_03800","46.49218184734209"
+"34_00307","36_03800","24.857868274766453"
+"34_00308","36_03800","35.5183411299713"
+"34_00400","36_03800","29.67828305601577"
+"34_00501","36_03800","22.95408635499391"
+"34_00502","36_03800","33.43953438524245"
+"34_00503","36_03800","60.63082237891102"
+"34_00601","36_03800","11.476610628224378"
+"34_00602","36_03800","16.290976739010972"
+"34_00701","36_03800","8.754740215427548"
+"34_00702","36_03800","7.417695561042754"
+"34_00703","36_03800","18.805491246699138"
+"34_00800","36_03800","109.6327848576872"
+"34_00901","36_03800","76.58933461835974"
+"34_00902","36_03800","85.34290411181077"
+"34_00903","36_03800","60.998829256348785"
+"34_00904","36_03800","57.362419334219105"
+"34_00905","36_03800","45.710598176792956"
+"34_00906","36_03800","68.42859301694435"
+"34_00907","36_03800","58.488053775688485"
+"34_01001","36_03800","78.26958053805244"
+"34_01002","36_03800","84.63387459160187"
+"34_01003","36_03800","71.65978333638755"
+"34_01101","36_03800","87.87242095939945"
+"34_01102","36_03800","96.31053760650312"
+"34_01103","36_03800","73.65928021060571"
+"34_01104","36_03800","59.38785748696511"
+"34_01105","36_03800","61.146817682400055"
+"34_01106","36_03800","81.62078108904261"
+"34_01201","36_03800","154.5213052288464"
+"34_01202","36_03800","126.57171232834618"
+"34_01203","36_03800","108.59485642839155"
+"34_01204","36_03800","117.54452373789377"
+"34_01205","36_03800","108.05065411713663"
+"34_01301","36_03800","22.876853362544008"
+"34_01302","36_03800","27.732934633893603"
+"34_01401","36_03800","23.2073936475895"
+"34_01402","36_03800","30.930682004511795"
+"34_01403","36_03800","34.80081724832904"
+"34_01404","36_03800","37.68681091899315"
+"34_01501","36_03800","64.24877525047854"
+"34_01502","36_03800","80.86734017412016"
+"34_01503","36_03800","49.66706822012529"
+"34_01504","36_03800","55.32530070527448"
+"34_01600","36_03800","96.58171728913582"
+"34_01700","36_03800","115.24563873930502"
+"34_01800","36_03800","30.04664931990392"
+"34_01901","36_03800","35.573350332252744"
+"34_01902","36_03800","46.57175727915871"
+"34_01903","36_03800","50.48086251859567"
+"34_01904","36_03800","40.09866432327418"
+"34_02001","36_03800","144.38398840242556"
+"34_02002","36_03800","163.768814584927"
+"34_02003","36_03800","152.55026326266838"
+"34_02101","36_03800","174.08280056795843"
+"34_02102","36_03800","178.89714073538994"
+"34_02103","36_03800","184.46469508489685"
+"34_02104","36_03800","172.92299772535094"
+"34_02201","36_03800","192.2539434735847"
+"34_02202","36_03800","205.09080531903706"
+"34_02301","36_03800","119.55676135035154"
+"34_02302","36_03800","106.50321189387743"
+"34_02303","36_03800","112.37151834124452"
+"34_02400","36_03800","240.95417624940444"
+"34_02500","36_03800","234.07696401638555"
+"34_02600","36_03800","253.61428789794067"
+"36_00100","36_03800","575.2652022462084"
+"36_00200","36_03800","520.9279349285772"
+"36_00300","36_03800","401.73415191872704"
+"36_00401","36_03800","416.56821005079826"
+"36_00402","36_03800","387.49521795638987"
+"36_00403","36_03800","298.4437536245629"
+"36_00500","36_03800","509.4709976041913"
+"36_00600","36_03800","465.370462821341"
+"36_00701","36_03800","416.3846267680043"
+"36_00702","36_03800","439.0427566698158"
+"36_00703","36_03800","417.7363988948609"
+"36_00704","36_03800","420.4089604926471"
+"36_00800","36_03800","470.8482894023089"
+"36_00901","36_03800","532.4545494456772"
+"36_00902","36_03800","538.7123879599283"
+"36_00903","36_03800","543.103502611749"
+"36_00904","36_03800","554.2097242152473"
+"36_00905","36_03800","562.5025145044212"
+"36_00906","36_03800","524.3297743180657"
+"36_01000","36_03800","587.6015882087494"
+"36_01101","36_03800","651.547866966884"
+"36_01102","36_03800","642.6523401050717"
+"36_01201","36_03800","644.5995521778104"
+"36_01202","36_03800","629.2737110801183"
+"36_01203","36_03800","606.8477528727306"
+"36_01204","36_03800","618.3240150353096"
+"36_01205","36_03800","626.7240934521271"
+"36_01206","36_03800","634.2308948991239"
+"36_01207","36_03800","600.809634826524"
+"36_01300","36_03800","533.2877120054354"
+"36_01400","36_03800","469.8007939876829"
+"36_01500","36_03800","364.1382866443898"
+"36_01600","36_03800","339.6843882709097"
+"36_01700","36_03800","304.9369639252637"
+"36_01801","36_03800","324.2162711862383"
+"36_01802","36_03800","353.87266180791966"
+"36_01900","36_03800","292.99109852851427"
+"36_02001","36_03800","282.89201739533667"
+"36_02002","36_03800","271.24814910053396"
+"36_02100","36_03800","221.17301989959125"
+"36_02201","36_03800","299.3608383279409"
+"36_02202","36_03800","320.58738605099694"
+"36_02203","36_03800","266.5381408129929"
+"36_02300","36_03800","374.2195847967663"
+"36_02401","36_03800","376.61932139478125"
+"36_02402","36_03800","428.7590167241327"
+"36_02500","36_03800","539.2920640438443"
+"36_02600","36_03800","638.5532234215548"
+"36_02701","36_03800","168.41088866905798"
+"36_02702","36_03800","155.69699185672275"
+"36_02801","36_03800","155.51854805950052"
+"36_02802","36_03800","119.13931593606964"
+"36_02901","36_03800","108.89197948812716"
+"36_02902","36_03800","112.47581139526275"
+"36_02903","36_03800","81.98617668682712"
+"36_03001","36_03800","63.51837427691955"
+"36_03002","36_03800","44.51938250883444"
+"36_03003","36_03800","57.4529058297978"
+"36_03101","36_03800","98.84900165506988"
+"36_03102","36_03800","63.63969136048777"
+"36_03103","36_03800","75.41024505314226"
+"36_03104","36_03800","42.99361265089413"
+"36_03105","36_03800","40.38027787122844"
+"36_03106","36_03800","27.426366630970417"
+"36_03107","36_03800","29.031370599454917"
+"36_03201","36_03800","32.15995123555075"
+"36_03202","36_03800","46.7573870848155"
+"36_03203","36_03800","53.031246268340176"
+"36_03204","36_03800","36.930999317896514"
+"36_03205","36_03800","33.76887993684284"
+"36_03206","36_03800","43.18612277851572"
+"36_03207","36_03800","48.785931169826405"
+"36_03208","36_03800","58.70843284758665"
+"36_03209","36_03800","51.12885890921512"
+"36_03210","36_03800","46.457260567236716"
+"36_03211","36_03800","35.31227620682149"
+"36_03212","36_03800","37.097377356672865"
+"36_03301","36_03800","65.3535788865995"
+"36_03302","36_03800","67.24251334511003"
+"36_03303","36_03800","84.44960041362492"
+"36_03304","36_03800","109.99871712438093"
+"36_03305","36_03800","172.11391983445327"
+"36_03306","36_03800","123.93195173916556"
+"36_03307","36_03800","107.6681739481523"
+"36_03308","36_03800","100.04875473125607"
+"36_03309","36_03800","95.2277607252508"
+"36_03310","36_03800","82.24588792142909"
+"36_03311","36_03800","82.90038640694141"
+"36_03312","36_03800","70.3371534108072"
+"36_03313","36_03800","65.65578120349085"
+"36_03701","36_03800","17.87761826121658"
+"36_03702","36_03800","20.294956210284763"
+"36_03703","36_03800","19.990564272976023"
+"36_03704","36_03800","17.232460690371347"
+"36_03705","36_03800","13.355838973504525"
+"36_03706","36_03800","16.07956420584374"
+"36_03707","36_03800","12.718657782925135"
+"36_03708","36_03800","9.570292301514984"
+"36_03709","36_03800","13.904772912009424"
+"36_03710","36_03800","8.903160872622461"
+"36_03801","36_03800","12.259720612409737"
+"36_03802","36_03800","5.921881124438451"
+"36_03803","36_03800","5.8629877717574415"
+"36_03804","36_03800","4.389141465323455"
+"36_03805","36_03800","1.5489968616766214"
+"36_03806","36_03800","1.151278475264518"
+"36_03807","36_03800","4.421017012787988"
+"36_03808","36_03800","4.791150700070458"
+"36_03809","36_03800","8.783598816931491"
+"36_03810","36_03800","9.882568826289674"
+"36_03901","36_03800","42.0062423257281"
+"36_03902","36_03800","32.73685252901897"
+"36_03903","36_03800","27.814633623272833"
+"36_04001","36_03800","8.893425162297584"
+"36_04002","36_03800","12.901877054057204"
+"36_04003","36_03800","13.180601993197104"
+"36_04004","36_03800","12.499308143147212"
+"36_04005","36_03800","15.665821252394036"
+"36_04006","36_03800","15.260528592488502"
+"36_04007","36_03800","17.3694703020237"
+"36_04008","36_03800","19.277276234886134"
+"36_04009","36_03800","24.887158037108005"
+"36_04010","36_03800","19.39705700999074"
+"36_04011","36_03800","17.176144834597906"
+"36_04012","36_03800","19.103216472360756"
+"36_04013","36_03800","23.562705671808967"
+"36_04014","36_03800","21.72196413603924"
+"36_04015","36_03800","21.602241914290524"
+"36_04016","36_03800","26.860674614087635"
+"36_04017","36_03800","25.20824986671692"
+"36_04018","36_03800","28.798735921234382"
+"36_04101","36_03800","5.639300980438701"
+"36_04102","36_03800","10.409519769546764"
+"36_04103","36_03800","16.878317609660105"
+"36_04104","36_03800","23.345198372403367"
+"36_04105","36_03800","27.560129628505905"
+"36_04106","36_03800","20.47878240176557"
+"36_04107","36_03800","13.58884306302372"
+"36_04108","36_03800","15.157190555930235"
+"36_04109","36_03800","7.528196806360186"
+"36_04110","36_03800","13.097618790495623"
+"36_04111","36_03800","18.356273134729484"
+"36_04112","36_03800","24.472627052660247"
+"36_04113","36_03800","21.783972936093793"
+"36_04114","36_03800","31.529707815256664"
+"42_00101","36_03800","707.7366824391563"
+"42_00102","36_03800","698.5471619398811"
+"42_00200","36_03800","656.2064282807524"
+"42_00300","36_03800","500.19574515734894"
+"42_00400","36_03800","347.29319410297296"
+"42_00500","36_03800","205.84839736301564"
+"42_00600","36_03800","158.2653666655477"
+"42_00701","36_03800","210.48703170608954"
+"42_00702","36_03800","229.57654579397416"
+"42_00801","36_03800","215.01149657862217"
+"42_00802","36_03800","228.40903532433296"
+"42_00803","36_03800","263.3695685380064"
+"42_00900","36_03800","379.37566960091317"
+"42_01000","36_03800","304.4833634856889"
+"42_01100","36_03800","372.6492572932562"
+"42_01200","36_03800","429.4021666335605"
+"42_01300","36_03800","606.0365514928156"
+"42_01400","36_03800","704.5334021141117"
+"42_01501","36_03800","708.9583590502715"
+"42_01502","36_03800","711.5472916373974"
+"42_01600","36_03800","662.1851294521429"
+"42_01701","36_03800","668.5731192524553"
+"42_01702","36_03800","673.4491774591961"
+"42_01801","36_03800","695.3527586768088"
+"42_01802","36_03800","666.7240120949679"
+"42_01803","36_03800","672.164151430293"
+"42_01804","36_03800","649.8795917683809"
+"42_01805","36_03800","659.6163531874612"
+"42_01806","36_03800","676.8968314725122"
+"42_01807","36_03800","679.4102034324425"
+"42_01900","36_03800","588.6764366438777"
+"42_02001","36_03800","633.8573868412318"
+"42_02002","36_03800","640.7785320947859"
+"42_02003","36_03800","602.401632361935"
+"42_02100","36_03800","530.0037181648944"
+"42_02200","36_03800","464.7020140804694"
+"42_02301","36_03800","377.7375461912531"
+"42_02302","36_03800","350.5077857103777"
+"42_02401","36_03800","326.42919172244467"
+"42_02402","36_03800","316.24835703088496"
+"42_02500","36_03800","283.6913084305236"
+"42_02600","36_03800","250.55853549595403"
+"42_02701","36_03800","245.14927711527733"
+"42_02702","36_03800","230.12790064244024"
+"42_02703","36_03800","208.57570743839153"
+"42_02801","36_03800","193.05790628819236"
+"42_02802","36_03800","173.19562032562473"
+"42_02803","36_03800","170.0112900410449"
+"42_02901","36_03800","150.9613277568824"
+"42_02902","36_03800","149.3240148536789"
+"42_03001","36_03800","150.1683429843807"
+"42_03002","36_03800","139.08642087881555"
+"42_03003","36_03800","130.43531653145536"
+"42_03004","36_03800","143.57289938306937"
+"42_03101","36_03800","190.9446211004843"
+"42_03102","36_03800","173.80592209046844"
+"42_03103","36_03800","184.6104215893465"
+"42_03104","36_03800","177.11048224236774"
+"42_03105","36_03800","159.82083587403105"
+"42_03106","36_03800","166.08847336222382"
+"42_03201","36_03800","154.19498001677462"
+"42_03202","36_03800","162.49197283959998"
+"42_03203","36_03800","164.4888572886634"
+"42_03204","36_03800","169.00321678220422"
+"42_03205","36_03800","171.82450487767713"
+"42_03206","36_03800","174.34158895515566"
+"42_03207","36_03800","175.98224558429396"
+"42_03208","36_03800","181.85017470860296"
+"42_03209","36_03800","179.1802659883845"
+"42_03210","36_03800","188.09379987445993"
+"42_03211","36_03800","183.78350482350547"
+"42_03301","36_03800","194.10184779142813"
+"42_03302","36_03800","193.04258217245214"
+"42_03303","36_03800","200.7730065804543"
+"42_03304","36_03800","211.94942068639557"
+"42_03401","36_03800","205.62804163497452"
+"42_03402","36_03800","211.46772850630222"
+"42_03403","36_03800","230.0950668544359"
+"42_03404","36_03800","250.27906244498834"
+"42_03501","36_03800","277.8365869945356"
+"42_03502","36_03800","292.16989343912246"
+"42_03503","36_03800","263.8713220221139"
+"42_03504","36_03800","291.2688423010591"
+"42_03601","36_03800","329.1603097272094"
+"42_03602","36_03800","339.63897888648376"
+"42_03603","36_03800","327.6641462832267"
+"42_03701","36_03800","388.4361365878571"
+"42_03702","36_03800","436.53783588751367"
+"42_03800","36_03800","534.7028402961953"
+"42_03900","36_03800","644.6069150307471"
+"42_04001","36_03800","710.4549413822706"
+"42_04002","36_03800","704.123786514235"
+"44_00101","36_03800","305.82817944661707"
+"44_00102","36_03800","330.50381805341766"
+"44_00103","36_03800","322.97390597805855"
+"44_00104","36_03800","317.68418646090265"
+"44_00201","36_03800","295.4222018186916"
+"44_00300","36_03800","325.85133843439064"
+"44_00400","36_03800","280.3212368581289"
+"50_00100","36_03800","601.94250911873"
+"50_00200","36_03800","607.3382377350944"
+"50_00300","36_03800","439.12261402229166"
+"50_00400","36_03800","432.4352890467459"
+"36_03801","36_03900","47.36338690012374"
+"36_03802","36_03900","40.97818104393587"
+"36_03803","36_03900","41.25710247634197"
+"36_03804","36_03900","39.65178981842611"
+"36_03805","36_03900","35.55037242557963"
+"36_03806","36_03900","35.96389830771206"
+"36_03807","36_03900","31.060376459333234"
+"36_03808","36_03900","31.195863266906542"
+"36_03809","36_03900","27.503210316213455"
+"36_03810","36_03900","25.75021349929575"
+"36_03801","36_04000","31.14700333834097"
+"36_03802","36_04000","25.334623413981355"
+"36_03803","36_04000","24.820149214544777"
+"36_03804","36_04000","22.114100923058785"
+"36_03805","36_04000","18.68953221290228"
+"36_03806","36_04000","20.726750229903043"
+"36_03807","36_04000","16.879398130734703"
+"36_03808","36_04000","15.158865066460931"
+"36_03809","36_04000","11.859012131298698"
+"36_03810","36_04000","12.671165624609095"
+"36_03801","36_04100","25.178186810258236"
+"36_03802","36_04100","22.19398276002262"
+"36_03803","36_04100","20.973625283969465"
+"36_03804","36_04100","18.26910818936295"
+"36_03805","36_04100","17.964853349442976"
+"36_03806","36_04100","20.533148210287735"
+"36_03807","36_04100","20.547636989900706"
+"36_03808","36_04100","18.341823738962006"
+"36_03809","36_04100","18.79352873245794"
+"36_03810","36_04100","21.10944955937706"
+"36_03801","42_00100","699.8274388765337"
+"36_03802","42_00100","698.5423782478524"
+"36_03803","42_00100","699.8865576598523"
+"36_03804","42_00100","701.5897351532965"
+"36_03805","42_00100","700.2517898004984"
+"36_03806","42_00100","697.9756393823304"
+"36_03807","42_00100","696.9950545511433"
+"36_03808","42_00100","699.1632540830731"
+"36_03809","42_00100","698.995760609733"
+"36_03810","42_00100","696.8155752980331"
+"36_03801","42_00200","657.7474727787773"
+"36_03802","42_00200","656.203174578678"
+"36_03803","42_00200","657.5395067921102"
+"36_03804","42_00200","659.143594890862"
+"36_03805","42_00200","657.6489985435387"
+"36_03806","42_00200","655.4283590769179"
+"36_03807","42_00200","654.251955642288"
+"36_03808","42_00200","656.3891326710627"
+"36_03809","42_00200","656.0617830408024"
+"36_03810","42_00200","653.8468650043494"
+"36_03801","42_00300","501.906129329682"
+"36_03802","42_00300","500.2663922726182"
+"36_03803","42_00300","501.5995785551541"
+"36_03804","42_00300","503.17122810572306"
+"36_03805","42_00300","501.6320660312435"
+"36_03806","42_00300","499.4272998520679"
+"36_03807","42_00300","498.2011287159551"
+"36_03808","42_00300","500.3308830294432"
+"36_03809","42_00300","499.9721825218808"
+"36_03810","42_00300","497.7517457925826"
+"36_03801","42_00400","346.5372948267209"
+"36_03802","42_00400","346.15862195619343"
+"36_03803","42_00400","347.5122365899224"
+"36_03804","42_00400","349.54962687802"
+"36_03805","42_00400","348.81804657625696"
+"36_03806","42_00400","346.3649308516629"
+"36_03807","42_00400","346.1622154641549"
+"36_03808","42_00400","348.419443596848"
+"36_03809","42_00400","348.9119221047464"
+"36_03810","42_00400","346.9168486173213"
+"36_03801","42_00500","202.26638409480773"
+"36_03802","42_00500","203.35902084564435"
+"36_03803","42_00500","204.66704207432687"
+"36_03804","42_00500","207.14097082860962"
+"36_03805","42_00500","207.39377775347282"
+"36_03806","42_00500","204.7823628129933"
+"36_03807","42_00500","205.81158572516486"
+"36_03808","42_00500","208.08900403942818"
+"36_03809","42_00500","209.5734391175343"
+"36_03810","42_00500","207.97475740386557"
+"36_03801","42_00600","159.6236044092795"
+"36_03802","42_00600","158.08459836659512"
+"36_03803","42_00600","159.42430053259295"
+"36_03804","42_00600","161.08299760384483"
+"36_03805","42_00600","159.73201696268677"
+"36_03806","42_00600","157.4521559446708"
+"36_03807","42_00600","156.5279004993626"
+"36_03808","42_00600","158.71378456763006"
+"36_03809","42_00600","158.69309815743657"
+"36_03810","42_00600","156.5603889294904"
+"36_03801","42_00700","227.20896255130717"
+"36_03802","42_00700","227.07637644695924"
+"36_03803","42_00700","228.4272151541565"
+"36_03804","42_00700","230.55613333336618"
+"36_03805","42_00700","230.02246947760435"
+"36_03806","42_00700","227.52359565758212"
+"36_03807","42_00700","227.59143657447427"
+"36_03808","42_00700","229.86631557582615"
+"36_03809","42_00700","230.6013060571808"
+"36_03810","42_00700","228.69331959555876"
+"36_03801","42_00800","248.72112467670678"
+"36_03802","42_00800","246.99334124099497"
+"36_03803","42_00800","248.32467729677055"
+"36_03804","42_00800","249.88427884533033"
+"36_03805","42_00800","248.35090359734738"
+"36_03806","42_00800","246.14048881674285"
+"36_03807","42_00800","244.95010269216127"
+"36_03808","42_00800","247.09071102988898"
+"36_03809","42_00800","246.8045434743176"
+"36_03810","42_00800","244.6035896748422"
+"36_03801","42_00900","381.1967847470241"
+"36_03802","42_00900","379.4888077548756"
+"36_03803","42_00900","380.8198156384774"
+"36_03804","42_00900","382.37139272012837"
+"36_03805","42_00900","380.8090149213225"
+"36_03806","42_00900","378.6120121556639"
+"36_03807","42_00900","377.36511419614493"
+"36_03808","42_00900","379.4927648063002"
+"36_03809","42_00900","379.130184970819"
+"36_03810","42_00900","376.9102066243445"
+"36_03801","42_01000","308.12433422271647"
+"36_03802","42_01000","305.4858885057283"
+"36_03803","42_01000","306.76370653177855"
+"36_03804","42_01000","307.9233911929989"
+"36_03805","42_01000","305.8138795899222"
+"36_03806","42_01000","303.85672227097683"
+"36_03807","42_01000","301.9123483960577"
+"36_03808","42_01000","303.8941619191129"
+"36_03809","42_01000","302.9580996032787"
+"36_03810","42_01000","300.64399332641517"
+"36_03801","42_01100","377.2156790014962"
+"36_03802","42_01100","374.12758572327584"
+"36_03803","42_01100","375.3653476101056"
+"36_03804","42_01100","376.3031367423612"
+"36_03805","42_01100","373.9083743190435"
+"36_03806","42_01100","372.1057161420473"
+"36_03807","42_01100","369.78056280983094"
+"36_03808","42_01100","371.65567940834194"
+"36_03809","42_01100","370.3789442530563"
+"36_03810","42_01100","368.03029400495416"
+"36_03801","42_01200","433.0469156299989"
+"36_03802","42_01200","430.42278510365907"
+"36_03803","42_01200","431.7003645129173"
+"36_03804","42_01200","432.8546285155513"
+"36_03805","42_01200","430.7276934511734"
+"36_03806","42_01200","428.78078001224725"
+"36_03807","42_01200","426.80376224790894"
+"36_03808","42_01200","428.7741480128672"
+"36_03809","42_01200","427.7900614852965"
+"36_03810","42_01200","425.4691220891074"
+"36_03801","42_01300","608.7230990323925"
+"36_03802","42_01300","606.5929845807229"
+"36_03803","42_01300","607.902606972584"
+"36_03804","42_01300","609.2676712663151"
+"36_03805","42_01300","607.4196837790055"
+"36_03806","42_01300","605.3419412315077"
+"36_03807","42_01300","603.717686856787"
+"36_03808","42_01300","605.7690698649432"
+"36_03809","42_01300","605.0700802441463"
+"36_03810","42_01300","602.7874971870943"
+"36_03801","42_01400","707.3905877727015"
+"36_03802","42_01400","705.1782515421346"
+"36_03803","42_01400","706.4828019521448"
+"36_03804","42_01400","707.8096419851644"
+"36_03805","42_01400","705.9053729756318"
+"36_03806","42_01400","703.8531947868614"
+"36_03807","42_01400","702.1540299920729"
+"36_03808","42_01400","704.1882264469981"
+"36_03809","42_01400","703.4211548077385"
+"36_03810","42_01400","701.1278961998739"
+"36_03801","42_01500","713.7717959482366"
+"36_03802","42_01500","710.9651395537938"
+"36_03803","42_01500","712.2265908887434"
+"36_03804","42_01500","713.2839409300625"
+"36_03805","42_01500","711.0230791805488"
+"36_03806","42_01500","709.1475011768582"
+"36_03807","42_01500","706.9868514246903"
+"36_03808","42_01500","708.9049261129029"
+"36_03809","42_01500","707.7440352975434"
+"36_03810","42_01500","705.4040038022763"
+"36_03801","42_01600","665.9933604894372"
+"36_03802","42_01600","663.3013499195279"
+"36_03803","42_01600","664.5724351201391"
+"36_03804","42_01600","665.6849128034124"
+"36_03805","42_01600","663.4950898920453"
+"36_03806","42_01600","661.5817033723121"
+"36_03807","42_01600","659.514583858969"
+"36_03808","42_01600","661.4586083252756"
+"36_03809","42_01600","660.3802010865056"
+"36_03810","42_01600","658.048155856122"
+"36_03801","42_01700","675.9279742172207"
+"36_03802","42_01700","672.6852931383773"
+"36_03803","42_01700","673.9052321565467"
+"36_03804","42_01700","674.7500038175025"
+"36_03805","42_01700","672.2334907729096"
+"36_03806","42_01700","670.5047618922268"
+"36_03807","42_01700","668.0088696244786"
+"36_03808","42_01700","669.8260900892733"
+"36_03809","42_01700","668.3760584806007"
+"36_03810","42_01700","666.0166985863688"
+"36_03801","42_01900","592.9974199217357"
+"36_03802","42_01900","590.0467928433584"
+"36_03803","42_01900","591.2959578180003"
+"36_03804","42_01900","592.2881293663004"
+"36_03805","42_01900","589.949411227047"
+"36_03806","42_01900","588.1162283537054"
+"36_03807","42_01900","585.856347528789"
+"36_03808","42_01900","587.7471110433213"
+"36_03809","42_01900","586.5065904231392"
+"36_03810","42_01900","584.1600921650938"
+"36_03801","42_02000","621.4531110416565"
+"36_03802","42_02000","617.9666531280043"
+"36_03803","42_02000","619.1594070122447"
+"36_03804","42_02000","619.8798776493848"
+"36_03805","42_02000","617.223960221761"
+"36_03806","42_02000","615.5835732974718"
+"36_03807","42_02000","612.9032704281792"
+"36_03808","42_02000","614.6586255421931"
+"36_03809","42_02000","613.0492997151492"
+"36_03810","42_02000","610.685104994729"
+"36_03801","42_02100","535.0652581022175"
+"36_03802","42_02100","531.7457426029623"
+"36_03803","42_02100","532.9580960937757"
+"36_03804","42_02100","533.7689401034539"
+"36_03805","42_02100","531.2171990469744"
+"36_03806","42_02100","529.5097570848918"
+"36_03807","42_02100","526.9701194337124"
+"36_03808","42_02100","528.7745791395175"
+"36_03809","42_02100","527.2942847307208"
+"36_03810","42_02100","524.9337866870135"
+"36_03801","42_02200","470.091374126471"
+"36_03802","42_02200","466.6071252584321"
+"36_03803","42_02200","467.80115075243464"
+"36_03804","42_02200","468.52984876538244"
+"36_03805","42_02200","465.8879744916876"
+"36_03806","42_02200","464.23779098189783"
+"36_03807","42_02200","461.57981642769306"
+"36_03808","42_02200","463.3451843987176"
+"36_03809","42_02200","461.76612505206117"
+"36_03810","42_02200","459.4026076411926"
+"36_03801","42_02300","380.4728270846953"
+"36_03802","42_02300","376.50689389797935"
+"36_03803","42_02300","377.63799593211525"
+"36_03804","42_02300","378.1087367086574"
+"36_03805","42_02300","375.1985553271383"
+"36_03806","42_02300","373.7367129324456"
+"36_03807","42_02300","370.71885998396306"
+"36_03808","42_02300","372.35057209391505"
+"36_03809","42_02300","370.46061579184993"
+"36_03810","42_02300","368.0985526706317"
+"36_03801","42_02400","323.6410200485412"
+"36_03802","42_02400","319.7937859356525"
+"36_03803","42_02400","320.94295936491824"
+"36_03804","42_02400","321.48749153009345"
+"36_03805","42_02400","318.6567524317754"
+"36_03806","42_02400","317.1356213538707"
+"36_03807","42_02400","314.22868458842254"
+"36_03808","42_02400","315.90671162546306"
+"36_03809","42_02400","314.12580744261044"
+"36_03810","42_02400","311.7611918512785"
+"36_03801","42_02500","290.2919001385749"
+"36_03802","42_02500","286.2030938314245"
+"36_03803","42_02500","287.3173324683272"
+"36_03804","42_02500","287.728006924797"
+"36_03805","42_02500","284.7649687940504"
+"36_03806","42_02500","283.34323177695313"
+"36_03807","42_02500","280.25674185714433"
+"36_03808","42_02500","281.86381681905146"
+"36_03809","42_02500","279.9279273504004"
+"36_03810","42_02500","277.56739866874966"
+"36_03801","42_02600","255.34773182646094"
+"36_03802","42_02600","252.1292931362997"
+"36_03803","42_02600","253.35615920926668"
+"36_03804","42_02600","254.2459611634274"
+"36_03805","42_02600","251.8068779980521"
+"36_03806","42_02600","250.02837754625955"
+"36_03807","42_02600","247.65530492767317"
+"36_03808","42_02600","249.52088865602607"
+"36_03809","42_02600","248.22952327872486"
+"36_03810","42_02600","245.88055194918738"
+"36_03801","42_02700","231.2909548313737"
+"36_03802","42_02700","227.04945633184974"
+"36_03803","42_02700","228.1410198631727"
+"36_03804","42_02700","228.47275007825712"
+"36_03805","42_02700","225.4403224892632"
+"36_03806","42_02700","224.07353870120193"
+"36_03807","42_02700","220.89473120350212"
+"36_03808","42_02700","222.46638113890901"
+"36_03809","42_02700","220.46375618293624"
+"36_03810","42_02700","218.1061682672408"
+"36_03801","42_02890","179.2183636714233"
+"36_03802","42_02890","176.10320778970018"
+"36_03803","42_02890","177.3433525419503"
+"36_03804","42_02890","178.30687161209642"
+"36_03805","42_02890","175.9741232356219"
+"36_03806","42_02890","174.13201513730021"
+"36_03807","42_02890","171.91615007690325"
+"36_03808","42_02890","173.83421798794222"
+"36_03809","42_02890","172.71598063067972"
+"36_03810","42_02890","170.3834318158312"
+"36_03801","42_03000","151.43934379576922"
+"36_03802","42_03000","146.1652814340989"
+"36_03803","42_03000","147.03664149895394"
+"36_03804","42_03000","146.68554017669982"
+"36_03805","42_03000","143.10217378047736"
+"36_03806","42_03000","142.28863454676124"
+"36_03807","42_03000","138.31727830181015"
+"36_03808","42_03000","139.47242169410745"
+"36_03809","42_03000","136.75404557553696"
+"36_03810","42_03000","134.495035597137"
+"36_03801","42_03100","185.7554585919675"
+"36_03802","42_03100","180.44639341755462"
+"36_03803","42_03100","181.3044745145352"
+"36_03804","42_03100","180.90892281805333"
+"36_03805","42_03100","177.28853940054722"
+"36_03806","42_03100","176.52157189226267"
+"36_03807","42_03100","172.4942965074349"
+"36_03808","42_03100","173.60414667140225"
+"36_03809","42_03100","170.8088345935887"
+"36_03810","42_03100","168.5706472390454"
+"36_03801","42_03200","182.40425957984894"
+"36_03802","42_03200","176.4439738665693"
+"36_03803","42_03200","177.05430689219978"
+"36_03804","42_03200","176.03798322977647"
+"36_03805","42_03200","172.07840407239163"
+"36_03806","42_03200","171.88918956932946"
+"36_03807","42_03200","167.31689452506387"
+"36_03808","42_03200","167.94437926273542"
+"36_03809","42_03200","164.56766917366022"
+"36_03810","42_03200","162.56669008634327"
+"36_03801","42_03300","213.4390581904312"
+"36_03802","42_03300","207.60483959293668"
+"36_03803","42_03300","208.27337606477735"
+"36_03804","42_03300","207.38786184966196"
+"36_03805","42_03300","203.4834688514655"
+"36_03806","42_03300","203.1706729934652"
+"36_03807","42_03300","198.69501952566284"
+"36_03808","42_03300","199.42425267404147"
+"36_03809","42_03300","196.14784384531313"
+"36_03810","42_03300","194.09216774863526"
+"36_03801","42_03400","240.02036840562022"
+"36_03802","42_03400","234.5820631318129"
+"36_03803","42_03400","235.3975008485547"
+"36_03804","42_03400","234.87863860748305"
+"36_03805","42_03400","231.17237148767052"
+"36_03806","42_03400","230.52222215280636"
+"36_03807","42_03400","226.36443071379318"
+"36_03808","42_03400","227.37195165876068"
+"36_03809","42_03400","224.42541081114808"
+"36_03810","42_03400","222.23361235422684"
+"36_03801","42_03500","284.06211271028627"
+"36_03802","42_03500","279.13576710932887"
+"36_03803","42_03500","280.08945688157706"
+"36_03804","42_03500","279.96024686708444"
+"36_03805","42_03500","276.522917893266"
+"36_03806","42_03500","275.5369348980644"
+"36_03807","42_03500","271.78060268904903"
+"36_03808","42_03500","273.0542434361457"
+"36_03809","42_03500","270.4946117372045"
+"36_03810","42_03500","268.20399377166143"
+"36_03801","42_03600","339.96964165194146"
+"36_03802","42_03600","335.11442853259064"
+"36_03803","42_03600","336.08307534874217"
+"36_03804","42_03600","335.99639908663556"
+"36_03805","42_03600","332.5887506720127"
+"36_03806","42_03600","331.57070645900734"
+"36_03807","42_03600","327.8566971994324"
+"36_03808","42_03600","329.15202851454063"
+"36_03809","42_03600","326.62313243412666"
+"36_03810","42_03600","324.3271975796325"
+"36_03801","42_03700","422.8854390072317"
+"36_03802","42_03700","418.3746206248505"
+"36_03803","42_03700","419.4134233122687"
+"36_03804","42_03700","419.5498208302485"
+"36_03805","42_03700","416.32361065396685"
+"36_03806","42_03700","415.1260313713469"
+"36_03807","42_03700","411.6692612904303"
+"36_03808","42_03700","413.10038617121364"
+"36_03809","42_03700","410.80365655561695"
+"36_03810","42_03700","408.4727891831355"
+"36_03801","42_03800","541.285647938926"
+"36_03802","42_03800","537.2270324789146"
+"36_03803","42_03800","538.3423891262171"
+"36_03804","42_03800","538.7486227319207"
+"36_03805","42_03800","535.7679196834873"
+"36_03806","42_03800","534.3611738927492"
+"36_03807","42_03800","531.2431236333925"
+"36_03808","42_03800","532.829237647774"
+"36_03809","42_03800","530.833525747374"
+"36_03810","42_03800","528.476385446992"
+"36_03801","42_03900","650.9165007776209"
+"36_03802","42_03900","646.9937139679537"
+"36_03803","42_03900","648.1287667274643"
+"36_03804","42_03900","648.6090966293376"
+"36_03805","42_03900","645.6992211149827"
+"36_03806","42_03900","644.2380083534882"
+"36_03807","42_03900","641.2151483101266"
+"36_03808","42_03900","642.8397764239569"
+"36_03809","42_03900","640.9239654556842"
+"36_03810","42_03900","638.5631020148377"
+"36_03801","42_04000","711.8455520829135"
+"36_03802","42_04000","708.1616733441872"
+"36_03803","42_04000","709.329393668832"
+"36_03804","42_04000","709.9411335737086"
+"36_03805","42_04000","707.1657028213045"
+"36_03806","42_04000","705.6067153441118"
+"36_03807","42_04000","702.7649287646964"
+"36_03808","42_04000","704.4604024262205"
+"36_03809","42_04000","702.703928433828"
+"36_03810","42_04000","700.339169188096"
+"36_03801","44_00100","301.88590269927505"
+"36_03802","44_00100","307.2125052841951"
+"36_03803","44_00100","306.3812140636858"
+"36_03804","44_00100","306.90048995006225"
+"36_03805","44_00100","310.63750241499986"
+"36_03806","44_00100","311.25045995225105"
+"36_03807","44_00100","315.44808262421475"
+"36_03808","44_00100","314.5086709859747"
+"36_03809","44_00100","317.5895583384917"
+"36_03810","44_00100","319.72684959873385"
+"36_03801","44_00201","286.7402221112171"
+"36_03802","44_00201","291.7356929110129"
+"36_03803","44_00201","290.81589597076896"
+"36_03804","44_00201","291.08665283509504"
+"36_03805","44_00201","294.66556362850895"
+"36_03806","44_00201","295.4909954150668"
+"36_03807","44_00201","299.4555472349245"
+"36_03808","44_00201","298.3476249000581"
+"36_03809","44_00201","301.2085823412529"
+"36_03810","44_00201","303.4207419350467"
+"36_03801","44_00300","317.9643902129447"
+"36_03802","44_00300","322.5867758304722"
+"36_03803","44_00300","321.58312019188384"
+"36_03804","44_00300","321.5935376759849"
+"36_03805","44_00300","324.97798316420256"
+"36_03806","44_00300","326.0210328900205"
+"36_03807","44_00300","329.70976190226725"
+"36_03808","44_00300","328.4296867896018"
+"36_03809","44_00300","331.03007606040035"
+"36_03810","44_00300","333.3074883046075"
+"36_03801","44_00400","272.4835826433013"
+"36_03802","44_00400","277.0767504910992"
+"36_03803","44_00400","276.0684628637661"
+"36_03804","44_00400","276.06674655434307"
+"36_03805","44_00400","279.44471041955"
+"36_03806","44_00400","280.4944366971375"
+"36_03807","44_00400","284.1748022410775"
+"36_03808","44_00400","282.8923690861225"
+"36_03809","44_00400","285.4926395030036"
+"36_03810","44_00400","287.76970414150657"
+"36_03801","50_00100","589.8484117593712"
+"36_03802","50_00100","596.0256665379533"
+"36_03803","50_00100","596.2957899962479"
+"36_03804","50_00100","598.8200892350301"
+"36_03805","50_00100","602.574928869324"
+"36_03806","50_00100","601.059918750137"
+"36_03807","50_00100","605.8110600463112"
+"36_03808","50_00100","606.733339064671"
+"36_03809","50_00100","610.7053437708728"
+"36_03810","50_00100","611.4062793948096"
+"36_03801","50_00200","595.080083300563"
+"36_03802","50_00200","601.449927598097"
+"36_03803","50_00200","601.5207633259737"
+"36_03804","50_00200","603.7964114729346"
+"36_03805","50_00200","607.7567125558569"
+"36_03806","50_00200","606.5735776965827"
+"36_03807","50_00200","611.4778389521124"
+"36_03808","50_00200","612.0858504148018"
+"36_03809","50_00200","616.0956532397341"
+"36_03810","50_00200","617.1152653354659"
+"36_03801","50_00300","426.8670548673842"
+"36_03802","50_00300","433.26592934526747"
+"36_03803","50_00300","433.2798704902856"
+"36_03804","50_00300","435.4778538702258"
+"36_03805","50_00300","439.4795708850857"
+"36_03806","50_00300","438.3946043706705"
+"36_03807","50_00300","443.323461556542"
+"36_03808","50_00300","443.83974766372137"
+"36_03809","50_00300","447.84500034039286"
+"36_03810","50_00300","448.9509866259866"
+"36_03801","50_00400","420.24962453577115"
+"36_03802","50_00400","426.5139493611857"
+"36_03803","50_00400","426.7112362958438"
+"36_03804","50_00400","429.15188562628975"
+"36_03805","50_00400","432.9904912963112"
+"36_03806","50_00400","431.59449491159006"
+"36_03807","50_00400","436.4154896769801"
+"36_03808","50_00400","437.22208731183593"
+"36_03809","50_00400","441.217946006322"
+"36_03810","50_00400","442.0407541946007"
