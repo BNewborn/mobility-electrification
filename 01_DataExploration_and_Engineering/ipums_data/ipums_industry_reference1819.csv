@@ -1,0 +1,273 @@
+,Industry_Category,Industry_Description,2018_Industry_Code_Census,2018_Industry_Code_NAICS
+7,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Crop production  ,170,111
+8,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Animal production and aquaculture,180,112
+9,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Forestry except logging ,190,"1131, 1132"
+10,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Logging ,270,1133
+11,"Agriculture, Forestry, Fishing, and Hunting, and Mining","Fishing, hunting and trapping ",280,114
+12,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Support activities for agriculture and forestry ,290,115
+16,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Oil and gas extraction ,370,211
+17,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Coal mining ,380,2121
+18,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Metal ore mining ,390,2122
+19,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Nonmetallic mineral mining and quarrying ,470,2123
+20,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Not specified type of mining,480,Part of 21
+21,"Agriculture, Forestry, Fishing, and Hunting, and Mining",Support activities for mining ,490,213
+25,Construction,Construction (the cleaning of buildings and dwellings is incidental during construction and immediately after construction),770,23
+29,Manufacturing,"Animal food, grain and oilseed milling ",1070,"3111, 3112"
+30,Manufacturing,Sugar and confectionery products ,1080,3113
+31,Manufacturing,Fruit and vegetable preserving and specialty food manufacturing              ,1090,3114
+32,Manufacturing,Dairy product manufacturing,1170,3115
+33,Manufacturing,Animal slaughtering and processing ,1180,3116
+34,Manufacturing,Retail bakeries ,1190,311811
+35,Manufacturing,"Bakeries and tortilla manufacturing, except retail bakeries ",1270,3118 exc. 311811
+36,Manufacturing,"Seafood and other miscellaneous foods, n.e.c. ",1280,"3117, 3119"
+37,Manufacturing,Not specified food industries,1290,Part of 311
+38,Manufacturing,Beverage manufacturing,1370,3121
+39,Manufacturing,Tobacco manufacturing,1390,3122
+40,Manufacturing,"Fiber, yarn, and thread mills ",1470,3131
+41,Manufacturing,"Fabric mills, except knitting mills",1480,3132 exc. 31324
+42,Manufacturing,Textile and fabric finishing and fabric coating mills ,1490,3133
+43,Manufacturing,Carpet and rug mills,1570,31411
+44,Manufacturing,"Textile product mills, except carpet and rug",1590,314 exc. 31411
+45,Manufacturing,"Knitting fabric mills, and apparel knitting mills ",1670,"31324, 3151"
+46,Manufacturing,"Cut and sew, and apparel accessories and other apparel manufacturing",1691,"3152, 3159"
+47,Manufacturing,Footwear manufacturing,1770,3162
+48,Manufacturing,"Leather and hide tanning and finishing, and other leather and allied product manufacturing",1790,"3161, 3169"
+49,Manufacturing,"Pulp, paper, and paperboard mills ",1870,3221
+50,Manufacturing,Paperboard container manufacturing,1880,32221
+51,Manufacturing,Miscellaneous paper and pulp products  ,1890,"32222,32223, 32229"
+52,Manufacturing,Printing and related support activities ,1990,3231
+53,Manufacturing,Petroleum refining ,2070,32411
+54,Manufacturing,Miscellaneous petroleum and coal products ,2090,"32412, 32419"
+55,Manufacturing,"Resin, synthetic rubber, and fibers and filaments manufacturing   ",2170,3252
+56,Manufacturing,Agricultural chemical manufacturing  ,2180,3253
+57,Manufacturing,Pharmaceutical and medicine manufacturing,2190,3254
+58,Manufacturing,"Paint, coating, and adhesive manufacturing ",2270,3255
+59,Manufacturing,"Soap, cleaning compound, and cosmetics manufacturing ",2280,3256
+60,Manufacturing,Industrial and miscellaneous chemicals ,2290,"3251, 3259"
+61,Manufacturing,Plastics product manufacturing ,2370,3261
+62,Manufacturing,Tire manufacturing ,2380,32621
+63,Manufacturing,"Rubber products, except tires, manufacturing ",2390,"32622, 32629"
+64,Manufacturing,"Pottery, ceramics, and plumbing fixture manufacturing  ",2470,32711
+65,Manufacturing,Clay building material and refractories manufacturing,2480,327120
+66,Manufacturing,Glass and glass product manufacturing ,2490,3272
+67,Manufacturing,"Cement, concrete, lime, and gypsum product manufacturing ",2570,"3273, 3274"
+68,Manufacturing,Miscellaneous nonmetallic mineral product manufacturing ,2590,3279
+69,Manufacturing,Iron and steel mills and steel product manufacturing  ,2670,"3311, 3312"
+70,Manufacturing,Aluminum production and processing  ,2680,3313
+71,Manufacturing,Nonferrous metal (except aluminum) production and processing ,2690,3314
+72,Manufacturing,Foundries ,2770,3315
+73,Manufacturing,Metal forgings and stampings ,2780,3321
+74,Manufacturing,Cutlery and hand tool manufacturing  ,2790,3322
+75,Manufacturing,"Structural metals, and boiler, tank, and shipping container manufacturing ",2870,"3323, 3324"
+76,Manufacturing,"Machine shops; turned product; screw, nut, and bolt manufacturing  ",2880,3327
+77,Manufacturing,"Coating, engraving, heat treating, and allied activities ",2890,3328
+78,Manufacturing,Ordnance ,2970,"332992, 332993, 332994, 332996"
+79,Manufacturing,Miscellaneous fabricated metal products manufacturing             ,2980,"3325, 3326, 3329 exc. 332992, 332993, 332994, 332996"
+80,Manufacturing,Not specified metal industries,2990,Part of 331 and 332
+81,Manufacturing,Agricultural implement manufacturing ,3070,33311
+82,Manufacturing,"Construction, and mining and oil and gas field machinery manufacturing ",3080,"33312, 33313"
+83,Manufacturing,Commercial and service industry machinery manufacturing,3095,3333
+84,Manufacturing,Metalworking machinery manufacturing,3170,3335
+85,Manufacturing,"Engine, turbine, and power transmission equipment manufacturing",3180,3336
+86,Manufacturing,"Machinery manufacturing, n.e.c. or not specified",3291,"3332, 3334, 3339, Part of 333"
+87,Manufacturing,Computer and peripheral equipment manufacturing,3365,3341
+88,Manufacturing,"Communications, audio, and video equipment manufacturing",3370,"3342, 3343"
+89,Manufacturing,"Navigational, measuring, electromedical, and control instruments manufacturing",3380,3345
+90,Manufacturing,"Electronic component and product manufacturing, n.e.c. ",3390,"3344, 3346"
+91,Manufacturing,Household appliance manufacturing ,3470,3352
+92,Manufacturing,"Electric lighting and electrical equipment manufacturing, and other electrical component manufacturing, n.e.c.",3490,"3351, 3353, 3359"
+93,Manufacturing,Motor vehicles and motor vehicle equipment manufacturing ,3570,"3361, 3362, 3363"
+94,Manufacturing,Aircraft and parts manufacturing,3580,"336411, 336412, 336413"
+95,Manufacturing,Aerospace products and parts manufacturing ,3590,"336414, 336415, 336419"
+96,Manufacturing,Railroad rolling stock manufacturing,3670,3365
+97,Manufacturing,Ship and boat building ,3680,3366
+98,Manufacturing,Other transportation equipment manufacturing,3690,3369
+99,Manufacturing,Sawmills and wood preservation ,3770,3211
+100,Manufacturing,"Veneer, plywood, and engineered wood products ",3780,3212
+101,Manufacturing,Prefabricated wood buildings and mobile homes manufacturing,3790,"321991, 321992"
+102,Manufacturing,Miscellaneous wood products ,3875,"3219 exc. 321991, 321992"
+103,Manufacturing,Furniture and related product manufacturing ,3895,337
+104,Manufacturing,Medical equipment and supplies manufacturing,3960,3391
+105,Manufacturing,"Sporting and athletic goods, and doll, toy and game manufacturing",3970,"33992, 33993"
+106,Manufacturing,"Miscellaneous manufacturing, n.e.c.  ",3980,"3399 exc. 33992, 33993"
+107,Manufacturing,Not specified manufacturing industries,3990,"Part of 31, 32, 33"
+111,Wholesale Trade,Motor vehicle and motor vehicle parts and supplies merchant wholesalers,4070,4231
+112,Wholesale Trade,Furniture and home furnishing merchant wholesalers   ,4080,4232
+113,Wholesale Trade,Lumber and other construction materials merchant wholesalers ,4090,4233
+114,Wholesale Trade,Professional and commercial equipment and supplies merchant wholesalers,4170,4234
+115,Wholesale Trade,"Metals and minerals, except petroleum, merchant wholesalers                         ",4180,4235
+116,Wholesale Trade,Household appliances and electrical and electronic goods merchant wholesalers ,4195,4236
+117,Wholesale Trade,"Hardware, and plumbing and heating equipment, and supplies merchant wholesalers",4265,4237
+118,Wholesale Trade,"Machinery, equipment, and supplies merchant wholesalers     ",4270,4238
+119,Wholesale Trade,Recyclable material merchant wholesalers ,4280,42393
+120,Wholesale Trade,Miscellaneous durable goods merchant wholesalers    ,4290,4239 exc. 42393
+121,Wholesale Trade,Paper and paper products merchant wholesalers ,4370,4241
+122,Wholesale Trade,"Drugs, sundries, and chemical and allied products merchant  wholesalers ",4380,"4242, 4246"
+123,Wholesale Trade,"Apparel, piece goods, and notions merchant wholesalers",4390,4243
+124,Wholesale Trade,Grocery and related product merchant wholesalers ,4470,4244
+125,Wholesale Trade,Farm product raw material merchant wholesalers ,4480,4245
+126,Wholesale Trade,Petroleum and petroleum products merchant wholesalers ,4490,4247
+127,Wholesale Trade,Alcoholic beverages merchant wholesalers ,4560,4248
+128,Wholesale Trade,Farm supplies merchant wholesalers ,4570,42491
+129,Wholesale Trade,Miscellaneous nondurable goods merchant wholesalers ,4580,4249 exc. 42491
+130,Wholesale Trade,Wholesale electronic markets and agents and brokers ,4585,4251
+131,Wholesale Trade,Not specified wholesale trade,4590,Part of 42
+135,Retail Trade,Automobile dealers ,4670,4411
+136,Retail Trade,Other motor vehicle dealers ,4680,4412
+137,Retail Trade,"Automotive parts, accessories, and tire stores",4690,4413
+138,Retail Trade,Furniture and home furnishings stores ,4770,442
+139,Retail Trade,Household appliance stores ,4780,443141
+140,Retail Trade,Electronics Stores,4795,443142
+141,Retail Trade,Building material and supplies dealers  ,4870,4441 exc. 44413
+142,Retail Trade,Hardware stores ,4880,44413
+143,Retail Trade,Lawn and garden equipment and supplies stores ,4890,4442
+144,Retail Trade,Supermarkets and other grocery (except convenience) stores,4971,44511
+145,Retail Trade,Convenience Stores,4972,44512
+146,Retail Trade,Specialty food stores,4980,4452
+147,Retail Trade,"Beer, wine, and liquor stores ",4990,4453
+148,Retail Trade,Pharmacies and drug stores ,5070,44611
+149,Retail Trade,"Health and personal care, except drug, stores ",5080,446 exc. 44611
+150,Retail Trade,Gasoline stations ,5090,447
+151,Retail Trade,Clothing stores ,5170,4481
+152,Retail Trade,Shoe stores ,5180,44821
+153,Retail Trade,"Jewelry, luggage, and leather goods stores ",5190,4483
+154,Retail Trade,"Sporting goods, and hobby and toy stores ",5275,"45111, 45112"
+155,Retail Trade,"Sewing, needlework, and piece goods stores ",5280,45113
+156,Retail Trade,Musical instrument and supplies stores ,5295,45114
+157,Retail Trade,Book stores and news dealers ,5370,45121
+158,Retail Trade,Department stores ,5381,45221
+159,Retail Trade,"General merchandise stores, including warehouse clubs and supercenters ",5391,4523
+160,Retail Trade,Florists,5470,4531
+161,Retail Trade,Office supplies and stationery stores ,5480,45321
+162,Retail Trade,Used merchandise stores ,5490,4533
+163,Retail Trade,"Gift, novelty, and souvenir shops ",5570,45322
+164,Retail Trade,Miscellaneous retail stores ,5580,4539
+165,Retail Trade,Electronic shopping and mail-order houses,5593,454110
+166,Retail Trade,Vending machine operators ,5670,4542
+167,Retail Trade,Fuel dealers ,5680,454310
+168,Retail Trade,Other direct selling establishments,5690,45439
+169,Retail Trade,Not specified retail trade,5790,"Part of 44, 45"
+175,"Transportation and Warehousing, and Utilities     ",Air transportation ,6070,481
+176,"Transportation and Warehousing, and Utilities     ",Rail transportation ,6080,482
+177,"Transportation and Warehousing, and Utilities     ",Water transportation ,6090,483
+178,"Transportation and Warehousing, and Utilities     ",Truck transportation ,6170,484
+179,"Transportation and Warehousing, and Utilities     ",Bus service and urban transit ,6180,"4851, 4852, 4854, 4855, 4859 "
+180,"Transportation and Warehousing, and Utilities     ",Taxi and limousine service ,6190,4853
+181,"Transportation and Warehousing, and Utilities     ",Pipeline transportation ,6270,486
+182,"Transportation and Warehousing, and Utilities     ",Scenic and sightseeing transportation ,6280,487
+183,"Transportation and Warehousing, and Utilities     ",Services incidental to transportation ,6290,488
+184,"Transportation and Warehousing, and Utilities     ",Postal Service ,6370,491
+185,"Transportation and Warehousing, and Utilities     ",Couriers and messengers ,6380,492
+186,"Transportation and Warehousing, and Utilities     ",Warehousing and storage ,6390,493
+190,"Transportation and Warehousing, and Utilities     ","Electric power generation, transmission and distribution",570,2211
+191,"Transportation and Warehousing, and Utilities     ",Natural gas distribution ,580,2212
+192,"Transportation and Warehousing, and Utilities     ","Electric and gas, and other combinations ",590,"Pts. 2211, 2212"
+193,"Transportation and Warehousing, and Utilities     ","Water, steam, air-conditioning, and irrigation systems ",670,"22131, 22133"
+194,"Transportation and Warehousing, and Utilities     ",Sewage treatment facilities ,680,22132
+195,"Transportation and Warehousing, and Utilities     ",Not specified utilities ,690,Part of 22 
+199,Information ,Newspaper publishers,6470,51111
+200,Information ,"Periodical, book, and directory publishers",6480,5111 exc. 51111 
+201,Information ,Software publishers,6490,5112
+202,Information ,Motion pictures and video industries,6570,5121
+203,Information ,Sound recording industries,6590,5122
+204,Information ,Broadcasting (except internet),6670,515
+205,Information ,Internet publishing and broadcasting and web search portals,6672,51913
+206,Information ,Wired telecommunications carriers ,6680,517311
+207,Information ,"Telecommunications, except wired telecommunications carriers ",6690,517 exc. 517311
+208,Information ,"Data processing, hosting, and related services",6695,5182
+209,Information ,Libraries and archives,6770,51912
+210,Information ,"Other information services, except libraries and archives, and internet publishing and broadcasting and web search portals",6780,"5191 exc. 51912, 51913"
+216,"Finance and Insurance, and Real Estate, and Rental and Leasing",Banking and related activities,6870,"521, 52211,52219"
+217,"Finance and Insurance, and Real Estate, and Rental and Leasing","Savings institutions, including credit unions ",6880,"52212, 52213"
+218,"Finance and Insurance, and Real Estate, and Rental and Leasing",Nondepository credit and related activities,6890,"5222, 5223"
+219,"Finance and Insurance, and Real Estate, and Rental and Leasing","Securities, commodities, funds, trusts, and other financial investments",6970,"523, 525"
+220,"Finance and Insurance, and Real Estate, and Rental and Leasing",Insurance carriers,6991,5241
+221,"Finance and Insurance, and Real Estate, and Rental and Leasing","Agencies, brokerages, and other insurance related activities",6992,5242
+225,"Finance and Insurance, and Real Estate, and Rental and Leasing","Lessors of real estate, and offices of real estate agents and brokers",7071,"5311, 5312"
+226,"Finance and Insurance, and Real Estate, and Rental and Leasing","Real estate property managers, offices of real estate appraisers, and other activities related to real estate ",7072,5313
+228,"Finance and Insurance, and Real Estate, and Rental and Leasing",Automotive equipment rental and leasing ,7080,5321
+229,"Finance and Insurance, and Real Estate, and Rental and Leasing",Other consumer goods rental,7181,"53221, 532281, 532282, 532283, 532284, 532289, 5323"
+230,"Finance and Insurance, and Real Estate, and Rental and Leasing","Commercial, industrial, and other intangible assets rental and leasing",7190,"5324, 533"
+237,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Legal services ,7270,5411
+238,"Professional, Scientific, and Management, and Administrative, and Waste Management Services","Accounting, tax preparation, bookkeeping, and payroll services",7280,5412
+239,"Professional, Scientific, and Management, and Administrative, and Waste Management Services","Architectural, engineering, and related services ",7290,5413
+240,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Specialized design services ,7370,5414
+241,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Computer systems design and related services ,7380,5415
+242,"Professional, Scientific, and Management, and Administrative, and Waste Management Services","Management, scientific, and technical consulting services",7390,5416
+243,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Scientific research and development services ,7460,5417
+244,"Professional, Scientific, and Management, and Administrative, and Waste Management Services","Advertising, public relations, and related services",7470,5418
+245,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Veterinary services ,7480,54194
+246,"Professional, Scientific, and Management, and Administrative, and Waste Management Services","Other professional, scientific, and technical services ",7490,5419 exc. 54194
+248,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Management of companies and enterprises,7570,55
+250,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Management of companies and enterprises ,7570,55
+254,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Employment services ,7580,5613
+255,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Business support services ,7590,5614
+256,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Travel arrangements and reservation services ,7670,5615
+257,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Investigation and security services ,7680,5616
+258,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Services to buildings and dwellings (except cleaning during construction and immediately after construction) ,7690,5617 exc. 56173
+259,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Landscaping services,7770,56173
+260,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Other administrative and other support services ,7780,"5611, 5612, 5619"
+261,"Professional, Scientific, and Management, and Administrative, and Waste Management Services",Waste management and remediation services ,7790,562
+267,"Educational Services, and Health Care and Social Assistance",Elementary and secondary schools ,7860,6111
+268,"Educational Services, and Health Care and Social Assistance","Colleges, universities, and professional schools, including junior colleges",7870,"6112, 6113"
+269,"Educational Services, and Health Care and Social Assistance","Business, technical, and trade schools and training ",7880,"6114, 6115"
+270,"Educational Services, and Health Care and Social Assistance","Other schools and instruction, and educational support services ",7890,"6116, 6117"
+274,"Educational Services, and Health Care and Social Assistance",Offices of physicians ,7970,6211
+275,"Educational Services, and Health Care and Social Assistance",Offices of dentists ,7980,6212
+276,"Educational Services, and Health Care and Social Assistance",Offices of chiropractors ,7990,62131
+277,"Educational Services, and Health Care and Social Assistance",Offices of optometrists ,8070,62132
+278,"Educational Services, and Health Care and Social Assistance",Offices of other health practitioners  ,8080,"6213 exc. 62131, 62132"
+279,"Educational Services, and Health Care and Social Assistance",Outpatient care centers ,8090,6214
+280,"Educational Services, and Health Care and Social Assistance",Home health care services ,8170,6216
+281,"Educational Services, and Health Care and Social Assistance",Other health care services ,8180,"6215, 6219"
+282,"Educational Services, and Health Care and Social Assistance","General medical and surgical hospitals, and specialty (except psychiatric and substance abuse) hospitals",8191,"6221, 6223"
+283,"Educational Services, and Health Care and Social Assistance",Psychiatric and substance abuse hospitals,8192,6222
+284,"Educational Services, and Health Care and Social Assistance",Nursing care facilities (skilled nursing facilities),8270,6231
+285,"Educational Services, and Health Care and Social Assistance","Residential care facilities, except skilled nursing facilities",8290,"6232, 6233, 6239"
+286,"Educational Services, and Health Care and Social Assistance",Individual and family services ,8370,6241
+287,"Educational Services, and Health Care and Social Assistance","Community food and housing, and emergency services ",8380,6242
+288,"Educational Services, and Health Care and Social Assistance",Vocational rehabilitation services ,8390,6243
+289,"Educational Services, and Health Care and Social Assistance",Child day care services ,8470,6244
+295,"Arts, Entertainment, and Recreation, and Accommodation and Food Services",Performing arts companies ,8561,7111
+296,"Arts, Entertainment, and Recreation, and Accommodation and Food Services",Spectator sports,8562,7112
+297,"Arts, Entertainment, and Recreation, and Accommodation and Food Services","Promoters of performing arts, sports, and similar events, agents and managers for artists, athletes, entertainers, and other public figures ",8563,"7113, 7114"
+298,"Arts, Entertainment, and Recreation, and Accommodation and Food Services","Independent artists, writers, and performers",8564,7115
+299,"Arts, Entertainment, and Recreation, and Accommodation and Food Services","Museums, art galleries, historical sites, and similar institutions",8570,712
+300,"Arts, Entertainment, and Recreation, and Accommodation and Food Services",Bowling centers ,8580,71395
+301,"Arts, Entertainment, and Recreation, and Accommodation and Food Services","Other amusement, gambling, and recreation industries   ",8590,713 exc. 71395
+305,"Arts, Entertainment, and Recreation, and Accommodation and Food Services",Traveler accommodation ,8660,7211
+306,"Arts, Entertainment, and Recreation, and Accommodation and Food Services","Recreational vehicle parks and camps, and rooming and boarding houses, dormitories, and workers' camps",8670,"7212, 7213"
+307,"Arts, Entertainment, and Recreation, and Accommodation and Food Services",Restaurants and other food services ,8680,722 exc. 7224
+308,"Arts, Entertainment, and Recreation, and Accommodation and Food Services","Drinking places, alcoholic beverages ",8690,7224
+312,"Other Services, Except Public Administration",Automotive repair and maintenance ,8770,8111 exc. 811192
+313,"Other Services, Except Public Administration",Car washes,8780,811192
+314,"Other Services, Except Public Administration",Electronic and precision equipment repair and maintenance,8790,8112
+315,"Other Services, Except Public Administration",Commercial and industrial machinery and equipment repair and maintenance,8870,8113
+316,"Other Services, Except Public Administration",Personal and household goods repair and maintenance ,8891,8114
+317,"Other Services, Except Public Administration",Barber shops ,8970,812111
+318,"Other Services, Except Public Administration",Beauty salons ,8980,812112
+319,"Other Services, Except Public Administration",Nail salons and other personal care services  ,8990,"812113, 81219"
+320,"Other Services, Except Public Administration",Drycleaning and laundry services ,9070,8123
+321,"Other Services, Except Public Administration","Funeral homes, and cemeteries and crematories ",9080,8122
+322,"Other Services, Except Public Administration",Other personal services ,9090,8129
+323,"Other Services, Except Public Administration",Religious organizations ,9160,8131
+324,"Other Services, Except Public Administration","Civic, social, advocacy organizations, and grantmaking and giving services",9170,"8132, 8133, 8134"
+325,"Other Services, Except Public Administration",Labor unions,9180,81393
+326,"Other Services, Except Public Administration","Business, professional, political, and similar organizations",9190,8139 exc. 81393
+327,"Other Services, Except Public Administration",Private households ,9290,814
+331,Public Administration,Executive offices and legislative bodies ,9370,"92111, 92112, 92114, pt. 92115"
+332,Public Administration,Public finance activities ,9380,92113
+333,Public Administration,Other general government and support ,9390,92119
+334,Public Administration,"Justice, public order, and safety activities ",9470,"922, pt. 92115"
+335,Public Administration,Administration of human resource programs  ,9480,923
+336,Public Administration,Administration of environmental quality and housing programs ,9490,"924, 925"
+337,Public Administration,Administration of economic programs and space research,9570,"926, 927"
+338,Public Administration,National security and international affairs ,9590,928
+342,Military,U. S. Army,9670,928110
+343,Military,U. S. Air Force,9680,928110
+344,Military,U. S. Navy,9690,928110
+345,Military,U. S. Marines,9770,928110
+346,Military,U. S. Coast Guard,9780,928110
+347,Military,"Armed Forces, Branch not specified",9790,928110
+348,Military,Military Reserves or National Guard,9870,928110
+350,Military,"Unemployed, last worked 5 years ago or earlier or never worked",9920,
