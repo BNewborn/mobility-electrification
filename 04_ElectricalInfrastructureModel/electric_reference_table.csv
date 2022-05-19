@@ -1,5 +1,5 @@
 TransMode,Floor_kwh,Multiplier,MultiplierUnit,MultiplierTarget,RELATED_KEY,How_to_link_with_Multiplier
-AutoOccupants,,0.2134,kwh/km,Total Distance,"DISTANCE_KM, PERWT, HOMEOWNER_LABEL",DISTANCE_KM*PERWT
+AutoOccupants,,0.2134,kwh/km,Total Distance,"DISTANCE_KM, PERWT",DISTANCE_KM*PERWT
 Bus,,1.761,kwh/km,Total Distance,"DISTANCE_KM, PERWT",DISTANCE_KM*PERWT/20
 Ferry,,10,kwh,Number of Trips,PERWT,PERWT/100
 Escooter,,0.046622,kwh/km,Total Distance,"DISTANCE_KM, PERWT",DISTANCE_KM*PERWT
