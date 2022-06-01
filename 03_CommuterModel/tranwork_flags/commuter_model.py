@@ -36,7 +36,7 @@ class CommuterModel:
         self.time_Ferry = list(range(7,21))
         
         
-    def auto_flag_binary(self,max_age,min_distance,min_income,male_pct,female_pct,age_dist, home_owner_pct):
+    def auto_flag_binary(self,max_age,min_distance,min_income,male_pct,female_pct,age_dist):
         '''
         Auto inputs
         Hard Caps:
@@ -54,7 +54,6 @@ class CommuterModel:
         male_pct & female_pct - how many, of each sex, will drive a car of eligible riders? 0-100 value
         age_dist - to be determined how we can use age distributions to determine ridership. 
             Ex) 35 year olds may be 2x more likely to ride than a 50 year old
-        home_ownership_pct - 80% of EV owners charge at home (USDOE)
 
         output:
             series (0,1) indicating whether each line is an eligible driver or not
@@ -75,11 +74,9 @@ class CommuterModel:
         female_sex_flag = self.ipums_df['SEX'].apply(lambda x: True if random.random() <= female_pct/100 and x=='F' else False)
         sex_flag = male_sex_flag|female_sex_flag
 
-        home_flag = self.ipums_df['HOMEOWNER_LABEL'].apply(lambda x: True if random.random() >= home_owner_pct/100 and x=='Own' else False)
-
         final_series = age_hardcap&dist_hardcap&income_hardcap&cog_diff_hardcap\
                         &amb_diff_hardcap&ind_living_diff_hardcap&selfcare_diff_hardcap\
-                        &vision_diff_hardcap&car_hardcap&sex_flag&home_flag
+                        &vision_diff_hardcap&car_hardcap&sex_flag
         return final_series.astype(int)
     
     def motorcycle_flag_binary(self,max_age,max_distance,min_income,male_pct,female_pct,age_dist):
@@ -449,3 +446,50 @@ class CommuterModel:
         wfh_overall_binary = industry_binary&wfh_binary
 
         return wfh_overall_binary
+    
+    def RandAssignNoOption(self, FLAG_AUTO, FLAG_MOTORCYCLE, FLAG_TAXICAB, FLAG_EBUSES, FLAG_SUBWAY, FLAG_COMMUTERRAIL, FLAG_FERRY, FLAG_ESCOOTER, FLAG_WALK, FLAG_EBIKE, FLAG_WFH, NoOptionAssignment = "No Option"):
+        assignment = []
+        modes = ['AutoOccupants','Motorcycle','Taxicab','Bus','Subway','CommuterRail','Ferry','Escooter','Walk','Bicycle','WFH']
+        for index, rows in self.ipums_df.iterrows():
+            available_indices = []
+            if FLAG_AUTO[index] == 1:
+                available_indices.append(0)
+            if FLAG_MOTORCYCLE[index] == 1:
+                available_indices.append(1)
+            if FLAG_TAXICAB[index] == 1:
+                available_indices.append(2)
+            if FLAG_EBUSES[index] == 1:
+                available_indices.append(3)
+            if FLAG_SUBWAY[index] == 1:
+                available_indices.append(4)
+            if FLAG_COMMUTERRAIL[index] == 1:
+                available_indices.append(5)
+            if FLAG_FERRY[index] == 1:
+                available_indices.append(6)
+            if FLAG_ESCOOTER[index] == 1:
+                available_indices.append(7)
+            if FLAG_WALK[index] == 1:
+                available_indices.append(8)
+            if FLAG_EBIKE[index] == 1:
+                available_indices.append(9)
+            if FLAG_WFH[index] == 1:
+                available_indices.append(10)
+            if len(available_indices) == 0:
+                assignment.append("No option")
+            else:
+                RandAssignment = random.choice(available_indices)
+                assignment.append(modes[RandAssignment])
+        return assignment
+    
+    def RandAssignChosenOption(self, RandAssignment, CurrentAssignment, NoOptionAssignment = "Current"):
+        assignment = []
+        modes = ['AutoOccupants','Motorcycle','Taxicab','Bus','Subway','CommuterRail','Ferry','Escooter','Walk','Bicycle','WFH']
+        for i in range(len(RandAssignment)):
+            if RandAssignment[i] == "No option":
+                if NoOptionAssignment == "Current":
+                    assignment.append(CurrentAssignment[i])
+                else:
+                    assignment.append(NoOptionAssignment)
+            else:
+                assignment.append(RandAssignment[i])
+        return assignment
