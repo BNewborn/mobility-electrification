@@ -30,56 +30,62 @@ def TotalEnergyPerEV(row):
         return row['PERWT']*row['Multiplier']
 
 
-def HourEnergyPerEV(row):
+def HourEnergyPerEV(row,PEV_delay_hr,bus_ferry_cab_delay):
     ### For each row, getting the hourly energy for EACH EV
     ### output are rows with two new columns (type: list): Charge_Hour & Energy
     if row['TransMode'] in ['AutoOccupants','Escooter','Bicycle','Motorcycle','Taxicab','Bus','Ferry']:
         hour = list(range(0,24))*2
+        atwork_hour_list = hour[row['HOUR'] : row['HOUR']+row['HRS_WK_DAILY']]
         charging_hr_roundup = np.ceil(row['TotalEnergyPerEV']/row['ChargingPower_kW'])
-        duration_hr = int(min(charging_hr_roundup,row['HoursToFullyRecharge_hr']))
+        duration_hr = int(min(charging_hr_roundup,row['HoursToFullyRecharge_hr'],row['HRS_WK_DAILY']))
         energy = int(row['TotalEnergyPerEV']//row['ChargingPower_kW'])*[row['ChargingPower_kW']] + [row['TotalEnergyPerEV']%row['ChargingPower_kW']]
         energy_list = energy[:duration_hr]
 
         if row['TransMode'] in ['AutoOccupants','Escooter','Bicycle','Motorcycle']:
-            hour_list = hour[row['HOUR']:int(row['HOUR']+duration_hr)]
-            row['Charge_Hour'] = hour_list
+            
+            max_delay = row['HRS_WK_DAILY'] - duration_hr
+            random_delay = random.randint(0,max_delay)
+            PEV_delay_hr = int(min(PEV_delay_hr, max_delay))
+            row['Charge_Hour_ER'] = atwork_hour_list[:duration_hr]
+            row['Charge_Hour_LT'] = atwork_hour_list[-duration_hr:]
+            row['Charge_Hour_RND'] = atwork_hour_list[random_delay:duration_hr+random_delay]
+            row['Charge_Hour_CM'] = atwork_hour_list[PEV_delay_hr:duration_hr+PEV_delay_hr]     
             row['Energy'] = energy_list
+
             return row 
         elif row['TransMode'] in ['Bus','Ferry','Taxicab']:
-            delay = 6
-            hour_list = hour[row['HOUR']+delay:int(row['HOUR']+delay+duration_hr)]
-            row['Charge_Hour'] = hour_list
+            hour_list = hour[row['HOUR']+bus_ferry_cab_delay : row['HOUR']+bus_ferry_cab_delay+duration_hr]
+            row['Charge_Hour_ER'] = hour_list
+            row['Charge_Hour_LT'] = hour_list
+            row['Charge_Hour_RND'] = hour_list
+            row['Charge_Hour_CM'] = hour_list
             row['Energy'] = energy_list
             return row 
         
     elif row['TransMode'] in ['Subway','CommuterRail']:
         hour_list = [row['HOUR']]
-        energy_list = [row['TotalEnergyPerEV']]
-        row['Charge_Hour'] = hour_list
-        row['Energy'] = energy_list
+        row['Charge_Hour_ER'] = hour_list
+        row['Charge_Hour_LT'] = hour_list
+        row['Charge_Hour_RND'] = hour_list
+        row['Charge_Hour_CM'] = hour_list
+        row['Energy'] = [row['TotalEnergyPerEV']]
         return row 
 
-# def floor(row):
-#     ### For agg energy at hour-mode level, adding floor energy for specific modes
-#     if row['TransMode']=='Subway':
-#         return row['Energy']+subway_floor
-#     elif row['TransMode']=='CommuterRail':
-#         return row['Energy']+commuterRail_floor 
-#     else:
-#         return row['Energy']
-
 class ElectricModel:
-    def __init__(self,commuter_df,ev_reference_table_loc,):
+    def __init__(self,commuter_df,ev_reference_table_loc,PEV_delay_hr,bus_ferry_cab_delay):
         '''
         variables needed to create electricmodel
 
         commuter_df: output of commutermodel class
         ev_reference_table_loc: location of electric reference information (static csv)
-
+        PEV_delay_hr: parameter to adjust when charging occurs for PEV (cars)
+        bus_ferry_cab_delay: delay from  use that will bus/ferry/cab will charge
         '''
 
         self.commuter_df = commuter_df
         self.ev_reference_table_loc = ev_reference_table_loc
+        self.PEV_delay_hr=PEV_delay_hr
+        self.bus_ferry_cab_delay=bus_ferry_cab_delay
 
              
 
@@ -95,21 +101,46 @@ class ElectricModel:
 
         df['NumberOfEV'] = df.apply(lambda row: NumberOfEV(row), axis=1)
         df['TotalEnergyPerEV'] = df.apply(lambda row: TotalEnergyPerEV(row), axis=1)
-        df = df.apply(HourEnergyPerEV, axis=1) ### this step is a little slow
-        df = df.explode(['Charge_Hour','Energy'])
+        
+        df = df.apply(HourEnergyPerEV
+        ,PEV_delay_hr=self.PEV_delay_hr
+        ,bus_ferry_cab_delay=self.bus_ferry_cab_delay
+        , axis=1) ### this step is a little slow
+
+        df = df.explode(['Charge_Hour_ER','Charge_Hour_LT','Charge_Hour_RND','Charge_Hour_CM','Energy'])
         df['Energy'] = df['Energy']*df['NumberOfEV'] ### energy per EV --> energy all EV
-        df_agg = df.groupby(by=["Charge_Hour","TransMode","FLOW_DIR"]).agg({"Energy":"sum"}).reset_index()
+        
+        ###new steps
+        value_vars = [c for c in df if c.startswith('Charge_Hour_')]
+        df_melt = pd.melt(df, id_vars=["TransMode","FLOW_DIR","Energy"], value_vars=value_vars, var_name='PEV_DELAY', value_name='Charge_Hour')
+        df_agg = df_melt.groupby(by=["Charge_Hour","TransMode","PEV_DELAY","FLOW_DIR"]).agg({"Energy":"sum"}).reset_index()
+        
+        delay_dict = {'Charge_Hour_ER':'Earliest',
+                    'Charge_Hour_LT':'Latest',
+                    'Charge_Hour_RND':'Random',
+                    'Charge_Hour_CM':'Custom'}
+        df_agg["PEV_DELAY"] = df_agg["PEV_DELAY"].replace(delay_dict)
 
         df_agg["Energy_Floor"] = df_agg["TransMode"].map(self.energy_floor_dict).fillna(0)
-
-        # print(df_agg["Energy_Floor"].value_counts())
-
         df_agg['Energy'] = df_agg['Energy'] + df_agg["Energy_Floor"]
         df_agg.drop(["Energy_Floor"],inplace=True,axis=1)
 
-        # df_agg['Energy'] = df_agg.apply(lambda row: floor(row), axis=1)
+        
+
+        # ### old steps
+        # df_agg = df.groupby(by=["Charge_Hour","TransMode","FLOW_DIR"]).agg({"Energy":"sum"}).reset_index()
+
+        # df_agg["Energy_Floor"] = df_agg["TransMode"].map(self.energy_floor_dict).fillna(0)
+
+        # # print(df_agg["Energy_Floor"].value_counts())
+
+        # df_agg['Energy'] = df_agg['Energy'] + df_agg["Energy_Floor"]
+        # df_agg.drop(["Energy_Floor"],inplace=True,axis=1)
+
+        # # df_agg['Energy'] = df_agg.apply(lambda row: floor(row), axis=1)
 
 
+        #### from old steps
         all_dir = df_agg.groupby(by=["Charge_Hour","TransMode"]).agg({"Energy":"sum"}).reset_index()
         all_dir['FLOW_DIR'] = 'ALL'
         df_agg = pd.concat([df_agg, all_dir]).reset_index(drop=True)
@@ -165,6 +196,7 @@ class ElectricModel:
         ### Create leave work hour from arrives and HRS_WK_DAILY 
         self.commuter_df['LEAVE_WORK_HOUR'] = (self.commuter_df['ARRIVES_AT_WORK_HOUR'] + self.commuter_df['HRS_WK_DAILY'])%24
         self.commuter_df['LEAVE_WORK_HOUR'] = self.commuter_df['LEAVE_WORK_HOUR'].astype(int)
+        self.commuter_df['HRS_WK_DAILY'] = np.ceil(self.commuter_df['HRS_WK_DAILY']).astype(int)
         
         ## for easier coding, only take Manhattan workers (dir==in)
         self.commuter_df = self.commuter_df[self.commuter_df['COMMUTE_DIRECTION_MANHATTAN']=='in'].reset_index(drop=True)
@@ -178,11 +210,11 @@ class ElectricModel:
 
     def create_in_out_flow_dfs(self):
         ### in_flow is all transit modes
-        self.in_flow = self.commuter_df[["ARRIVES_AT_WORK_HOUR",'TransMode',"DISTANCE_KM",'PERWT']].rename({'ARRIVES_AT_WORK_HOUR':'HOUR'},axis=1)
+        self.in_flow = self.commuter_df[["ARRIVES_AT_WORK_HOUR","HRS_WK_DAILY",'TransMode',"DISTANCE_KM",'PERWT']].rename({'ARRIVES_AT_WORK_HOUR':'HOUR'},axis=1)
         self.in_flow['FLOW_DIR'] = 'IN'
 
         ### out_flow is only those that will use electricity eventually or immediately drawn from manhattan
-        self.out_flow = self.commuter_df[["LEAVE_WORK_HOUR",'TransMode',"DISTANCE_KM",'PERWT']].rename({'LEAVE_WORK_HOUR':'HOUR'},axis=1)
+        self.out_flow = self.commuter_df[["LEAVE_WORK_HOUR","HRS_WK_DAILY",'TransMode',"DISTANCE_KM",'PERWT']].rename({'LEAVE_WORK_HOUR':'HOUR'},axis=1)
         self.out_flow_filter = self.out_flow[self.out_flow['TransMode'].isin(['Bus','Subway','CommuterRail','Taxicab'])].reset_index(drop=True)
         self.out_flow_filter['FLOW_DIR'] = 'OUT'
 
