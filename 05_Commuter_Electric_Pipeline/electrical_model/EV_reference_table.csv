@@ -1,0 +1,10 @@
+TransMode,ChargingPower_kW,HoursToFullyRecharge_hr,Floor_kWh,Multiplier,MultiplierUnit,excludingfromMNY,NumberOfEV,TotalEnergyPerEV,HourEnergyPerEV,Energy
+AutoOccupants,12,7,,0.2134,kwh/km,Live outside of MNY & Owner,PERWT (flexible to add carpooling),DISTANCE_KM*Multiplier*2,4 delay types + related to charging time,In
+Bus,163,3,,1.761,kwh/km,Live outside of MNY,PERWT/20,DISTANCE_KM*Multiplier,6 hr delay + related to charging time,In+Out
+Ferry,200,4,,10,kwh,,PERWT/100,Multiplier,6 hr delay + related to charging time,In
+Escooter,0.3,6,,0.046622,kwh/km,% no need to charge in MNY,PERWT,DISTANCE_KM*Multiplier*2,4 delay types + related to charging time,In
+Bicycle,0.3,5,,0.042403,kwh/km,% no need to charge in MNY,PERWT,DISTANCE_KM*Multiplier*2,4 delay types + related to charging time,In
+Motorcycle,3,8,,0.152297,kwh/km,Live outside of MNY & Owner,PERWT,DISTANCE_KM*Multiplier*2,4 delay types + related to charging time,In
+Taxicab,12,7,,0.2134,kwh/km,,PERWT,DISTANCE_KM*Multiplier,6 hr delay + related to charging time,In+Out
+Subway,,,55240,0.5027,kwh,,1,PERWT*Multiplier,real time,In+Out
+CommuterRail,,,9147,0.24,kwh,,1,PERWT*Multiplier,real time,In+Out
