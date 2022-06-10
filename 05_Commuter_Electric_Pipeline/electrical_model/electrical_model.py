@@ -230,5 +230,29 @@ class ElectricModel:
         self.df_aggregate['TransMode'] = self.df_aggregate['TransMode'].astype(mode_order)
 
 
+    def create_electrical_power_table(self):
+        '''as per Robert's email:
+        1-3: ~200MW
+        2-3: ~600MW
+        7-6: ~1000MW
+        6-3: ~800MW
+        5-3: ~400MW
+        4-3: ~800MW
+
+        So the total we can get into Manhattan is around 2000MW. 
+        '''
+        
+        self.electrical_power_table = pd.DataFrame(data=[200,600,1000,800,400,800]\
+                                                   ,index=["1-3","2-3","7-6","6-3","5-3","4-3"]\
+                                                  ,columns=["MW"])
+        
 
 
+
+
+        
+        
+        
+        
+        
+        
