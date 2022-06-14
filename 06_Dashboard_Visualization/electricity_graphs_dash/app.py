@@ -65,12 +65,14 @@ app.layout = html.Div(children=[
             # )
         ], style={'display': 'inline-block'})
     ,html.Div(dcc.Graph(id='indicator-graphic'))
+    ,html.Div(id='total_kwh_daily')
     ])
 
 
 
 @app.callback(
     Output('indicator-graphic', 'figure'),
+    Output('total_kwh_daily','children'),
     Input('electric_model_of_choice_idx','value'),
     Input('pev_delay_choice', 'value'),
     Input('include_manhattan_consumption','on')
@@ -87,6 +89,8 @@ def update_electricity_graph(electric_model_of_choice_idx,pev_delay_choice,inclu
     gb_plot = df_plot.groupby(by=["Charge_Hour","TransMode"]).agg({"Energy":"sum"}).reset_index()
     # print(gb_plot)
 
+    total_kwh = gb_plot.Energy.sum()
+
     # print(f"manhattan energy consumption: {include_manhattan_consumption}")
 
     
@@ -101,7 +105,7 @@ def update_electricity_graph(electric_model_of_choice_idx,pev_delay_choice,inclu
 
     #### ToDo: Maybe somebody else can figure out the right distribution of kwh by hour for Manhattan?
 
-    return fig
+    return fig,f"Total kwh added by the electric commute for 1 day: {round(total_kwh):,}"
 
 
 
