@@ -1,4 +1,5 @@
 from dash import Dash, dcc, html, Input, Output
+import dash_daq as daq
 import plotly.express as px
 import pandas as pd
 
@@ -26,6 +27,17 @@ available_electric_models = {"Electric Model 1 - Max Transit":electric_model_1
 charging_time_method = sorted(electric_model_1.PEV_DELAY.dropna().unique())
 trans_methods = sorted(electric_model_1.TransMode.dropna().unique())
 
+
+###### Electricity Consumption in NYC
+# https://engineering.mit.edu/engage/ask-an-engineer/how-many-wind-turbines-would-it-take-to-power-all-of-new-york-city/
+# The city’s five boroughs, plus Westchester, consumed around 
+# 60 thousand gigawatt-hours of electricity last year, according to ConEdison. 
+# That’s 60 billion kilowatt-hours a year.
+
+# 60 billion / 365 = 164mm kilowatt hours per day in region
+# 164 * 20% (rough estimate) = 32,800,000 kwh per day in Manhattan
+
+
 # print(available_electric_models.keys())
 
 app.layout = html.Div(children=[   
@@ -39,7 +51,11 @@ app.layout = html.Div(children=[
                 charging_time_method,
                 "Earliest",
                 id='pev_delay_choice'
-            )
+            ),
+            daq.BooleanSwitch(
+                    id='include_manhattan_consumption'
+                    ,label='Include estimated Manhattan electricity consumption?'
+                    , on=False),
             # ,
             # dcc.Checklist(
             #     options=trans_methods,
@@ -57,9 +73,10 @@ app.layout = html.Div(children=[
     Output('indicator-graphic', 'figure'),
     Input('electric_model_of_choice_idx','value'),
     Input('pev_delay_choice', 'value'),
+    Input('include_manhattan_consumption','on')
     # Input('trans_mode_choice', 'value')
     )
-def update_electricity_graph(electric_model_of_choice_idx,pev_delay_choice):
+def update_electricity_graph(electric_model_of_choice_idx,pev_delay_choice,include_manhattan_consumption):
     # trans_mode_choice
     # print(f"Electric model of choice",electric_model_of_choice_idx,available_electric_models[electric_model_of_choice_idx].shape)
     # print(f"TransModels of choice",trans_mode_choice)
@@ -69,10 +86,23 @@ def update_electricity_graph(electric_model_of_choice_idx,pev_delay_choice):
     df_plot = df_plot[df_plot["PEV_DELAY"]==pev_delay_choice]
     gb_plot = df_plot.groupby(by=["Charge_Hour","TransMode"]).agg({"Energy":"sum"}).reset_index()
     # print(gb_plot)
+
+    # print(f"manhattan energy consumption: {include_manhattan_consumption}")
+
+    
     fig = px.line(gb_plot,x='Charge_Hour',y='Energy',color='TransMode'\
         ,labels=dict(Charge_Hour="Hour of Day", TransMode="Mode of Transit", Energy="Total kWH"))
     fig.update_yaxes(ticklabelposition="inside top", title=None)
+
+    if include_manhattan_consumption:
+        # gb_plot["Energy"] = gb_plot["Energy"] + 32800000
+        fig.add_hline(y=32800000/24) #estimated kwh daily in Manhattan hourly  
+
+
+    #### ToDo: Maybe somebody else can figure out the right distribution of kwh by hour for Manhattan?
+
     return fig
+
 
 
 
