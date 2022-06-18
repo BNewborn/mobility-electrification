@@ -72,7 +72,7 @@ def HourEnergyPerEV(row,PEV_delay_hr,bus_ferry_cab_delay):
         return row 
 
 class ElectricModel:
-    def __init__(self,commuter_df,ev_reference_table_loc,PEV_delay_hr,bus_ferry_cab_delay):
+    def __init__(self,commuter_df,ev_reference_table_loc,PEV_delay_hr,bus_ferry_cab_delay,model_name):
         '''
         variables needed to create electricmodel
 
@@ -80,13 +80,14 @@ class ElectricModel:
         ev_reference_table_loc: location of electric reference information (static csv)
         PEV_delay_hr: parameter to adjust when charging occurs for PEV (cars)
         bus_ferry_cab_delay: delay from  use that will bus/ferry/cab will charge
+        model_name: what to call this when saving later
         '''
 
         self.commuter_df = commuter_df
         self.ev_reference_table_loc = ev_reference_table_loc
         self.PEV_delay_hr=PEV_delay_hr
         self.bus_ferry_cab_delay=bus_ferry_cab_delay
-
+        self.model_name = model_name
              
 
 

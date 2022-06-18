@@ -14,17 +14,18 @@ class CommuterModel:
         (self.ipums_df['PUMA_NAME'].str.contains("Bergen"))]['PUMA_NAME'].unique()
         
         ### Read in work-from-home conditional income&education probabilties
-        self.wfh_probs = pd.read_csv("wfh_conditional_probs.csv",index_col=0).drop("WFH_TAG",axis=1)
+        self.wfh_probs = pd.read_csv("commuter_model/wfh_conditional_probs.csv",index_col=0).drop("WFH_TAG",axis=1)
+
         
         ### Read in required csv to get pumas for mass transit functions
         # https://github.com/BNewborn/mobility-electrification/blob/main/03_CommuterModel/tranwork_flags/bus_subway_rail_ferry_functions.ipynb
-        self.reachable_puma_home = pd.read_csv("regional_transit_system/reachable_puma_home.csv")
+        self.reachable_puma_home = pd.read_csv("commuter_model/regional_transit_system/reachable_puma_home.csv")
         self.puma_home_Bus = self.reachable_puma_home[self.reachable_puma_home['Bus']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_Subway = self.reachable_puma_home[self.reachable_puma_home['Subway']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_CommuterRail = self.reachable_puma_home[self.reachable_puma_home['CommuterRail']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_Ferry = self.reachable_puma_home[self.reachable_puma_home['Ferry']==1]['PUMAKEY_HOME'].to_list()
         
-        self.reachable_puma_work = pd.read_csv("regional_transit_system/reachable_puma_work.csv")
+        self.reachable_puma_work = pd.read_csv("commuter_model/regional_transit_system/reachable_puma_work.csv")
         self.puma_work_Bus = self.reachable_puma_work[self.reachable_puma_work['Bus']==1]['PUMAKEY_WORK'].to_list()
         self.puma_work_Subway = self.reachable_puma_work[self.reachable_puma_work['Subway']==1]['PUMAKEY_WORK'].to_list()
         self.puma_work_CommuterRail = self.reachable_puma_work[self.reachable_puma_work['CommuterRail']==1]['PUMAKEY_WORK'].to_list()
@@ -157,7 +158,7 @@ class CommuterModel:
             schedule (list): Operating hours of the buses
 
         Changable inputs:
-            affordability (0-100, default 20): Commuting costs as % of income
+            affordability (0-100, default 20): Commuting costs as % of income. Higher = more likely somebody can use this mode
             fixgaps (True/False, default False): Whether to fix gaps with current data
 
         output:
@@ -447,7 +448,52 @@ class CommuterModel:
 
         return wfh_overall_binary
     
+    def AssignTransModesWaterfall(self,waterfall_order):
+        '''
+        This method, instead of randomly assigning a transmode from eligible riders, uses waterfall logic to assign.
+        First in the list will always take priority, then 2nd, 3rd etc.
+        waterfall_order should have the column names - easiest that way
+
+        It returns a pandas series to be added to the end of ipums_df
+        '''
+        assignments_total = list()
+        # flag_cols = [x for x in self.ipums_df if "FLAG" in x]
+        # Dictionary to return clean transmode name used in downstream options
+        match_dict = {"FLAG_AUTO":"AutoOccupants"
+        ,"FLAG_ESCOOTER" :"Escooter"
+        ,"FLAG_WALK" :"Walk"
+        ,"FLAG_EBIKE" :"Bicycle"
+        ,"FLAG_MOTORCYCLE":"Motorcycle"
+        ,"FLAG_TAXICAB":"Taxicab"
+        ,"FLAG_EBUSES":"Bus"
+        ,"FLAG_SUBWAY":"Subway"
+        ,"FLAG_COMMUTERRAIL":"CommuterRail"
+        ,"FLAG_FERRY":"Ferry"
+        ,"FLAG_WFH":"WFH"
+        }
+
+        ### Loop through every row, creating an ordered list of the options each is eligible for.
+        for index, row in self.ipums_df.iterrows():
+            # print(row)
+            per_line_flags = list()
+            for flag in waterfall_order:
+                if row[flag] == 1:
+                    per_line_flags.append(flag)
+
+            ### At the end of the waterfall_order,
+            # If per_line_flags has at least 1 entry, take the first. Otherwise, return "No Option"
+            if len(per_line_flags) > 0 :
+                assignments_total.append(match_dict[per_line_flags[0]])
+            else:
+                assignments_total.append("No Option")
+            
+        return assignments_total
+
     def RandAssignNoOption(self, FLAG_AUTO, FLAG_MOTORCYCLE, FLAG_TAXICAB, FLAG_EBUSES, FLAG_SUBWAY, FLAG_COMMUTERRAIL, FLAG_FERRY, FLAG_ESCOOTER, FLAG_WALK, FLAG_EBIKE, FLAG_WFH, NoOptionAssignment = "No Option"):
+        '''
+        This method looks at how many modes of transit an IPUMS line is eligible for and randomly selects one
+        It returns a pandas series to be added to the end of ipums_df
+        '''
         assignment = []
         modes = ['AutoOccupants','Motorcycle','Taxicab','Bus','Subway','CommuterRail','Ferry','Escooter','Walk','Bicycle','WFH']
         for index, rows in self.ipums_df.iterrows():
@@ -475,17 +521,20 @@ class CommuterModel:
             if FLAG_WFH[index] == 1:
                 available_indices.append(10)
             if len(available_indices) == 0:
-                assignment.append("No option")
+                assignment.append("No Option")
             else:
                 RandAssignment = random.choice(available_indices)
                 assignment.append(modes[RandAssignment])
         return assignment
     
     def RandAssignChosenOption(self, RandAssignment, CurrentAssignment, NoOptionAssignment = "Current"):
+        '''
+        This method takes in an assigned option for each ipums line. If there is no option assigned, it returns the line's existing mode from 2019 IPUMS data.
+        It returns a pandas series to be added to the end of ipums_df
+        '''
         assignment = []
-        modes = ['AutoOccupants','Motorcycle','Taxicab','Bus','Subway','CommuterRail','Ferry','Escooter','Walk','Bicycle','WFH']
         for i in range(len(RandAssignment)):
-            if RandAssignment[i] == "No option":
+            if RandAssignment[i] == "No Option":
                 if NoOptionAssignment == "Current":
                     assignment.append(CurrentAssignment[i])
                 else:
@@ -495,19 +544,22 @@ class CommuterModel:
         return assignment
     
     def GasCO2(self, OriginalMode, Distance):
+        '''
+        This method provides CO2 calculations for each mode of transit taken
+        '''
         GasCO2lbs = []
         for i in range(len(OriginalMode)):
-            if OriginalMode[i] == "AutoOccupants" or "Taxicab":
+            if OriginalMode[i] in ["AutoOccupants" , "Taxicab"]:
                 CO2 = Distance[i]*0.4346
             elif OriginalMode[i] == "Bus":
                 CO2 = Distance[i]*0.14038
             elif OriginalMode[i] == "Ferry":
                 CO2 = Distance[i]*2.4627
-            elif OriginalMode[i] == "Escooter" or"Bicycle":
+            elif OriginalMode[i] in ["Escooter" , "Bicycle"]:
                 CO2 = 0
             elif OriginalMode[i] == "Motorcycle":
                 CO2 = Distance[i]*0.18615
-            elif OriginalMode[i] == "Subway" or"CommuterRail":
+            elif OriginalMode[i] in ["Subway" , "CommuterRail"]:
                 CO2 = 1 #placeholder
             GasCO2lbs.append(CO2)
         return GasCO2lbs
