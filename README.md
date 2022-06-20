@@ -17,11 +17,11 @@ This directory was used in the Spring to manipulate the data resulting from step
 
 
 [Section 3](03_CommuterModel/)
-With our data ready to use, we now took on the work of developing a workable, repeatable, well-documented Commuter Model. Cleaned data was fed into notebooks that utilized our [commuter model python class](link to python file). This class ingested our clean data and, after a few interim steps and adjustable parameters, assigned modes of transit to each person in our dataset. This directory was where we built our first versions of this model for testing, review, and early interim visualizations.
+With our data ready to use, we now took on the work of developing a workable, repeatable, well-documented Commuter Model. Cleaned data was fed into notebooks that utilized our [commuter model python class](<03_CommuterModel/tranwork_flags/commuter_model.py>). This class ingested our clean data and, after a few interim steps and adjustable parameters, assigned modes of transit to each person in our dataset. This directory was where we built our first versions of this model for testing, review, and early interim visualizations.
 
 
 [Section 4](04_ElectricalInfrastructureModel/)
-After building a commuter model, we needed to understand the electricity demands of each possible iteration of commuter distribution by mode, by hour, and by origin. This directory features our work developing an [electric model python class](link to python file). This file distributes electricity demand based on certain input parameters and the commuter model output it is measuring. Any two commuter model runs should have different outputs and therefore unique electricity demand profiles.
+After building a commuter model, we needed to understand the electricity demands of each possible iteration of commuter distribution by mode, by hour, and by origin. This directory features our work developing an [electric model python class](<04_ElectricalInfrastructureModel/electrical_model.py>). This file distributes electricity demand based on certain input parameters and the commuter model output it is measuring. Any two commuter model runs should have different outputs and therefore unique electricity demand profiles.
 
 
 [Section 5](05_Commuter_Electric_Pipeline/)
