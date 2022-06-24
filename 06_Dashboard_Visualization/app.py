@@ -27,6 +27,9 @@ layout = dict(
     plot_bgcolor="rgba(0, 0, 0, 0)",
     paper_bgcolor="rgba(0, 0, 0, 0)",
     legend=dict(font=dict(size=10), orientation="h", y=-0.15),
+    yaxis = dict(tickfont = dict(size=10)),
+    xaxis = dict(tickfont = dict(size=10)),
+    legend_title_text = "",
     # title="Satellite Overview"
 )
 
@@ -69,9 +72,16 @@ mode_dict_3 = {'Other':'Other',
 def df_processing(df):    
     df = df[df['COMMUTE_DIRECTION_MANHATTAN']=='in']
     df = df.merge(right=subregion_reference, on=["PUMAKEY_HOME"])
+    df["Subregion"] = df["Subregion"].replace({"Non-MNY Boroughs":"Non-MNY Boros",
+                                               "Inner NJ":"NJ",
+                                               "Outer NJ":"NJ",
+                                               "Low Hud":"Hud",
+                                               "Mid Hud":"Hud",
+                                               })
     df['LEAVE_WORK_HOUR'] = (df['ARRIVES_AT_WORK_HOUR'] + np.ceil(df['HRS_WK_DAILY']).astype(int))%24
     df['Current'] = df["MODE_TRANSP_TO_WORK"].replace(mode_dict_1)
-    df['Reassigned'] = df["First_Assignment"].replace(mode_dict_2)
+    # df['Reassigned'] = df["First_Assignment"].replace(mode_dict_2)
+    df['Reassigned'] = df["TransMode"].replace(mode_dict_2)
     df['Current_Parent'] = df["Current"].replace(mode_dict_3)
     df['Reassigned_Parent'] = df["Reassigned"].replace(mode_dict_3)
     df['MNY_RES'] = df['PUMAKEY_HOME'].apply(lambda x: 1 if x.startswith('36_038') else 0)
@@ -102,18 +112,35 @@ def flag_assign(df):
 
 def subregion(df):
     subregion = df.groupby(by=["Subregion","Reassigned"]).agg({"PERWT":"sum"}).reset_index()
-    order = CategoricalDtype(['Mid Hud','CT','Outer NJ','Low Hud','LI',
-                              'Inner NJ','Non-MNY Boroughs','Manhattan'],ordered=True)
+    order = CategoricalDtype(['CT','Hud','LI','NJ','Non-MNY Boros','Manhattan'],ordered=True)
     subregion['Subregion'] = subregion['Subregion'].astype(order)
     subregion.sort_values('Subregion',inplace=True)
     return subregion
 
+
+def PCE(row):
+    # https://en.wikipedia.org/wiki/Passenger_car_equivalent
+    # private car (including taxis or pick-up) 1
+    # motorcycle 0.75
+    # bicycle 0.5
+    # horse-drawn vehicle 4
+    # bus, tractor, truck 3
+    if row['TransMode'] in ['Autos','Taxicab','Other']:
+        return row['PERWT']
+    elif row['TransMode']=='Bus':
+        return (row['PERWT']*3)/20
+    elif row['TransMode'] in ['Bicycle','Escooter']:
+        return row['PERWT']*0.5
+    elif row['TransMode']=='Motorcycle':
+        return row['PERWT']*0.75
+    elif row['TransMode'] in ['WFH','CommuterRail','Subway','Walk','Ferry']:
+        return 0 
+
 def traffic_flow(df):
-    in_agg = df.rename({'ARRIVES_AT_WORK_HOUR':'Hour'},axis=1)\
-               .groupby(by=["Hour"]).agg({"PERWT":"sum"}).reset_index().astype(int)
+    df['PCE'] = df.apply(lambda row: PCE(row), axis=1)
+    in_agg = df.rename({'ARRIVES_AT_WORK_HOUR':'Hour'},axis=1).groupby(by=["Hour"]).agg({"PCE":"sum"}).reset_index().astype(int)
     in_agg['Dir'] = 'in'
-    out_agg = df.rename({'LEAVE_WORK_HOUR':'Hour'},axis=1)\
-                .groupby(by=["Hour"]).agg({"PERWT":"sum"}).reset_index().astype(int)
+    out_agg = df.rename({'LEAVE_WORK_HOUR':'Hour'},axis=1).groupby(by=["Hour"]).agg({"PCE":"sum"}).reset_index().astype(int)
     out_agg['Dir'] = 'out'
     flow = pd.concat([in_agg, out_agg])
     return flow
@@ -176,7 +203,7 @@ def generate_control_card():
                 ["Customize (placeholder)"], id='Customize',
             ),
             html.Br(),
-            html.P("Tavel Modes Constraints (placeholder)"),
+            html.P("Travel Modes Constraints (placeholder)"),
             dcc.Dropdown(
                 id="mode-limit-select",
                 options=["Limit one","Limit two","Limit three"],
@@ -249,14 +276,14 @@ app.layout = html.Div(
                                     id="wells",
                                     className="mini_container",
                                 ),
-                                html.Div(
-                                    [html.H6(id="peak_power_text"), html.P("Peak Load")],
-                                    id="gas",
+                                 html.Div(
+                                    [html.H6(id="add_energy_text"), html.P("Add. Energy")],
+                                    id="oil",
                                     className="mini_container",
                                 ),
                                 html.Div(
-                                    [html.H6(id="add_energy_text"), html.P("Add. Load")],
-                                    id="oil",
+                                    [html.H6(id="peak_power_text"), html.P("Peak Load")],
+                                    id="gas",
                                     className="mini_container",
                                 ),
                             ],
@@ -298,7 +325,7 @@ app.layout = html.Div(
                     id="flow_card",
                     className="pretty_container four columns",
                     children=[
-                        html.B("Traffic Flow (+OnRoadFlow)"),
+                        html.B("Passenger Car Equivalent"),
                         dcc.Graph(id="flow_graphic"),
                     ],
                 ),
@@ -316,7 +343,7 @@ app.layout = html.Div(
                     id="share_card",
                     className="pretty_container four columns",
                     children=[
-                        html.B("Share of Modes"),
+                        html.B("Travel Modes Share"),
                         dcc.Graph(id="share_graphic"),
                     ],
                 ),
@@ -396,6 +423,10 @@ def update_electric_graph(commuter_model_of_choice_idx,Detailed,pev_delay_choice
         df_plot['Energy'] = df_plot['Energy']/1000
         df_plot['TransMode'] = df_plot['TransMode'].astype("string")
         gb_plot = df_plot.groupby(by=["Charge_Hour","TransMode"]).agg({"Energy":"sum"}).reset_index()
+        ### order: most or stable on bottom, now use most
+        sum_energy_by_mode = df_plot.groupby(by=["TransMode"]).agg({"Energy":"sum"}).rename({'Energy':'sum'},axis=1).reset_index()
+        gb_plot = gb_plot.merge(right=sum_energy_by_mode, on=["TransMode"])
+        gb_plot.sort_values(by=['sum'],ascending=False,inplace=True)
         fig = px.area(gb_plot,x='Charge_Hour',y='Energy',color='TransMode',height=250, markers=False, 
                       labels=dict(Charge_Hour="Hour of Day", TransMode="Travel Mode", Energy="Power (MW)"))
         fig.update_xaxes(range = [0,23])
@@ -417,9 +448,10 @@ def update_flow_graph(commuter_model_of_choice_idx):
     in_df = flow[flow['Dir']=='in']
     out_df = flow[flow['Dir']=='out']
     index = in_df.Hour.to_list()
-    in_flow = in_df.PERWT.to_list()
-    out_flow = out_df.PERWT.to_list()
+    in_flow = in_df.PCE.to_list()
+    out_flow = out_df.PCE.to_list()
     layout_flow = copy.deepcopy(layout)
+    layout_flow["yaxis"] = dict(range=[0,3e5])
     data = [
         dict(
             type="scatter",
@@ -474,7 +506,7 @@ def update_map_graph(commuter_model_of_choice_idx):
     layout_flag = copy.deepcopy(layout)
     fig.update_layout(layout_flag)
     fig.update_layout(yaxis_title=None,xaxis_title=None)
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     return fig
 
 
@@ -487,7 +519,7 @@ def update_share_graph(commuter_model_of_choice_idx):
     com_df = available_commuter_models[commuter_model_of_choice_idx]
     share_df = com_df.groupby(by=["Reassigned","Reassigned_Parent"]).agg({"PERWT":"sum"}).reset_index()\
                 .rename({'Reassigned':'Mode','Reassigned_Parent':'Mode_Parent'},axis=1)
-    share_df['ALL'] = 'Share of Modes'
+    share_df['ALL'] = 'Travel Modes'
     fig = px.sunburst(share_df, path=['ALL','Mode_Parent','Mode'], values='PERWT', height=350)
 
     layout_share = copy.deepcopy(layout)
@@ -511,7 +543,7 @@ def update_subregion_graph(commuter_model_of_choice_idx):
     layout_subregion = copy.deepcopy(layout)
     fig.update_layout(layout_subregion)
     fig.update_layout(yaxis_title=None,xaxis_title=None)
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     return fig
 
 
