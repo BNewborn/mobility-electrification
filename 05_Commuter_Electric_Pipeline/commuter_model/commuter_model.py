@@ -14,18 +14,18 @@ class CommuterModel:
         (self.ipums_df['PUMA_NAME'].str.contains("Bergen"))]['PUMA_NAME'].unique()
         
         ### Read in work-from-home conditional income&education probabilties
-        self.wfh_probs = pd.read_csv("commuter_model/wfh_conditional_probs.csv",index_col=0).drop("WFH_TAG",axis=1)
+        self.wfh_probs = pd.read_csv("wfh_conditional_probs.csv",index_col=0).drop("WFH_TAG",axis=1)
 
         
         ### Read in required csv to get pumas for mass transit functions
         # https://github.com/BNewborn/mobility-electrification/blob/main/03_CommuterModel/tranwork_flags/bus_subway_rail_ferry_functions.ipynb
-        self.reachable_puma_home = pd.read_csv("commuter_model/regional_transit_system/reachable_puma_home.csv")
+        self.reachable_puma_home = pd.read_csv("regional_transit_system/reachable_puma_home.csv")
         self.puma_home_Bus = self.reachable_puma_home[self.reachable_puma_home['Bus']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_Subway = self.reachable_puma_home[self.reachable_puma_home['Subway']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_CommuterRail = self.reachable_puma_home[self.reachable_puma_home['CommuterRail']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_Ferry = self.reachable_puma_home[self.reachable_puma_home['Ferry']==1]['PUMAKEY_HOME'].to_list()
         
-        self.reachable_puma_work = pd.read_csv("commuter_model/regional_transit_system/reachable_puma_work.csv")
+        self.reachable_puma_work = pd.read_csv("regional_transit_system/reachable_puma_work.csv")
         self.puma_work_Bus = self.reachable_puma_work[self.reachable_puma_work['Bus']==1]['PUMAKEY_WORK'].to_list()
         self.puma_work_Subway = self.reachable_puma_work[self.reachable_puma_work['Subway']==1]['PUMAKEY_WORK'].to_list()
         self.puma_work_CommuterRail = self.reachable_puma_work[self.reachable_puma_work['CommuterRail']==1]['PUMAKEY_WORK'].to_list()
@@ -563,3 +563,53 @@ class CommuterModel:
                 CO2 = 1 #placeholder
             GasCO2lbs.append(CO2)
         return GasCO2lbs
+    
+    def WeightedAssignNoOption(self, FLAG_AUTO, FLAG_MOTORCYCLE, FLAG_TAXICAB, FLAG_EBUSES, FLAG_SUBWAY, FLAG_COMMUTERRAIL, FLAG_FERRY, FLAG_ESCOOTER, FLAG_WALK, FLAG_EBIKE, FLAG_WFH, WEIGHTS, NoOptionAssignment = "No Option"):
+        '''
+        This method looks at how many modes of transit an IPUMS line is eligible for and randomly selects with a list of weights one
+        It returns a pandas series to be added to the end of ipums_df
+        '''
+        assignment = []
+        modes = ['AutoOccupants','Motorcycle','Taxicab','Bus','Subway','CommuterRail','Ferry','Escooter','Walk','Bicycle','WFH']
+        for index, rows in self.ipums_df.iterrows():
+            available_indices = []
+            weights = []
+            if FLAG_AUTO[index] == 1:
+                available_indices.append(0)
+                weights.append(WEIGHTS[0])
+            if FLAG_MOTORCYCLE[index] == 1:
+                available_indices.append(1)
+                weights.append(WEIGHTS[1])
+            if FLAG_TAXICAB[index] == 1:
+                available_indices.append(2)
+                weights.append(WEIGHTS[2])
+            if FLAG_EBUSES[index] == 1:
+                available_indices.append(3)
+                weights.append(WEIGHTS[3])
+            if FLAG_SUBWAY[index] == 1:
+                available_indices.append(4)
+                weights.append(WEIGHTS[4])
+            if FLAG_COMMUTERRAIL[index] == 1:
+                available_indices.append(5)
+                weights.append(WEIGHTS[5])
+            if FLAG_FERRY[index] == 1:
+                available_indices.append(6)
+                weights.append(WEIGHTS[6])
+            if FLAG_ESCOOTER[index] == 1:
+                available_indices.append(7)
+                weights.append(WEIGHTS[7])
+            if FLAG_WALK[index] == 1:
+                available_indices.append(8)
+                weights.append(WEIGHTS[8])
+            if FLAG_EBIKE[index] == 1:
+                available_indices.append(9)
+                weights.append(WEIGHTS[9])
+            if FLAG_WFH[index] == 1:
+                available_indices.append(10)
+                weights.append(WEIGHTS[10])
+            if len(available_indices) == 0:
+                assignment.append("No Option")
+            else:
+                RandAssignment = random.choices(available_indices, tuple(weights),k=1)[0]
+                assignment.append(modes[RandAssignment])
+        return assignment
