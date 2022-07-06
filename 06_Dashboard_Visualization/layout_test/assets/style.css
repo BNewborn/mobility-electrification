@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.card_container {
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  box-shadow: 2px 2px 2px lightgrey;
+}
+
+img {
+  height: 50px;
+}
+
+.app_container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(3, 150px);
+  /* gap: 10px; */
+  /* align-items: flex-start; */
+}
+
+.side_bar {
+  height: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+  background-color: grey;
+}
+
+.custom-tabs {
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+}
+
+.tab_contents {
+  display: grid;
+  height: 100%;
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+  grid-template-columns: repeat(4, 25%);
+}
+
+/*  */
+.tab1_content,
+.tab2_content,
+.tab3_content {
+  display: grid;
+  height: 100%;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(2, 50%);
+}
+
+.map {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  background-color: darkgray;
+}
+
+.energy {
+  grid-column: 3 / -1;
+  grid-row: 1;
+  background-color: lightblue;
+}
+
+.flow {
+  grid-column: 1;
+  grid-row: 2;
+  background-color: green;
+}
+
+.flag {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: pink;
+}
+
+.share {
+  grid-column: 3;
+  grid-row: 2;
+  background-color: purple;
+}
+
+.region {
+  grid-column: 4;
+  grid-row: 2;
+  background-color: orange;
+}
+
+.color_plus_intro {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  background-color: green;
+}
+
+.commuter_model {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background-color: green;
+}
+
+.electrical_model {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  background-color: orange;
+}
