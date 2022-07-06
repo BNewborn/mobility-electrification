@@ -7,6 +7,7 @@ import dash_daq as daq
 import pandas as pd
 import numpy as np
 from pandas.api.types import CategoricalDtype
+from textwrap import dedent
 
 
 app = dash.Dash(
@@ -19,15 +20,14 @@ server = app.server
 app.config.suppress_callback_exceptions = True
 
 
-
 layout = dict(
     height=320,
     # margin=dict(l=35, r=20, b=20, t=20),
-    margin=dict(l=10, r=10, b=10, t=10),
+    margin=dict(l=10, r=10, b=0, t=10),
     hovermode="closest",
     plot_bgcolor="rgba(0, 0, 0, 0)",
     paper_bgcolor="rgba(0, 0, 0, 0)",
-    legend=dict(font=dict(size=10), orientation="h", y=-0.15),
+    legend=dict(font=dict(size=7), orientation="h", y=-0.1, x=0),
     yaxis = dict(tickfont = dict(size=10)),
     xaxis = dict(tickfont = dict(size=10)),
     legend_title_text = "",
@@ -41,7 +41,6 @@ color__dict = {'Bus':'#636EFA',
                'Escooter':'#FFA15A',
                'Ferry':'#19D3F3',
                'Autos':'#FF6692',
-               'AutoOccupants':'#FF6692',
                'Walk':'#B6E880',
                'Taxicab':'#FF97FF',
                'Bicycle':'#FECB52',
@@ -85,6 +84,43 @@ electric_model_9 = pd.read_pickle(f"{save_dir}/NoWFH_Micro/{electric_fname}")
 #########  pre-processing, helper functions  #############
 ##########################################################
 
+def build_modal_info_overlay(id, side, content):
+    """
+    Build div representing the info overlay for a plot panel
+    """
+    div = html.Div(
+        [  # modal div
+            html.Div(
+                [  # content div
+                    html.Div(
+                        [
+                            html.H4(
+                                [
+                                    "Info",
+                                    html.Img(
+                                        id=f"close-{id}-modal",
+                                        src="assets/times-circle-solid.svg",
+                                        n_clicks=0,
+                                        className="info-icon",
+                                    ),
+                                ],
+                                className='modal-title'
+                            ),
+                            dcc.Markdown(content),
+                        ]
+                    )
+                ],
+                className=f"modal-content {side}",
+            ),
+            html.Div(className="modal"),
+        ],
+        id=f"{id}-modal",
+        style={"display": "none"},
+    )
+    return div
+
+
+
 mode_dict_1 = {'Auto, truck, or van':'Autos',
                'Long-distance train or commuter train':'CommuterRail',
                'Subway or elevated':'Subway',
@@ -109,7 +145,8 @@ mode_dict_3 = {'Other':'Other',
               }
 def df_processing(df):    
     df = df[df['COMMUTE_DIRECTION_MANHATTAN']=='in']
-    df = df.merge(right=subregion_reference, on=["PUMAKEY_HOME"])
+    df = df.merge(right=subregion_reference, on=["PUMAKEY_HOME"], how='left')
+    df["Subregion"] = df["Subregion"].fillna('Other')
     df["Subregion"] = df["Subregion"].replace({"Non-MNY Boroughs":"Non-MNY Boros",
                                                "Inner NJ":"NJ",
                                                "Outer NJ":"NJ",
@@ -151,7 +188,7 @@ def flag_assign(df):
 def subregion(df):
     subregion = df.groupby(by=["Subregion","Reassigned"]).agg({"PERWT":"sum"}).reset_index()
     # order = CategoricalDtype(['CT','Hud','LI','NJ','Non-MNY Boros','Manhattan'],ordered=True)
-    order = CategoricalDtype(['Manhattan','Non-MNY Boros','NJ','LI','Hud','CT'],ordered=True)
+    order = CategoricalDtype(['Manhattan','Non-MNY Boros','NJ','LI','Hud','CT','Other'],ordered=True)
     subregion['Subregion'] = subregion['Subregion'].astype(order)
     subregion.sort_values('Subregion',inplace=True)
     return subregion
@@ -204,15 +241,18 @@ commuter_model_9 = df_processing(commuter_model_9)
 
 ### 
 
-s_1 = " 1: High WFH + Mix Modes"
-s_2 = " 2: High WFH + Max Transit"
-s_3 = " 3: High WFH + Max Micro-mobility"
-s_4 = " 4: Mid WFH + Mix Modes"
-s_5 = " 5: Mid WFH + Max Transit"
-s_6 = " 6: Mid WFH + Max Micro-mobility"
-s_7 = " 7: No WFH + Mix Modes"
-s_8 = " 8: No WFH + Max Transit"
-s_9 = " 9: No WFH + Max Micro-mobility"
+pattern_list = [" Mix Modes ", " Heavy Transit ", " Heavy Micro-mobility "]
+wfh_list = [" High WFH ", " Mid WFH ", " No WFH "]
+
+s_1 = pattern_list[0] + "+" + wfh_list[0]
+s_2 = pattern_list[1] + "+" + wfh_list[0]
+s_3 = pattern_list[2] + "+" + wfh_list[0]
+s_4 = pattern_list[0] + "+" + wfh_list[1]
+s_5 = pattern_list[1] + "+" + wfh_list[1]
+s_6 = pattern_list[2] + "+" + wfh_list[1]
+s_7 = pattern_list[0] + "+" + wfh_list[2]
+s_8 = pattern_list[1] + "+" + wfh_list[2]
+s_9 = pattern_list[2] + "+" + wfh_list[2]
 
 available_commuter_models = {s_1: commuter_model_1,
                              s_2: commuter_model_2, 
@@ -273,11 +313,20 @@ def generate_control_card():
                 id="load_profile",
                 className="dropdown"
             ), 
-            html.P("Select One Scenario"),
+            html.P("Commuting Scenario"),
+            html.P("1. Select Transit Patterns"),
             dcc.RadioItems(
-                list(available_commuter_models.keys()),
-                list(available_commuter_models.keys())[0],
-                id='commuter_model_of_choice_idx',
+                pattern_list,
+                pattern_list[0],
+                id='transit_pattern',
+                className="dcc_control",
+                labelStyle={'display': 'block'}
+            ),
+            html.P("2. Select Work-from-home Level"),
+            dcc.RadioItems(
+                wfh_list,
+                wfh_list[0],
+                id='wfh_level',
                 className="dcc_control",
                 labelStyle={'display': 'block'}
             ),
@@ -290,42 +339,58 @@ side_bar = html.Div(
                 html.Img(src=app.get_asset_url("NYU_Short_RGB_Color.png")),
                 description_card(), 
                 generate_control_card(),
-                html.Img(src=app.get_asset_url("matrix.png")),
+                # html.Img(src=app.get_asset_url("matrix.png")),
                 ]
         )
 
 map_card = html.Div(
-            id="map_card",
+            id="indicator-div",
             className="map card_container",
             children=[
-                html.Div(
-                className="title_flex",
-                children=[
-                        html.H4("MAP TITLE | MAP TITLE | MAP TITLE"),
-                        html.Button('?')
-                    ]
+                html.H4(
+                    [
+                        "Manhattan Workers’ Place of Residence",
+                        html.Img(
+                            id="show-indicator-modal",
+                            src="assets/question-circle-solid.svg",
+                            n_clicks=0,
+                            className="info-icon",
+                        ),
+                    ],
+                    className="container_title",
                 ),
                 dcc.Graph(id="map_graphic"),
             ],
         )
 
 map_card_full = html.Div(
-                    id="map_card",
+                    id="indicator-div",
                     className="map_full card_container",
                     children=[
-                        html.Div(
-                            className="title_flex",
-                            children=[
-                                    html.H4("MAP TITLE | MAP TITLE | MAP TITLE"),
-                                    html.Button('?')
-                                ]
-                            ),
-                        html.H5("One sentence intro of the map layers: Manhattan Workers’ Place of Residence by Travel Mode. placeholder=Type something here! placeholder=Type something here!"),
+                        html.H4(
+                            [
+                                "Manhattan Workers’ Place of Residence & Power System",
+                                html.Img(
+                                    id="show-indicator-modal",
+                                    src="assets/question-circle-solid.svg",
+                                    n_clicks=0,
+                                    className="info-icon",
+                                ),
+                            ],
+                            className="container_title",
+                        ),
+                        dcc.RadioItems(
+                            [" Commuting", " Power System"],
+                            " Commuting",
+                            className="dcc_control",
+                        ),
                         dcc.Graph(id="map_graphic"),
                     ],
                 )
 
-e_card = html.Div(className="e_card",
+e_card = html.Div(
+                    id="radio-div",
+                    className="e_card",
                     children=[
                         html.Div(
                             [html.H3(id="total_energy_text"), html.P("Daily Energy")],
@@ -338,23 +403,41 @@ e_card = html.Div(className="e_card",
                             className="mini_container",
                         ),
                         html.Div(
-                            [html.H3(id="peak_power_text"), html.P("Peak Load")],
-                            id="gas",
+                            [
+                                html.H3(id="peak_power_text"), 
+                                html.P(
+                                    [
+                                        "Peak Load",
+                                        html.Img(
+                                            id="show-radio-modal",
+                                            src="assets/question-circle-solid.svg",
+                                            n_clicks=0,
+                                            className="info-icon",
+                                        ),
+                                    ]
+                                )
+                            ],
                             className="mini_container",
                         ),
                     ],
                 )
 
-energy_profile = html.Div(className="energy_profile card_container",
+energy_profile = html.Div(
+                    id="map-div",
+                    className="energy_profile card_container",
                     children=[
-                            html.Div(
-                            className="title_flex",
-                            children=[                       
-                                html.H4("Energy Profile of Manhattan's Home-Work Commuting Activities"),
-                                html.Button('?')
-                            ]
+                        html.H4(
+                            [
+                                "Energy Profile of Manhattan's Home-Work Commuting Activities",
+                                html.Img(
+                                    id="show-map-modal",
+                                    src="assets/question-circle-solid.svg",
+                                    n_clicks=0,
+                                    className="info-icon",
+                                ),
+                            ],
+                            className="container_title",
                         ),
-
                         html.Div(
                             className="e_choice", 
                             children=[
@@ -368,7 +451,6 @@ energy_profile = html.Div(className="energy_profile card_container",
                     ],
                 )
 
-
 energy = html.Div(
             id="energy_card",
             className="energy",
@@ -378,43 +460,214 @@ energy = html.Div(
             ],
         )
 
-
 pce_flow = html.Div(
-            id="pce_flow",
+            id="pce-div",
             className="flow card_container",
             children=[
-                html.H4("Passenger Car Equivalent"),
+                html.H4(
+                    [
+                        "Passenger Car Equivalent",
+                        html.Img(
+                            id="show-pce-modal",
+                            src="assets/question-circle-solid.svg",
+                            n_clicks=0,
+                            className="info-icon",
+                        ),
+                    ],
+                    className="container_title",
+                ),
                 dcc.Graph(id="flow_graphic"),
             ],
         )
 
 mode_assign = html.Div(
-            id="mode_assign",
+            id="flagvs-div",
             className="flag card_container",
             children=[
-                html.H4("Eligible vs Assigned (rename title)"),
+                html.H4(
+                    [
+                        "Eligible vs Assigned",
+                        html.Img(
+                            id="show-flagvs-modal",
+                            src="assets/question-circle-solid.svg",
+                            n_clicks=0,
+                            className="info-icon",
+                        ),
+                    ],
+                    className="container_title",
+                ),
                 dcc.Graph(id="eligible_graphic"),
             ],
         )
 
 mode_share = html.Div(
-                    id="mode_share",
+                    id="range-div",
                     className="share card_container",
                     children=[
-                        html.H4("Travel Modes Share"),
+                        html.H4(
+                            [
+                                "Travel Mode Share",
+                                html.Img(
+                                    id="show-range-modal",
+                                    src="assets/question-circle-solid.svg",
+                                    n_clicks=0,
+                                    className="info-icon",
+                                ),
+                            ],
+                            className="container_title",
+                        ),
                         dcc.Graph(id="share_graphic"),
                     ],
                 )
 
-
 mode_share_subregion = html.Div(
-                            id="mode_share_subregion",
+                            id="created-div",
                             className="region card_container",
                             children=[
-                                html.H4("Mode Choices by Subregion"),
+                                # html.H4("Mode Choices by Subregion"),
+                                html.H4(
+                                    [
+                                        "Mode Choices by Subregion",
+                                        html.Img(
+                                            id="show-created-modal",
+                                            src="assets/question-circle-solid.svg",
+                                            n_clicks=0,
+                                            className="info-icon",
+                                        ),
+                                    ],
+                                    className="container_title",
+                                ),
                                 dcc.Graph(id="subregion_graphic"),
                             ],
                         )
+
+
+
+modal_1 = build_modal_info_overlay(
+                    "indicator",
+                    "bottom",
+                    dedent(
+                        """
+            The selected _**Map**_ panel displays 
+            
+            1) _**Manhattan Workers’ Place of Residence by Travel Mode**_
+
+            Each dot represents a group of commuters with person weight. The location of the point is randomly generated inside its Public Use Microdata Areas (PUMA).
+
+            2) _**Power System in Manhattan**_
+
+            Intro of the source and content.
+            """
+                    ),
+                )
+
+modal_2 = build_modal_info_overlay(
+                    "radio",
+                    "bottom",
+                    dedent(
+                        """
+            The selected _**Energy Card**_ panel displays 
+            
+            1) _**Daily Energy**_
+
+            placeholder=Type something here!
+
+            2) _**Additional Energy**_
+
+            placeholder=Type something here!
+
+            3) _**Peak Load**_
+
+            placeholder=Type something here!            
+        """
+                    ),
+                )
+
+modal_3 = build_modal_info_overlay(
+                    "map",
+                    "bottom",
+                    dedent(
+                        """
+            The selected _**Energy Profile**_ panel displays 
+            
+            1) _**General**_
+
+            Description of the chart, and four delay types.
+
+            2) _**Details**_
+
+            placeholder=Type something here!
+        """
+                    ),
+                )
+
+modal_4 = build_modal_info_overlay(
+                    "range",
+                    "top",
+                    dedent(
+                        """
+            The selected _**Mode Share**_ panel displays placeholder=Type something here!
+        """
+                    ),
+                )
+
+modal_5 = build_modal_info_overlay(
+                    "created",
+                    "top",
+                    dedent(
+                        """
+            The selected _**Subregion**_ panel displays placeholder=Type something here!
+
+            -- Manhattan
+
+            -- Non-MNY Boros
+
+            -- New Jersey
+
+            -- Long Island
+
+            -- Hud
+
+            -- CT
+
+            -- Other
+        """
+                    ),
+                )
+
+modal_6 = build_modal_info_overlay(
+                    "pce",
+                    "top",
+                    dedent(
+                        """
+            The selected _**Subregion**_ panel displays placeholder=Type something here!
+
+            -- private car (including taxis or pick-up) 1
+
+            -- motorcycle 0.75
+
+            -- bicycle 0.5
+
+            -- horse-drawn vehicle 4
+
+            -- bus, tractor, truck 3
+
+            Source: https://en.wikipedia.org/wiki/Passenger_car_equivalent
+        """
+                    ),
+                )
+
+modal_7 = build_modal_info_overlay(
+                    "flagvs",
+                    "top",
+                    dedent(
+                        """
+            The selected _**Eligible vs Assigned**_ panel displays placeholder=Type something here!
+
+            Detailed info in Tab _**MODEL**_.
+        """
+                    ),
+                )
 
 #################################################
 #################    layout   ###################
@@ -451,20 +704,41 @@ app.layout = html.Div([
                 selected_className='custom-tab--selected'
             ),
         ]),
-    html.Div(id='tabs-content-classes', className="tab_contents")], className="right")
-], className="app_container")
-
+        html.Div(id='tabs-content-classes', className="tab_contents")], className="right")
+        ], 
+        className="app_container"
+    )
 
 
 #################################################
 ################    callback   ##################
 #################################################
 
+# Create show/hide callbacks for each info modal
+for id in ["indicator", "radio", "map", "range", "created", "pce", "flagvs"]:
+
+    @app.callback(
+        [Output(f"{id}-modal", "style"), Output(f"{id}-div", "style")],
+        [Input(f"show-{id}-modal", "n_clicks"), Input(f"close-{id}-modal", "n_clicks")],
+    )
+    def toggle_modal(n_show, n_close):
+        ctx = dash.callback_context
+        if ctx.triggered and ctx.triggered[0]["prop_id"].startswith("show-"):
+            return {"display": "block"}, {"zIndex": 1003}
+        else:
+            return {"display": "none"}, {"zIndex": 0}
+
+
 @app.callback(Output('tabs-content-classes', 'children'),
               Input('tabs-with-classes', 'value'))
 def render_content(tab):
     if tab == 'tab-1':
         return html.Div([
+            modal_1,
+            modal_2,
+            modal_3,
+            modal_4,
+            modal_5,
             map_card_full,
             energy,
             mode_share,
@@ -472,6 +746,13 @@ def render_content(tab):
         ],className="tab1_content")
     elif tab == 'tab-2':
         return html.Div([
+            modal_1,
+            modal_2,
+            modal_3,
+            modal_4,
+            modal_5,
+            modal_6,
+            modal_7,
             map_card,
             energy,
             pce_flow,
@@ -485,7 +766,7 @@ def render_content(tab):
                         [
                             html.H3('COMMUTER MODEL'),
                             html.P('One sentence intro of the model. placeholder=Type something here! placeholder=Type something here! placeholder=Type something here! placeholder=Type something here!'),
-                            html.Img(src=app.get_asset_url("commuter_model.png"))
+                            # html.Img(src=app.get_asset_url("commuter_model.png"))
                         ], 
                         className="commuter_model card_container"
                     ),
@@ -502,20 +783,29 @@ def render_content(tab):
 
 @app.callback(
     Output('map_graphic', 'figure'),
-    [Input('commuter_model_of_choice_idx','value'),
-     Input('tabs-with-classes', 'value')],
+    [
+        Input("transit_pattern", "value"),  
+        Input("wfh_level", "value"),
+        Input('tabs-with-classes', 'value')
+     ],
     )
-def update_map_graph(commuter_model_of_choice_idx,tab):
-    comm_df = available_commuter_models[commuter_model_of_choice_idx]
+def update_map_graph(transit_pattern,wfh_level,tab):
+    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+    comm_df = available_commuter_models[commuter_model_of_choice_idx].copy()
     comm_df['sequence']=comm_df.groupby(['PUMAKEY_HOME']).cumcount()
     location_test['sequence']=location_test.groupby(['PUMAKEY_HOME']).cumcount()
-    comm_df = comm_df.merge(right=location_test[['PUMAKEY_HOME','sequence','lat','lon']], on=["sequence","PUMAKEY_HOME"])
-    comm_df.rename({'PERWT':'Number_of_Commuters', 'TransMode':'Travel Mode'},axis=1,inplace=True)
+    comm_df = comm_df.merge(right=location_test[['PUMAKEY_HOME','sequence','lat','lon']], on=["sequence","PUMAKEY_HOME"], how='left')
+
+    mode_order = CategoricalDtype(['Walk','Escooter','Bicycle','Ferry','WFH','Autos','Bus','Motorcycle','Taxicab','CommuterRail','Subway','Other'],ordered=True)
+    comm_df['Reassigned'] = comm_df['Reassigned'].astype(mode_order)
+    comm_df.sort_values(by=['Reassigned'],ascending=False,inplace=True)
+
+    comm_df.rename({'PERWT':'Number_of_Commuters', 'Reassigned':'Travel Mode'},axis=1,inplace=True)
     comm_df['size'] = 1
     fig = px.scatter_mapbox(comm_df, 
                             lat="lat", lon="lon", hover_name="Travel Mode", color="Travel Mode", 
                             size="size", 
-                            size_max=2.5, 
+                            size_max=2, 
                             zoom=7.5,
                             color_discrete_map=color__dict,
                             hover_data=dict(lat=False, lon=False, size=False, Number_of_Commuters=True),
@@ -523,23 +813,29 @@ def update_map_graph(commuter_model_of_choice_idx,tab):
     fig.update_layout(mapbox_style="carto-positron")
     # fig.update_layout(mapbox_style="carto-darkmatter")
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-    fig.update(layout_showlegend=False)
+    # fig.update(layout_showlegend=True)
+    fig.update_layout(legend = dict(bgcolor='rgba(0,0,0,0)'))
+    fig.update_layout(legend=dict(x=0.03, y=0.97, traceorder="reversed", font=dict(size=11)))
     if tab=='tab-1':
-        fig.update_layout(height=700)
+        fig.update_layout(height=730)
     else:
-        fig.update_layout(height=380)
+        fig.update_layout(height=390)
     return fig
 
 
 @app.callback(
-    [
-        Output("total_energy_text", "children"),
-        Output("peak_power_text", "children"),
-        Output("add_energy_text", "children"),
-    ],
-    Input("commuter_model_of_choice_idx", "value"),
-)
-def update_text(commuter_model_of_choice_idx):
+        [
+            Output("total_energy_text", "children"),
+            Output("peak_power_text", "children"),
+            Output("add_energy_text", "children"),
+        ],
+        [
+            Input("transit_pattern", "value"),   
+            Input("wfh_level", "value"),     
+        ]
+    )
+def update_text(transit_pattern, wfh_level):
+    commuter_model_of_choice_idx = transit_pattern + "+" +wfh_level  
     com_df = available_electric_models[commuter_model_of_choice_idx]
     e_tmp_profile = e_profile_hold_space(com_df)
     a = str(int(e_tmp_profile[e_tmp_profile['PEV_DELAY']=='Random']['Energy'].sum()))
@@ -551,12 +847,16 @@ def update_text(commuter_model_of_choice_idx):
 
 @app.callback(
     Output('electric_graphic', 'figure'),
-    [Input('commuter_model_of_choice_idx','value'),
-    Input('Detailed','on'),
-    Input('pev_delay_choice', 'value'),
-    Input('load_profile', 'value')],
+    [
+        Input("transit_pattern", "value"),   
+        Input("wfh_level", "value"),
+        Input('Detailed','on'),
+        Input('pev_delay_choice', 'value'),
+        Input('load_profile', 'value')
+    ],
     )
-def update_electric_graph(commuter_model_of_choice_idx,Detailed,pev_delay_choice,load_profile):
+def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,load_profile):
+    commuter_model_of_choice_idx = transit_pattern + "+" +wfh_level    
     com_df = available_electric_models[commuter_model_of_choice_idx]
     e_tmp_profile = e_profile_hold_space(com_df)
     fig = px.line(e_tmp_profile, x='Charge_Hour', y='Energy', color='PEV_DELAY', markers=True,
@@ -566,17 +866,19 @@ def update_electric_graph(commuter_model_of_choice_idx,Detailed,pev_delay_choice
     layout_elec["height"] = 240
     fig.update_layout(layout_elec)
     fig.update_layout(xaxis_title=None)
+    fig.update_layout(legend=dict(orientation="v", y=1, x=1))
     fig.update_xaxes(range = [0,23])
-    fig.update_yaxes(range = [0,1000])
+    fig.update_yaxes(range = [0,1200])
 
     if load_profile == "Winter":
-        fig.add_hline(800)
+        fig.add_hline(1000)
 
     if Detailed:
         df_plot = available_electric_models[commuter_model_of_choice_idx]
-        df_plot = df_plot[df_plot["PEV_DELAY"]==pev_delay_choice]
+        df_plot = df_plot[df_plot["PEV_DELAY"]==pev_delay_choice].copy()
         df_plot['Energy'] = df_plot['Energy']/1000
         df_plot['TransMode'] = df_plot['TransMode'].astype("string")
+        df_plot['TransMode'] = df_plot["TransMode"].replace(mode_dict_2)
         gb_plot = df_plot.groupby(by=["Charge_Hour","TransMode"]).agg({"Energy":"sum"}).reset_index()
         ### order: most or stable on bottom, now use most
         sum_energy_by_mode = df_plot.groupby(by=["TransMode"]).agg({"Energy":"sum"}).rename({'Energy':'sum'},axis=1).reset_index()
@@ -586,21 +888,26 @@ def update_electric_graph(commuter_model_of_choice_idx,Detailed,pev_delay_choice
                       color_discrete_map=color__dict,
                       labels=dict(Charge_Hour="Hour of Day", TransMode="Travel Mode", Energy="Power (MW)"))
         fig.update_xaxes(range = [0,23])
-        fig.update_yaxes(range = [0,1000])
+        fig.update_yaxes(range = [0,1200])
         fig.update_layout(layout_elec)
+        fig.update_layout(legend=dict(orientation="v", y=1, x=1))
         fig.update_layout(xaxis_title=None)
 
         if load_profile == "Winter":
-                fig.add_hline(800)
+                fig.add_hline(1000)
         
     return fig
 
 
 @app.callback(
     Output('flow_graphic', 'figure'),
-    Input('commuter_model_of_choice_idx','value'),
+    [
+        Input("transit_pattern", "value"),   
+        Input("wfh_level", "value"),
+    ],
     )
-def update_flow_graph(commuter_model_of_choice_idx):
+def update_flow_graph(transit_pattern,wfh_level):
+    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level 
     com_df = available_commuter_models[commuter_model_of_choice_idx]
     flow = traffic_flow(com_df)
     in_df = flow[flow['Dir']=='in']
@@ -636,9 +943,13 @@ def update_flow_graph(commuter_model_of_choice_idx):
 
 @app.callback(
     Output('eligible_graphic', 'figure'),
-    Input('commuter_model_of_choice_idx','value'),
+    [
+        Input("transit_pattern", "value"),    
+        Input("wfh_level", "value"),    
+    ],
     )
-def update_map_graph(commuter_model_of_choice_idx):
+def update_map_graph(transit_pattern,wfh_level):
+    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level        
     com_df = available_commuter_models[commuter_model_of_choice_idx]
     flag_df = flag_assign(com_df)
 
@@ -673,15 +984,32 @@ def update_map_graph(commuter_model_of_choice_idx):
 
 @app.callback(
     Output('share_graphic', 'figure'),
-    Input('commuter_model_of_choice_idx','value'),
+    [
+        Input("transit_pattern", "value"),  
+        Input("wfh_level", "value"),
+    ],
     )
-def update_share_graph(commuter_model_of_choice_idx):
-
+def update_share_graph(transit_pattern,wfh_level):
+    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level   
     com_df = available_commuter_models[commuter_model_of_choice_idx]
     share_df = com_df.groupby(by=["Reassigned","Reassigned_Parent"]).agg({"PERWT":"sum"}).reset_index()\
                 .rename({'Reassigned':'Mode','Reassigned_Parent':'Mode_Parent'},axis=1)
-    share_df['ALL'] = 'Travel Modes'
-    fig = px.sunburst(share_df, path=['ALL','Mode_Parent','Mode'], values='PERWT')
+    share_df['ALL'] = '~2.7M Workers'
+    share_df['pct_mode'] = round(100*share_df['PERWT']/share_df['PERWT'].sum(),2)
+    share_df.rename({'PERWT':'Number_of_Commuters'},axis=1,inplace=True)
+    fig = px.sunburst(
+                        share_df, 
+                        path=['ALL','Mode_Parent','Mode'], 
+                        values='Number_of_Commuters',
+                        color='Mode_Parent',
+                        color_discrete_map={
+                            'Transit':'#636EFA', 
+                            'Micro':'#FECB52', 
+                            'WFH':'#72B7B2', 
+                            'Car':'#FF6692',
+                            '(?)':'white'
+                            }
+                    )
 
     layout_share = copy.deepcopy(layout)
     layout_share["height"] = 280
@@ -692,10 +1020,13 @@ def update_share_graph(commuter_model_of_choice_idx):
 
 @app.callback(
     Output('subregion_graphic', 'figure'),
-    Input('commuter_model_of_choice_idx','value'),
+    [
+        Input("transit_pattern", "value"), 
+        Input("wfh_level", "value"),
+    ],
     )
-def update_subregion_graph(commuter_model_of_choice_idx):
-    
+def update_subregion_graph(transit_pattern,wfh_level):
+    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level   
     com_df = available_commuter_models[commuter_model_of_choice_idx]
     gb_plot = subregion(com_df)
 
@@ -704,8 +1035,6 @@ def update_subregion_graph(commuter_model_of_choice_idx):
     gb_plot = gb_plot.merge(right=sum_subregion, on=["Reassigned"])
     gb_plot.sort_values(by=["Subregion",'sum'],ascending=False,inplace=True)
     gb_plot.rename({'PERWT':'Number of Commuters', 'Reassigned':'Travel Mode'},axis=1,inplace=True)
-
-
 
     fig = px.bar(gb_plot, x="Number of Commuters", y="Subregion", 
                  color='Travel Mode', 
@@ -718,6 +1047,7 @@ def update_subregion_graph(commuter_model_of_choice_idx):
     fig.update_layout(layout_subregion)
     fig.update_layout(yaxis_title=None,xaxis_title=None)
     fig.update_layout(showlegend=True)
+    fig.update_layout(legend=dict(orientation="v", y=1, x=1))
     return fig
 
 
