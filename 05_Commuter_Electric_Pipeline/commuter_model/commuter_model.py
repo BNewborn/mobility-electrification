@@ -607,7 +607,7 @@ class CommuterModel:
             if FLAG_WFH[index] == 1:
                 available_indices.append(10)
                 weights.append(WEIGHTS[10])
-            if len(available_indices) == 0:
+            if (len(available_indices) == 0) | (sum(weights) == 0):
                 assignment.append("No Option")
             else:
                 RandAssignment = random.choices(available_indices, tuple(weights),k=1)[0]
