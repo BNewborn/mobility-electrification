@@ -1,0 +1,11 @@
+**Commuter Model**
+Each simulation of an all-Electric Commute reflects a run through our entire pipeline. Given cleaned and disaggregated (1 line per representative commuter in the American Community Survey (ACS)) commuting data, we first push this data through our Commuter Model. This Commuter Model, built as a re-usable, modifiable python class, takes in numerous parameters around both the people and commuting patterns. These parameters include, but are not limited to: 
+* what areas are available to use micro-mobility to commute from
+* what health conditions may restrict bicycling
+* what is the maximum distance somebody could walk to work? 
+Given all of these factors, and an input prioritization of commuting modes, we assign every ACS commuter a new transportation mode for their commute. This is what you see visualized on the map on our main page.
+
+**Electric Model**
+Taking the output of the commuter model, we now run the population's commuting modes through our Electric Model, another re-usable, modifiable python class. The electric model sums up the distance traveled by each transportation mode per hour to understand the electricity used to carry commuters into Manhattan. Depending on the mode, this electricity demand immediately hits the grid, like riding the electrified NYC subway, while others, like e-biking or using an electric automobile, use a battery that will need to be charged once the commuter arrives. Given these demands, we then calculate the hours needed for each commuter to charge their needed battery. We've parameterized the charging pattern, as you can see on the *XYZ* graph on our main page - you can see the difference in grid demand if people change their charging time during their work day in Manhattan. Ultimately, these charging demands then fuel a number of calculations of total power demanded on the city, in addition to the electricity required to run other, unrelated items like air conditioners and lights.
+
+[Simplified diagram of model inputs/outputs](https://docs.google.com/spreadsheets/d/19wtGH1krYQjPj2npj9RFO07U-z5pnbU3PaYjSJPmZzM/edit?usp=sharing)
