@@ -353,6 +353,7 @@ side_bar = html.Div(
                 html.Img(src=app.get_asset_url("NYU_Short_RGB_Color.png")),
                 description_card(), 
                 generate_control_card(),
+                html.Br(),
                 html.Img(src=app.get_asset_url("GitHub-Mark-64px.png")),
                 ]
         )
@@ -794,7 +795,7 @@ def render_content(tab):
                     )),
                             html.Img(src=app.get_asset_url("commuter_model.png"))
                         ], 
-                        className="commuter_model card_container"
+                        className="commuter_model_1 card_container"
                     ),
             html.Div(
                         [
@@ -813,32 +814,131 @@ def render_content(tab):
                     )),                          
                             html.Img(src=app.get_asset_url("electricity_model.png"))
                         ], 
-                        className="electrical_model card_container"
+                        className="electrical_model_1 card_container"
                     ),            
         ],className="tab3_content")    
     elif tab == 'tab-4':
         return html.Div([
             html.Div(
                         [
-                            dcc.Markdown(dedent(
-                        """
-            ## Commuter Model
-
-            Each simulation of an all-Electric Commute reflects a run through our entire pipeline.
-            """
-                    )),
+                            html.H2("Commuter Model"),
+                            html.H3("#1 The constraints fo each mode."),
+                            html.Br(),
+                            html.P("- Transit System (Subway, Commuter Rail, Bus, Ferry)"),
+                            html.Div(
+                                [
+                                    html.Div([html.Label("Affordability (% income)")], className='p_label'),
+                                    html.Div([
+                                    dcc.Slider(
+                                        min=1, max=100, step=1, value=20,
+                                        updatemode="drag",
+                                        marks={20: {"label": "20"}, 40: {"label": "40"}, 60: {"label": "60"}, 80: {"label": "80"}},
+                                    )], className='p_control')
+                                ],
+                                className="p_panel",
+                            ),
+                            html.Div(
+                                [
+                                    html.Div([html.Label("Schedule-Subway")], className="p_panel_1st"),
+                                    html.Div([
+                                    dcc.RangeSlider(
+                                        min=0, max=24, step=1, value=[0, 23],
+                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
+                                    )], className='p_control'),
+                                    html.Div([html.Label("Bus")]),
+                                    html.Div([
+                                    dcc.RangeSlider(
+                                        min=0, max=24, step=1, value=[6, 22],
+                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
+                                    )], className='p_control'),   
+                                    html.Div([html.Label("Train")]),
+                                    html.Div([
+                                    dcc.RangeSlider(
+                                        min=0, max=24, step=1, value=[6, 22],
+                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
+                                    )], className='p_control'),
+                                    html.Div([html.Label("Ferry")]),
+                                    html.Div([
+                                    dcc.RangeSlider(
+                                        min=0, max=24, step=1, value=[6, 20],
+                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
+                                    )], className='p_control'),                                                                      
+                                ],
+                                className="p_panel",
+                            ),
+                            html.Div(
+                                [
+                                    html.Div([html.Label("Region-Subway")]),
+                                    html.Div([
+                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'),
+                                    html.Div([html.Label("Bus")]),
+                                    html.Div([
+                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'), 
+                                    html.Div([html.Label("Train")]),
+                                    html.Div([
+                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'),
+                                    html.Div([html.Label("Ferry")]),
+                                    html.Div([
+                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'),                                                                     
+                                ],
+                                className="p_panel",
+                            ),
+                            html.Br(),
+                            html.P("- Autos, Motorcycle"),
+                            html.Div(
+                                [
+                                    html.Div([html.Label("Age")]),
+                                    html.Div([
+                                    dcc.RangeSlider(
+                                        min=0, max=100, step=1, value=[16, 75],
+                                        marks={20: {"label": "20"}, 40: {"label": "40"}, 60: {"label": "60"}, 80: {"label": "80"}},
+                                    )], className='p_control'),
+                                    html.Div([html.Label("Dist.")]),
+                                    html.Div([
+                                    dcc.RangeSlider(
+                                        min=0, max=30, step=1, value=[2, 30],
+                                        marks={10: {"label": "10"}, 20: {"label": "20"}, 30: {"label": "30"}},
+                                    )], className='p_control'),   
+                                    html.Div([html.Label("Min_income")]),
+                                    html.Div([
+                                    dcc.Slider(
+                                        min=0, max=80000, step=1000, value=20000,
+                                        updatemode="drag",
+                                        marks={20000: {"label": "20K"}, 40000: {"label": "40K"}, 60000: {"label": "60K"}},
+                                    )], className='p_control'),
+                                    html.Div([html.Label("Gender")]),
+                                    html.Div([
+                                    dcc.Slider(
+                                        min=0, max=9, step=2, value=2,
+                                        updatemode="drag",
+                                        marks={3: {"label": "3:1"}, 6: {"label": "6:1"}},
+                                    )], className='p_control')                                                                   
+                                ],
+                                className="p_panel",
+                            ),
+                            html.Br(),
+                            html.P("- Taxi"),
+                            html.Br(),
+                            html.P("- Escooter, Ebike"),
+                            html.Br(),
+                            html.P("- Walking"),
+                            html.Br(),
+                            html.P("- Workfromhome"),
+                            html.Br(),
+                            html.H3("#2 Weighted assignment model."),
                         ], 
                         className="commuter_model card_container"
                     ),
             html.Div(
                         [
-                            dcc.Markdown(dedent(
-                        """
-            ## Electricity Model
-
-            Taking the output of the commuter model, we now run the population's commuting modes through our Electric Model, another _**re-usable, modifiable python class**_. 
-            """
-                    )),                          
+                            html.H2("Electricity Model"),
+                            html.H3("#1 Filter"),
+                            html.Br(),
+                            html.H3("#2 EV Seating Capacity (Carpool)"),     
+                            html.Br(),
+                            html.H3("#3 EV Technical Data"),
+                            html.Br(),
+                            html.H3("#4 Charging Habits"),                                                 
                         ], 
                         className="electrical_model card_container"
                     ),            
