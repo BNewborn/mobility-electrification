@@ -79,6 +79,12 @@ electric_model_7 = pd.read_pickle(f"{save_dir}/NoWFH_Mix/{electric_fname}")
 electric_model_8 = pd.read_pickle(f"{save_dir}/NoWFH_Transit/{electric_fname}")
 electric_model_9 = pd.read_pickle(f"{save_dir}/NoWFH_Micro/{electric_fname}")
 
+maxload_profiles = pd.read_pickle(f"{save_dir}/maxload_profiles.p")
+maxload_profiles = maxload_profiles[maxload_profiles['offshore']=='with']
+maxload_profiles['key'] = maxload_profiles['season'] + "_" + maxload_profiles['wind']
+maxload_profiles['hour'] = maxload_profiles.apply(lambda row: list(range(0, 24)), axis=1)
+maxload_profiles = maxload_profiles.explode(['hour','baseload','maxload'])
+
 
 ##########################################################
 #########  pre-processing, helper functions  #############
@@ -163,7 +169,6 @@ def df_processing(df):
     df['distance_row_sum'] = df['DISTANCE_KM']*df['PERWT']
     return df
 
-
 def flag_assign(df):
     flags = [c for c in commuter_model_3 if c.startswith('FLAG_')]
     data=[['Autos',df[df['FLAG_AUTO']==1]['PERWT'].sum()],
@@ -184,7 +189,6 @@ def flag_assign(df):
     flag_df.sort_values('Eligible',inplace=True)  
     return flag_df
 
-
 def subregion(df):
     subregion = df.groupby(by=["Subregion","Reassigned"]).agg({"PERWT":"sum"}).reset_index()
     # order = CategoricalDtype(['CT','Hud','LI','NJ','Non-MNY Boros','Manhattan'],ordered=True)
@@ -192,7 +196,6 @@ def subregion(df):
     subregion['Subregion'] = subregion['Subregion'].astype(order)
     subregion.sort_values('Subregion',inplace=True)
     return subregion
-
 
 def PCE(row):
     # https://en.wikipedia.org/wiki/Passenger_car_equivalent
@@ -221,7 +224,6 @@ def traffic_flow(df):
     flow = pd.concat([in_agg, out_agg])
     return flow
 
-
 def e_profile_hold_space(df):
     e_tmp_profile = df[df['FLOW_DIR']!='ALL']
     e_tmp_profile = e_tmp_profile.groupby(by=["Charge_Hour","PEV_DELAY"]).agg({"Energy":"sum"}).reset_index()
@@ -243,6 +245,9 @@ commuter_model_9 = df_processing(commuter_model_9)
 
 pattern_list = [" Mix Modes ", " Heavy Transit ", " Heavy Micro-mobility "]
 wfh_list = [" High WFH ", " Mid WFH ", " No WFH "]
+
+season_list = ["Summer", "Winter"]
+wind_list = ["Low", "High"]
 
 s_1 = pattern_list[0] + "+" + wfh_list[0]
 s_2 = pattern_list[1] + "+" + wfh_list[0]
@@ -293,7 +298,6 @@ def description_card():
             html.H2("The Electric Commute"),
             html.H1("Envisioning 100% Electrified Mobility in New York City"),
             html.P("Select any of the load profile and preset scenarios of home-work commuting activities in Manhattan."),
-            html.Br()
         ],
     )
 
@@ -305,15 +309,25 @@ def generate_control_card():
         id="control_card",
         className = "control_card",
         children=[
-
-            html.P("Load Profile"),
-            dcc.Dropdown(
-                ["Summer Peak","Winter"],
-                "Summer Peak",
-                id="load_profile",
-                className="dropdown"
-            ), 
-            html.P("Commuting Scenario"),
+            html.H2("Load Profile"),
+            html.P("1. Select Season"),
+            dcc.RadioItems(
+                season_list,
+                season_list[0],
+                id='season',
+                className="dcc_control",
+                labelStyle={'display': 'inline', 'margin-right': 10}
+            ),
+            html.P("2. Select Wind Level"),
+            dcc.RadioItems(
+                wind_list,
+                wind_list[0],
+                id='wind_level',
+                className="dcc_control",
+                labelStyle={'display': 'inline', 'margin-right': 10}
+            ),
+            html.P("3. With offshore wind projects (current & planned)"),
+            html.H2("Commuting Scenario"),
             html.P("1. Select Transit Patterns"),
             dcc.RadioItems(
                 pattern_list,
@@ -339,7 +353,7 @@ side_bar = html.Div(
                 html.Img(src=app.get_asset_url("NYU_Short_RGB_Color.png")),
                 description_card(), 
                 generate_control_card(),
-                # html.Img(src=app.get_asset_url("matrix.png")),
+                html.Img(src=app.get_asset_url("GitHub-Mark-64px.png")),
                 ]
         )
 
@@ -389,7 +403,7 @@ map_card_full = html.Div(
                 )
 
 e_card = html.Div(
-                    id="radio-div",
+                    # id="radio-div",
                     className="e_card",
                     children=[
                         html.Div(
@@ -408,12 +422,12 @@ e_card = html.Div(
                                 html.P(
                                     [
                                         "Peak Load",
-                                        html.Img(
-                                            id="show-radio-modal",
-                                            src="assets/question-circle-solid.svg",
-                                            n_clicks=0,
-                                            className="info-icon",
-                                        ),
+                                        # html.Img(
+                                        #     id="show-radio-modal",
+                                        #     src="assets/question-circle-solid.svg",
+                                        #     n_clicks=0,
+                                        #     className="info-icon",
+                                        # ),
                                     ]
                                 )
                             ],
@@ -423,7 +437,6 @@ e_card = html.Div(
                 )
 
 energy_profile = html.Div(
-                    id="map-div",
                     className="energy_profile card_container",
                     children=[
                         html.H4(
@@ -452,7 +465,7 @@ energy_profile = html.Div(
                 )
 
 energy = html.Div(
-            id="energy_card",
+            id="map-div",
             className="energy",
             children=[
                 e_card,
@@ -561,27 +574,27 @@ modal_1 = build_modal_info_overlay(
                     ),
                 )
 
-modal_2 = build_modal_info_overlay(
-                    "radio",
-                    "bottom",
-                    dedent(
-                        """
-            The selected _**Energy Card**_ panel displays 
+# modal_2 = build_modal_info_overlay(
+#                     "radio",
+#                     "bottom",
+#                     dedent(
+#                         """
+#             The selected _**Energy Card**_ panel displays 
             
-            1) _**Daily Energy**_
+#             1) _**Daily Energy**_
 
-            placeholder=Type something here!
+#             placeholder=Type something here!
 
-            2) _**Additional Energy**_
+#             2) _**Additional Energy**_
 
-            placeholder=Type something here!
+#             placeholder=Type something here!
 
-            3) _**Peak Load**_
+#             3) _**Peak Load**_
 
-            placeholder=Type something here!            
-        """
-                    ),
-                )
+#             placeholder=Type something here!            
+#         """
+#                     ),
+#                 )
 
 modal_3 = build_modal_info_overlay(
                     "map",
@@ -682,24 +695,24 @@ app.layout = html.Div([
         className='custom-tabs-container',
         children=[
             dcc.Tab(
-                label='MAIN',
+                label='Main',
                 value='tab-1',
                 className='custom-tab',
                 selected_className='custom-tab--selected'
             ),
             dcc.Tab(
-                label='DETAIL',
+                label='Detail',
                 value='tab-2',
                 className='custom-tab',
                 selected_className='custom-tab--selected'
             ),
             dcc.Tab(
-                label='MODEL',
+                label='Model Framework',
                 value='tab-3', className='custom-tab',
                 selected_className='custom-tab--selected'
             ),
             dcc.Tab(
-                label='OTHERS',
+                label='Parameter Panel',
                 value='tab-4', className='custom-tab',
                 selected_className='custom-tab--selected'
             ),
@@ -715,7 +728,7 @@ app.layout = html.Div([
 #################################################
 
 # Create show/hide callbacks for each info modal
-for id in ["indicator", "radio", "map", "range", "created", "pce", "flagvs"]:
+for id in ["indicator", "map", "range", "created", "pce", "flagvs"]:
 
     @app.callback(
         [Output(f"{id}-modal", "style"), Output(f"{id}-div", "style")],
@@ -735,7 +748,7 @@ def render_content(tab):
     if tab == 'tab-1':
         return html.Div([
             modal_1,
-            modal_2,
+            # modal_2,
             modal_3,
             modal_4,
             modal_5,
@@ -747,7 +760,7 @@ def render_content(tab):
     elif tab == 'tab-2':
         return html.Div([
             modal_1,
-            modal_2,
+            # modal_2,
             modal_3,
             modal_4,
             modal_5,
@@ -764,21 +777,72 @@ def render_content(tab):
         return html.Div([
             html.Div(
                         [
-                            html.H3('COMMUTER MODEL'),
-                            html.P('One sentence intro of the model. placeholder=Type something here! placeholder=Type something here! placeholder=Type something here! placeholder=Type something here!'),
-                            # html.Img(src=app.get_asset_url("commuter_model.png"))
+                            dcc.Markdown(dedent(
+                        """
+            ## Commuter Model
+
+            Each simulation of an all-Electric Commute reflects a run through our entire pipeline. Given cleaned and disaggregated commuting data, i.e., 1 line per representative commuter in the _American Community Survey (ACS)_, we first push this data through our Commuter Model. This Commuter Model, built as a _**re-usable, modifiable python class**_, takes in numerous parameters around both the people and commuting patterns. These parameters include, but are not limited to:
+
+            -- what areas are available to use micro-mobility to commute from?
+
+            -- what health conditions may restrict bicycling?
+
+            -- what is the maximum distance somebody could walk to work? 
+            
+            Given all of these factors, and an input prioritization of commuting modes, we assign every ACS commuter a new transportation mode for their commute. This is what you see visualized on the map on our main page.
+            """
+                    )),
+                            html.Img(src=app.get_asset_url("commuter_model.png"))
                         ], 
                         className="commuter_model card_container"
                     ),
             html.Div(
                         [
-                            html.H3('ELECTRICAL MODEL'),
-                            html.P('One sentence intro of the model. placeholder=Type something here! placeholder=Type something here! placeholder=Type something here! placeholder=Type something here!'),                            
-                            # html.Img(src=app.get_asset_url("NYU_Short_RGB_Color.png"))
+                            dcc.Markdown(dedent(
+                        """
+            ## Electricity Model
+
+            Taking the output of the commuter model, we now run the population's commuting modes through our Electric Model, another _**re-usable, modifiable python class**_. 
+            
+            The electric model sums up the distance traveled by each transportation mode per hour to understand the electricity used to carry commuters into Manhattan. Depending on the mode, this electricity demand immediately hits the grid, like riding the electrified NYC subway, while others, like e-biking or using an electric automobile, use a battery that will need to be charged once the commuter arrives. 
+            
+            Given these demands, we then calculate the hours needed for each commuter to charge their needed battery. We've parameterized the charging pattern, as you can see on the XYZ graph on our main page - you can see the difference in grid demand if people change their charging time during their work day in Manhattan. 
+            
+            Ultimately, these charging demands then fuel a number of calculations of total power demanded on the city, in addition to the electricity required to run other, unrelated items like air conditioners and lights.
+            """
+                    )),                          
+                            html.Img(src=app.get_asset_url("electricity_model.png"))
                         ], 
                         className="electrical_model card_container"
                     ),            
         ],className="tab3_content")    
+    elif tab == 'tab-4':
+        return html.Div([
+            html.Div(
+                        [
+                            dcc.Markdown(dedent(
+                        """
+            ## Commuter Model
+
+            Each simulation of an all-Electric Commute reflects a run through our entire pipeline.
+            """
+                    )),
+                        ], 
+                        className="commuter_model card_container"
+                    ),
+            html.Div(
+                        [
+                            dcc.Markdown(dedent(
+                        """
+            ## Electricity Model
+
+            Taking the output of the commuter model, we now run the population's commuting modes through our Electric Model, another _**re-usable, modifiable python class**_. 
+            """
+                    )),                          
+                        ], 
+                        className="electrical_model card_container"
+                    ),            
+        ],className="tab4_content")    
 
 
 @app.callback(
@@ -852,26 +916,26 @@ def update_text(transit_pattern, wfh_level):
         Input("wfh_level", "value"),
         Input('Detailed','on'),
         Input('pev_delay_choice', 'value'),
-        Input('load_profile', 'value')
+        Input('season', 'value'),
+        Input('wind_level', 'value'),
     ],
     )
-def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,load_profile):
+def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,season,wind_level):
     commuter_model_of_choice_idx = transit_pattern + "+" +wfh_level    
+    condition = (season + "_" + wind_level).lower()
+    load_df = maxload_profiles[maxload_profiles['key']==condition]
     com_df = available_electric_models[commuter_model_of_choice_idx]
     e_tmp_profile = e_profile_hold_space(com_df)
-    fig = px.line(e_tmp_profile, x='Charge_Hour', y='Energy', color='PEV_DELAY', markers=True,
+    fig = px.line(e_tmp_profile, x='Charge_Hour', y='Energy', color='PEV_DELAY', markers=False,
                   labels=dict(Charge_Hour="Time of day (hr)", TransMode="Travel Mode", Energy="Power (MW)", PEV_DELAY="Delay Type"))
-
+    fig.add_trace(go.Scatter(x=load_df.hour.to_list(), y=load_df.baseload.to_list(), marker_color="gold", name='Baseload*'))
     layout_elec = copy.deepcopy(layout)
     layout_elec["height"] = 240
     fig.update_layout(layout_elec)
     fig.update_layout(xaxis_title=None)
     fig.update_layout(legend=dict(orientation="v", y=1, x=1))
-    fig.update_xaxes(range = [0,23])
-    fig.update_yaxes(range = [0,1200])
-
-    if load_profile == "Winter":
-        fig.add_hline(1000)
+    fig.update_xaxes(range = [0,23], showline=True, linewidth=1, linecolor='grey')
+    fig.update_yaxes(range = [0,2200], showline=True, linewidth=1, linecolor='grey')
 
     if Detailed:
         df_plot = available_electric_models[commuter_model_of_choice_idx]
@@ -887,14 +951,12 @@ def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,lo
         fig = px.area(gb_plot,x='Charge_Hour',y='Energy',color='TransMode',markers=False, 
                       color_discrete_map=color__dict,
                       labels=dict(Charge_Hour="Hour of Day", TransMode="Travel Mode", Energy="Power (MW)"))
-        fig.update_xaxes(range = [0,23])
-        fig.update_yaxes(range = [0,1200])
+        fig.add_trace(go.Scatter(x=load_df.hour.to_list(), y=load_df.baseload.to_list(), marker_color="gold", name='Baseload*'))
+        fig.update_xaxes(range = [0,23], showline=True, linewidth=1, linecolor='grey')
+        fig.update_yaxes(range = [0,2200], showline=True, linewidth=1, linecolor='grey')
         fig.update_layout(layout_elec)
         fig.update_layout(legend=dict(orientation="v", y=1, x=1))
         fig.update_layout(xaxis_title=None)
-
-        if load_profile == "Winter":
-                fig.add_hline(1000)
         
     return fig
 

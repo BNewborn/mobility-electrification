@@ -29,6 +29,22 @@ h2 {
   font-size: 26px;
   margin-bottom: 18px;
 }
+
+.control_card h2 {
+  color: #2c8cff;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 14px;
+}
+
+.commuter_model h2 {
+  font-size: 22px;
+}
+
+.electrical_model h2 {
+  font-size: 22px;
+}
+
 h3 {
   color: black;
   font-size: 20px;
@@ -141,12 +157,18 @@ label {
 }
 
 .side_bar img:last-child {
-  height: 240px;
-  margin-bottom: 25px;
+  height: 35px;
+  margin-bottom: 0px;
+}
+
+.electrical_model img {
+  width: 90%;
+  margin-top: 30px;
 }
 
 .commuter_model img {
-  height: 310px;
+  width: 90%;
+  margin-top: 30px;
 }
 
 .app_container {
@@ -158,6 +180,7 @@ label {
 .side_bar {
   width: 25%;
   padding: 20px 40px;
+  padding-bottom: 0px;
   background-color: #f9f9f9;
 }
 
@@ -179,7 +202,8 @@ label {
 /*  */
 .tab1_content,
 .tab2_content,
-.tab3_content {
+.tab3_content,
+.tab4_content {
   display: grid;
   gap: 20px;
   grid-template-columns: 24% 24% 18% 29.7%;
@@ -229,16 +253,14 @@ label {
 }
 
 .commuter_model {
-  /* grid-column: 1 / -1;
-  grid-row: 1; */
+  padding: 20px 50px;
   grid-column: 1 / 3;
   grid-row: 1 / -1;
   /* background-color: green; */
 }
 
 .electrical_model {
-  /* grid-column: 1 / -1;
-  grid-row: 2; */
+  padding: 20px 50px;
   grid-column: 3 / -1;
   grid-row: 1 / -1;
   /* background-color: orange; */
