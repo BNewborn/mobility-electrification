@@ -14,18 +14,18 @@ class CommuterModel:
         (self.ipums_df['PUMA_NAME'].str.contains("Bergen"))]['PUMA_NAME'].unique()
         
         ### Read in work-from-home conditional income&education probabilties
-        self.wfh_probs = pd.read_csv("wfh_conditional_probs.csv",index_col=0).drop("WFH_TAG",axis=1)
+        self.wfh_probs = pd.read_csv("commuter_model/wfh_conditional_probs.csv",index_col=0).drop("WFH_TAG",axis=1)
 
         
         ### Read in required csv to get pumas for mass transit functions
         # https://github.com/BNewborn/mobility-electrification/blob/main/03_CommuterModel/tranwork_flags/bus_subway_rail_ferry_functions.ipynb
-        self.reachable_puma_home = pd.read_csv("regional_transit_system/reachable_puma_home.csv")
+        self.reachable_puma_home = pd.read_csv("commuter_model/regional_transit_system/reachable_puma_home.csv")
         self.puma_home_Bus = self.reachable_puma_home[self.reachable_puma_home['Bus']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_Subway = self.reachable_puma_home[self.reachable_puma_home['Subway']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_CommuterRail = self.reachable_puma_home[self.reachable_puma_home['CommuterRail']==1]['PUMAKEY_HOME'].to_list()
         self.puma_home_Ferry = self.reachable_puma_home[self.reachable_puma_home['Ferry']==1]['PUMAKEY_HOME'].to_list()
         
-        self.reachable_puma_work = pd.read_csv("regional_transit_system/reachable_puma_work.csv")
+        self.reachable_puma_work = pd.read_csv("commuter_model/regional_transit_system/reachable_puma_work.csv")
         self.puma_work_Bus = self.reachable_puma_work[self.reachable_puma_work['Bus']==1]['PUMAKEY_WORK'].to_list()
         self.puma_work_Subway = self.reachable_puma_work[self.reachable_puma_work['Subway']==1]['PUMAKEY_WORK'].to_list()
         self.puma_work_CommuterRail = self.reachable_puma_work[self.reachable_puma_work['CommuterRail']==1]['PUMAKEY_WORK'].to_list()
