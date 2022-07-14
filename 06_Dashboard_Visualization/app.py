@@ -5,6 +5,8 @@ import plotly.graph_objects as go
 import plotly.express as px
 import dash_daq as daq
 import pandas as pd
+import geopandas as gpd
+import shapely.geometry
 import numpy as np
 from pandas.api.types import CategoricalDtype
 from textwrap import dedent
@@ -46,13 +48,15 @@ color__dict = {'Bus':'#636EFA',
                'Bicycle':'#FECB52',
                'Other':'#7F7F7F',
                'WFH':'#72B7B2',
+               'Baseload*':'lightgrey'
                }
 
 #########################################
 #######  read the orginal data  #########
 #########################################
 
-save_dir = "./electric_model_outputs_WFHTransitCombos"
+# save_dir = "./electric_model_outputs_WFHTransitCombos"
+save_dir = "./electric_model_outputs_WFHTransitCombos_V2"
 commuter_fname = "commuter_model_ipums_df.pkl"
 electric_fname = "electric_model_df_aggregate.pkl"
 
@@ -84,6 +88,34 @@ maxload_profiles = maxload_profiles[maxload_profiles['offshore']=='with']
 maxload_profiles['key'] = maxload_profiles['season'] + "_" + maxload_profiles['wind']
 maxload_profiles['hour'] = maxload_profiles.apply(lambda row: list(range(0, 24)), axis=1)
 maxload_profiles = maxload_profiles.explode(['hour','baseload','maxload'])
+maxload_profiles.rename({'hour':'Charge_Hour'},axis=1,inplace=True)
+
+
+station_df = pd.read_csv(f"{save_dir}/substations.csv")
+eline_df = gpd.read_file(f"{save_dir}/transmission_lines.geojson")
+
+lats = []
+lons = []
+voltages = []
+
+for feature, voltage in zip(eline_df.geometry, eline_df.VOLTAGE):
+    if isinstance(feature, shapely.geometry.linestring.LineString):
+        linestrings = [feature]
+    elif isinstance(feature, shapely.geometry.multilinestring.MultiLineString):
+        linestrings = feature.geoms
+    else:
+        continue
+    for linestring in linestrings:
+        x, y = linestring.xy
+        lats = np.append(lats, y)
+        lons = np.append(lons, x)
+        voltages = np.append(voltages, [voltage]*len(y))
+        lats = np.append(lats, None)
+        lons = np.append(lons, None)
+        voltages = np.append(voltages, None)
+
+
+
 
 
 ##########################################################
@@ -374,7 +406,7 @@ map_card = html.Div(
                     ],
                     className="container_title",
                 ),
-                dcc.Graph(id="map_graphic"),
+                dcc.Graph(id="map_graphic_s"),
             ],
         )
 
@@ -398,6 +430,7 @@ map_card_full = html.Div(
                             [" Commuting", " Power System"],
                             " Commuting",
                             className="dcc_control",
+                            id='layer'
                         ),
                         dcc.Graph(id="map_graphic"),
                     ],
@@ -458,7 +491,13 @@ energy_profile = html.Div(
                                 html.Div(className="e_choice_1", children=[html.Label(['Details: '])]),
                                 html.Div(className="e_choice_11", children=[daq.BooleanSwitch(id='Detailed',on=False)]),
                                 html.Div(className="e_choice_2", children=[html.Label(['Delay Type: '])]),
-                                html.Div(className="e_choice_22", children=[dcc.Dropdown(charging_time_method,"Random",id='pev_delay_choice')]),
+                                # html.Div(className="e_choice_22", children=[dcc.Dropdown(charging_time_method,"Random",id='pev_delay_choice')]),
+                                html.Div(
+                                    className="e_choice_22", 
+                                    children=[
+                                        dcc.RadioItems(charging_time_method,"Random",id='pev_delay_choice', labelStyle={'display':'inline','margin-right':10,'font-style':'italic'})
+                                    ]
+                                ),
                             ],
                         ),
                         dcc.Graph(id="electric_graphic")
@@ -950,10 +989,11 @@ def render_content(tab):
     [
         Input("transit_pattern", "value"),  
         Input("wfh_level", "value"),
-        Input('tabs-with-classes', 'value')
+        Input('tabs-with-classes', 'value'),
+        Input('layer', 'value'),
      ],
     )
-def update_map_graph(transit_pattern,wfh_level,tab):
+def update_map_graph(transit_pattern,wfh_level,tab,layer):
     commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
     comm_df = available_commuter_models[commuter_model_of_choice_idx].copy()
     comm_df['sequence']=comm_df.groupby(['PUMAKEY_HOME']).cumcount()
@@ -966,6 +1006,60 @@ def update_map_graph(transit_pattern,wfh_level,tab):
 
     comm_df.rename({'PERWT':'Number_of_Commuters', 'Reassigned':'Travel Mode'},axis=1,inplace=True)
     comm_df['size'] = 1
+
+    if layer==' Commuting':
+        fig = px.scatter_mapbox(comm_df, 
+                                lat="lat", lon="lon", hover_name="Travel Mode", color="Travel Mode", 
+                                size="size", 
+                                size_max=2, 
+                                zoom=8,
+                                color_discrete_map=color__dict,
+                                hover_data=dict(lat=False, lon=False, size=False, Number_of_Commuters=True),
+                                )
+    else:
+        # https://plotly.com/python/lines-on-mapbox/
+        fig = px.line_mapbox(lat=lats, lon=lons, hover_name=voltages, zoom=7.5)
+        # fig.add_scattergeo(lat=station_df.lat.to_list(), lon=station_df.lon.to_list(), marker_size = 10, showlegend=True)
+        fig.add_trace(go.Scattermapbox(
+            name = 'Substations',
+            lon = station_df.lon.to_list(),
+            lat = station_df.lat.to_list(),
+            marker = {'size': 5}))
+
+    fig.update_layout(mapbox_style="carto-positron")
+    # fig.update_layout(mapbox_style="carto-darkmatter")
+    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    fig.update_layout(legend = dict(bgcolor='rgba(0,0,0,0)'))
+    fig.update_layout(legend=dict(x=0.03, y=0.97, traceorder="reversed", font=dict(size=11)))
+    if tab=='tab-1':
+        fig.update_layout(height=730)
+    else:
+        fig.update_layout(height=390)
+    return fig
+
+
+@app.callback(
+    Output('map_graphic_s', 'figure'),
+    [
+        Input("transit_pattern", "value"),  
+        Input("wfh_level", "value"),
+        Input('tabs-with-classes', 'value'),
+     ],
+    )
+def update_map_graph_small(transit_pattern,wfh_level,tab):
+    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+    comm_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+    comm_df['sequence']=comm_df.groupby(['PUMAKEY_HOME']).cumcount()
+    location_test['sequence']=location_test.groupby(['PUMAKEY_HOME']).cumcount()
+    comm_df = comm_df.merge(right=location_test[['PUMAKEY_HOME','sequence','lat','lon']], on=["sequence","PUMAKEY_HOME"], how='left')
+
+    mode_order = CategoricalDtype(['Walk','Escooter','Bicycle','Ferry','WFH','Autos','Bus','Motorcycle','Taxicab','CommuterRail','Subway','Other'],ordered=True)
+    comm_df['Reassigned'] = comm_df['Reassigned'].astype(mode_order)
+    comm_df.sort_values(by=['Reassigned'],ascending=False,inplace=True)
+
+    comm_df.rename({'PERWT':'Number_of_Commuters', 'Reassigned':'Travel Mode'},axis=1,inplace=True)
+    comm_df['size'] = 1
+
     fig = px.scatter_mapbox(comm_df, 
                             lat="lat", lon="lon", hover_name="Travel Mode", color="Travel Mode", 
                             size="size", 
@@ -974,10 +1068,10 @@ def update_map_graph(transit_pattern,wfh_level,tab):
                             color_discrete_map=color__dict,
                             hover_data=dict(lat=False, lon=False, size=False, Number_of_Commuters=True),
                             )
+
     fig.update_layout(mapbox_style="carto-positron")
     # fig.update_layout(mapbox_style="carto-darkmatter")
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-    # fig.update(layout_showlegend=True)
     fig.update_layout(legend = dict(bgcolor='rgba(0,0,0,0)'))
     fig.update_layout(legend=dict(x=0.03, y=0.97, traceorder="reversed", font=dict(size=11)))
     if tab=='tab-1':
@@ -1026,16 +1120,19 @@ def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,se
     load_df = maxload_profiles[maxload_profiles['key']==condition]
     com_df = available_electric_models[commuter_model_of_choice_idx]
     e_tmp_profile = e_profile_hold_space(com_df)
+    e_tmp_profile = e_tmp_profile.merge(right=load_df, on=["Charge_Hour"])
+    e_tmp_profile['Energy'] = e_tmp_profile['Energy'] + e_tmp_profile['baseload']
     fig = px.line(e_tmp_profile, x='Charge_Hour', y='Energy', color='PEV_DELAY', markers=False,
                   labels=dict(Charge_Hour="Time of day (hr)", TransMode="Travel Mode", Energy="Power (MW)", PEV_DELAY="Delay Type"))
-    fig.add_trace(go.Scatter(x=load_df.hour.to_list(), y=load_df.baseload.to_list(), marker_color="gold", name='Baseload*'))
+    fig.add_trace(go.Scatter(x=load_df.Charge_Hour.to_list(), y=load_df.maxload.to_list(), name='Maxload*', line=dict(color='gold', width=3)))
+    fig.add_trace(go.Scatter(x=load_df.Charge_Hour.to_list(), y=load_df.baseload.to_list(), name='Baseload*', line=dict(color='orange', width=3, dash='dot')))
     layout_elec = copy.deepcopy(layout)
     layout_elec["height"] = 240
     fig.update_layout(layout_elec)
     fig.update_layout(xaxis_title=None)
     fig.update_layout(legend=dict(orientation="v", y=1, x=1))
     fig.update_xaxes(range = [0,23], showline=True, linewidth=1, linecolor='grey')
-    fig.update_yaxes(range = [0,2200], showline=True, linewidth=1, linecolor='grey')
+    fig.update_yaxes(range = [0,3000], showline=True, linewidth=1, linecolor='grey')
 
     if Detailed:
         df_plot = available_electric_models[commuter_model_of_choice_idx]
@@ -1045,15 +1142,21 @@ def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,se
         df_plot['TransMode'] = df_plot["TransMode"].replace(mode_dict_2)
         gb_plot = df_plot.groupby(by=["Charge_Hour","TransMode"]).agg({"Energy":"sum"}).reset_index()
         ### order: most or stable on bottom, now use most
-        sum_energy_by_mode = df_plot.groupby(by=["TransMode"]).agg({"Energy":"sum"}).rename({'Energy':'sum'},axis=1).reset_index()
+        
+        load_df_mode = load_df[['Charge_Hour','baseload']].rename({'baseload':'Energy'},axis=1)
+        load_df_mode['TransMode'] = 'Baseload*'
+        gb_plot = pd.concat([gb_plot, load_df_mode])  
+
+        sum_energy_by_mode = gb_plot.groupby(by=["TransMode"]).agg({"Energy":"sum"}).rename({'Energy':'sum'},axis=1).reset_index()
         gb_plot = gb_plot.merge(right=sum_energy_by_mode, on=["TransMode"])
+
         gb_plot.sort_values(by=['sum'],ascending=False,inplace=True)
         fig = px.area(gb_plot,x='Charge_Hour',y='Energy',color='TransMode',markers=False, 
                       color_discrete_map=color__dict,
                       labels=dict(Charge_Hour="Hour of Day", TransMode="Travel Mode", Energy="Power (MW)"))
-        fig.add_trace(go.Scatter(x=load_df.hour.to_list(), y=load_df.baseload.to_list(), marker_color="gold", name='Baseload*'))
+        fig.add_trace(go.Scatter(x=load_df.Charge_Hour.to_list(), y=load_df.maxload.to_list(), name='Maxload*', line=dict(color='gold', width=3)))
         fig.update_xaxes(range = [0,23], showline=True, linewidth=1, linecolor='grey')
-        fig.update_yaxes(range = [0,2200], showline=True, linewidth=1, linecolor='grey')
+        fig.update_yaxes(range = [0,3000], showline=True, linewidth=1, linecolor='grey')
         fig.update_layout(layout_elec)
         fig.update_layout(legend=dict(orientation="v", y=1, x=1))
         fig.update_layout(xaxis_title=None)
