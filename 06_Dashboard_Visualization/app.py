@@ -56,32 +56,46 @@ color__dict = {'Bus':'#636EFA',
 #########################################
 
 # save_dir = "./electric_model_outputs_WFHTransitCombos"
-save_dir = "./electric_model_outputs_WFHTransitCombos_V2"
+save_dir = "./electric_model_outputs_WFHTransitCombos_V3"
 commuter_fname = "commuter_model_ipums_df.pkl"
 electric_fname = "electric_model_df_aggregate.pkl"
+
+commuter_model_0 = pd.read_pickle(f"{save_dir}/Baseline_2019_Mode/{commuter_fname}")
 
 commuter_model_1 = pd.read_pickle(f"{save_dir}/HighWFH_Mix/{commuter_fname}")
 commuter_model_2 = pd.read_pickle(f"{save_dir}/HighWFH_Transit/{commuter_fname}")
 commuter_model_3 = pd.read_pickle(f"{save_dir}/HighWFH_Micro/{commuter_fname}")
-commuter_model_4 = pd.read_pickle(f"{save_dir}/MidWFH_Mix/{commuter_fname}")
-commuter_model_5 = pd.read_pickle(f"{save_dir}/MidWFH_Transit/{commuter_fname}")
-commuter_model_6 = pd.read_pickle(f"{save_dir}/MidWFH_Micro/{commuter_fname}")
-commuter_model_7 = pd.read_pickle(f"{save_dir}/NoWFH_Mix/{commuter_fname}")
-commuter_model_8 = pd.read_pickle(f"{save_dir}/NoWFH_Transit/{commuter_fname}")
-commuter_model_9 = pd.read_pickle(f"{save_dir}/NoWFH_Micro/{commuter_fname}")
+commuter_model_4 = pd.read_pickle(f"{save_dir}/HighWFH_Car/{commuter_fname}")
+
+commuter_model_5 = pd.read_pickle(f"{save_dir}/MidWFH_Mix/{commuter_fname}")
+commuter_model_6 = pd.read_pickle(f"{save_dir}/MidWFH_Transit/{commuter_fname}")
+commuter_model_7 = pd.read_pickle(f"{save_dir}/MidWFH_Micro/{commuter_fname}")
+commuter_model_8 = pd.read_pickle(f"{save_dir}/MidWFH_Car/{commuter_fname}")
+
+commuter_model_9 = pd.read_pickle(f"{save_dir}/NoWFH_Mix/{commuter_fname}")
+commuter_model_10 = pd.read_pickle(f"{save_dir}/NoWFH_Transit/{commuter_fname}")
+commuter_model_11 = pd.read_pickle(f"{save_dir}/NoWFH_Micro/{commuter_fname}")
+commuter_model_12 = pd.read_pickle(f"{save_dir}/NoWFH_Car/{commuter_fname}")
+
 
 subregion_reference = pd.read_csv(f"{save_dir}/subregion_reference_table.csv",index_col=0)
 location_test = pd.read_csv(f"{save_dir}/location_test.csv",index_col=0)
 
+
+electric_model_0 = pd.read_pickle(f"{save_dir}/Baseline_2019_Mode/{electric_fname}")
 electric_model_1 = pd.read_pickle(f"{save_dir}/HighWFH_Mix/{electric_fname}")
 electric_model_2 = pd.read_pickle(f"{save_dir}/HighWFH_Transit/{electric_fname}")
 electric_model_3 = pd.read_pickle(f"{save_dir}/HighWFH_Micro/{electric_fname}")
-electric_model_4 = pd.read_pickle(f"{save_dir}/MidWFH_Mix/{electric_fname}")
-electric_model_5 = pd.read_pickle(f"{save_dir}/MidWFH_Transit/{electric_fname}")
-electric_model_6 = pd.read_pickle(f"{save_dir}/MidWFH_Micro/{electric_fname}")
-electric_model_7 = pd.read_pickle(f"{save_dir}/NoWFH_Mix/{electric_fname}")
-electric_model_8 = pd.read_pickle(f"{save_dir}/NoWFH_Transit/{electric_fname}")
-electric_model_9 = pd.read_pickle(f"{save_dir}/NoWFH_Micro/{electric_fname}")
+electric_model_4 = pd.read_pickle(f"{save_dir}/HighWFH_Car/{electric_fname}")
+electric_model_5 = pd.read_pickle(f"{save_dir}/MidWFH_Mix/{electric_fname}")
+electric_model_6 = pd.read_pickle(f"{save_dir}/MidWFH_Transit/{electric_fname}")
+electric_model_7 = pd.read_pickle(f"{save_dir}/MidWFH_Micro/{electric_fname}")
+electric_model_8 = pd.read_pickle(f"{save_dir}/MidWFH_Car/{electric_fname}")
+electric_model_9 = pd.read_pickle(f"{save_dir}/NoWFH_Mix/{electric_fname}")
+electric_model_10 = pd.read_pickle(f"{save_dir}/NoWFH_Transit/{electric_fname}")
+electric_model_11 = pd.read_pickle(f"{save_dir}/NoWFH_Micro/{electric_fname}")
+electric_model_12 = pd.read_pickle(f"{save_dir}/NoWFH_Car/{electric_fname}")
+
 
 maxload_profiles = pd.read_pickle(f"{save_dir}/maxload_profiles.p")
 maxload_profiles = maxload_profiles[maxload_profiles['offshore']=='with']
@@ -113,9 +127,6 @@ for feature, voltage in zip(eline_df.geometry, eline_df.VOLTAGE):
         lats = np.append(lats, None)
         lons = np.append(lons, None)
         voltages = np.append(voltages, None)
-
-
-
 
 
 ##########################################################
@@ -158,7 +169,6 @@ def build_modal_info_overlay(id, side, content):
     return div
 
 
-
 mode_dict_1 = {'Auto, truck, or van':'Autos',
                'Long-distance train or commuter train':'CommuterRail',
                'Subway or elevated':'Subway',
@@ -197,8 +207,8 @@ def df_processing(df):
     df['Reassigned'] = df["TransMode"].replace(mode_dict_2)
     df['Current_Parent'] = df["Current"].replace(mode_dict_3)
     df['Reassigned_Parent'] = df["Reassigned"].replace(mode_dict_3)
-    df['MNY_RES'] = df['PUMAKEY_HOME'].apply(lambda x: 1 if x.startswith('36_038') else 0)
-    df['distance_row_sum'] = df['DISTANCE_KM']*df['PERWT']
+    # df['MNY_RES'] = df['PUMAKEY_HOME'].apply(lambda x: 1 if x.startswith('36_038') else 0)
+    # df['distance_row_sum'] = df['DISTANCE_KM']*df['PERWT']
     return df
 
 def flag_assign(df):
@@ -220,14 +230,6 @@ def flag_assign(df):
     flag_df = flag_df.merge(right=Reassigned, on=["Mode"], how='outer').fillna(0)
     flag_df.sort_values('Eligible',inplace=True)  
     return flag_df
-
-def subregion(df):
-    subregion = df.groupby(by=["Subregion","Reassigned"]).agg({"PERWT":"sum"}).reset_index()
-    # order = CategoricalDtype(['CT','Hud','LI','NJ','Non-MNY Boros','Manhattan'],ordered=True)
-    order = CategoricalDtype(['Manhattan','Non-MNY Boros','NJ','LI','Hud','CT','Other'],ordered=True)
-    subregion['Subregion'] = subregion['Subregion'].astype(order)
-    subregion.sort_values('Subregion',inplace=True)
-    return subregion
 
 def PCE(row):
     # https://en.wikipedia.org/wiki/Passenger_car_equivalent
@@ -262,6 +264,7 @@ def e_profile_hold_space(df):
     e_tmp_profile['Energy'] = e_tmp_profile['Energy']/1000
     return e_tmp_profile
 
+commuter_model_0 = df_processing(commuter_model_0)
 commuter_model_1 = df_processing(commuter_model_1)
 commuter_model_2 = df_processing(commuter_model_2)
 commuter_model_3 = df_processing(commuter_model_3)
@@ -271,25 +274,32 @@ commuter_model_6 = df_processing(commuter_model_6)
 commuter_model_7 = df_processing(commuter_model_7)
 commuter_model_8 = df_processing(commuter_model_8)
 commuter_model_9 = df_processing(commuter_model_9)
-
+commuter_model_10 = df_processing(commuter_model_10)
+commuter_model_11 = df_processing(commuter_model_11)
+commuter_model_12 = df_processing(commuter_model_12)
 
 ### 
 
-pattern_list = [" Mix Modes ", " Heavy Transit ", " Heavy Micro-mobility "]
+pattern_list = [" Mode Choices in 2019 ", " Mix Modes ", " Heavy Transit ", " Heavy Micro-mobility ", " Heavy Car Usage "]
 wfh_list = [" High WFH ", " Mid WFH ", " No WFH "]
 
 season_list = ["Summer", "Winter"]
 wind_list = ["Low", "High"]
 
-s_1 = pattern_list[0] + "+" + wfh_list[0]
-s_2 = pattern_list[1] + "+" + wfh_list[0]
-s_3 = pattern_list[2] + "+" + wfh_list[0]
-s_4 = pattern_list[0] + "+" + wfh_list[1]
+s_1 = pattern_list[1] + "+" + wfh_list[0]
+s_2 = pattern_list[2] + "+" + wfh_list[0]
+s_3 = pattern_list[3] + "+" + wfh_list[0]
+s_4 = pattern_list[4] + "+" + wfh_list[0]
+
 s_5 = pattern_list[1] + "+" + wfh_list[1]
 s_6 = pattern_list[2] + "+" + wfh_list[1]
-s_7 = pattern_list[0] + "+" + wfh_list[2]
-s_8 = pattern_list[1] + "+" + wfh_list[2]
-s_9 = pattern_list[2] + "+" + wfh_list[2]
+s_7 = pattern_list[3] + "+" + wfh_list[1]
+s_8 = pattern_list[4] + "+" + wfh_list[1]
+
+s_9 = pattern_list[1] + "+" + wfh_list[2]
+s_10 = pattern_list[2] + "+" + wfh_list[2]
+s_11 = pattern_list[3] + "+" + wfh_list[2]
+s_12 = pattern_list[4] + "+" + wfh_list[2]
 
 available_commuter_models = {s_1: commuter_model_1,
                              s_2: commuter_model_2, 
@@ -300,6 +310,9 @@ available_commuter_models = {s_1: commuter_model_1,
                              s_7: commuter_model_7,
                              s_8: commuter_model_8, 
                              s_9: commuter_model_9,
+                             s_10: commuter_model_10,
+                             s_11: commuter_model_11, 
+                             s_12: commuter_model_12,                             
                              }
 available_electric_models = {s_1: electric_model_1,
                              s_2: electric_model_2, 
@@ -310,6 +323,9 @@ available_electric_models = {s_1: electric_model_1,
                              s_7: electric_model_7,
                              s_8: electric_model_8, 
                              s_9: electric_model_9,
+                             s_10: commuter_model_10,
+                             s_11: commuter_model_11, 
+                             s_12: commuter_model_12,                             
                              }
 
 charging_time_method = sorted(electric_model_1.PEV_DELAY.dropna().unique())
@@ -344,37 +360,53 @@ def generate_control_card():
             html.H2("Load Profile"),
             html.P("1. Select Season"),
             dcc.RadioItems(
-                season_list,
-                season_list[0],
                 id='season',
                 className="dcc_control",
+                options=[
+                    {'label': " Summer", 'value': "Summer"},
+                    {'label': " Winter", 'value': "Winter"},
+                ],
+                value="Summer",
                 labelStyle={'display': 'inline', 'margin-right': 10}
             ),
             html.P("2. Select Wind Level"),
             dcc.RadioItems(
-                wind_list,
-                wind_list[0],
                 id='wind_level',
                 className="dcc_control",
+                options=[
+                    {'label': " Low", 'value': "Low"},
+                    {'label': " High", 'value': "High"},
+                ],
+                value="Low",
                 labelStyle={'display': 'inline', 'margin-right': 10}
             ),
             html.P("3. With offshore wind projects (current & planned)"),
             html.H2("Commuting Scenario"),
             html.P("1. Select Transit Patterns"),
             dcc.RadioItems(
-                pattern_list,
-                pattern_list[0],
                 id='transit_pattern',
                 className="dcc_control",
+                options=[
+                    {'label': pattern_list[0], 'value': pattern_list[0]},
+                    {'label': pattern_list[1], 'value': pattern_list[1]},
+                    {'label': pattern_list[2], 'value': pattern_list[2]},
+                    {'label': pattern_list[3], 'value': pattern_list[3]},
+                    {'label': pattern_list[4], 'value': pattern_list[4]}
+                ],
+                value=pattern_list[1],
                 labelStyle={'display': 'block'}
             ),
             html.P("2. Select Work-from-home Level"),
             dcc.RadioItems(
-                wfh_list,
-                wfh_list[0],
                 id='wfh_level',
                 className="dcc_control",
-                labelStyle={'display': 'block'}
+                options=[
+                    {'label': wfh_list[0], 'value': wfh_list[0]},
+                    {'label': wfh_list[1], 'value': wfh_list[1]},
+                    {'label': wfh_list[2], 'value': wfh_list[2]},
+                ],
+                value=wfh_list[0],
+                labelStyle={'display': 'inline', 'margin-right': 10}
             ),
         ],
     )
@@ -386,19 +418,20 @@ side_bar = html.Div(
                 description_card(), 
                 generate_control_card(),
                 html.Br(),
-                html.Img(src=app.get_asset_url("GitHub-Mark-64px.png")),
+                # html.Img(src=app.get_asset_url("GitHub-Mark-64px.png")),
+                html.A([html.Img(src=app.get_asset_url("GitHub-Mark-64px.png"))], href='https://github.com/BNewborn/mobility-electrification')
                 ]
         )
 
 map_card = html.Div(
-            id="indicator-div",
+            id="mapping-div",
             className="map card_container",
             children=[
                 html.H4(
                     [
                         "Manhattan Workers’ Place of Residence",
                         html.Img(
-                            id="show-indicator-modal",
+                            id="show-mapping-modal",
                             src="assets/question-circle-solid.svg",
                             n_clicks=0,
                             className="info-icon",
@@ -411,14 +444,14 @@ map_card = html.Div(
         )
 
 map_card_full = html.Div(
-                    id="indicator-div",
+                    id="mapping-div",
                     className="map_full card_container",
                     children=[
                         html.H4(
                             [
                                 "Manhattan Workers’ Place of Residence & Power System",
                                 html.Img(
-                                    id="show-indicator-modal",
+                                    id="show-mapping-modal",
                                     src="assets/question-circle-solid.svg",
                                     n_clicks=0,
                                     className="info-icon",
@@ -441,29 +474,20 @@ e_card = html.Div(
                     className="e_card",
                     children=[
                         html.Div(
-                            [html.H3(id="total_energy_text"), html.P("Daily Energy")],
-                            id="wells",
-                            className="mini_container",
-                        ),
-                            html.Div(
-                            [html.H3(id="add_energy_text"), html.P("Add. Energy")],
-                            id="oil",
+                            [
+                                html.H3(id="total_energy_text"), html.P("Total Energy")
+                            ],
                             className="mini_container",
                         ),
                         html.Div(
                             [
-                                html.H3(id="peak_power_text"), 
-                                html.P(
-                                    [
-                                        "Peak Load",
-                                        # html.Img(
-                                        #     id="show-radio-modal",
-                                        #     src="assets/question-circle-solid.svg",
-                                        #     n_clicks=0,
-                                        #     className="info-icon",
-                                        # ),
-                                    ]
-                                )
+                                html.H3(id="trans_energy_text"), html.P("Total Trans. Energy")
+                            ],
+                            className="mini_container",
+                        ),
+                        html.Div(
+                            [
+                                html.H3(id="peak_power_text"), html.P(["Peak Trans. Load"]),
                             ],
                             className="mini_container",
                         ),
@@ -477,7 +501,7 @@ energy_profile = html.Div(
                             [
                                 "Energy Profile of Manhattan's Home-Work Commuting Activities",
                                 html.Img(
-                                    id="show-map-modal",
+                                    id="show-energy-modal",
                                     src="assets/question-circle-solid.svg",
                                     n_clicks=0,
                                     className="info-icon",
@@ -488,14 +512,24 @@ energy_profile = html.Div(
                         html.Div(
                             className="e_choice", 
                             children=[
-                                html.Div(className="e_choice_1", children=[html.Label(['Details: '])]),
+                                html.Div(className="e_choice_1", children=[html.Label(['Details:'])]),
                                 html.Div(className="e_choice_11", children=[daq.BooleanSwitch(id='Detailed',on=False)]),
-                                html.Div(className="e_choice_2", children=[html.Label(['Delay Type: '])]),
+                                html.Div(className="e_choice_2", children=[html.Label(['Start time for EV charge:'])]),
                                 # html.Div(className="e_choice_22", children=[dcc.Dropdown(charging_time_method,"Random",id='pev_delay_choice')]),
                                 html.Div(
                                     className="e_choice_22", 
                                     children=[
-                                        dcc.RadioItems(charging_time_method,"Random",id='pev_delay_choice', labelStyle={'display':'inline','margin-right':10,'font-style':'italic'})
+                                        dcc.RadioItems(
+                                            id='pev_delay_choice',
+                                            options=[
+                                                {'label': 'Random', 'value': 'Random'},
+                                                {'label': 'Earliest', 'value': 'Earliest'},
+                                                {'label': 'Latest', 'value': 'Latest'},
+                                                {'label': 'Custom - 3 hr.', 'value': 'Custom'}
+                                            ],
+                                            value="Random",
+                                            labelStyle={'display':'inline','margin-right':10,'font-style':'italic'}
+                                        )
                                     ]
                                 ),
                             ],
@@ -505,7 +539,7 @@ energy_profile = html.Div(
                 )
 
 energy = html.Div(
-            id="map-div",
+            id="energy-div",
             className="energy",
             children=[
                 e_card,
@@ -554,14 +588,14 @@ mode_assign = html.Div(
         )
 
 mode_share = html.Div(
-                    id="range-div",
+                    id="share-div",
                     className="share card_container",
                     children=[
                         html.H4(
                             [
                                 "Travel Mode Share",
                                 html.Img(
-                                    id="show-range-modal",
+                                    id="show-share-modal",
                                     src="assets/question-circle-solid.svg",
                                     n_clicks=0,
                                     className="info-icon",
@@ -574,7 +608,7 @@ mode_share = html.Div(
                 )
 
 mode_share_subregion = html.Div(
-                            id="created-div",
+                            id="subregion-div",
                             className="region card_container",
                             children=[
                                 # html.H4("Mode Choices by Subregion"),
@@ -582,7 +616,7 @@ mode_share_subregion = html.Div(
                                     [
                                         "Mode Choices by Subregion",
                                         html.Img(
-                                            id="show-created-modal",
+                                            id="show-subregion-modal",
                                             src="assets/question-circle-solid.svg",
                                             n_clicks=0,
                                             className="info-icon",
@@ -597,7 +631,7 @@ mode_share_subregion = html.Div(
 
 
 modal_1 = build_modal_info_overlay(
-                    "indicator",
+                    "mapping",
                     "bottom",
                     dedent(
                         """
@@ -614,30 +648,8 @@ modal_1 = build_modal_info_overlay(
                     ),
                 )
 
-# modal_2 = build_modal_info_overlay(
-#                     "radio",
-#                     "bottom",
-#                     dedent(
-#                         """
-#             The selected _**Energy Card**_ panel displays 
-            
-#             1) _**Daily Energy**_
-
-#             placeholder=Type something here!
-
-#             2) _**Additional Energy**_
-
-#             placeholder=Type something here!
-
-#             3) _**Peak Load**_
-
-#             placeholder=Type something here!            
-#         """
-#                     ),
-#                 )
-
 modal_3 = build_modal_info_overlay(
-                    "map",
+                    "energy",
                     "bottom",
                     dedent(
                         """
@@ -655,7 +667,7 @@ modal_3 = build_modal_info_overlay(
                 )
 
 modal_4 = build_modal_info_overlay(
-                    "range",
+                    "share",
                     "top",
                     dedent(
                         """
@@ -665,7 +677,7 @@ modal_4 = build_modal_info_overlay(
                 )
 
 modal_5 = build_modal_info_overlay(
-                    "created",
+                    "subregion",
                     "top",
                     dedent(
                         """
@@ -726,6 +738,7 @@ modal_7 = build_modal_info_overlay(
 #################    layout   ###################
 #################################################
 
+
 app.layout = html.Div([
     side_bar,
     html.Div([dcc.Tabs(
@@ -768,8 +781,7 @@ app.layout = html.Div([
 #################################################
 
 # Create show/hide callbacks for each info modal
-for id in ["indicator", "map", "range", "created", "pce", "flagvs"]:
-
+for id in ["mapping", "energy", "share", "subregion", "pce", "flagvs"]:
     @app.callback(
         [Output(f"{id}-modal", "style"), Output(f"{id}-div", "style")],
         [Input(f"show-{id}-modal", "n_clicks"), Input(f"close-{id}-modal", "n_clicks")],
@@ -985,6 +997,25 @@ def render_content(tab):
 
 
 @app.callback(
+    Output('wfh_level', 'options'),
+    Input('transit_pattern', 'value')
+    )
+def disable_options(transit_pattern):
+    if transit_pattern==pattern_list[0]:
+        return [
+                    {'label': wfh_list[0], 'value': wfh_list[0], 'disabled': True},
+                    {'label': wfh_list[1], 'value': wfh_list[1], 'disabled': True},
+                    {'label': wfh_list[2], 'value': wfh_list[2], 'disabled': True},
+                ]
+    else:
+        return [
+                    {'label': wfh_list[0], 'value': wfh_list[0], 'disabled': False},
+                    {'label': wfh_list[1], 'value': wfh_list[1], 'disabled': False},
+                    {'label': wfh_list[2], 'value': wfh_list[2], 'disabled': False},
+                ]
+
+
+@app.callback(
     Output('map_graphic', 'figure'),
     [
         Input("transit_pattern", "value"),  
@@ -994,8 +1025,12 @@ def render_content(tab):
      ],
     )
 def update_map_graph(transit_pattern,wfh_level,tab,layer):
-    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
-    comm_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+    if transit_pattern==pattern_list[0]:
+        comm_df = commuter_model_0.copy()
+    else:
+        commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+        comm_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+
     comm_df['sequence']=comm_df.groupby(['PUMAKEY_HOME']).cumcount()
     location_test['sequence']=location_test.groupby(['PUMAKEY_HOME']).cumcount()
     comm_df = comm_df.merge(right=location_test[['PUMAKEY_HOME','sequence','lat','lon']], on=["sequence","PUMAKEY_HOME"], how='left')
@@ -1018,7 +1053,7 @@ def update_map_graph(transit_pattern,wfh_level,tab,layer):
                                 )
     else:
         # https://plotly.com/python/lines-on-mapbox/
-        fig = px.line_mapbox(lat=lats, lon=lons, hover_name=voltages, zoom=7.5)
+        fig = px.line_mapbox(lat=lats, lon=lons, hover_name=voltages, zoom=8.5)
         # fig.add_scattergeo(lat=station_df.lat.to_list(), lon=station_df.lon.to_list(), marker_size = 10, showlegend=True)
         fig.add_trace(go.Scattermapbox(
             name = 'Substations',
@@ -1029,7 +1064,7 @@ def update_map_graph(transit_pattern,wfh_level,tab,layer):
     fig.update_layout(mapbox_style="carto-positron")
     # fig.update_layout(mapbox_style="carto-darkmatter")
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-    fig.update_layout(legend = dict(bgcolor='rgba(0,0,0,0)'))
+    fig.update_layout(legend = dict(bgcolor='rgba(255,255,255,0.7)'))
     fig.update_layout(legend=dict(x=0.03, y=0.97, traceorder="reversed", font=dict(size=11)))
     if tab=='tab-1':
         fig.update_layout(height=730)
@@ -1047,8 +1082,11 @@ def update_map_graph(transit_pattern,wfh_level,tab,layer):
      ],
     )
 def update_map_graph_small(transit_pattern,wfh_level,tab):
-    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
-    comm_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+    if transit_pattern==pattern_list[0]:
+        comm_df = commuter_model_0.copy()
+    else:
+        commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+        comm_df = available_commuter_models[commuter_model_of_choice_idx].copy()
     comm_df['sequence']=comm_df.groupby(['PUMAKEY_HOME']).cumcount()
     location_test['sequence']=location_test.groupby(['PUMAKEY_HOME']).cumcount()
     comm_df = comm_df.merge(right=location_test[['PUMAKEY_HOME','sequence','lat','lon']], on=["sequence","PUMAKEY_HOME"], how='left')
@@ -1082,29 +1120,33 @@ def update_map_graph_small(transit_pattern,wfh_level,tab):
 
 
 @app.callback(
-        [
-            Output("total_energy_text", "children"),
-            Output("peak_power_text", "children"),
-            Output("add_energy_text", "children"),
-        ],
-        [
-            Input("transit_pattern", "value"),   
-            Input("wfh_level", "value"),     
-        ]
+    Output('pev_delay_choice', 'options'),
+    Input('Detailed', 'on')
     )
-def update_text(transit_pattern, wfh_level):
-    commuter_model_of_choice_idx = transit_pattern + "+" +wfh_level  
-    com_df = available_electric_models[commuter_model_of_choice_idx]
-    e_tmp_profile = e_profile_hold_space(com_df)
-    a = str(int(e_tmp_profile[e_tmp_profile['PEV_DELAY']=='Random']['Energy'].sum()))
-    b = str(int(e_tmp_profile['Energy'].max()))
-    filter_e = (~com_df['TransMode'].isin(['Subway','CommuterRail']))&(com_df['PEV_DELAY']=='Random')
-    c = str(int(com_df[filter_e]['Energy'].sum()/1000))
-    return a + " MWh", b + " MW", c + " MWh"
+def disable_options(Detailed):
+    if Detailed:
+        return [
+                {'label': 'Random', 'value': 'Random', 'disabled': False},
+                {'label': 'Earliest', 'value': 'Earliest', 'disabled': False},
+                {'label': 'Latest', 'value': 'Latest', 'disabled': False},
+                {'label': 'Custom - 3 hr.', 'value': 'Custom', 'disabled': False}
+            ]
+    else:
+        return [
+                {'label': 'Random', 'value': 'Random', 'disabled': True},
+                {'label': 'Earliest', 'value': 'Earliest', 'disabled': True},
+                {'label': 'Latest', 'value': 'Latest', 'disabled': True},
+                {'label': 'Custom - 3 hr.', 'value': 'Custom', 'disabled': True}
+            ]
 
 
 @app.callback(
-    Output('electric_graphic', 'figure'),
+    [
+        Output('electric_graphic', 'figure'),
+        Output("total_energy_text", "children"),
+        Output("trans_energy_text", "children"),
+        Output("peak_power_text", "children"),
+    ],
     [
         Input("transit_pattern", "value"),   
         Input("wfh_level", "value"),
@@ -1115,13 +1157,24 @@ def update_text(transit_pattern, wfh_level):
     ],
     )
 def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,season,wind_level):
-    commuter_model_of_choice_idx = transit_pattern + "+" +wfh_level    
+    if transit_pattern==pattern_list[0]:
+        com_df = electric_model_0.copy()
+    else:
+        commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+        com_df = available_electric_models[commuter_model_of_choice_idx].copy() 
+
     condition = (season + "_" + wind_level).lower()
     load_df = maxload_profiles[maxload_profiles['key']==condition]
-    com_df = available_electric_models[commuter_model_of_choice_idx]
+    
     e_tmp_profile = e_profile_hold_space(com_df)
+    c = str(int(e_tmp_profile['Energy'].max()))
+    b = str(int(e_tmp_profile[e_tmp_profile['PEV_DELAY']=='Random']['Energy'].sum()))
+
     e_tmp_profile = e_tmp_profile.merge(right=load_df, on=["Charge_Hour"])
     e_tmp_profile['Energy'] = e_tmp_profile['Energy'] + e_tmp_profile['baseload']
+
+    a = str(int(e_tmp_profile[e_tmp_profile['PEV_DELAY']=='Random']['Energy'].sum()))
+
     fig = px.line(e_tmp_profile, x='Charge_Hour', y='Energy', color='PEV_DELAY', markers=False,
                   labels=dict(Charge_Hour="Time of day (hr)", TransMode="Travel Mode", Energy="Power (MW)", PEV_DELAY="Delay Type"))
     fig.add_trace(go.Scatter(x=load_df.Charge_Hour.to_list(), y=load_df.maxload.to_list(), name='Maxload*', line=dict(color='gold', width=3)))
@@ -1132,16 +1185,15 @@ def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,se
     fig.update_layout(xaxis_title=None)
     fig.update_layout(legend=dict(orientation="v", y=1, x=1))
     fig.update_xaxes(range = [0,23], showline=True, linewidth=1, linecolor='grey')
-    fig.update_yaxes(range = [0,3000], showline=True, linewidth=1, linecolor='grey')
+    fig.update_yaxes(range = [0,3500], showline=True, linewidth=1, linecolor='grey')
 
     if Detailed:
-        df_plot = available_electric_models[commuter_model_of_choice_idx]
+        df_plot = com_df.copy()
         df_plot = df_plot[df_plot["PEV_DELAY"]==pev_delay_choice].copy()
         df_plot['Energy'] = df_plot['Energy']/1000
         df_plot['TransMode'] = df_plot['TransMode'].astype("string")
         df_plot['TransMode'] = df_plot["TransMode"].replace(mode_dict_2)
         gb_plot = df_plot.groupby(by=["Charge_Hour","TransMode"]).agg({"Energy":"sum"}).reset_index()
-        ### order: most or stable on bottom, now use most
         
         load_df_mode = load_df[['Charge_Hour','baseload']].rename({'baseload':'Energy'},axis=1)
         load_df_mode['TransMode'] = 'Baseload*'
@@ -1156,12 +1208,12 @@ def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,se
                       labels=dict(Charge_Hour="Hour of Day", TransMode="Travel Mode", Energy="Power (MW)"))
         fig.add_trace(go.Scatter(x=load_df.Charge_Hour.to_list(), y=load_df.maxload.to_list(), name='Maxload*', line=dict(color='gold', width=3)))
         fig.update_xaxes(range = [0,23], showline=True, linewidth=1, linecolor='grey')
-        fig.update_yaxes(range = [0,3000], showline=True, linewidth=1, linecolor='grey')
+        fig.update_yaxes(range = [0,3500], showline=True, linewidth=1, linecolor='grey')
         fig.update_layout(layout_elec)
         fig.update_layout(legend=dict(orientation="v", y=1, x=1))
         fig.update_layout(xaxis_title=None)
         
-    return fig
+    return fig, a + " MWh", b + " MWh", c + " MW"
 
 
 @app.callback(
@@ -1172,8 +1224,12 @@ def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,se
     ],
     )
 def update_flow_graph(transit_pattern,wfh_level):
-    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level 
-    com_df = available_commuter_models[commuter_model_of_choice_idx]
+    if transit_pattern==pattern_list[0]:
+        com_df = commuter_model_0.copy()
+    else:
+        commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+        com_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+
     flow = traffic_flow(com_df)
     in_df = flow[flow['Dir']=='in']
     out_df = flow[flow['Dir']=='out']
@@ -1214,8 +1270,12 @@ def update_flow_graph(transit_pattern,wfh_level):
     ],
     )
 def update_map_graph(transit_pattern,wfh_level):
-    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level        
-    com_df = available_commuter_models[commuter_model_of_choice_idx]
+    if transit_pattern==pattern_list[0]:
+        com_df = commuter_model_0.copy()
+    else:
+        commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+        com_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+
     flag_df = flag_assign(com_df)
 
     fig = go.Figure()
@@ -1255,8 +1315,12 @@ def update_map_graph(transit_pattern,wfh_level):
     ],
     )
 def update_share_graph(transit_pattern,wfh_level):
-    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level   
-    com_df = available_commuter_models[commuter_model_of_choice_idx]
+    if transit_pattern==pattern_list[0]:
+        com_df = commuter_model_0.copy()
+    else:
+        commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+        com_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+
     share_df = com_df.groupby(by=["Reassigned","Reassigned_Parent"]).agg({"PERWT":"sum"}).reset_index()\
                 .rename({'Reassigned':'Mode','Reassigned_Parent':'Mode_Parent'},axis=1)
     share_df['ALL'] = '~2.7M Workers'
@@ -1291,14 +1355,19 @@ def update_share_graph(transit_pattern,wfh_level):
     ],
     )
 def update_subregion_graph(transit_pattern,wfh_level):
-    commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level   
-    com_df = available_commuter_models[commuter_model_of_choice_idx]
-    gb_plot = subregion(com_df)
+    if transit_pattern==pattern_list[0]:
+        com_df = commuter_model_0.copy()
+    else:
+        commuter_model_of_choice_idx = transit_pattern + "+" + wfh_level
+        com_df = available_commuter_models[commuter_model_of_choice_idx].copy()
+    
+    gb_plot = com_df.groupby(by=["Subregion","Reassigned"]).agg({"PERWT":"sum"}).reset_index()
 
     ### order: most or stable on bottom, now use most
     sum_subregion = gb_plot.groupby(by=["Reassigned"]).agg({"PERWT":"sum"}).rename({'PERWT':'sum'},axis=1).reset_index()
     gb_plot = gb_plot.merge(right=sum_subregion, on=["Reassigned"])
-    gb_plot.sort_values(by=["Subregion",'sum'],ascending=False,inplace=True)
+    gb_plot.sort_values(by=['sum'],ascending=False,inplace=True)
+    
     gb_plot.rename({'PERWT':'Number of Commuters', 'Reassigned':'Travel Mode'},axis=1,inplace=True)
 
     fig = px.bar(gb_plot, x="Number of Commuters", y="Subregion", 
@@ -1307,9 +1376,11 @@ def update_subregion_graph(transit_pattern,wfh_level):
                  hover_data=["Travel Mode", "Number of Commuters"],
                  color_discrete_map=color__dict,
                  height=350)
+
     layout_subregion = copy.deepcopy(layout)
     layout_subregion["height"] = 280
     fig.update_layout(layout_subregion)
+    fig.update_layout(barmode='stack', yaxis={'categoryorder':'array', 'categoryarray':['Other','CT','Hud','LI','NJ','Non-MNY Boros','Manhattan']})
     fig.update_layout(yaxis_title=None,xaxis_title=None)
     fig.update_layout(showlegend=True)
     fig.update_layout(legend=dict(orientation="v", y=1, x=1))

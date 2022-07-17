@@ -110,7 +110,7 @@ p {
   margin: 0;
   padding: 5px;
   width: 300px;
-  padding-bottom: 24px;
+  padding-bottom: 20px;
 }
 
 .map_full .dcc_control {
@@ -143,7 +143,7 @@ p {
 .e_choice {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   font-size: 8px;
   margin-top: 10px;
   margin-bottom: 10px;
