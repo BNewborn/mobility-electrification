@@ -145,7 +145,7 @@ def build_modal_info_overlay(id, side, content):
                         [
                             html.H4(
                                 [
-                                    "Info",
+                                    # "Info | Double-click on legend to isolate one trace.",
                                     html.Img(
                                         id=f"close-{id}-modal",
                                         src="assets/times-circle-solid.svg",
@@ -259,7 +259,7 @@ def traffic_flow(df):
     return flow
 
 def e_profile_hold_space(df):
-    e_tmp_profile = df[df['FLOW_DIR']!='ALL']
+    e_tmp_profile = df[df["FLOW_DIR"]!='ALL']
     e_tmp_profile = e_tmp_profile.groupby(by=["Charge_Hour","PEV_DELAY"]).agg({"Energy":"sum"}).reset_index()
     e_tmp_profile['Energy'] = e_tmp_profile['Energy']/1000
     return e_tmp_profile
@@ -534,7 +534,7 @@ energy_profile = html.Div(
                                 ),
                             ],
                         ),
-                        dcc.Graph(id="electric_graphic")
+                        dcc.Graph(id="electric_graphic", config={"displayModeBar": False, "scrollZoom": False})
                     ],
                 )
 
@@ -553,7 +553,7 @@ pce_flow = html.Div(
             children=[
                 html.H4(
                     [
-                        "Passenger Car Equivalent",
+                        "Traffic Flow",
                         html.Img(
                             id="show-pce-modal",
                             src="assets/question-circle-solid.svg",
@@ -603,7 +603,7 @@ mode_share = html.Div(
                             ],
                             className="container_title",
                         ),
-                        dcc.Graph(id="share_graphic"),
+                        dcc.Graph(id="share_graphic", config={"displayModeBar": False, "scrollZoom": False}),
                     ],
                 )
 
@@ -624,7 +624,7 @@ mode_share_subregion = html.Div(
                                     ],
                                     className="container_title",
                                 ),
-                                dcc.Graph(id="subregion_graphic"),
+                                dcc.Graph(id="subregion_graphic", config={"displayModeBar": False, "scrollZoom": False}),
                             ],
                         )
 
@@ -639,11 +639,11 @@ modal_1 = build_modal_info_overlay(
             
             1) _**Manhattan Workers’ Place of Residence by Travel Mode**_
 
-            Each dot represents a group of commuters with person weight. The location of the point is randomly generated inside its Public Use Microdata Areas (PUMA).
+            Each dot represents a group of commuters. The location of the dot is randomly generated within its residential area. _Data Source: ACS, IPUMS_
 
-            2) _**Power System in Manhattan**_
+            2) _**Power System**_
 
-            Intro of the source and content.
+            This map shows the operable electric generating plants, electric transmission lines, and electric substations in the New York metropolitan area. _Source: EIA_
             """
                     ),
                 )
@@ -655,13 +655,17 @@ modal_3 = build_modal_info_overlay(
                         """
             The selected _**Energy Profile**_ panel displays 
             
-            1) _**General**_
+            1) _**Three energy indicators**_
 
-            Description of the chart, and four delay types.
+            The three numbers show the total daily energy consumption (baseload + transportation), energy consumption by transportation, and peak transportation load in Manhattan.
 
-            2) _**Details**_
+            2) _**Average hourly energy consumption - General**_
 
-            placeholder=Type something here!
+            Our electricity model simulates the hourly energy consumption in Manhattan for four different charging start times of private vehicle: earliest, latest, random, and 3-hour delay. In general view, we can observe the impact of the four charging habits on the overall energy consumption, whether the peak load is aggravated or staggered based on the baseload, and whether the energy exceeds the maxload.
+
+            3) _**Average hourly energy consumption - Details**_
+
+             Switching to detail view, we can explore the stacked energy of transportation modes.
         """
                     ),
                 )
@@ -671,7 +675,7 @@ modal_4 = build_modal_info_overlay(
                     "top",
                     dedent(
                         """
-            The selected _**Mode Share**_ panel displays placeholder=Type something here!
+            The selected _**Mode Share**_ panel displays the proportion of four transit patterns, as well as the proportion of detailed modes. 
         """
                     ),
                 )
@@ -681,21 +685,7 @@ modal_5 = build_modal_info_overlay(
                     "top",
                     dedent(
                         """
-            The selected _**Subregion**_ panel displays placeholder=Type something here!
-
-            -- Manhattan
-
-            -- Non-MNY Boros
-
-            -- New Jersey
-
-            -- Long Island
-
-            -- Hud
-
-            -- CT
-
-            -- Other
+            The selected _**Subregion**_ panel displays the aggregated the number of commuters by region and travel modes, we can explore questions like what's the dominant mode in each region.
         """
                     ),
                 )
@@ -705,15 +695,13 @@ modal_6 = build_modal_info_overlay(
                     "top",
                     dedent(
                         """
-            The selected _**Subregion**_ panel displays placeholder=Type something here!
+            The selected _**Traffic Flow**_ panel displays the number of vehicles measured by Passenger Car Equivalent (PCE).
 
             -- private car (including taxis or pick-up) 1
 
             -- motorcycle 0.75
 
             -- bicycle 0.5
-
-            -- horse-drawn vehicle 4
 
             -- bus, tractor, truck 3
 
@@ -876,97 +864,8 @@ def render_content(tab):
                             html.H3("#1 The constraints fo each mode."),
                             html.Br(),
                             html.P("- Transit System (Subway, Commuter Rail, Bus, Ferry)"),
-                            html.Div(
-                                [
-                                    html.Div([html.Label("Affordability (% income)")], className='p_label'),
-                                    html.Div([
-                                    dcc.Slider(
-                                        min=1, max=100, step=1, value=20,
-                                        updatemode="drag",
-                                        marks={20: {"label": "20"}, 40: {"label": "40"}, 60: {"label": "60"}, 80: {"label": "80"}},
-                                    )], className='p_control')
-                                ],
-                                className="p_panel",
-                            ),
-                            html.Div(
-                                [
-                                    html.Div([html.Label("Schedule-Subway")], className="p_panel_1st"),
-                                    html.Div([
-                                    dcc.RangeSlider(
-                                        min=0, max=24, step=1, value=[0, 23],
-                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
-                                    )], className='p_control'),
-                                    html.Div([html.Label("Bus")]),
-                                    html.Div([
-                                    dcc.RangeSlider(
-                                        min=0, max=24, step=1, value=[6, 22],
-                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
-                                    )], className='p_control'),   
-                                    html.Div([html.Label("Train")]),
-                                    html.Div([
-                                    dcc.RangeSlider(
-                                        min=0, max=24, step=1, value=[6, 22],
-                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
-                                    )], className='p_control'),
-                                    html.Div([html.Label("Ferry")]),
-                                    html.Div([
-                                    dcc.RangeSlider(
-                                        min=0, max=24, step=1, value=[6, 20],
-                                        marks={6: {"label": "6"}, 12: {"label": "12"}, 18: {"label": "18"}},
-                                    )], className='p_control'),                                                                      
-                                ],
-                                className="p_panel",
-                            ),
-                            html.Div(
-                                [
-                                    html.Div([html.Label("Region-Subway")]),
-                                    html.Div([
-                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'),
-                                    html.Div([html.Label("Bus")]),
-                                    html.Div([
-                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'), 
-                                    html.Div([html.Label("Train")]),
-                                    html.Div([
-                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'),
-                                    html.Div([html.Label("Ferry")]),
-                                    html.Div([
-                                    dcc.Dropdown(["PUMA",2,3],"PUMA")], className='p_dropdown'),                                                                     
-                                ],
-                                className="p_panel",
-                            ),
                             html.Br(),
                             html.P("- Autos, Motorcycle"),
-                            html.Div(
-                                [
-                                    html.Div([html.Label("Age")]),
-                                    html.Div([
-                                    dcc.RangeSlider(
-                                        min=0, max=100, step=1, value=[16, 75],
-                                        marks={20: {"label": "20"}, 40: {"label": "40"}, 60: {"label": "60"}, 80: {"label": "80"}},
-                                    )], className='p_control'),
-                                    html.Div([html.Label("Dist.")]),
-                                    html.Div([
-                                    dcc.RangeSlider(
-                                        min=0, max=30, step=1, value=[2, 30],
-                                        marks={10: {"label": "10"}, 20: {"label": "20"}, 30: {"label": "30"}},
-                                    )], className='p_control'),   
-                                    html.Div([html.Label("Min_income")]),
-                                    html.Div([
-                                    dcc.Slider(
-                                        min=0, max=80000, step=1000, value=20000,
-                                        updatemode="drag",
-                                        marks={20000: {"label": "20K"}, 40000: {"label": "40K"}, 60000: {"label": "60K"}},
-                                    )], className='p_control'),
-                                    html.Div([html.Label("Gender")]),
-                                    html.Div([
-                                    dcc.Slider(
-                                        min=0, max=9, step=2, value=2,
-                                        updatemode="drag",
-                                        marks={3: {"label": "3:1"}, 6: {"label": "6:1"}},
-                                    )], className='p_control')                                                                   
-                                ],
-                                className="p_panel",
-                            ),
                             html.Br(),
                             html.P("- Taxi"),
                             html.Br(),
@@ -1039,17 +938,17 @@ def update_map_graph(transit_pattern,wfh_level,tab,layer):
     comm_df['Reassigned'] = comm_df['Reassigned'].astype(mode_order)
     comm_df.sort_values(by=['Reassigned'],ascending=False,inplace=True)
 
-    comm_df.rename({'PERWT':'Number_of_Commuters', 'Reassigned':'Travel Mode'},axis=1,inplace=True)
+    comm_df.rename({'PERWT':'Commuters', 'Reassigned':'Travel_Mode'},axis=1,inplace=True)
     comm_df['size'] = 1
 
     if layer==' Commuting':
         fig = px.scatter_mapbox(comm_df, 
-                                lat="lat", lon="lon", hover_name="Travel Mode", color="Travel Mode", 
+                                lat="lat", lon="lon", hover_name="Travel_Mode", color="Travel_Mode", 
                                 size="size", 
                                 size_max=2, 
                                 zoom=8,
                                 color_discrete_map=color__dict,
-                                hover_data=dict(lat=False, lon=False, size=False, Number_of_Commuters=True),
+                                hover_data=dict(lat=False, lon=False, size=False, Travel_Mode=False, Commuters=True),
                                 )
     else:
         # https://plotly.com/python/lines-on-mapbox/
@@ -1339,11 +1238,12 @@ def update_share_graph(transit_pattern,wfh_level):
                             '(?)':'white'
                             }
                     )
-
     layout_share = copy.deepcopy(layout)
     layout_share["height"] = 280
     fig.update_layout(layout_share)
     fig.update_traces(marker_line_color='white',marker_line_width=1)
+    fig.update_traces(hovertemplate='<b>%{value} Commuters</b>')  # parent, or label, or id, or value
+
     return fig
 
 
