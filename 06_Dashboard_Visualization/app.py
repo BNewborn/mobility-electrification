@@ -51,6 +51,17 @@ color__dict = {'Bus':'#636EFA',
                'Baseload*':'lightgrey'
                }
 
+color_plant_dict = {'batteries':'#FF6692',
+                    'natural gas':'#19D3F3',
+                    'biomass':'#B6E880',
+                    'solar':'#FFA15A',
+                    'pumped storage':'#72B7B2',
+                    'hydroelectric':'#EF553B',
+                    'wind':'#000',
+                    'other':'#7F7F7F',
+                    'petroleum':'#636EFA',
+                    }
+
 #########################################
 #######  read the orginal data  #########
 #########################################
@@ -107,12 +118,15 @@ maxload_profiles.rename({'hour':'Charge_Hour'},axis=1,inplace=True)
 
 station_df = pd.read_csv(f"{save_dir}/substations.csv")
 eline_df = gpd.read_file(f"{save_dir}/transmission_lines.geojson")
+plant_df = pd.read_csv(f"{save_dir}/powerplants_ny.csv")
+plant_df.rename({'PrimSource':'PowerPlants'},axis=1,inplace=True)
+
 
 lats = []
 lons = []
 voltages = []
 
-for feature, voltage in zip(eline_df.geometry, eline_df.VOLTAGE):
+for feature, voltage in zip(eline_df.geometry, eline_df.VOLT_CLASS):
     if isinstance(feature, shapely.geometry.linestring.LineString):
         linestrings = [feature]
     elif isinstance(feature, shapely.geometry.multilinestring.MultiLineString):
@@ -643,7 +657,7 @@ modal_1 = build_modal_info_overlay(
 
             2) _**Power System**_
 
-            This map shows the operable electric generating plants, electric transmission lines, and electric substations in the New York metropolitan area. _Source: EIA_
+            This map shows the operable electric generating plants, transmission lines, and substations in the New York metropolitan area. _Source: EIA, HIFLD_
             """
                     ),
                 )
@@ -952,16 +966,30 @@ def update_map_graph(transit_pattern,wfh_level,tab,layer):
                                 )
     else:
         # https://plotly.com/python/lines-on-mapbox/
-        fig = px.line_mapbox(lat=lats, lon=lons, hover_name=voltages, zoom=8.5)
-        # fig.add_scattergeo(lat=station_df.lat.to_list(), lon=station_df.lon.to_list(), marker_size = 10, showlegend=True)
+        plant_df['size'] = 1
+        fig = px.scatter_mapbox(plant_df, lat="Y", lon="X", hover_name="PowerPlants", color="PowerPlants", 
+                                color_discrete_map=color_plant_dict,
+                                hover_data=dict(Y=False, X=False), size="size", size_max=7,
+                                zoom=8
+                                )
+
+        fig.add_trace(go.Scattermapbox(
+                        name = 'Transmission Lines',
+                        mode = "lines",
+                        lon = lons,
+                        lat = lats,
+                        marker = {'color':'lightgrey'}
+                        ))              
+
         fig.add_trace(go.Scattermapbox(
             name = 'Substations',
-            lon = station_df.lon.to_list(),
-            lat = station_df.lat.to_list(),
-            marker = {'size': 5}))
+            lon = station_df.lon,
+            lat = station_df.lat,
+            showlegend=False,
+            marker = {'size':3, 'color':'grey'}
+            ))
 
     fig.update_layout(mapbox_style="carto-positron")
-    # fig.update_layout(mapbox_style="carto-darkmatter")
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     fig.update_layout(legend = dict(bgcolor='rgba(255,255,255,0.7)'))
     fig.update_layout(legend=dict(x=0.03, y=0.97, traceorder="reversed", font=dict(size=11)))
