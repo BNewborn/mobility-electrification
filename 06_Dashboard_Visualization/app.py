@@ -66,8 +66,7 @@ color_plant_dict = {'batteries':'#FF6692',
 #######  read the orginal data  #########
 #########################################
 
-# save_dir = "./electric_model_outputs_WFHTransitCombos"
-save_dir = "./electric_model_outputs_WFHTransitCombos_V3"
+save_dir = "./data"
 commuter_fname = "commuter_model_ipums_df.pkl"
 electric_fname = "electric_model_df_aggregate.pkl"
 
@@ -273,8 +272,8 @@ def traffic_flow(df):
     return flow
 
 def e_profile_hold_space(df):
-    e_tmp_profile = df[df["FLOW_DIR"]!='ALL']
-    e_tmp_profile = e_tmp_profile.groupby(by=["Charge_Hour","PEV_DELAY"]).agg({"Energy":"sum"}).reset_index()
+    df_pro = df[df['FLOW_DIR']!='ALL']
+    e_tmp_profile = df_pro.groupby(by=["Charge_Hour","PEV_DELAY"]).agg({"Energy":"sum"}).reset_index()
     e_tmp_profile['Energy'] = e_tmp_profile['Energy']/1000
     return e_tmp_profile
 
@@ -337,9 +336,9 @@ available_electric_models = {s_1: electric_model_1,
                              s_7: electric_model_7,
                              s_8: electric_model_8, 
                              s_9: electric_model_9,
-                             s_10: commuter_model_10,
-                             s_11: commuter_model_11, 
-                             s_12: commuter_model_12,                             
+                             s_10: electric_model_10,
+                             s_11: electric_model_11, 
+                             s_12: electric_model_12,                             
                              }
 
 charging_time_method = sorted(electric_model_1.PEV_DELAY.dropna().unique())
@@ -433,7 +432,7 @@ side_bar = html.Div(
                 generate_control_card(),
                 html.Br(),
                 # html.Img(src=app.get_asset_url("GitHub-Mark-64px.png")),
-                html.A([html.Img(src=app.get_asset_url("GitHub-Mark-64px.png"))], href='https://github.com/BNewborn/mobility-electrification')
+                html.A([html.Img(src=app.get_asset_url("GitHub-Mark-64px.png"))], href='https://github.com/BNewborn/mobility-electrification',target="_blank")
                 ]
         )
 
@@ -657,7 +656,7 @@ modal_1 = build_modal_info_overlay(
 
             2) _**Power System**_
 
-            This map shows the operable electric generating plants, transmission lines, and substations in the New York metropolitan area. _Source: EIA, HIFLD_
+            This map shows the operable electric generating plants, transmission lines, and substations in the New York Metropolitan Area. _Source: EIA, HIFLD_
             """
                     ),
                 )
@@ -671,15 +670,15 @@ modal_3 = build_modal_info_overlay(
             
             1) _**Three energy indicators**_
 
-            The three numbers show the total daily energy consumption (baseload + transportation), energy consumption by transportation, and peak transportation load in Manhattan.
+            The three energy indicators are total daily energy consumption (base electrical load plus energy calculated for transportation), energy consumption by transportation, and peak transportation load.
 
             2) _**Average hourly energy consumption - General**_
 
-            Our electricity model simulates the hourly energy consumption in Manhattan for four different charging start times of private vehicle: earliest, latest, random, and 3-hour delay. In general view, we can observe the impact of the four charging habits on the overall energy consumption, whether the peak load is aggravated or staggered based on the baseload, and whether the energy exceeds the maxload.
+            Our electricity model simulates the hourly energy consumption in Manhattan for four different charging start times of passenger electric vehicles: earliest, latest, random, and 3-hour delay, all relative to the time commuters arrive at work. In the general view, we can explore the impact of the four charging habits on the overall energy consumption, whether the existing peak load is exacerbated or alleviated based on the current baseload, and whether the energy will exceed the maximum load. 
 
             3) _**Average hourly energy consumption - Details**_
 
-             Switching to detail view, we can explore the stacked energy of transportation modes.
+            The detailed view on the right demonstrates the stacking power needs of this scenario.
         """
                     ),
                 )
@@ -689,7 +688,7 @@ modal_4 = build_modal_info_overlay(
                     "top",
                     dedent(
                         """
-            The selected _**Mode Share**_ panel displays the proportion of four transit patterns, as well as the proportion of detailed modes. 
+            The selected _**Mode Share**_ panel shows the proportion of four transit patterns (inner ring), as well as the proportion of detailed transportation modes (outer ring). 
         """
                     ),
                 )
@@ -699,7 +698,7 @@ modal_5 = build_modal_info_overlay(
                     "top",
                     dedent(
                         """
-            The selected _**Subregion**_ panel displays the aggregated the number of commuters by region and travel modes, we can explore questions like what's the dominant mode in each region.
+            The selected _**Subregion**_ panel displays the aggregated number of commuters by region. In it, we can explore the dominant commuting mode in each region for this scenario.
         """
                     ),
                 )
@@ -718,8 +717,6 @@ modal_6 = build_modal_info_overlay(
             -- bicycle 0.5
 
             -- bus, tractor, truck 3
-
-            Source: https://en.wikipedia.org/wiki/Passenger_car_equivalent
         """
                     ),
                 )
@@ -729,9 +726,7 @@ modal_7 = build_modal_info_overlay(
                     "top",
                     dedent(
                         """
-            The selected _**Eligible vs Assigned**_ panel displays placeholder=Type something here!
-
-            Detailed info in Tab _**MODEL**_.
+            The selected _**Eligible vs Assigned**_ panel displays the number of eligible (grey) and final assigned commuters (purple) for each mode.
         """
                     ),
                 )
@@ -762,12 +757,12 @@ app.layout = html.Div([
                 selected_className='custom-tab--selected'
             ),
             dcc.Tab(
-                label='Model Framework',
+                label='Framework',
                 value='tab-3', className='custom-tab',
                 selected_className='custom-tab--selected'
             ),
             dcc.Tab(
-                label='Parameter Panel',
+                label='About',
                 value='tab-4', className='custom-tab',
                 selected_className='custom-tab--selected'
             ),
@@ -827,26 +822,22 @@ def render_content(tab):
             mode_share,
             mode_share_subregion,
         ],className="tab2_content")
+    ### https://dash.plotly.com/dash-core-components/markdown
     elif tab == 'tab-3':
         return html.Div([
             html.Div(
                         [
                             dcc.Markdown(dedent(
                         """
-            ## Commuter Model
+            ## Framework
+            The framework is composed of three parts: 
 
-            Each simulation of an all-Electric Commute reflects a run through our entire pipeline. Given cleaned and disaggregated commuting data, i.e., 1 line per representative commuter in the _American Community Survey (ACS)_, we first push this data through our Commuter Model. This Commuter Model, built as a _**re-usable, modifiable python class**_, takes in numerous parameters around both the people and commuting patterns. These parameters include, but are not limited to:
-
-            -- what areas are available to use micro-mobility to commute from?
-
-            -- what health conditions may restrict bicycling?
-
-            -- what is the maximum distance somebody could walk to work? 
-            
-            Given all of these factors, and an input prioritization of commuting modes, we assign every ACS commuter a new transportation mode for their commute. This is what you see visualized on the map on our main page.
+            (1) Data cleaning and aggregation/disaggregation; \n
+            (2) Reusable pipeline composed of commuting model and electricity model built by Python Class, and power system model in New York State; \n
+            (3) Information visualization and development of dashboard. 
             """
                     )),
-                            html.Img(src=app.get_asset_url("commuter_model.png"))
+                            html.Img(src=app.get_asset_url("framework.png"))
                         ], 
                         className="commuter_model_1 card_container"
                     ),
@@ -854,18 +845,47 @@ def render_content(tab):
                         [
                             dcc.Markdown(dedent(
                         """
-            ## Electricity Model
+            ## Commuting Model
+            Our commuting model was built as a Python class, which enabled concurrent, repeatable runs. Through internal methods, it assigns each commuter the possible commuting modes they are eligible for taking, and, depending on input parameters, a final commuting mode that they are assigned. 
 
-            Taking the output of the commuter model, we now run the population's commuting modes through our Electric Model, another _**re-usable, modifiable python class**_. 
-            
-            The electric model sums up the distance traveled by each transportation mode per hour to understand the electricity used to carry commuters into Manhattan. Depending on the mode, this electricity demand immediately hits the grid, like riding the electrified NYC subway, while others, like e-biking or using an electric automobile, use a battery that will need to be charged once the commuter arrives. 
-            
-            Given these demands, we then calculate the hours needed for each commuter to charge their needed battery. We've parameterized the charging pattern, as you can see on the XYZ graph on our main page - you can see the difference in grid demand if people change their charging time during their work day in Manhattan. 
-            
-            Ultimately, these charging demands then fuel a number of calculations of total power demanded on the city, in addition to the electricity required to run other, unrelated items like air conditioners and lights.
+            ```python
+            ### sample codes of Commuting Model - Eligibility Model
+            from commuter_model.commuter_model import CommuterModel
+            commuter_model_1 = CommuterModel(ipums_df=ipums_df_19.copy()) 
+            commuter_model_1.ipums_df['FLAG_ESCOOTER'] = commuter_model_1.escooter_flag_binary(
+                                             max_age=60
+                                            ,max_distance=4
+                                            ,scooter_friendly_origins=commuter_model_1.bike_friendly_origins
+                                            ,male_pct=10
+                                            ,female_pct=10
+                                            )
+            ```
             """
-                    )),                          
-                            html.Img(src=app.get_asset_url("electricity_model.png"))
+                    )),
+                    html.Br(),
+                            dcc.Markdown(dedent(
+                        """
+            ## Electricity Model
+            Then we pass the commuting model outputs to the electricity model, another reusable Python class, that summed up the distance traveled by each transportation mode, per hour, and multiplied this by variables in our EV dataset to get aggregate energy demand by hour and transit mode. 
+
+            ```python
+            ### sample codes of Electricity Model
+            from electrical_model.electrical_model import ElectricModel
+            electric_model_1 = ElectricModel(electric_model_1.ipums_df
+                                                ,ev_reference_table_loc="EV_reference_table.csv"
+                                                ,PEV_delay_hr=3
+                                                ,bus_ferry_cab_delay=6
+                                                ,model_name = 'electric_model_1')
+            ```
+            """
+                    )),
+                    html.Br(),
+                            dcc.Markdown(dedent(
+                        """
+            ## Power System Model
+            The NYISO power system is modeled with 1,814 buses and 2,202 high voltage transmission lines. This model has been tuned to synthesize the properties of the real NYISO power system and can be used to quantify congestion patterns, optimize generator schedules, and propose market prices. 
+            """
+                    )),
                         ], 
                         className="electrical_model_1 card_container"
                     ),            
@@ -874,38 +894,58 @@ def render_content(tab):
         return html.Div([
             html.Div(
                         [
-                            html.H2("Commuter Model"),
-                            html.H3("#1 The constraints fo each mode."),
-                            html.Br(),
-                            html.P("- Transit System (Subway, Commuter Rail, Bus, Ferry)"),
-                            html.Br(),
-                            html.P("- Autos, Motorcycle"),
-                            html.Br(),
-                            html.P("- Taxi"),
-                            html.Br(),
-                            html.P("- Escooter, Ebike"),
-                            html.Br(),
-                            html.P("- Walking"),
-                            html.Br(),
-                            html.P("- Workfromhome"),
-                            html.Br(),
-                            html.H3("#2 Weighted assignment model."),
+                    dcc.Markdown(dedent(
+                        """
+            ## Center for Urban Science + Progress (CUSP)
+
+            [CUSP](https://cusp.nyu.edu/), a unique research center at the NYU Tandon School of Engineering dedicated to the interdisciplinary application of science, technology, engineering, and mathematics in the service of urban communities across the globe.
+
+            TEC-NYC is one of the [2022 Capstone Projects](https://cusp.nyu.edu/2022-capstone-projects/) - Modern Civil and Communications Infrastructure Category.
+            """
+                    ),link_target="_blank"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Markdown(dedent(
+                        """
+            ## Project Sponsors
+
+            Dr. [Robert Mieth](https://scholar.google.com/citations?user=xF6QXAUAAAAJ&hl=en), *Postdoctoral Researcher, Project Director*
+
+            Dr. [Yury Dvorkin](https://scholar.google.com/citations?user=lI2PTkAAAAAJ&hl=en), *Assistant Professor, Faculty Mentor*
+            """
+                    ),link_target="_blank"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Markdown(dedent(
+                        """
+            ## Research Team
+
+            [Amber Jiang](), *Subject Matter Expert*
+
+            [Sara Kou](), *Project Manager*
+
+            [Brian Newborn](), *Data Analysis Lead*
+
+            [Jingrong Zhang](https://zhangjingrong.com/), *Visualization Lead*      
+
+            """
+                    ),link_target="_blank"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Markdown(dedent(
+                        """
+            ## Sources
+            
+            [IPUMS USA](https://www.ipums.org/), University of Minnesota, [www.ipums.org](https://www.ipums.org/)
+
+            [2019 Hub Bound Travel](https://www.nymtc.org/Portals/0/Pdf/Hub%20Bound/2019%20Hub%20Bound/DM_TDS_Hub_Bound_Travel_2019.pdf?ver=GS5smEoyHSsHsyX_t_Zriw%3d%3d), New York Metropolitan Transportation Council (NYMTC), [www.nymtc.org](https://www.nymtc.org/)
+
+            [Load Data](https://www.nyiso.com/load-data), New York Independent System Operator (NYISO), [www.nyiso.com](https://www.nyiso.com/)
+            """
+                    ),link_target="_blank"),                    
                         ], 
                         className="commuter_model card_container"
-                    ),
-            html.Div(
-                        [
-                            html.H2("Electricity Model"),
-                            html.H3("#1 Filter"),
-                            html.Br(),
-                            html.H3("#2 EV Seating Capacity (Carpool)"),     
-                            html.Br(),
-                            html.H3("#3 EV Technical Data"),
-                            html.Br(),
-                            html.H3("#4 Charging Habits"),                                                 
-                        ], 
-                        className="electrical_model card_container"
-                    ),            
+                    ),   
         ],className="tab4_content")    
 
 
@@ -1094,6 +1134,7 @@ def update_electric_graph(transit_pattern,wfh_level,Detailed,pev_delay_choice,se
     load_df = maxload_profiles[maxload_profiles['key']==condition]
     
     e_tmp_profile = e_profile_hold_space(com_df)
+    
     c = str(int(e_tmp_profile['Energy'].max()))
     b = str(int(e_tmp_profile[e_tmp_profile['PEV_DELAY']=='Random']['Energy'].sum()))
 

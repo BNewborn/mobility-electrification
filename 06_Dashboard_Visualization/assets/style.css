@@ -11,6 +11,11 @@ body {
 
 /* font
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.hljs {
+  font-size: 12px;
+}
+
 h1,
 h2,
 h3,
@@ -98,6 +103,27 @@ p {
 
 .side_bar p {
   margin-bottom: 6px;
+}
+
+/* styling links */
+a:link {
+  color: #2c8cff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #2c8cff;
+}
+
+a:hover {
+  color: orange;
+  font-weight: bold;
+  text-decoration: underline orange;
+}
+
+a:active {
+  background-color: black;
+  font-style: italic;
 }
 
 /* dropdown, dcc_control
@@ -203,14 +229,14 @@ label {
   margin-bottom: 0px;
 }
 
-.electrical_model_1 img {
+/* .electrical_model_1 img {
   width: 90%;
   margin-top: 30px;
-}
+} */
 
 .commuter_model_1 img {
-  width: 90%;
-  margin-top: 30px;
+  width: 100%;
+  margin-top: 0px;
 }
 
 .app_container {
@@ -310,7 +336,7 @@ label {
 
 .commuter_model {
   padding: 20px 50px;
-  grid-column: 1 / 4;
+  grid-column: 1 / -1;
   grid-row: 1 / -1;
   /* background-color: green; */
 }
