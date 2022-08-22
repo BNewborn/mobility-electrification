@@ -576,7 +576,7 @@ pce_flow = html.Div(
                     ],
                     className="container_title",
                 ),
-                dcc.Graph(id="flow_graphic"),
+                dcc.Graph(id="flow_graphic", config={"displayModeBar": False, "scrollZoom": False}),
             ],
         )
 
@@ -596,7 +596,7 @@ mode_assign = html.Div(
                     ],
                     className="container_title",
                 ),
-                dcc.Graph(id="eligible_graphic"),
+                dcc.Graph(id="eligible_graphic", config={"displayModeBar": False, "scrollZoom": False}),
             ],
         )
 
@@ -920,11 +920,11 @@ def render_content(tab):
                         """
             ## Research Team
 
-            [Amber Jiang](), *Subject Matter Expert*
+            [Amber Jiang](https://www.linkedin.com/in/amber-ming-jiang/), *Subject Matter Expert*
 
-            [Sara Kou](), *Project Manager*
+            Sara Kou, *Project Manager*
 
-            [Brian Newborn](), *Data Analysis Lead*
+            [Brian Newborn](https://www.linkedin.com/in/brian-newborn/), *Data Analysis Lead*
 
             [Jingrong Zhang](https://zhangjingrong.com/), *Visualization Lead*      
 
