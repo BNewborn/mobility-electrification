@@ -66,7 +66,7 @@ color_plant_dict = {'batteries':'#FF6692',
 #######  read the orginal data  #########
 #########################################
 
-save_dir = "./data"
+save_dir = "./electric_model_outputs_WFHTransitCombos_V3"
 commuter_fname = "commuter_model_ipums_df.pkl"
 electric_fname = "electric_model_df_aggregate.pkl"
 
