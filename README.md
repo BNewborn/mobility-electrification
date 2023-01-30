@@ -9,7 +9,7 @@ Update - Jan 5, 2023
 
 J. Zhang, A. Jiang, B. Newborn, S. Kou, and R. Mieth, “[Quantifying electricity demand for 100% electrified transportation in New York City](https://arxiv.org/abs/2211.11581),” IEEE Power & Energy Society General Meeting 2023 *(under review)*
 
-*Contact at* jingrong.zhang@nyu.edu
+Contact at jingrong.zhang@nyu.edu, robert.mieth@ieee.org
 
 #### Other deliverables
 
@@ -23,7 +23,7 @@ Project website / StoryMaps: https://arcg.is/WrvSf
 
 This project has the following workflow.
 
-**An example of running an entire pipeline (to create commuting scenarios) can be found [here](<05_Commuter_Electric_Pipeline/Make_Objects_For_Dashboarding_Scenarios_V3.ipynb>)**
+**An example of running the entire models can be found [here](<05_Commuter_Electric_Pipeline/Make_Objects_For_Dashboarding_Scenarios_V3.ipynb>)**
 
 ### Part 1: Commuter Model
 
