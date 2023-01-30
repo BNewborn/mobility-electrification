@@ -1,5 +1,5 @@
 # mobility-electrification
-Update - Jan 5, 2023
+Update - Jan 30, 2023
 
 **Introduction** | In New York City, currently around 2 million people commute in and out of the city by car every day; only 1% of these cars are currently electric. With New York City and State leadership setting goals to achieve a carbon neutral economy within the next one or two decades, the remaining 99% commuters will soon be confronted with the decision of either substituting their gas-fueled cars for electric vehicles or switching to alternative modes of transportation such as mass transit or emerging micro-mobility technologies. This choice will have a significant impact on the ability of the city's electricity infrastructure to accommodate a fully electrified transportation sector. Building on public census data, alongside geographic information, technology specifications, and a representative simulation of the New York power system, our work visualizes this impact and provides an engaging and interactive narrative for policymakers, urban planners, and the interested public. Our quantitative results highlight the need for infrastructure investments, the usefulness of flexible charging policies and the positive impact of incentivizing micro-mobility and mass-transit options.
 
