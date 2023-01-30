@@ -29,7 +29,13 @@ This project has the following workflow.
 
 We model the individual mode choices and the resulting aggregate commute scenarios as depicted in Fig. 1. The model is composed of four parts: (a) commute data collection, (b) eligibility model, (c) weight assignment model, and (d) scenario creation.
 
-You can run the code of **commuter_model.py** [here](<05_Commuter_Electric_Pipeline/commuter_model/commuter_model.py>)
+You can run the code of **commuter_model.py** **[here](<05_Commuter_Electric_Pipeline/commuter_model/commuter_model.py>)**
+
+The details and sources for the Eligibility Model can be found **[here](<05_Commuter_Electric_Pipeline/commuter_model/README.md>)**. 
+
+The WFH conditional probabilities can be found **[here](<05_Commuter_Electric_Pipeline/commuter_model/wfh_conditional_probs.csv>)**.  
+
+
 
 ![01](./06_Dashboard_Visualization/model-1.jpg)
 
@@ -37,7 +43,9 @@ You can run the code of **commuter_model.py** [here](<05_Commuter_Electric_Pipel
 
 Any commuting scenario will result in its own unique energy requirements given mode choices and travel distances. We propose a framework for comparing the electricity demand identified in the commuter model with the current state of the New York Independent System Operator (NYISO) power system as illustrated in Fig. 2. The Energy Model has three parts: (a) EV technical information collection, (b) charging demand computation, and (c) grid capacity computation.
 
-You can run the code of **electrical_model.py** [here](<05_Commuter_Electric_Pipeline/electrical_model/electrical_model.py>)
+You can run the code of **electrical_model.py** **[here](<05_Commuter_Electric_Pipeline/electrical_model/electrical_model.py>)**
+
+The detailed EV Technical Information can be find **[here](<05_Commuter_Electric_Pipeline/electrical_model/EV_reference_table.csv>)**. 
 
 ![01](./06_Dashboard_Visualization/model-2.jpg)
 
