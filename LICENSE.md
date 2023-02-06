@@ -1,6 +1,6 @@
 BSD 2-Clause License
 
-Copyright (c) 2022, NYU Center for Urban Science + Progress
+Copyright (c) 2022, Jingrong Zhang, Amber Jiang, Brian Newborn, Robert Mieth, NYU Center for Urban Science + Progress
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
