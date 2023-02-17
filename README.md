@@ -46,6 +46,8 @@ The detailed EV Technical Information can be find **[here](05_Commuter_Electric_
 
 ## News
 
+[NYC Open Data Week 2023](https://2023.open-data.nyc/)
+
 Runner Up, [2022 ArcGIS StoryMaps Competition for Data Visualization](https://www.esri.com/en-us/arcgis/products/arcgis-storymaps/contest/gallery/2022-winners), Issued by Esri
 
 [Plotly & Dash 500 Index](https://dash-demo.plotly.host/plotly-dash-500/), Issued by Plotly
@@ -66,13 +68,13 @@ EV Charging Stations, Alternative Fuels Data Center, U.S. Department of Energy, 
 
 ## Contributors
 
-| Name           | Contribution                                                                                                                                                                                                                                   |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Jingrong Zhang | Conception of models; <br />Development of electricity model; <br />Development of dashboard and visualization; <br />Contributor to the manuscript; <br />Assisting in EV data collection (transit);                                          |
-| Amber Jiang    | Random assignment model in commuter model; <br />Domain knowledge and leading EV data collection; <br />Contributor to the manuscript;                                                                                                         |
+| Name           | Contribution                                                 |
+| -------------- | ------------------------------------------------------------ |
+| Jingrong Zhang | Conceptualization of models; <br />Development of electricity model; <br />Development of dashboard and visualization; <br />Contributor to the manuscript; <br />Assisting in EV data collection (transit); |
+| Amber Jiang    | Random assignment model in commuter model; <br />Domain knowledge and leading EV data collection; <br />Contributor to the manuscript; |
 | Brian Newborn  | Leading commuter data collection and commuter model development; <br />Python OOD pipeline and commuting scenarios creation; <br />Contributor to manuscript; <br />Assisting in EV data collection (micro-mobility, transit, work-from-home); |
-| Sara Kou       | Assisting in EV data collection (scooter);                                                                                                                                                                                                     |
-| Robert Mieth   | Research proposal; <br />Power system model; <br />Contributor to the manuscript and editor;<br />Scientific advisor;                                                                                                                          |
+| Sara Kou       | Assisting in EV data collection (scooter);                   |
+| Robert Mieth   | Research proposal; <br />Power system model; <br />Contributor to the manuscript and editor;<br />Scientific advisor; |
 
 ## Additional Documentation
 
