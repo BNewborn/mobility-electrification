@@ -1,20 +1,20 @@
 # mobility-electrification
 
-Update - Feb 16, 2023
+Update - Feb 18, 2023
 
-_Abstract_—Envisioning a future 100% electrified transportation sector, this paper proposes a model framework that uses socio-economic, demographic, and geographic data to assess electric energy demand from commuter traffic. Additionally, we explore the possible mode choices of each individual, which allows to create mode-mix scenarios for the entire population. We quantify the electric energy demand for each scenario using technical specifications of state-of-the-art battery and electric drives technology in combination with different charging scenarios. Using data sets for New York City, our results highlight the need for infrastructure investments, the usefulness of flexible charging policies and the positive impact of incentivizing micromobility and mass-transit options. Our model and results are publicly available as an interactive dashboard.
+_Abstract_—Envisioning a future 100% electriﬁed transportation sector, this paper uses socio-economic, demographic, and geographic data to assess electric energy demand from commuter trafﬁc. We explore the individual mode choices, which allows to create mode-mix scenarios for the entire population, and quantify the electric energy demand for each scenario using technical speciﬁcations of battery and electric drives technology in combination with different charging scenarios. Using data sets for New York City, our results highlight the need for infrastructure investments, the usefulness of ﬂexible charging policies, and the positive impact of incentivizing micromobility and mass-transit options. Our model and results are publicly available as an interactive dashboard.
 
 ## Publication
 
 J. Zhang, A. Jiang, B. Newborn, S. Kou, and R. Mieth, “[Modeling 100% Electrified Transportation in NYC](https://arxiv.org/abs/2211.11581),” IEEE Power & Energy Society General Meeting 2023
-
-Contact at jingrong.zhang@nyu.edu, robert.mieth@ieee.org
 
 #### Other deliverables
 
 Dashboard: [ https://tecnyc.herokuapp.com/ ](https://tecnyc.herokuapp.com/)
 
 Project website / StoryMaps: https://arcg.is/WrvSf
+
+Contact at jingrong.zhang@nyu.edu, robert.mieth@ieee.org
 
 ## Workflow
 
