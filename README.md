@@ -8,13 +8,15 @@ _Abstract_—Envisioning a future 100% electriﬁed transportation sector, this 
 
 J. Zhang, A. Jiang, B. Newborn, S. Kou, and R. Mieth, “[Modeling 100% Electrified Transportation in NYC](https://arxiv.org/abs/2211.11581),” IEEE Power & Energy Society General Meeting 2023
 
+Contact at robert.mieth@ieee.org
+
 #### Other deliverables
 
 Dashboard: [ https://tecnyc.herokuapp.com/ ](https://tecnyc.herokuapp.com/)
 
 Project website / StoryMaps: https://arcg.is/WrvSf
 
-Contact at jingrong.zhang@nyu.edu, robert.mieth@ieee.org
+Contact at jingrong.zhang@nyu.edu
 
 ## Workflow
 
